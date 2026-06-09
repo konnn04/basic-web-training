@@ -1,75 +1,226 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Web Layout Explorer — Học Cấu Trúc Web</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-<style>
-body{background:#f5f5f5}
-.header-gradient{background:linear-gradient(135deg,#263238,#455a64);color:#fff;padding:3rem 1rem 2rem;text-align:center}
-.header-gradient h1{font-weight:800;font-size:2rem}
-.category-title{font-size:1.1rem;font-weight:700;color:#37474f;margin:2rem 0 1rem;display:flex;align-items:center;gap:.5rem}
-.layout-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem}
-.layout-card{background:#fff;border-radius:14px;padding:1.5rem 1rem;text-align:center;text-decoration:none;color:#333;border:2px solid #e0e0e0;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:.5rem}
-.layout-card:hover{border-color:#ff9800;box-shadow:0 4px 20px rgba(255,152,0,.2);transform:translateY(-3px);color:#333}
-.layout-card-icon{font-size:2.5rem}
-.layout-card-title{font-weight:700;font-size:.95rem}
-.layout-card-desc{font-size:.78rem;color:#888}
-.layout-card .badge{font-weight:500}
-.container-main{max-width:1100px;margin:0 auto;padding:2rem 1rem}
-.footer-note{background:#263238;color:#aaa;text-align:center;padding:1.5rem;font-size:.85rem;margin-top:2rem}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Layout Explorer — Học Cấu Trúc Web</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f5f5f5
+        }
+
+        .header-gradient {
+            background: linear-gradient(135deg, #263238, #455a64);
+            color: #fff;
+            padding: 3rem 1rem 2rem;
+            text-align: center
+        }
+
+        .header-gradient h1 {
+            font-weight: 800;
+            font-size: 2rem
+        }
+
+        .category-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #37474f;
+            margin: 2rem 0 1rem;
+            display: flex;
+            align-items: center;
+            gap: .5rem
+        }
+
+        .layout-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem
+        }
+
+        .layout-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            border: 2px solid #e0e0e0;
+            transition: all .2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .5rem
+        }
+
+        .layout-card:hover {
+            border-color: #ff9800;
+            box-shadow: 0 4px 20px rgba(255, 152, 0, .2);
+            transform: translateY(-3px);
+            color: #333
+        }
+
+        .layout-card-icon {
+            font-size: 2.5rem
+        }
+
+        .layout-card-title {
+            font-weight: 700;
+            font-size: .95rem
+        }
+
+        .layout-card-desc {
+            font-size: .78rem;
+            color: #888
+        }
+
+        .layout-card .badge {
+            font-weight: 500
+        }
+
+        .container-main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1rem
+        }
+
+        .footer-note {
+            background: #263238;
+            color: #aaa;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: .85rem;
+            margin-top: 2rem
+        }
+    </style>
 </head>
+
 <body>
 
-<div class="header-gradient">
-<i class="bi bi-layers" style="font-size:3rem;"></i>
-<h1>Web Layout Explorer</h1>
-<p class="opacity-75 mb-0">Khám phá các dạng bố cục Web phổ biến — <strong>Hover để xem tên thành phần</strong></p>
-<small class="opacity-50">Dành cho sinh viên học Nhập môn Công nghệ Web</small>
-</div>
+    <div class="header-gradient">
+        <i class="bi bi-layers" style="font-size:3rem;"></i>
+        <h1>Web Layout Explorer</h1>
+        <p class="opacity-75 mb-0">Khám phá các dạng bố cục Web phổ biến — <strong>Hover để xem tên thành phần</strong>
+        </p>
+        <small class="opacity-50">Dành cho sinh viên học Nhập môn Công nghệ Web</small>
+    </div>
 
-<div class="container-main">
+    <div class="container-main">
 
-<div class="category-title"><i class="bi bi-journal-text"></i> Blog / Tin Tức</div>
-<div class="layout-grid">
-<a href="blog/home.html" class="layout-card"><div class="layout-card-icon">🏠</div><div class="layout-card-title">Trang chủ Blog</div><div class="layout-card-desc">Hero, bài viết, sidebar</div><span class="badge bg-success">37 tooltips</span></a>
-<a href="blog/search.html" class="layout-card"><div class="layout-card-icon">🔍</div><div class="layout-card-title">Tìm kiếm Blog</div><div class="layout-card-desc">Filter, kết quả, phân trang</div><span class="badge bg-info">24 tooltips</span></a>
-<a href="blog/detail.html" class="layout-card"><div class="layout-card-icon">📄</div><div class="layout-card-title">Chi tiết bài viết</div><div class="layout-card-desc">Nội dung, bình luận, TOC</div><span class="badge bg-warning text-dark">31 tooltips</span></a>
-</div>
+        <div class="category-title"><i class="bi bi-journal-text"></i> Blog / Tin Tức</div>
+        <div class="layout-grid">
+            <a href="blog/home.html" class="layout-card">
+                <div class="layout-card-icon">🏠</div>
+                <div class="layout-card-title">Trang chủ Blog</div>
+                <div class="layout-card-desc">Hero, bài viết, sidebar</div><span class="badge bg-success">37
+                    tooltips</span>
+            </a>
+            <a href="blog/search.html" class="layout-card">
+                <div class="layout-card-icon">🔍</div>
+                <div class="layout-card-title">Tìm kiếm Blog</div>
+                <div class="layout-card-desc">Filter, kết quả, phân trang</div><span class="badge bg-info">24
+                    tooltips</span>
+            </a>
+            <a href="blog/detail.html" class="layout-card">
+                <div class="layout-card-icon">📄</div>
+                <div class="layout-card-title">Chi tiết bài viết</div>
+                <div class="layout-card-desc">Nội dung, bình luận, TOC</div><span class="badge bg-warning text-dark">31
+                    tooltips</span>
+            </a>
+        </div>
 
-<div class="category-title"><i class="bi bi-cart3"></i> Thương Mại Điện Tử</div>
-<div class="layout-grid">
-<a href="ecommerce/home.html" class="layout-card"><div class="layout-card-icon">🛍️</div><div class="layout-card-title">Trang chủ Shop</div><div class="layout-card-desc">Slider, Flash Sale, SP Grid</div><span class="badge bg-success">50 tooltips</span></a>
-<a href="ecommerce/search.html" class="layout-card"><div class="layout-card-icon">🔎</div><div class="layout-card-title">Tìm kiếm SP</div><div class="layout-card-desc">Filter sidebar, sort, grid</div><span class="badge bg-info">16 tooltips</span></a>
-<a href="ecommerce/product-detail.html" class="layout-card"><div class="layout-card-icon">📦</div><div class="layout-card-title">Chi tiết SP</div><div class="layout-card-desc">Gallery, giá, tabs, similar</div><span class="badge bg-warning text-dark">14 tooltips</span></a>
-<a href="ecommerce/cart.html" class="layout-card"><div class="layout-card-icon">🛒</div><div class="layout-card-title">Giỏ hàng</div><div class="layout-card-desc">Table, số lượng, tổng tiền</div><span class="badge bg-secondary">9 tooltips</span></a>
-<a href="ecommerce/checkout.html" class="layout-card"><div class="layout-card-icon">💳</div><div class="layout-card-title">Thanh toán</div><div class="layout-card-desc">Địa chỉ, ship, payment</div><span class="badge bg-secondary">7 tooltips</span></a>
-<a href="ecommerce/login.html" class="layout-card"><div class="layout-card-icon">🔐</div><div class="layout-card-title">Đăng nhập</div><div class="layout-card-desc">Form 2 cột, social login</div><span class="badge bg-secondary">11 tooltips</span></a>
-<a href="ecommerce/profile.html" class="layout-card"><div class="layout-card-icon">👤</div><div class="layout-card-title">Tài khoản</div><div class="layout-card-desc">Profile, đơn hàng</div><span class="badge bg-secondary">7 tooltips</span></a>
-<a href="ecommerce/admin-dashboard.html" class="layout-card"><div class="layout-card-icon">📊</div><div class="layout-card-title">Admin Dashboard</div><div class="layout-card-desc">Sidebar, stats, chart</div><span class="badge bg-danger">Admin</span></a>
-<a href="ecommerce/admin-products.html" class="layout-card"><div class="layout-card-icon">📋</div><div class="layout-card-title">Admin Quản lý SP</div><div class="layout-card-desc">Table, actions, pagination</div><span class="badge bg-danger">Admin</span></a>
-</div>
+        <div class="category-title"><i class="bi bi-cart3"></i> Thương Mại Điện Tử</div>
+        <div class="layout-grid">
+            <a href="ecommerce/home.html" class="layout-card">
+                <div class="layout-card-icon">🛍️</div>
+                <div class="layout-card-title">Trang chủ Shop</div>
+                <div class="layout-card-desc">Slider, Flash Sale, SP Grid</div><span class="badge bg-success">50
+                    tooltips</span>
+            </a>
+            <a href="ecommerce/search.html" class="layout-card">
+                <div class="layout-card-icon">🔎</div>
+                <div class="layout-card-title">Tìm kiếm SP</div>
+                <div class="layout-card-desc">Filter sidebar, sort, grid</div><span class="badge bg-info">16
+                    tooltips</span>
+            </a>
+            <a href="ecommerce/product-detail.html" class="layout-card">
+                <div class="layout-card-icon">📦</div>
+                <div class="layout-card-title">Chi tiết SP</div>
+                <div class="layout-card-desc">Gallery, giá, tabs, similar</div><span
+                    class="badge bg-warning text-dark">14 tooltips</span>
+            </a>
+            <a href="ecommerce/cart.html" class="layout-card">
+                <div class="layout-card-icon">🛒</div>
+                <div class="layout-card-title">Giỏ hàng</div>
+                <div class="layout-card-desc">Table, số lượng, tổng tiền</div><span class="badge bg-secondary">9
+                    tooltips</span>
+            </a>
+            <a href="ecommerce/checkout.html" class="layout-card">
+                <div class="layout-card-icon">💳</div>
+                <div class="layout-card-title">Thanh toán</div>
+                <div class="layout-card-desc">Địa chỉ, ship, payment</div><span class="badge bg-secondary">7
+                    tooltips</span>
+            </a>
+            <a href="ecommerce/login.html" class="layout-card">
+                <div class="layout-card-icon">🔐</div>
+                <div class="layout-card-title">Đăng nhập</div>
+                <div class="layout-card-desc">Form 2 cột, social login</div><span class="badge bg-secondary">11
+                    tooltips</span>
+            </a>
+            <a href="ecommerce/profile.html" class="layout-card">
+                <div class="layout-card-icon">👤</div>
+                <div class="layout-card-title">Tài khoản</div>
+                <div class="layout-card-desc">Profile, đơn hàng</div><span class="badge bg-secondary">7 tooltips</span>
+            </a>
+            <a href="ecommerce/admin-dashboard.html" class="layout-card">
+                <div class="layout-card-icon">📊</div>
+                <div class="layout-card-title">Admin Dashboard</div>
+                <div class="layout-card-desc">Sidebar, stats, chart</div><span class="badge bg-danger">Admin</span>
+            </a>
+            <a href="ecommerce/admin-products.html" class="layout-card">
+                <div class="layout-card-icon">📋</div>
+                <div class="layout-card-title">Admin Quản lý SP</div>
+                <div class="layout-card-desc">Table, actions, pagination</div><span class="badge bg-danger">Admin</span>
+            </a>
+        </div>
 
-<div class="category-title"><i class="bi bi-music-note-beamed"></i> Web App</div>
-<div class="layout-grid">
-<a href="music-app/index.html" class="layout-card"><div class="layout-card-icon">🎵</div><div class="layout-card-title">Music App (Spotify)</div><div class="layout-card-desc">Sidebar, player, search, lyrics</div><span class="badge bg-primary">19 tooltips</span></a>
-</div>
+        <div class="category-title"><i class="bi bi-music-note-beamed"></i> Web App</div>
+        <div class="layout-grid">
+            <a href="music-app/index.html" class="layout-card">
+                <div class="layout-card-icon">🎵</div>
+                <div class="layout-card-title">Music App (Spotify)</div>
+                <div class="layout-card-desc">Sidebar, player, search, lyrics</div><span class="badge bg-primary">19
+                    tooltips</span>
+            </a>
+        </div>
 
-<div class="category-title"><i class="bi bi-megaphone"></i> Marketing / Cá Nhân</div>
-<div class="layout-grid">
-<a href="landing/index.html" class="layout-card"><div class="layout-card-icon">🚀</div><div class="layout-card-title">Landing Page</div><div class="layout-card-desc">Hero, features, testimonials</div><span class="badge bg-success">17 tooltips</span></a>
-<a href="portfolio/index.html" class="layout-card"><div class="layout-card-icon">💼</div><div class="layout-card-title">Portfolio</div><div class="layout-card-desc">About, skills, projects</div><span class="badge bg-info">20 tooltips</span></a>
-</div>
+        <div class="category-title"><i class="bi bi-megaphone"></i> Marketing / Cá Nhân</div>
+        <div class="layout-grid">
+            <a href="landing/index.html" class="layout-card">
+                <div class="layout-card-icon">🚀</div>
+                <div class="layout-card-title">Landing Page</div>
+                <div class="layout-card-desc">Hero, features, testimonials</div><span class="badge bg-success">17
+                    tooltips</span>
+            </a>
+            <a href="portfolio/index.html" class="layout-card">
+                <div class="layout-card-icon">💼</div>
+                <div class="layout-card-title">Portfolio</div>
+                <div class="layout-card-desc">About, skills, projects</div><span class="badge bg-info">20
+                    tooltips</span>
+            </a>
+        </div>
 
-</div>
+    </div>
 
-<div class="footer-note">
-<strong>💡 Mẹo:</strong> Trên mỗi trang prototype, <strong>hover chuột</strong> vào các vùng để xem tên thành phần, thuật ngữ HTML/CSS và mô tả chuyên ngành.<br>
-Nhấn nút <strong>🌙</strong> góc phải để chuyển sáng/tối. Tất cả layout đều <strong>Responsive</strong> (Bootstrap Grid).
-</div>
+    <div class="footer-note">
+        <strong>💡 Mẹo:</strong> Trên mỗi trang prototype, <strong>hover chuột</strong> vào các vùng để xem tên thành
+        phần, thuật ngữ HTML/CSS và mô tả chuyên ngành.<br>
+        Nhấn nút <strong>🌙</strong> góc phải để chuyển sáng/tối. Tất cả layout đều <strong>Responsive</strong>
+        (Bootstrap Grid).
+    </div>
 
 </body>
+
 </html>
