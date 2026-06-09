@@ -149,10 +149,21 @@ function showQuestion(index) {
     currentIndex = index;
     const q = examData.questions[index];
     const qContent = (typeof q.question === 'object') ? q.question.content : q.question;
+    const qImages = (typeof q.question === 'object' && q.question.images) ? q.question.images : [];
 
     $('#questionNum').text(index + 1);
     $('#questionText').text(qContent);
     $('#progressLabel').text('Câu ' + (index + 1) + ' / ' + examData.questions.length);
+
+    // Render question images
+    let imgHtml = '';
+    for (let i = 0; i < qImages.length; i++) {
+        imgHtml += '<div class="question-image-wrap">';
+        imgHtml += '<img src="' + escapeHtml(qImages[i]) + '" alt="Hình câu hỏi" class="question-image" onclick="zoomImage(this)" loading="lazy">';
+        imgHtml += '<div class="image-zoom-hint"><i class="bi bi-zoom-in"></i> Nhấn để phóng to</div>';
+        imgHtml += '</div>';
+    }
+    $('#questionImages').html(imgHtml).toggle(qImages.length > 0);
 
     const labels = ['A', 'B', 'C', 'D', 'E', 'F'];
     let html = '';
@@ -316,6 +327,28 @@ function decodeResultData(str) {
 function generateResultId() {
     return 'r_' + Date.now().toString(36) + '_' + Math.random().toString(36).substr(2, 8);
 }
+
+// Zoom ảnh: click để phóng to, click lần nữa thu nhỏ
+function zoomImage(img) {
+    if (img.classList.contains('zoomed')) {
+        img.classList.remove('zoomed');
+    } else {
+        // Đóng tất cả ảnh zoom khác trước
+        document.querySelectorAll('.question-image.zoomed').forEach(function (el) {
+            el.classList.remove('zoomed');
+        });
+        img.classList.add('zoomed');
+    }
+}
+
+// Đóng zoom khi click ra ngoài ảnh
+$(document).on('click', function (e) {
+    if (!$(e.target).hasClass('question-image')) {
+        document.querySelectorAll('.question-image.zoomed').forEach(function (el) {
+            el.classList.remove('zoomed');
+        });
+    }
+});
 
 function saveResult(data) {
     localStorage.setItem('exam_result_' + data.resultId, JSON.stringify(data));

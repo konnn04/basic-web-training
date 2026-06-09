@@ -13,22 +13,22 @@
       "options": [
         {
           "id": "1",
-          "content": "A. HyperText Markup Language",
+          "content": "HyperText Markup Language",
           "images": []
         },
         {
           "id": "2",
-          "content": "B. HyperText Machine Language",
+          "content": "HyperText Machine Language",
           "images": []
         },
         {
           "id": "3",
-          "content": "C. HighText Markup Language",
+          "content": "HighText Markup Language",
           "images": []
         },
         {
           "id": "4",
-          "content": "D. Hyper Transfer Language",
+          "content": "Hyper Transfer Language",
           "images": []
         }
       ],
@@ -46,22 +46,22 @@
       "options": [
         {
           "id": "1",
-          "content": "A. Tạo giao diện",
+          "content": "Tạo giao diện",
           "images": []
         },
         {
           "id": "2",
-          "content": "B. Tạo cấu trúc nội dung",
+          "content": "Tạo cấu trúc nội dung",
           "images": []
         },
         {
           "id": "3",
-          "content": "C. Lưu dữ liệu",
+          "content": "Lưu dữ liệu",
           "images": []
         },
         {
           "id": "4",
-          "content": "D. Kết nối Internet",
+          "content": "Kết nối Internet",
           "images": []
         }
       ],
@@ -79,22 +79,22 @@
       "options": [
         {
           "id": "1",
-          "content": "A. Trang trí giao diện",
+          "content": "Trang trí giao diện",
           "images": []
         },
         {
           "id": "2",
-          "content": "B. Lưu dữ liệu",
+          "content": "Lưu dữ liệu",
           "images": []
         },
         {
           "id": "3",
-          "content": "C. Tạo máy chủ",
+          "content": "Tạo máy chủ",
           "images": []
         },
         {
           "id": "4",
-          "content": "D. Kết nối mạng",
+          "content": "Kết nối mạng",
           "images": []
         }
       ],
@@ -112,22 +112,22 @@
       "options": [
         {
           "id": "1",
-          "content": "A. Tạo tương tác",
+          "content": "Tạo tương tác",
           "images": []
         },
         {
           "id": "2",
-          "content": "B. Lưu cơ sở dữ liệu",
+          "content": "Lưu cơ sở dữ liệu",
           "images": []
         },
         {
           "id": "3",
-          "content": "C. Quản lý mạng",
+          "content": "Quản lý mạng",
           "images": []
         },
         {
           "id": "4",
-          "content": "D. Mã hóa video",
+          "content": "Mã hóa video",
           "images": []
         }
       ],
@@ -145,22 +145,22 @@
       "options": [
         {
           "id": "1",
-          "content": "A. HTML, CSS, JavaScript",
+          "content": "HTML, CSS, JavaScript",
           "images": []
         },
         {
           "id": "2",
-          "content": "B. Java, PHP, SQL",
+          "content": "Java, PHP, SQL",
           "images": []
         },
         {
           "id": "3",
-          "content": "C. Python, Java, SQL",
+          "content": "Python, Java, SQL",
           "images": []
         },
         {
           "id": "4",
-          "content": "D. HTML, Linux, Docker",
+          "content": "HTML, Linux, Docker",
           "images": []
         }
       ],
@@ -178,22 +178,22 @@
       "options": [
         {
           "id": "1",
-          "content": "A. Calculator",
+          "content": "Calculator",
           "images": []
         },
         {
           "id": "2",
-          "content": "B. Developer Tools",
+          "content": "Developer Tools",
           "images": []
         },
         {
           "id": "3",
-          "content": "C. Paint",
+          "content": "Paint",
           "images": []
         },
         {
           "id": "4",
-          "content": "D. Explorer",
+          "content": "Explorer",
           "images": []
         }
       ],
@@ -211,22 +211,22 @@
       "options": [
         {
           "id": "1",
-          "content": "A. Host website tĩnh",
+          "content": "Host website tĩnh",
           "images": []
         },
         {
           "id": "2",
-          "content": "B. Lưu ảnh",
+          "content": "Lưu ảnh",
           "images": []
         },
         {
           "id": "3",
-          "content": "C. Chạy game",
+          "content": "Chạy game",
           "images": []
         },
         {
           "id": "4",
-          "content": "D. Gửi email",
+          "content": "Gửi email",
           "images": []
         }
       ],
@@ -244,22 +244,22 @@
       "options": [
         {
           "id": "1",
-          "content": "A. Người dùng nhìn thấy",
+          "content": "Người dùng nhìn thấy",
           "images": []
         },
         {
           "id": "2",
-          "content": "B. Máy chủ",
+          "content": "Máy chủ",
           "images": []
         },
         {
           "id": "3",
-          "content": "C. Database",
+          "content": "Database",
           "images": []
         },
         {
           "id": "4",
-          "content": "D. Mạng",
+          "content": "Mạng",
           "images": []
         }
       ],
@@ -277,22 +277,22 @@
       "options": [
         {
           "id": "1",
-          "content": "A. Giao diện",
+          "content": "Giao diện",
           "images": []
         },
         {
           "id": "2",
-          "content": "B. Máy chủ xử lý",
+          "content": "Máy chủ xử lý",
           "images": []
         },
         {
           "id": "3",
-          "content": "C. Trình duyệt",
+          "content": "Trình duyệt",
           "images": []
         },
         {
           "id": "4",
-          "content": "D. CSS",
+          "content": "CSS",
           "images": []
         }
       ],
@@ -310,22 +310,22 @@
       "options": [
         {
           "id": "1",
-          "content": "A. VS Code",
+          "content": "VS Code",
           "images": []
         },
         {
           "id": "2",
-          "content": "B. Word",
+          "content": "Word",
           "images": []
         },
         {
           "id": "3",
-          "content": "C. Paint",
+          "content": "Paint",
           "images": []
         },
         {
           "id": "4",
-          "content": "D. Calculator",
+          "content": "Calculator",
           "images": []
         }
       ],
@@ -343,22 +343,22 @@
       "options": [
         {
           "id": "1",
-          "content": "A. Frontend",
+          "content": "Frontend",
           "images": []
         },
         {
           "id": "2",
-          "content": "B. CPU",
+          "content": "CPU",
           "images": []
         },
         {
           "id": "3",
-          "content": "C. Router",
+          "content": "Router",
           "images": []
         },
         {
           "id": "4",
-          "content": "D. RAM",
+          "content": "RAM",
           "images": []
         }
       ],
@@ -376,22 +376,22 @@
       "options": [
         {
           "id": "1",
-          "content": "A. Main",
+          "content": "Main",
           "images": []
         },
         {
           "id": "2",
-          "content": "B. Header",
+          "content": "Header",
           "images": []
         },
         {
           "id": "3",
-          "content": "C. Footer",
+          "content": "Footer",
           "images": []
         },
         {
           "id": "4",
-          "content": "D. Nav",
+          "content": "Nav",
           "images": []
         }
       ],
@@ -409,22 +409,22 @@
       "options": [
         {
           "id": "1",
-          "content": "A. Nằm bên cạnh nội dung",
+          "content": "Nằm bên cạnh nội dung",
           "images": []
         },
         {
           "id": "2",
-          "content": "B. Nằm cuối trang",
+          "content": "Nằm cuối trang",
           "images": []
         },
         {
           "id": "3",
-          "content": "C. Nằm đầu trang",
+          "content": "Nằm đầu trang",
           "images": []
         },
         {
           "id": "4",
-          "content": "D. Là trình duyệt",
+          "content": "Là trình duyệt",
           "images": []
         }
       ],
@@ -442,22 +442,22 @@
       "options": [
         {
           "id": "1",
-          "content": "A. Chỉ chạy trên máy tính",
+          "content": "Chỉ chạy trên máy tính",
           "images": []
         },
         {
           "id": "2",
-          "content": "B. Chỉ chạy trên điện thoại",
+          "content": "Chỉ chạy trên điện thoại",
           "images": []
         },
         {
           "id": "3",
-          "content": "C. Chạy trên nhiều thiết bị",
+          "content": "Chạy trên nhiều thiết bị",
           "images": []
         },
         {
           "id": "4",
-          "content": "D. Chỉ chạy trên Windows",
+          "content": "Chỉ chạy trên Windows",
           "images": []
         }
       ],
@@ -475,12 +475,12 @@
       "options": [
         {
           "id": "1",
-          "content": "A. Có",
+          "content": "Có",
           "images": []
         },
         {
           "id": "2",
-          "content": "B. Không",
+          "content": "Không",
           "images": []
         }
       ],

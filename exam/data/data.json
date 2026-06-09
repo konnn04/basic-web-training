@@ -12,5 +12,12 @@
     "description": "HTML, Frontend, GitHub Pages",
     "duration": 30,
     "questionCount": 30
+  },
+  {
+    "id": "test-1.3",
+    "title": "Bài kiểm tra số 3 - Nhận diện thành phần Web",
+    "description": "HTML, Components, Layout",
+    "duration": 30,
+    "questionCount": 14
   }
 ]

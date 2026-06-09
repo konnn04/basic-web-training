@@ -205,6 +205,16 @@ function renderResult(data, examData) {
             html += '</div>';
             html += '<div class="review-card-body">';
 
+            // Render question images in review
+            const qImages = (typeof q.question === 'object' && q.question.images) ? q.question.images : [];
+            if (qImages.length > 0) {
+                html += '<div class="review-images">';
+                for (let k = 0; k < qImages.length; k++) {
+                    html += '<img src="' + escapeHtml(qImages[k]) + '" alt="Hình câu hỏi" class="review-image" onclick="zoomImage(this)" loading="lazy">';
+                }
+                html += '</div>';
+            }
+
             if (qType === 'short_answer') {
                 const ua = userAns !== -1 && userAns !== '' ? userAns : '(chưa trả lời)';
                 html += '<div><span class="text-muted">Bạn trả lời:</span> <span class="review-answer your-answer">' + escapeHtml(ua) + '</span></div>';
@@ -266,4 +276,25 @@ function renderResult(data, examData) {
 }
 $(document).ready(function () {
     loadResult();
+});
+
+// Zoom ảnh: click để phóng to, click lần nữa thu nhỏ
+function zoomImage(img) {
+    if (img.classList.contains('zoomed')) {
+        img.classList.remove('zoomed');
+    } else {
+        document.querySelectorAll('.review-image.zoomed, .question-image.zoomed').forEach(function (el) {
+            el.classList.remove('zoomed');
+        });
+        img.classList.add('zoomed');
+    }
+}
+
+// Đóng zoom khi click ra ngoài ảnh
+$(document).on('click', function (e) {
+    if (!$(e.target).hasClass('review-image') && !$(e.target).hasClass('question-image')) {
+        document.querySelectorAll('.review-image.zoomed, .question-image.zoomed').forEach(function (el) {
+            el.classList.remove('zoomed');
+        });
+    }
 });

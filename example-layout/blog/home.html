@@ -1,60 +1,233 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Trang chủ Blog</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-<link href="../assets/style.css" rel="stylesheet">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="../assets/style.css" rel="stylesheet">
 </head>
+
 <body>
-<div class="layout-label"><i class="bi bi-journal-text"></i> Blog — Trang Chủ</div>
-<button class="btn-theme-toggle" id="themeToggle"><i class="bi bi-moon-fill"></i></button>
-<a href="#" class="btn btn-dark btn-sm rounded-circle position-fixed bottom-0 end-0 m-3 z-3 shadow" id="toTop" style="display:none" data-prototype="Nút Back-to-Top" data-term="position:fixed" data-desc="Nút quay đầu trang cố định góc phải. CSS: position:fixed. JS: show khi scrollY>300, scrollTo({top:0,behavior:'smooth'})."><i class="bi bi-arrow-up"></i></a>
+    <div class="layout-label"><i class="bi bi-journal-text"></i> Blog — Trang Chủ</div>
+    <button class="btn-theme-toggle" id="themeToggle"><i class="bi bi-moon-fill"></i></button>
+    <a href="#" class="btn btn-dark btn-sm rounded-circle position-fixed bottom-0 end-0 m-3 z-3 shadow" id="toTop"
+        style="display:none" data-prototype="Nút Back-to-Top" data-term="position:fixed"
+        data-desc="Nút quay đầu trang cố định góc phải. CSS: position:fixed. JS: show khi scrollY>300, scrollTo({top:0,behavior:'smooth'})."><i
+            class="bi bi-arrow-up"></i></a>
 
-<div class="prototype-area">
-<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top" data-prototype="Header / Navigation Bar" data-term="&lt;header&gt; + .sticky-top" data-desc="Thanh điều hướng chính cố định. Bootstrap .navbar. Chứa: logo (.navbar-brand), menu (.navbar-nav), search form, user dropdown.">
-<div class="container">
-<a class="navbar-brand fw-bold" href="home.html" data-prototype="Logo / Brand" data-term=".navbar-brand" data-desc="Logo website, thẻ &lt;a&gt; về trang chủ. Class .navbar-brand."><i class="bi bi-journal-text" data-prototype="Brand Icon" data-term="Bootstrap Icons" data-desc="Icon Bootstrap Icons. Cú pháp: &lt;i class='bi bi-ten-icon'&gt;. 2000+ icon miễn phí."></i> MyBlog</a>
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navBlog" data-prototype="Hamburger Menu" data-term=".navbar-toggler" data-desc="Nút toggle menu mobile. data-bs-toggle='collapse'. Ẩn desktop."><span class="navbar-toggler-icon" data-prototype="Hamburger Icon" data-term=".navbar-toggler-icon"></span></button>
-<div class="collapse navbar-collapse" id="navBlog">
-<ul class="navbar-nav me-auto" data-prototype="Navigation Menu" data-term=".navbar-nav" data-desc="Menu flex row. .nav-item > .nav-link. Active = .active.">
-<li class="nav-item"><a class="nav-link active" href="home.html" data-prototype="Active Menu Item">Trang chủ</a></li><li class="nav-item"><a class="nav-link" href="search.html" data-prototype="Menu Item">Công nghệ</a></li><li class="nav-item"><a class="nav-link" href="search.html">Đời sống</a></li></ul>
-<form class="d-flex me-3" action="search.html" data-prototype="Search Form" data-term="&lt;form method=GET&gt;" data-desc="Form tìm kiếm GET. Input .form-control + button submit."><input class="form-control form-control-sm" name="q" placeholder="Tìm bài viết..." style="width:180px" data-prototype="Search Input"><button class="btn btn-sm btn-outline-dark ms-1" type="submit" data-prototype="Search Button"><i class="bi bi-search"></i></button></form>
-<div class="dropdown" data-prototype="User Dropdown" data-term=".dropdown" data-desc="Bootstrap Dropdown. data-bs-toggle='dropdown' + .dropdown-menu."><a class="d-flex align-items-center gap-1 text-decoration-none dropdown-toggle text-dark small" href="#" data-bs-toggle="dropdown" data-prototype="Dropdown Trigger"><i class="bi bi-person-circle fs-5" data-prototype="Avatar Icon"></i> User</a><ul class="dropdown-menu dropdown-menu-end"><li><a class="dropdown-item" href="#"><i class="bi bi-person"></i> Hồ sơ</a></li><li><a class="dropdown-item" href="../index.html"><i class="bi bi-house"></i> Trang chọn</a></li></ul></div>
-</div></div></nav>
+    <div class="prototype-area">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top"
+            data-prototype="Header / Navigation Bar" data-term="&lt;header&gt; + .sticky-top"
+            data-desc="Thanh điều hướng chính cố định. Bootstrap .navbar. Chứa: logo (.navbar-brand), menu (.navbar-nav), search form, user dropdown.">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="home.html" data-prototype="Logo / Brand" data-term=".navbar-brand"
+                    data-desc="Logo website, thẻ &lt;a&gt; về trang chủ. Class .navbar-brand."><i
+                        class="bi bi-journal-text" data-prototype="Brand Icon" data-term="Bootstrap Icons"
+                        data-desc="Icon Bootstrap Icons. Cú pháp: &lt;i class='bi bi-ten-icon'&gt;. 2000+ icon miễn phí."></i>
+                    MyBlog</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navBlog"
+                    data-prototype="Hamburger Menu" data-term=".navbar-toggler"
+                    data-desc="Nút toggle menu mobile. data-bs-toggle='collapse'. Ẩn desktop."><span
+                        class="navbar-toggler-icon" data-prototype="Hamburger Icon"
+                        data-term=".navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navBlog">
+                    <ul class="navbar-nav me-auto" data-prototype="Navigation Menu" data-term=".navbar-nav"
+                        data-desc="Menu flex row. .nav-item > .nav-link. Active = .active.">
+                        <li class="nav-item"><a class="nav-link active" href="home.html"
+                                data-prototype="Active Menu Item">Trang chủ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="search.html" data-prototype="Menu Item">Công
+                                nghệ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="search.html">Đời sống</a></li>
+                    </ul>
+                    <form class="d-flex me-3" action="search.html" data-prototype="Search Form"
+                        data-term="&lt;form method=GET&gt;"
+                        data-desc="Form tìm kiếm GET. Input .form-control + button submit."><input
+                            class="form-control form-control-sm" name="q" placeholder="Tìm bài viết..."
+                            style="width:180px" data-prototype="Search Input"><button
+                            class="btn btn-sm btn-outline-dark ms-1" type="submit" data-prototype="Search Button"><i
+                                class="bi bi-search"></i></button></form>
+                    <div class="dropdown" data-prototype="User Dropdown" data-term=".dropdown"
+                        data-desc="Bootstrap Dropdown. data-bs-toggle='dropdown' + .dropdown-menu."><a
+                            class="d-flex align-items-center gap-1 text-decoration-none dropdown-toggle text-dark small"
+                            href="#" data-bs-toggle="dropdown" data-prototype="Dropdown Trigger"><i
+                                class="bi bi-person-circle fs-5" data-prototype="Avatar Icon"></i> User</a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i> Hồ sơ</a></li>
+                            <li><a class="dropdown-item" href="../index.html"><i class="bi bi-house"></i> Trang chọn</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
 
-<section class="py-5 bg-light" data-prototype="Hero Section" data-term="Above the fold" data-desc="Vùng ấn tượng đầu trang. .bg-light + .py-5. H1 + mô tả + CTA + ảnh.">
-<div class="container"><div class="row align-items-center">
-<div class="col-lg-6"><h1 class="fw-bold" data-prototype="Hero Heading (H1)" data-term="&lt;h1&gt; .fw-bold" data-desc="Tiêu đề chính - H1 quan trọng nhất SEO. Chỉ 1 H1/trang.">Khám phá thế giới<br>Công nghệ & Đời sống</h1><p class="text-muted" data-prototype="Hero Subtitle" data-term=".text-muted">Cập nhật xu hướng mới nhất về công nghệ, lập trình.</p><a href="search.html" class="btn btn-dark" data-prototype="CTA Button" data-term=".btn .btn-dark" data-desc="Nút Call-to-Action. .btn-dark = nền đen chữ trắng."><i class="bi bi-compass"></i> Khám phá ngay</a></div>
-<div class="col-lg-6 mt-3 mt-lg-0"><div class="prototype-image d-flex align-items-center justify-content-center" style="height:240px" data-prototype="Hero Image" data-term="Ảnh minh họa" data-desc="Ảnh bìa. Thực tế: &lt;img&gt; + alt + loading='lazy'."><i class="bi bi-image" style="font-size:3rem"></i></div></div>
-</div></div></section>
+        <section class="py-5 bg-light" data-prototype="Hero Section" data-term="Above the fold"
+            data-desc="Vùng ấn tượng đầu trang. .bg-light + .py-5. H1 + mô tả + CTA + ảnh.">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h1 class="fw-bold" data-prototype="Hero Heading (H1)" data-term="&lt;h1&gt; .fw-bold"
+                            data-desc="Tiêu đề chính - H1 quan trọng nhất SEO. Chỉ 1 H1/trang.">Khám phá thế
+                            giới<br>Công nghệ & Đời sống</h1>
+                        <p class="text-muted" data-prototype="Hero Subtitle" data-term=".text-muted">Cập nhật xu hướng
+                            mới nhất về công nghệ, lập trình.</p><a href="search.html" class="btn btn-dark"
+                            data-prototype="CTA Button" data-term=".btn .btn-dark"
+                            data-desc="Nút Call-to-Action. .btn-dark = nền đen chữ trắng."><i class="bi bi-compass"></i>
+                            Khám phá ngay</a>
+                    </div>
+                    <div class="col-lg-6 mt-3 mt-lg-0">
+                        <div class="prototype-image d-flex align-items-center justify-content-center"
+                            style="height:240px" data-prototype="Hero Image" data-term="Ảnh minh họa"
+                            data-desc="Ảnh bìa. Thực tế: &lt;img&gt; + alt + loading='lazy'."><i class="bi bi-image"
+                                style="font-size:3rem"></i></div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<div class="container py-4"><div class="row">
-<main class="col-lg-8" data-prototype="Main Content" data-term="&lt;main&gt; .col-lg-8" data-desc="Vùng nội dung chính, 8/12 cột. Chỉ 1 &lt;main&gt;/trang. Chứa article cards.">
-<h5 class="mb-3" data-prototype="Section Title" data-term="Heading &lt;h5&gt;"><i class="bi bi-star"></i> Bài viết mới nhất</h5>
+        <div class="container py-4">
+            <div class="row">
+                <main class="col-lg-8" data-prototype="Main Content" data-term="&lt;main&gt; .col-lg-8"
+                    data-desc="Vùng nội dung chính, 8/12 cột. Chỉ 1 &lt;main&gt;/trang. Chứa article cards.">
+                    <h5 class="mb-3" data-prototype="Section Title" data-term="Heading &lt;h5&gt;"><i
+                            class="bi bi-star"></i> Bài viết mới nhất</h5>
 
-<article class="card mb-3 prototype-section border-0 shadow-sm" data-prototype="Article Card" data-term=".card component" data-desc="Thẻ tóm tắt bài viết: thumbnail + title + excerpt (line-clamp:2) + author + date. Cả card link detail.">
-<a href="detail.html" class="row g-0 text-decoration-none text-reset" data-prototype="Card Link Wrapper" data-term=".text-reset .text-decoration-none" data-desc="Thẻ &lt;a&gt; bọc card. .text-reset giữ màu, bỏ gạch chân.">
-<div class="col-md-4"><div class="prototype-image d-flex align-items-center justify-content-center" style="height:180px" data-prototype="Card Thumbnail" data-term=".col-md-4">🖼️</div></div>
-<div class="col-md-8"><div class="card-body"><h6 data-prototype="Card Title">Tương lai của AI trong phát triển Web</h6><p class="text-muted small" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden" data-prototype="Card Excerpt (line-clamp)" data-term="-webkit-line-clamp:2" data-desc="Cắt chữ sau 2 dòng. CSS: display:-webkit-box; -webkit-line-clamp:2; overflow:hidden.">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor...</p><div class="d-flex align-items-center gap-2 text-muted small" data-prototype="Card Meta" data-term="Author + Date"><i class="bi bi-person-circle"></i> John Doe <span>·</span> <i class="bi bi-calendar3"></i> 08/06/2026</div></div></div>
-</a></article>
+                    <article class="card mb-3 prototype-section border-0 shadow-sm" data-prototype="Article Card"
+                        data-term=".card component"
+                        data-desc="Thẻ tóm tắt bài viết: thumbnail + title + excerpt (line-clamp:2) + author + date. Cả card link detail.">
+                        <a href="detail.html" class="row g-0 text-decoration-none text-reset"
+                            data-prototype="Card Link Wrapper" data-term=".text-reset .text-decoration-none"
+                            data-desc="Thẻ &lt;a&gt; bọc card. .text-reset giữ màu, bỏ gạch chân.">
+                            <div class="col-md-4">
+                                <div class="prototype-image d-flex align-items-center justify-content-center"
+                                    style="height:180px" data-prototype="Card Thumbnail" data-term=".col-md-4">🖼️</div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h6 data-prototype="Card Title">Tương lai của AI trong phát triển Web</h6>
+                                    <p class="text-muted small"
+                                        style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden"
+                                        data-prototype="Card Excerpt (line-clamp)" data-term="-webkit-line-clamp:2"
+                                        data-desc="Cắt chữ sau 2 dòng. CSS: display:-webkit-box; -webkit-line-clamp:2; overflow:hidden.">
+                                        Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor...
+                                    </p>
+                                    <div class="d-flex align-items-center gap-2 text-muted small"
+                                        data-prototype="Card Meta" data-term="Author + Date"><i
+                                            class="bi bi-person-circle"></i> John Doe <span>·</span> <i
+                                            class="bi bi-calendar3"></i> 08/06/2026</div>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
 
-<article class="card mb-3 prototype-section border-0 shadow-sm"><a href="detail.html" class="row g-0 text-decoration-none text-reset" data-prototype="Article Card"><div class="col-md-4"><div class="prototype-image d-flex align-items-center justify-content-center" style="height:180px">🖼️</div></div><div class="col-md-8"><div class="card-body"><h6>10 nguyên tắc UI/UX cho người mới</h6><p class="text-muted small" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">Duis aute irure dolor in reprehenderit...</p><div class="d-flex align-items-center gap-2 text-muted small"><i class="bi bi-person-circle"></i> Jane Smith <span>·</span> <i class="bi bi-calendar3"></i> 05/06/2026</div></div></div></a></article>
+                    <article class="card mb-3 prototype-section border-0 shadow-sm"><a href="detail.html"
+                            class="row g-0 text-decoration-none text-reset" data-prototype="Article Card">
+                            <div class="col-md-4">
+                                <div class="prototype-image d-flex align-items-center justify-content-center"
+                                    style="height:180px">🖼️</div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h6>10 nguyên tắc UI/UX cho người mới</h6>
+                                    <p class="text-muted small"
+                                        style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">
+                                        Duis aute irure dolor in reprehenderit...</p>
+                                    <div class="d-flex align-items-center gap-2 text-muted small"><i
+                                            class="bi bi-person-circle"></i> Jane Smith <span>·</span> <i
+                                            class="bi bi-calendar3"></i> 05/06/2026</div>
+                                </div>
+                            </div>
+                        </a></article>
 
-<article class="card mb-3 prototype-section border-0 shadow-sm"><a href="detail.html" class="row g-0 text-decoration-none text-reset" data-prototype="Article Card"><div class="col-md-4"><div class="prototype-image d-flex align-items-center justify-content-center" style="height:180px">🖼️</div></div><div class="col-md-8"><div class="card-body"><h6>Lộ trình Full-stack 2026</h6><p class="text-muted small" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">Sed ut perspiciatis unde omnis iste natus error...</p><div class="d-flex align-items-center gap-2 text-muted small"><i class="bi bi-person-circle"></i> Alex Chen <span>·</span> <i class="bi bi-calendar3"></i> 01/06/2026</div></div></div></a></article>
+                    <article class="card mb-3 prototype-section border-0 shadow-sm"><a href="detail.html"
+                            class="row g-0 text-decoration-none text-reset" data-prototype="Article Card">
+                            <div class="col-md-4">
+                                <div class="prototype-image d-flex align-items-center justify-content-center"
+                                    style="height:180px">🖼️</div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h6>Lộ trình Full-stack 2026</h6>
+                                    <p class="text-muted small"
+                                        style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">
+                                        Sed ut perspiciatis unde omnis iste natus error...</p>
+                                    <div class="d-flex align-items-center gap-2 text-muted small"><i
+                                            class="bi bi-person-circle"></i> Alex Chen <span>·</span> <i
+                                            class="bi bi-calendar3"></i> 01/06/2026</div>
+                                </div>
+                            </div>
+                        </a></article>
 
-<nav data-prototype="Pagination" data-term=".pagination" data-desc="Phân trang Bootstrap. .page-item > .page-link. Active = .active."><ul class="pagination pagination-sm"><li class="page-item active"><a class="page-link" href="#">1</a></li><li class="page-item"><a class="page-link" href="#">2</a></li><li class="page-item"><a class="page-link" href="#">3</a></li><li class="page-item"><a class="page-link" href="#">4</a></li><li class="page-item"><a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a></li></ul></nav>
-</main>
+                    <nav data-prototype="Pagination" data-term=".pagination"
+                        data-desc="Phân trang Bootstrap. .page-item > .page-link. Active = .active.">
+                        <ul class="pagination pagination-sm">
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item"><a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </main>
 
-<aside class="col-lg-4 mt-4 mt-lg-0" data-prototype="Sidebar" data-term="&lt;aside&gt; .col-lg-4" data-desc="Cột phụ 4/12. Thẻ &lt;aside&gt; = nội dung phụ. Dùng .position-sticky để cố định.">
-<div class="card mb-4 prototype-section border-0 shadow-sm" data-prototype="Sidebar Widget - About"><div class="card-body text-center"><i class="bi bi-person-circle fs-1 text-muted"></i><h6 class="mt-2">Về MyBlog</h6><p class="text-muted small">Nơi chia sẻ kiến thức công nghệ.</p></div></div>
-<div class="card mb-4 prototype-section border-0 shadow-sm" data-prototype="Sidebar Widget - Categories" data-term=".list-group" data-desc="Widget danh mục. .list-group-item > a + badge."><div class="card-body"><h6><i class="bi bi-folder"></i> Danh mục</h6><div class="list-group list-group-flush"><a href="search.html" class="list-group-item list-group-item-action d-flex justify-content-between small" data-prototype="Category Link">Công nghệ <span class="badge bg-secondary rounded-pill" data-prototype="Count Badge">24</span></a><a href="search.html" class="list-group-item list-group-item-action d-flex justify-content-between small">Đời sống <span class="badge bg-secondary rounded-pill">18</span></a></div></div></div>
-</aside>
-</div></div>
+                <aside class="col-lg-4 mt-4 mt-lg-0" data-prototype="Sidebar" data-term="&lt;aside&gt; .col-lg-4"
+                    data-desc="Cột phụ 4/12. Thẻ &lt;aside&gt; = nội dung phụ. Dùng .position-sticky để cố định.">
+                    <div class="card mb-4 prototype-section border-0 shadow-sm" data-prototype="Sidebar Widget - About">
+                        <div class="card-body text-center"><i class="bi bi-person-circle fs-1 text-muted"></i>
+                            <h6 class="mt-2">Về MyBlog</h6>
+                            <p class="text-muted small">Nơi chia sẻ kiến thức công nghệ.</p>
+                        </div>
+                    </div>
+                    <div class="card mb-4 prototype-section border-0 shadow-sm"
+                        data-prototype="Sidebar Widget - Categories" data-term=".list-group"
+                        data-desc="Widget danh mục. .list-group-item > a + badge.">
+                        <div class="card-body">
+                            <h6><i class="bi bi-folder"></i> Danh mục</h6>
+                            <div class="list-group list-group-flush"><a href="search.html"
+                                    class="list-group-item list-group-item-action d-flex justify-content-between small"
+                                    data-prototype="Category Link">Công nghệ <span
+                                        class="badge bg-secondary rounded-pill"
+                                        data-prototype="Count Badge">24</span></a><a href="search.html"
+                                    class="list-group-item list-group-item-action d-flex justify-content-between small">Đời
+                                    sống <span class="badge bg-secondary rounded-pill">18</span></a></div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
 
-<footer class="bg-dark text-light py-4" data-prototype="Footer" data-term="&lt;footer&gt; .bg-dark" data-desc="Chân trang. Grid 3 cột: brand, links, social. Copyright dòng cuối."><div class="container"><div class="row"><div class="col-md-4"><h6>MyBlog</h6><p class="small text-secondary">Cập nhật xu hướng công nghệ.</p></div><div class="col-md-4 mt-3 mt-md-0"><h6>Liên kết</h6><ul class="list-unstyled small"><li><a href="#" class="text-secondary">Trang chủ</a></li></ul></div><div class="col-md-4 mt-3 mt-md-0"><h6>Kết nối</h6><div class="d-flex gap-2"><a href="#" class="text-secondary fs-5"><i class="bi bi-facebook"></i></a></div></div></div><hr class="border-secondary"><div class="text-center small text-secondary">© 2026 MyBlog</div></div></footer>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../assets/app.js"></script>
-<script>const tb=document.getElementById('toTop');window.onscroll=()=>{tb.style.display=scrollY>300?'':'none'};tb.onclick=e=>{e.preventDefault();scrollTo({top:0,behavior:'smooth'})}</script>
+        <footer class="bg-dark text-light py-4" data-prototype="Footer" data-term="&lt;footer&gt; .bg-dark"
+            data-desc="Chân trang. Grid 3 cột: brand, links, social. Copyright dòng cuối.">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h6>MyBlog</h6>
+                        <p class="small text-secondary">Cập nhật xu hướng công nghệ.</p>
+                    </div>
+                    <div class="col-md-4 mt-3 mt-md-0">
+                        <h6>Liên kết</h6>
+                        <ul class="list-unstyled small">
+                            <li><a href="#" class="text-secondary">Trang chủ</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 mt-3 mt-md-0">
+                        <h6>Kết nối</h6>
+                        <div class="d-flex gap-2"><a href="#" class="text-secondary fs-5"><i
+                                    class="bi bi-facebook"></i></a></div>
+                    </div>
+                </div>
+                <hr class="border-secondary">
+                <div class="text-center small text-secondary">© 2026 MyBlog</div>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/app.js"></script>
+    <script>const tb = document.getElementById('toTop'); window.onscroll = () => { tb.style.display = scrollY > 300 ? '' : 'none' }; tb.onclick = e => { e.preventDefault(); scrollTo({ top: 0, behavior: 'smooth' }) }</script>
 </body>
+
 </html>
