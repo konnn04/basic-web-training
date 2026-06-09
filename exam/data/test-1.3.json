@@ -8,7 +8,7 @@
       "type": "multiple_choice",
       "question": {
         "content": "Đây là thành phần gì trong giao diện web?",
-        "images": ["./public/test.1.3/_aside.jpg"]
+        "images": ["./public/test.1.3/aside.jpg"]
       },
       "options": [
         { "id": "1", "content": "Aside / Sidebar", "images": [] },
@@ -23,7 +23,7 @@
       "type": "multiple_choice",
       "question": {
         "content": "Đây là thành phần gì trong giao diện web?",
-        "images": ["./public/test.1.3/_breadscrum.jpg"]
+        "images": ["./public/test.1.3/breadscrum.jpg"]
       },
       "options": [
         { "id": "1", "content": "Breadcrumb", "images": [] },
@@ -38,7 +38,7 @@
       "type": "multiple_choice",
       "question": {
         "content": "Đây là thành phần gì trong giao diện web?",
-        "images": ["./public/test.1.3/_card-2.jpg"]
+        "images": ["./public/test.1.3/card-2.jpg"]
       },
       "options": [
         { "id": "1", "content": "Card", "images": [] },
@@ -53,7 +53,7 @@
       "type": "multiple_choice",
       "question": {
         "content": "Đây là thành phần gì trong giao diện web?",
-        "images": ["./public/test.1.3/_card.jpg"]
+        "images": ["./public/test.1.3/card.jpg"]
       },
       "options": [
         { "id": "1", "content": "Card", "images": [] },
@@ -68,7 +68,7 @@
       "type": "multiple_choice",
       "question": {
         "content": "Đây là thành phần gì trong giao diện web?",
-        "images": ["./public/test.1.3/_footer.jpg"]
+        "images": ["./public/test.1.3/footer.jpg"]
       },
       "options": [
         { "id": "1", "content": "Footer", "images": [] },
@@ -83,7 +83,7 @@
       "type": "multiple_choice",
       "question": {
         "content": "Đây là thành phần gì trong giao diện web?",
-        "images": ["./public/test.1.3/_form.jpg"]
+        "images": ["./public/test.1.3/form.jpg"]
       },
       "options": [
         { "id": "1", "content": "Form", "images": [] },
@@ -98,7 +98,7 @@
       "type": "multiple_choice",
       "question": {
         "content": "Đây là thành phần gì trong giao diện web?",
-        "images": ["./public/test.1.3/_header-2.jpg"]
+        "images": ["./public/test.1.3/header-2.jpg"]
       },
       "options": [
         { "id": "1", "content": "Header", "images": [] },
@@ -113,7 +113,7 @@
       "type": "multiple_choice",
       "question": {
         "content": "Đây là thành phần gì trong giao diện web?",
-        "images": ["./public/test.1.3/_header.jpg"]
+        "images": ["./public/test.1.3/header.jpg"]
       },
       "options": [
         { "id": "1", "content": "Header", "images": [] },
@@ -128,7 +128,7 @@
       "type": "multiple_choice",
       "question": {
         "content": "Đây là thành phần gì trong giao diện web?",
-        "images": ["./public/test.1.3/_hero-section.jpg"]
+        "images": ["./public/test.1.3/hero-section.jpg"]
       },
       "options": [
         { "id": "1", "content": "Hero Section", "images": [] },
@@ -143,7 +143,7 @@
       "type": "multiple_choice",
       "question": {
         "content": "Đây là thành phần gì trong giao diện web?",
-        "images": ["./public/test.1.3/_navbar-2.jpg"]
+        "images": ["./public/test.1.3/navbar-2.jpg"]
       },
       "options": [
         { "id": "1", "content": "Navbar", "images": [] },
@@ -158,7 +158,7 @@
       "type": "multiple_choice",
       "question": {
         "content": "Đây là thành phần gì trong giao diện web?",
-        "images": ["./public/test.1.3/_navbar.jpg"]
+        "images": ["./public/test.1.3/navbar.jpg"]
       },
       "options": [
         { "id": "1", "content": "Navbar", "images": [] },
@@ -173,7 +173,7 @@
       "type": "multiple_choice",
       "question": {
         "content": "Đây là thành phần gì trong giao diện web?",
-        "images": ["./public/test.1.3/_pagination.jpg"]
+        "images": ["./public/test.1.3/pagination.jpg"]
       },
       "options": [
         { "id": "1", "content": "Pagination", "images": [] },
@@ -188,7 +188,7 @@
       "type": "multiple_choice",
       "question": {
         "content": "Đây là thành phần gì trong giao diện web?",
-        "images": ["./public/test.1.3/_sidebar.jpg"]
+        "images": ["./public/test.1.3/sidebar.jpg"]
       },
       "options": [
         { "id": "1", "content": "Sidebar", "images": [] },
@@ -203,7 +203,7 @@
       "type": "multiple_choice",
       "question": {
         "content": "Đây là thành phần gì trong giao diện web?",
-        "images": ["./public/test.1.3/_table.jpg"]
+        "images": ["./public/test.1.3/table.jpg"]
       },
       "options": [
         { "id": "1", "content": "Table", "images": [] },
