@@ -64,50 +64,68 @@
         </div>
 
         <div class="d-none" id="quizActive">
-            <div class="timer-section">
-                <div class="timer-icon"><i class="bi bi-hourglass-split"></i></div>
-                <div class="timer-display" id="timerDisplay">--:--</div>
-                <div class="timer-bar-wrap">
-                    <div class="timer-bar">
-                        <div class="timer-bar-fill" id="timerBarFill" style="width: 100%;"></div>
+            <div class="exam-layout">
+                <!-- SIDEBAR -->
+                <aside class="exam-sidebar">
+                    <div class="sidebar-timer">
+                        <div class="sidebar-timer-icon">
+                            <i class="bi bi-hourglass-split"></i>
+                        </div>
+                        <div class="sidebar-timer-display" id="timerDisplay">--:--</div>
+                        <div class="sidebar-timer-bar-wrap">
+                            <div class="sidebar-timer-bar">
+                                <div class="sidebar-timer-bar-fill" id="timerBarFill" style="width: 100%;"></div>
+                            </div>
+                            <div class="sidebar-timer-label">Thời gian còn lại</div>
+                        </div>
                     </div>
-                    <div class="timer-label">Thời gian còn lại</div>
-                </div>
-            </div>
 
-            <div class="question-nav-pills" id="questionNavPills"></div>
+                    <div class="sidebar-section">
+                        <div class="sidebar-section-title">
+                            <i class="bi bi-list-ol"></i> Câu hỏi
+                        </div>
+                        <div class="sidebar-nav-pills" id="questionNavPills"></div>
+                    </div>
 
-            <div class="progress-section">
-                <div class="progress-text">
-                    <span id="progressLabel">Câu 1 / 1</span>
-                    <span id="answeredLabel">Đã trả lời: 0</span>
-                </div>
-                <div class="progress">
-                    <div class="progress-bar" id="progressBar" style="width: 0%;"></div>
-                </div>
-            </div>
+                    <div class="sidebar-section">
+                        <div class="sidebar-section-title">
+                            <i class="bi bi-bar-chart"></i> Tiến độ
+                        </div>
+                        <div class="sidebar-progress-text">
+                            <span id="progressLabel">Câu 1 / 1</span>
+                            <span id="answeredLabel">Đã TL: 0</span>
+                        </div>
+                        <div class="progress sidebar-progress">
+                            <div class="progress-bar" id="progressBar" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                </aside>
 
-            <div class="question-card" id="questionCard">
-                <div class="question-images" id="questionImages"></div>
-                <div class="question-header">
-                    <div class="question-num" id="questionNum">1</div>
-                    <div class="question-text" id="questionText"></div>
-                </div>
-                <div class="question-body">
-                    <div class="answer-list" id="answerList"></div>
-                </div>
-            </div>
+                <!-- MAIN CONTENT -->
+                <main class="exam-main">
+                    <div class="question-card" id="questionCard">
+                        <div class="question-images" id="questionImages"></div>
+                        <div class="question-header">
+                            <div class="question-num" id="questionNum">1</div>
+                            <div class="question-text" id="questionText"></div>
+                        </div>
+                        <div class="question-body">
+                            <div class="answer-list" id="answerList"></div>
+                        </div>
+                    </div>
 
-            <div class="quiz-nav">
-                <button class="btn btn-outline-orange" id="btnPrev" onclick="prevQuestion()">
-                    <i class="bi bi-chevron-left"></i> Câu trước
-                </button>
-                <button class="btn btn-submit-quiz" id="btnSubmit" onclick="submitQuiz()">
-                    <i class="bi bi-check-circle"></i> Nộp bài
-                </button>
-                <button class="btn btn-orange" id="btnNext" onclick="nextQuestion()">
-                    Câu sau <i class="bi bi-chevron-right"></i>
-                </button>
+                    <div class="quiz-nav">
+                        <button class="btn btn-outline-orange" id="btnPrev" onclick="prevQuestion()">
+                            <i class="bi bi-chevron-left"></i> Câu trước
+                        </button>
+                        <button class="btn btn-submit-quiz" id="btnSubmit" onclick="submitQuiz()">
+                            <i class="bi bi-check-circle"></i> Nộp bài
+                        </button>
+                        <button class="btn btn-orange" id="btnNext" onclick="nextQuestion()">
+                            Câu sau <i class="bi bi-chevron-right"></i>
+                        </button>
+                    </div>
+                </main>
             </div>
         </div>
     </div>

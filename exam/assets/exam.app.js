@@ -227,7 +227,7 @@ function updateProgress() {
     }
     const pct = (answered / examData.questions.length) * 100;
     $('#progressBar').css('width', pct + '%');
-    $('#answeredLabel').text('Đã trả lời: ' + answered + '/' + examData.questions.length);
+    $('#answeredLabel').text('Đã TL: ' + answered + '/' + examData.questions.length);
 }
 
 function submitQuiz() {
