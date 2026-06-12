@@ -1,37 +1,11 @@
 [
-  {
-    "id": "test-1.1",
-    "title": "Bài kiểm tra số 1 - Tổng quan Web",
-    "description": "Web, Website, URL, HTTP, HTTPS, Browser, Responsive",
-    "duration": 30,
-    "questionCount": 30
-  },
-  {
-    "id": "test-1.2",
-    "title": "Bài kiểm tra số 2 - HTML nhập môn",
-    "description": "HTML, Frontend, GitHub Pages",
-    "duration": 30,
-    "questionCount": 30
-  },
-  {
-    "id": "test-1.3",
-    "title": "Bài kiểm tra số 3 - Nhận diện thành phần Web",
-    "description": "HTML, Components, Layout",
-    "duration": 30,
-    "questionCount": 14
-  },
-  {
-    "id": "test-2.1",
-    "title": "Bài kiểm tra số 4 - HTML Cơ bản (Đề 1)",
-    "description": "HTML Elements, Attributes, Headings, Paragraphs, Styles, Formatting, Quotations, Comments, Colors, CSS, Links, Images, Favicon, Page Title, Tables, Lists, Block & Inline, Div, Classes, Id, Buttons, Iframes, JavaScript, File Paths, Head, Layout, Responsive",
-    "duration": 30,
-    "questionCount": 35
-  },
-  {
-    "id": "test-2.2",
-    "title": "Bài kiểm tra số 5 - HTML Cơ bản (Đề 2)",
-    "description": "HTML Elements, Attributes, Headings, Paragraphs, Styles, Formatting, Quotations, Comments, Colors, CSS, Links, Images, Favicon, Page Title, Tables, Lists, Block & Inline, Div, Classes, Id, Buttons, Iframes, JavaScript, File Paths, Head, Layout, Responsive",
-    "duration": 30,
-    "questionCount": 33
-  }
+  {"id":"test-1.1","title":"Bài kiểm tra số 1 - Tổng quan Web","description":"Web, Website, URL, HTTP, HTTPS, Browser, Responsive","duration":30,"questionCount":30}
+,
+  {"id":"test-1.2","title":"Bài kiểm tra số 2 - HTML nhập môn","description":"HTML, Frontend, GitHub Pages","duration":30,"questionCount":30}
+,
+  {"id":"test-1.3","title":"Bài kiểm tra số 3 - Nhận diện thành phần Web","description":"HTML, Components, Layout","duration":30,"questionCount":14}
+,
+  {"id":"test-2.1","title":"Bài kiểm tra số 4 - HTML Cơ bản (Đề 1)","description":"HTML Elements, Attributes, Headings, Paragraphs, Styles, Formatting, Quotations, Comments, Colors, CSS, Links, Images, Favicon, Page Title, Tables, Lists, Block & Inline, Div, Classes, Id, Buttons, Iframes, JavaScript, File Paths, Head, Layout, Responsive","duration":30,"questionCount":35}
+,
+  {"id":"test-2.2","title":"Bài kiểm tra số 5 - HTML Cơ bản (Đề 2)","description":"HTML Elements, Attributes, Headings, Paragraphs, Styles, Formatting, Quotations, Comments, Colors, CSS, Links, Images, Favicon, Page Title, Tables, Lists, Block & Inline, Div, Classes, Id, Buttons, Iframes, JavaScript, File Paths, Head, Layout, Responsive","duration":30,"questionCount":33}
 ]
