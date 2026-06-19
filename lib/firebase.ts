@@ -3,8 +3,6 @@ import {
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
-  signInWithRedirect,
-  getRedirectResult,
   browserPopupRedirectResolver,
 } from "firebase/auth";
 
@@ -37,4 +35,4 @@ if (isFirebaseConfigured) {
 
 export const auth = authInstance;
 export const googleProvider = providerInstance;
-export { signInWithPopup, signInWithRedirect, getRedirectResult, browserPopupRedirectResolver };
+export { signInWithPopup, browserPopupRedirectResolver };

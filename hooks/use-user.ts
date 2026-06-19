@@ -6,8 +6,6 @@ import {
   isFirebaseConfigured,
   googleProvider,
   signInWithPopup,
-  signInWithRedirect,
-  getRedirectResult,
   browserPopupRedirectResolver,
 } from "@/lib/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
@@ -67,25 +65,7 @@ export function useUser() {
     window.dispatchEvent(new Event("storage"));
   }, []);
 
-  // Handle redirect result (when returning from Google sign-in via redirect)
-  useEffect(() => {
-    if (!isFirebaseConfigured || !auth) return;
 
-    getRedirectResult(auth, browserPopupRedirectResolver)
-      .then((result) => {
-        if (result?.user) {
-          const name = result.user.displayName || result.user.email?.split("@")[0] || "Học Sinh";
-          saveUser({
-            name,
-            email: result.user.email || "",
-            image: result.user.photoURL || "",
-          });
-        }
-      })
-      .catch((error) => {
-        console.error("Redirect sign-in error:", error);
-      });
-  }, [saveUser]);
 
   // Firebase Auth state observer (only active if Firebase is configured)
   useEffect(() => {
@@ -114,16 +94,14 @@ export function useUser() {
     setIsLoading(true);
     try {
       if (isFirebaseConfigured && auth && googleProvider) {
-        // Try signInWithPopup first — works on localhost and after Firebase Hosting is deployed
         try {
           await signInWithPopup(auth, googleProvider, browserPopupRedirectResolver);
           return true;
         } catch (popupError: any) {
-          // If popup is blocked, fall back to redirect sign-in
           if (popupError.code === "auth/popup-blocked") {
-            console.warn("Popup blocked, falling back to redirect sign-in");
-            await signInWithRedirect(auth, googleProvider, browserPopupRedirectResolver);
-            return true;
+            // Let browser handle popup permission naturally — user can click "Allow" in address bar
+            alert("Trình duyệt đã chặn popup. Vui lòng cho phép popup ở thanh địa chỉ rồi thử lại.");
+            return false;
           }
           throw popupError;
         }
