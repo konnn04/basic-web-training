@@ -5,8 +5,10 @@ import {
   auth,
   isFirebaseConfigured,
   googleProvider,
+  signInWithPopup,
   signInWithRedirect,
   getRedirectResult,
+  browserPopupRedirectResolver,
 } from "@/lib/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 
@@ -41,9 +43,16 @@ export function useUser() {
   useEffect(() => {
     if (!isFirebaseConfigured || !auth) return;
 
-    getRedirectResult(auth).catch((error) => {
-      console.error("Redirect sign-in error:", error);
-    });
+    getRedirectResult(auth, browserPopupRedirectResolver)
+      .then((result) => {
+        if (result) {
+          // User signed in via redirect - onAuthStateChanged will update state
+          console.log("Redirect sign-in successful:", result.user.displayName);
+        }
+      })
+      .catch((error) => {
+        console.error("Redirect sign-in error:", error);
+      });
   }, []);
 
   // Firebase Auth state observer (only active if Firebase is configured)
@@ -90,9 +99,22 @@ export function useUser() {
     setIsLoading(true);
     try {
       if (isFirebaseConfigured && auth && googleProvider) {
-        await signInWithRedirect(auth, googleProvider);
-        // The page will redirect to Google, so we don't return here
-        return true;
+        // Try signInWithPopup first (preserves user gesture context for browser)
+        // If the browser allows the popup, user signs in directly on this page
+        try {
+          await signInWithPopup(auth, googleProvider, browserPopupRedirectResolver);
+          return true;
+        } catch (popupError: any) {
+          // If popup is blocked, fall back to redirect sign-in
+          if (popupError.code === "auth/popup-blocked") {
+            console.warn("Popup blocked, falling back to redirect sign-in");
+            await signInWithRedirect(auth, googleProvider, browserPopupRedirectResolver);
+            // Page will redirect, so we don't return here
+            return true;
+          }
+          // Re-throw other popup errors
+          throw popupError;
+        }
       } else {
         // Fallback Mock Google login
         const mockName = mockProfile?.name || "Nguyễn Văn A";
