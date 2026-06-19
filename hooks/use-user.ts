@@ -5,7 +5,8 @@ import {
   auth,
   isFirebaseConfigured,
   googleProvider,
-  signInWithPopup,
+  signInWithRedirect,
+  getRedirectResult,
   browserPopupRedirectResolver,
 } from "@/lib/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
@@ -33,7 +34,6 @@ export function useUser() {
       setUserEmail(storedEmail);
       setUserImage(storedImage);
       setIsLoggedIn(storedLoggedIn);
-      setIsLoading(false);
     }
   }, []);
 
@@ -43,6 +43,7 @@ export function useUser() {
     setUserEmail(user.email);
     setUserImage(user.image);
     setIsLoggedIn(true);
+    setIsLoading(false);
 
     localStorage.setItem(STORAGE_KEY, user.name);
     localStorage.setItem(EMAIL_KEY, user.email);
@@ -65,9 +66,39 @@ export function useUser() {
     window.dispatchEvent(new Event("storage"));
   }, []);
 
+  // ✅ Xử lý kết quả redirect khi quay về trang sau khi đăng nhập Google
+  useEffect(() => {
+    if (!isFirebaseConfigured || !auth) {
+      setIsLoading(false);
+      return;
+    }
 
+    getRedirectResult(auth, browserPopupRedirectResolver)
+      .then((result) => {
+        if (result?.user) {
+          // Có kết quả redirect → lưu user
+          const name = result.user.displayName || result.user.email?.split("@")[0] || "Học Sinh";
+          saveUser({
+            name,
+            email: result.user.email || "",
+            image: result.user.photoURL || "",
+          });
+        } else {
+          // Không có redirect result → đọc từ localStorage
+          const storedUser = localStorage.getItem(STORAGE_KEY) || "";
+          setIsLoading(false);
+          if (!storedUser) {
+            // Chưa đăng nhập
+          }
+        }
+      })
+      .catch((error) => {
+        console.error("Redirect result error:", error);
+        setIsLoading(false);
+      });
+  }, [saveUser]);
 
-  // Firebase Auth state observer (only active if Firebase is configured)
+  // Firebase Auth state observer — lắng nghe trạng thái auth thay đổi
   useEffect(() => {
     if (!isFirebaseConfigured || !auth) return;
 
@@ -80,54 +111,37 @@ export function useUser() {
           image: user.photoURL || "",
         });
       } else {
-        // Only clear if was previously logged in with Google
+        // Firebase session hết hạn → xóa nếu đang đăng nhập bằng Google
         if (localStorage.getItem(IS_LOGGED_IN_KEY) === "true") {
           clearUser();
         }
+        setIsLoading(false);
       }
     });
 
     return () => unsubscribe();
   }, [saveUser, clearUser]);
 
+  // Đăng nhập Google bằng redirect (không cần popup)
   const loginWithGoogle = async (mockProfile?: { name: string; email: string; image?: string }) => {
-    setIsLoading(true);
     try {
       if (isFirebaseConfigured && auth && googleProvider) {
-        try {
-          await signInWithPopup(auth, googleProvider, browserPopupRedirectResolver);
-          return true;
-        } catch (popupError: any) {
-          if (popupError.code === "auth/popup-blocked") {
-            // Let browser handle popup permission naturally — user can click "Allow" in address bar
-            alert("Trình duyệt đã chặn popup. Vui lòng cho phép popup ở thanh địa chỉ rồi thử lại.");
-            return false;
-          }
-          throw popupError;
-        }
+        // Redirect thẳng đến Google, không cần popup
+        await signInWithRedirect(auth, googleProvider, browserPopupRedirectResolver);
+        // Trang sẽ điều hướng đi, kết quả được xử lý bởi getRedirectResult khi quay lại
+        return true;
       } else {
-        // Fallback Mock Google login
+        // Fallback Mock Google login (chế độ demo)
         const mockName = mockProfile?.name || "Nguyễn Văn A";
         const mockEmail = mockProfile?.email || "nguyenvana@gmail.com";
         const mockImage = mockProfile?.image || "";
 
-        setCurrentUser(mockName);
-        setUserEmail(mockEmail);
-        setUserImage(mockImage);
-        setIsLoggedIn(true);
-
-        localStorage.setItem(STORAGE_KEY, mockName);
-        localStorage.setItem(EMAIL_KEY, mockEmail);
-        localStorage.setItem(IMAGE_KEY, mockImage);
-        localStorage.setItem(IS_LOGGED_IN_KEY, "true");
-        window.dispatchEvent(new Event("storage"));
+        saveUser({ name: mockName, email: mockEmail, image: mockImage });
         return true;
       }
     } catch (error) {
       console.error("Error signing in with Google:", error);
       return false;
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -160,23 +174,11 @@ export function useUser() {
       console.error("Error signing out from Firebase:", error);
     }
 
-    // Always clear local state
-    setCurrentUser("");
-    setUserEmail("");
-    setUserImage("");
-    setIsLoggedIn(false);
-
-    if (typeof window !== "undefined") {
-      localStorage.removeItem(STORAGE_KEY);
-      localStorage.removeItem(EMAIL_KEY);
-      localStorage.removeItem(IMAGE_KEY);
-      localStorage.removeItem(IS_LOGGED_IN_KEY);
-      window.dispatchEvent(new Event("storage"));
-    }
+    clearUser();
     setIsLoading(false);
   };
 
-  // Sync state between tabs
+  // Sync state giữa các tab
   useEffect(() => {
     const handleStorageChange = () => {
       const storedUser = localStorage.getItem(STORAGE_KEY) || "";
