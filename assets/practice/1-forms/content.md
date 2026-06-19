@@ -29,10 +29,10 @@ Tạo trang đăng nhập với giao diện đơn giản, gồm các trường d
 
 ## Phần 2: Trang Đăng Ký (`register.html`)
 
-Tạo trang đăng ký tài khoản mới. Form đăng ký cần được gom nhóm và phân vùng rõ ràng thành 2 nhóm thông tin bằng thẻ `<fieldset>` và `<legend>` tương ứng:
+Tạo trang đăng ký tài khoản mới. Form đăng ký cần được gom nhóm và phân vùng rõ ràng thành 2 nhóm thông tin bằng thẻ `<section>` với tiêu đề `<h2>` tương ứng:
 
-### Nhóm 1: Thông tin cá nhân (`<fieldset>`)
-*Tiêu đề legend: "Thông tin cá nhân"*
+### Nhóm 1: Thông tin cá nhân
+*Tiêu đề `<h2>`: "Thông tin cá nhân"*
 
 | # | Tên trường | Thuộc tính `name` | Loại input | Bắt buộc? | Ghi chú / Yêu cầu đặc biệt |
 |---|-----------|-------------------|------------|-----------|----------------------------|
@@ -42,8 +42,8 @@ Tạo trang đăng ký tài khoản mới. Form đăng ký cần được gom nh
 | 4 | Giới tính | `gender` | `type="radio"` | ✅ required | Gồm 3 lựa chọn: Nam (`male`), Nữ (`female`), Khác (`other`) |
 | 5 | Số điện thoại | `phone` | `type="tel"` | ✅ required | Kiểm tra định dạng Regex bằng thuộc tính `pattern="[0-9]{10,11}"` |
 
-### Nhóm 2: Thông tin tài khoản (`<fieldset>`)
-*Tiêu đề legend: "Thông tin tài khoản"*
+### Nhóm 2: Thông tin tài khoản
+*Tiêu đề `<h2>`: "Thông tin tài khoản"*
 
 | # | Tên trường | Thuộc tính `name` | Loại input | Bắt buộc? | Ghi chú / Yêu cầu đặc biệt |
 |---|-----------|-------------------|------------|-----------|----------------------------|
@@ -51,7 +51,7 @@ Tạo trang đăng ký tài khoản mới. Form đăng ký cần được gom nh
 | 7 | Mật khẩu | `password` | `type="password"` | ✅ required | minlength = `8` |
 | 8 | Xác nhận mật khẩu | `confirmPassword` | `type="password"` | ✅ required | minlength = `8` |
 
-### Các thuộc tính chung & Nút bên ngoài fieldset
+### Các trường chung & Nút bên ngoài nhóm
 
 | # | Tên trường | Thuộc tính `name` | Loại input | Bắt buộc? | Ghi chú / Yêu cầu đặc biệt |
 |---|-----------|-------------------|------------|-----------|----------------------------|
@@ -70,12 +70,12 @@ Tạo trang đăng ký tài khoản mới. Form đăng ký cần được gom nh
 
 ## Phần 3: Trang Cài Đặt Thông Tin Cá Nhân (`settings.html`)
 
-Tạo trang cấu hình Profile và Bảo mật cá nhân. Giao diện trang này phức tạp hơn, yêu cầu áp dụng **bố cục 2 cột** bằng CSS Grid hoặc Flexbox và chia thành 4 nhóm thông tin (4 fieldset):
+Tạo trang cấu hình Profile và Bảo mật cá nhân. Giao diện trang này phức tạp hơn, yêu cầu áp dụng **bố cục 2 cột** bằng CSS Grid hoặc Flexbox và chia thành 4 nhóm thông tin (mỗi nhóm dùng thẻ `<section>` với tiêu đề `<h2>`):
 
 ### Cột trái (Column 1)
 
 #### Nhóm 1: Thông tin cá nhân
-*Tiêu đề `<legend>`: "Thông tin cá nhân"*
+*Tiêu đề `<h2>`: "Thông tin cá nhân"*
 
 | # | Tên trường | Thuộc tính `name` | Loại input | Bắt buộc? | Ghi chú / Yêu cầu đặc biệt |
 |---|-----------|-------------------|------------|-----------|----------------------------|
@@ -86,7 +86,7 @@ Tạo trang cấu hình Profile và Bảo mật cá nhân. Giao diện trang nà
 | 5 | Giới tính | `gender` | `type="radio"` | Không | Gồm 2 lựa chọn: Nam (`male`), Nữ (`female`) |
 
 #### Nhóm 2: Đổi mật khẩu
-*Tiêu đề `<legend>`: "Bảo mật & Đổi mật khẩu"*
+*Tiêu đề `<h2>`: "Bảo mật & Đổi mật khẩu"*
 
 | # | Tên trường | Thuộc tính `name` | Loại input | Bắt buộc? | Ghi chú / Yêu cầu đặc biệt |
 |---|-----------|-------------------|------------|-----------|----------------------------|
@@ -97,7 +97,7 @@ Tạo trang cấu hình Profile và Bảo mật cá nhân. Giao diện trang nà
 ### Cột phải (Column 2)
 
 #### Nhóm 3: Thông tin liên hệ
-*Tiêu đề `<legend>`: "Thông tin liên lạc"*
+*Tiêu đề `<h2>`: "Thông tin liên lạc"*
 
 | # | Tên trường | Thuộc tính `name` | Loại input | Bắt buộc? | Ghi chú / Yêu cầu đặc biệt |
 |---|-----------|-------------------|------------|-----------|----------------------------|
@@ -108,7 +108,7 @@ Tạo trang cấu hình Profile và Bảo mật cá nhân. Giao diện trang nà
 | 10| Website cá nhân | `website` | `type="url"` | Không | placeholder bắt đầu bằng `http://` hoặc `https://` |
 
 #### Nhóm 4: Cài đặt thông báo qua email
-*Tiêu đề `<legend>`: "Tùy chọn nhận thông báo"*
+*Tiêu đề `<h2>`: "Tùy chọn nhận thông báo"*
 
 | # | Tên trường | Thuộc tính `name` | Loại input | Bắt buộc? | Ghi chú / Yêu cầu đặc biệt |
 |---|-----------|-------------------|------------|-----------|----------------------------|

@@ -42,21 +42,21 @@
         "label": "Họ",
         "type": "text",
         "required": true,
-        "notes": "placeholder: `Nguyễn` (nằm trong Fieldset 1)"
+        "notes": "placeholder: `Nguyễn` (nằm trong Nhóm 1)"
       },
       {
         "name": "firstname",
         "label": "Tên",
         "type": "text",
         "required": true,
-        "notes": "placeholder: `Văn A` (nằm trong Fieldset 1)"
+        "notes": "placeholder: `Văn A` (nằm trong Nhóm 1)"
       },
       {
         "name": "birthdate",
         "label": "Ngày sinh",
         "type": "date",
         "required": true,
-        "notes": "Trường chọn ngày sinh (nằm trong Fieldset 1)"
+        "notes": "Trường chọn ngày sinh (nằm trong Nhóm 1)"
       },
       {
         "name": "gender",
@@ -77,21 +77,21 @@
         "label": "Email",
         "type": "email",
         "required": true,
-        "notes": "Trường nhập email (nằm trong Fieldset 2)"
+        "notes": "Trường nhập email (nằm trong Nhóm 2)"
       },
       {
         "name": "password",
         "label": "Mật khẩu",
         "type": "password",
         "required": true,
-        "notes": "Độ dài tối thiểu: minlength = `8` (nằm trong Fieldset 2)"
+        "notes": "Độ dài tối thiểu: minlength = `8` (nằm trong Nhóm 2)"
       },
       {
         "name": "confirmPassword",
         "label": "Xác nhận mật khẩu",
         "type": "password",
         "required": true,
-        "notes": "Độ dài tối thiểu: minlength = `8` (nằm trong Fieldset 2)"
+        "notes": "Độ dài tối thiểu: minlength = `8` (nằm trong Nhóm 2)"
       },
       {
         "name": "agree",
@@ -99,7 +99,7 @@
         "type": "checkbox",
         "required": true,
         "expectedValue": "1",
-        "notes": "Checkbox bắt buộc chọn, `value=\"1\"` (nằm ngoài các fieldset)"
+        "notes": "Checkbox bắt buộc chọn, `value=\"1\"` (nằm ngoài các nhóm)"
       },
       {
         "name": "formType",

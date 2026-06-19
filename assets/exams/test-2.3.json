@@ -577,32 +577,32 @@
     {
       "type": "multiple_choice",
       "question": {
-        "content": "Để nhóm các phần tử liên quan trong biểu mẫu lại với nhau và vẽ một đường viền khung bao quanh, ta dùng thẻ nào?",
+        "content": "Để khai báo nội dung văn bản mặc định hiển thị sẵn bên trong ô nhập nhiều dòng <textarea>, ta phải làm thế nào?",
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<group>", "images": [] },
-        { "id": "2", "content": "<fieldset>", "images": [] },
-        { "id": "3", "content": "<border>", "images": [] },
-        { "id": "4", "content": "<div>", "images": [] }
+        { "id": "1", "content": "Khai báo qua thuộc tính value (ví dụ: <textarea value='Nội dung'></textarea>)", "images": [] },
+        { "id": "2", "content": "Viết nội dung ở giữa thẻ mở và thẻ đóng (ví dụ: <textarea>Nội dung</textarea>)", "images": [] },
+        { "id": "3", "content": "Sử dụng thuộc tính content (ví dụ: <textarea content='Nội dung'></textarea>)", "images": [] },
+        { "id": "4", "content": "Thẻ <textarea> không hỗ trợ đặt nội dung mặc định ban đầu.", "images": [] }
       ],
       "answer": ["2"],
-      "explanation": "Thẻ <fieldset> nhóm các trường biểu mẫu liên quan lại để bố cục rõ ràng và tự động vẽ khung viền xung quanh các trường đó."
+      "explanation": "Khác với thẻ <input>, thẻ <textarea> đặt nội dung mặc định của nó bằng cách viết trực tiếp văn bản ở giữa thẻ mở và thẻ đóng <textarea>...</textarea>."
     },
     {
       "type": "multiple_choice",
       "question": {
-        "content": "Thẻ nào xác định tiêu đề hiển thị chèn lên đường viền bao quanh của thẻ <fieldset>?",
+        "content": "Thuộc tính nào đặt trên thẻ <form> để chỉ định rằng trình duyệt không nên tự động kiểm tra tính hợp lệ của dữ liệu (validation) khi biểu mẫu được nộp?",
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<caption>", "images": [] },
-        { "id": "2", "content": "<legend>", "images": [] },
-        { "id": "3", "content": "<title>", "images": [] },
-        { "id": "4", "content": "<label>", "images": [] }
+        { "id": "1", "content": "skipvalidation", "images": [] },
+        { "id": "2", "content": "novalidate", "images": [] },
+        { "id": "3", "content": "unchecked", "images": [] },
+        { "id": "4", "content": "ignore", "images": [] }
       ],
       "answer": ["2"],
-      "explanation": "<legend> định nghĩa một chú thích tiêu đề cho nội dung nằm bên trong thẻ <fieldset>."
+      "explanation": "Thuộc tính novalidate (boolean) khi khai báo trên thẻ <form> sẽ ngăn không cho trình duyệt tự động thực hiện kiểm tra tính hợp lệ của dữ liệu (như required, email, v.v.) lúc gửi form."
     },
     {
       "type": "multiple_choice",

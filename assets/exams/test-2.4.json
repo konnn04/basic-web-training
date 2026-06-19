@@ -2,231 +2,531 @@
   "title": "Bài kiểm tra số 7 - Nhận diện phần tử Form qua hình ảnh",
   "description": "Bài kiểm tra thực tế yêu cầu học viên quan sát hình ảnh hiển thị trên trình duyệt để đoán thẻ HTML, thuộc tính, hoặc cơ chế hoạt động tương ứng của các ô nhập liệu.",
   "duration": 30,
-  "random": false,
+  "random": true,
   "questions": [
     {
       "type": "multiple_choice",
       "question": {
         "content": "Nhìn vào ảnh trên, để tạo ra ô chọn hình vuông được tích chọn này, thuộc tính type của thẻ <input> phải có giá trị là gì?",
-        "images": ["/test-2.4/q1_checkbox.png"]
+        "images": [
+          "/test-2.4/q1_checkbox.png"
+        ]
       },
       "options": [
-        { "id": "1", "content": "radio", "images": [] },
-        { "id": "2", "content": "select", "images": [] },
-        { "id": "3", "content": "checkbox", "images": [] },
-        { "id": "4", "content": "box", "images": [] }
+        {
+          "id": "1",
+          "content": "radio",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "select",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "checkbox",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "box",
+          "images": []
+        }
       ],
-      "answer": ["3"],
+      "answer": [
+        "3"
+      ],
       "explanation": "Thuộc tính type='checkbox' tạo ra ô chọn hình vuông cho phép tích chọn nhiều mục độc lập."
     },
     {
       "type": "multiple_choice",
       "question": {
         "content": "Để tạo ra hai nút chọn dạng hình tròn như trong ảnh sao cho tại một thời điểm chỉ được chọn duy nhất một nút, thuộc tính nào sau đây của hai nút phải giống hệt nhau?",
-        "images": ["/test-2.4/q2_radio_checked.png"]
+        "images": [
+          "/test-2.4/q2_radio_checked.png"
+        ]
       },
       "options": [
-        { "id": "1", "content": "id", "images": [] },
-        { "id": "2", "content": "name", "images": [] },
-        { "id": "3", "content": "value", "images": [] },
-        { "id": "4", "content": "type", "images": [] }
+        {
+          "id": "1",
+          "content": "id",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "name",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "value",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "type",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Các nút chọn radio (type='radio') cần có chung thuộc tính name để tạo thành một nhóm chọn lựa loại trừ nhau."
     },
     {
       "type": "multiple_choice",
       "question": {
         "content": "Thẻ HTML nào được dùng để tạo ra vùng nhập văn bản lớn gồm nhiều dòng có thể co giãn như trong ảnh?",
-        "images": ["/test-2.4/q3_textarea.png"]
+        "images": [
+          "/test-2.4/q3_textarea.png"
+        ]
       },
       "options": [
-        { "id": "1", "content": "<input type='text'>", "images": [] },
-        { "id": "2", "content": "<textarea>", "images": [] },
-        { "id": "3", "content": "<textbox>", "images": [] },
-        { "id": "4", "content": "<input type='multiline'>", "images": [] }
+        {
+          "id": "1",
+          "content": "<input type='text'>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<textarea>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<textbox>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<input type='multiline'>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thẻ <textarea> tạo ra ô nhập văn bản lớn hỗ trợ xuống dòng nhiều hàng."
     },
     {
       "type": "multiple_choice",
       "question": {
         "content": "Phần tử trong ảnh là một danh sách thả xuống (dropdown list). Thẻ HTML nào được dùng làm thẻ cha bên ngoài để bao bọc các mục lựa chọn?",
-        "images": ["/test-2.4/q4_select.png"]
+        "images": [
+          "/test-2.4/q4_select.png"
+        ]
       },
       "options": [
-        { "id": "1", "content": "<dropdown>", "images": [] },
-        { "id": "2", "content": "<list>", "images": [] },
-        { "id": "3", "content": "<select>", "images": [] },
-        { "id": "4", "content": "<option>", "images": [] }
+        {
+          "id": "1",
+          "content": "<dropdown>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<list>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<select>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<option>",
+          "images": []
+        }
       ],
-      "answer": ["3"],
+      "answer": [
+        "3"
+      ],
       "explanation": "Thẻ <select> là thẻ cha dùng để định nghĩa danh sách thả xuống, bên trong chứa các thẻ con <option>."
     },
     {
       "type": "multiple_choice",
       "question": {
         "content": "Trong ảnh là giao diện chọn tệp tin mặc định của trình duyệt. Thuộc tính type của thẻ <input> này phải là gì?",
-        "images": ["/test-2.4/q5_file_picker.png"]
+        "images": [
+          "/test-2.4/q5_file_picker.png"
+        ]
       },
       "options": [
-        { "id": "1", "content": "upload", "images": [] },
-        { "id": "2", "content": "file", "images": [] },
-        { "id": "3", "content": "image", "images": [] },
-        { "id": "4", "content": "folder", "images": [] }
+        {
+          "id": "1",
+          "content": "upload",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "file",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "image",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "folder",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "type='file' hiển thị giao diện chọn tập tin từ máy khách để tải lên."
     },
     {
       "type": "multiple_choice",
       "question": {
         "content": "Trong ảnh là ô nhập mật khẩu hiển thị các ký tự dưới dạng dấu chấm để bảo mật. Thuộc tính type của thẻ <input> này là gì?",
-        "images": ["/test-2.4/q6_password.png"]
+        "images": [
+          "/test-2.4/q6_password.png"
+        ]
       },
       "options": [
-        { "id": "1", "content": "text", "images": [] },
-        { "id": "2", "content": "hidden", "images": [] },
-        { "id": "3", "content": "secret", "images": [] },
-        { "id": "4", "content": "password", "images": [] }
+        {
+          "id": "1",
+          "content": "text",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "hidden",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "secret",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "password",
+          "images": []
+        }
       ],
-      "answer": ["4"],
+      "answer": [
+        "4"
+      ],
       "explanation": "type='password' bảo vệ thông tin mật khẩu bằng cách che khuất các ký tự gõ vào dưới dạng dấu chấm tròn."
     },
     {
       "type": "multiple_choice",
       "question": {
         "content": "Dòng chữ xám gợi ý mờ hiển thị sẵn trong ô nhập liệu trống như trên ảnh được tạo bằng thuộc tính nào?",
-        "images": ["/test-2.4/q7_placeholder.png"]
+        "images": [
+          "/test-2.4/q7_placeholder.png"
+        ]
       },
       "options": [
-        { "id": "1", "content": "value", "images": [] },
-        { "id": "2", "content": "hint", "images": [] },
-        { "id": "3", "content": "placeholder", "images": [] },
-        { "id": "4", "content": "title", "images": [] }
+        {
+          "id": "1",
+          "content": "value",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "hint",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "placeholder",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "title",
+          "images": []
+        }
       ],
-      "answer": ["3"],
+      "answer": [
+        "3"
+      ],
       "explanation": "Thuộc tính placeholder định nghĩa gợi ý ngắn gọn hiển thị trong ô nhập khi chưa có dữ liệu."
     },
     {
       "type": "multiple_choice",
       "question": {
-        "content": "Chữ 'Thông tin liên hệ' đè lên nét vẽ của khung viền bao quanh các ô nhập liệu trong ảnh được tạo bằng thẻ HTML nào?",
-        "images": ["/test-2.4/q8_fieldset_legend.png"]
+        "content": "Trong ảnh là một ô nhập yêu cầu định dạng thư điện tử (email) và hiển thị bàn phím phù hợp trên điện thoại. Thuộc tính type của thẻ <input> này là gì?",
+        "images": [
+          "/test-2.4/q8_email.png"
+        ]
       },
       "options": [
-        { "id": "1", "content": "<caption>", "images": [] },
-        { "id": "2", "content": "<legend>", "images": [] },
-        { "id": "3", "content": "<label>", "images": [] },
-        { "id": "4", "content": "<title>", "images": [] }
+        {
+          "id": "1",
+          "content": "text",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "email",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "submit",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "mail",
+          "images": []
+        }
       ],
-      "answer": ["2"],
-      "explanation": "Thẻ <legend> được dùng để đặt tên/tiêu đề chú thích đè lên khung viền của thẻ <fieldset>."
+      "answer": [
+        "2"
+      ],
+      "explanation": "type='email' được sử dụng để nhập địa chỉ email, trình duyệt sẽ tự động kiểm tra định dạng email khi gửi biểu mẫu."
     },
     {
       "type": "multiple_choice",
       "question": {
         "content": "Để hiển thị một ô chọn màu sắc trực quan như trên ảnh, thuộc tính type của thẻ <input> phải có giá trị là gì?",
-        "images": ["/test-2.4/q9_color_picker.png"]
+        "images": [
+          "/test-2.4/q9_color_picker.png"
+        ]
       },
       "options": [
-        { "id": "1", "content": "palette", "images": [] },
-        { "id": "2", "content": "color", "images": [] },
-        { "id": "3", "content": "paint", "images": [] },
-        { "id": "4", "content": "rgb", "images": [] }
+        {
+          "id": "1",
+          "content": "palette",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "color",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "paint",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "rgb",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "type='color' tạo ô chọn màu hiển thị bảng màu mặc định của hệ thống/trình duyệt."
     },
     {
       "type": "multiple_choice",
       "question": {
         "content": "Ô nhập liệu bị làm xám đi và con trỏ biến thành biểu tượng không được phép tương tác trong ảnh sử dụng thuộc tính nào?",
-        "images": ["/test-2.4/q10_disabled.png"]
+        "images": [
+          "/test-2.4/q10_disabled.png"
+        ]
       },
       "options": [
-        { "id": "1", "content": "readonly", "images": [] },
-        { "id": "2", "content": "disabled", "images": [] },
-        { "id": "3", "content": "hidden", "images": [] },
-        { "id": "4", "content": "locked", "images": [] }
+        {
+          "id": "1",
+          "content": "readonly",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "disabled",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "hidden",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "locked",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thuộc tính disabled vô hiệu hóa ô nhập liệu hoàn toàn, làm xám và không cho phép gửi dữ liệu đi khi submit."
     },
     {
       "type": "multiple_choice",
       "question": {
         "content": "Để tạo thanh trượt chọn giá trị số trong một khoảng giới hạn như trong hình, thuộc tính type của thẻ <input> phải là gì?",
-        "images": ["/test-2.4/q11_range_slider.png"]
+        "images": [
+          "/test-2.4/q11_range_slider.png"
+        ]
       },
       "options": [
-        { "id": "1", "content": "slider", "images": [] },
-        { "id": "2", "content": "range", "images": [] },
-        { "id": "3", "content": "progress", "images": [] },
-        { "id": "4", "content": "scroll", "images": [] }
+        {
+          "id": "1",
+          "content": "slider",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "range",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "progress",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "scroll",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "type='range' định nghĩa một thanh trượt kéo để điều chỉnh số trong khoảng min-max."
     },
     {
       "type": "multiple_choice",
       "question": {
         "content": "Để tạo ô nhập hiển thị hộp lịch chọn ngày tháng năm như trên hình, ta dùng thuộc tính type là:",
-        "images": ["/test-2.4/q12_date.png"]
+        "images": [
+          "/test-2.4/q12_date.png"
+        ]
       },
       "options": [
-        { "id": "1", "content": "calendar", "images": [] },
-        { "id": "2", "content": "time", "images": [] },
-        { "id": "3", "content": "date", "images": [] },
-        { "id": "4", "content": "month", "images": [] }
+        {
+          "id": "1",
+          "content": "calendar",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "time",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "date",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "month",
+          "images": []
+        }
       ],
-      "answer": ["3"],
+      "answer": [
+        "3"
+      ],
       "explanation": "type='date' tạo ra hộp nhập ngày tháng năm với giao diện lịch tương tác."
     },
     {
       "type": "multiple_choice",
       "question": {
         "content": "Các tiêu đề phân nhóm in đậm không thể click chọn 'Trái cây' và 'Rau củ' trong menu select ở ảnh được tạo bằng thẻ HTML nào?",
-        "images": ["/test-2.4/q13_optgroup.png"]
+        "images": [
+          "/test-2.4/q13_optgroup.png"
+        ]
       },
       "options": [
-        { "id": "1", "content": "<group>", "images": [] },
-        { "id": "2", "content": "<option label='...'>", "images": [] },
-        { "id": "3", "content": "<optgroup>", "images": [] },
-        { "id": "4", "content": "<selectgroup>", "images": [] }
+        {
+          "id": "1",
+          "content": "<group>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<option label='...'>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<optgroup>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<selectgroup>",
+          "images": []
+        }
       ],
-      "answer": ["3"],
+      "answer": [
+        "3"
+      ],
       "explanation": "Thẻ <optgroup> nhóm các tùy chọn <option> trong thẻ <select>, tiêu đề nhóm không thể click chọn."
     },
     {
       "type": "multiple_choice",
       "question": {
         "content": "Nhìn vào ô nhập liệu có các nút tăng/giảm ở mép phải như trên hình, thuộc tính type của thẻ <input> này là gì?",
-        "images": ["/test-2.4/q14_number.png"]
+        "images": [
+          "/test-2.4/q14_number.png"
+        ]
       },
       "options": [
-        { "id": "1", "content": "text", "images": [] },
-        { "id": "2", "content": "number", "images": [] },
-        { "id": "3", "content": "digits", "images": [] },
-        { "id": "4", "content": "range", "images": [] }
+        {
+          "id": "1",
+          "content": "text",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "number",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "digits",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "range",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "type='number' tạo ô nhập số, giới hạn ký tự nhập là chữ số và thêm hai nút mũi tên tăng giảm số."
     },
     {
       "type": "multiple_choice",
       "question": {
         "content": "Cảnh báo lỗi của trình duyệt như trong ảnh xuất hiện khi phần tử <input> tương ứng chứa thuộc tính ràng buộc nào?",
-        "images": ["/test-2.4/q15_validation_tooltip.png"]
+        "images": [
+          "/test-2.4/q15_validation_tooltip.png"
+        ]
       },
       "options": [
-        { "id": "1", "content": "readonly", "images": [] },
-        { "id": "2", "content": "required", "images": [] },
-        { "id": "3", "content": "pattern", "images": [] },
-        { "id": "4", "content": "autofocus", "images": [] }
+        {
+          "id": "1",
+          "content": "readonly",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "required",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "pattern",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "autofocus",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thuộc tính required đánh dấu ô nhập liệu là bắt buộc, trình duyệt sẽ báo lỗi nếu người dùng submit khi để trống."
     },
     {
@@ -236,12 +536,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<form>", "images": [] },
-        { "id": "2", "content": "<fieldset>", "images": [] },
-        { "id": "3", "content": "<optgroup>", "images": [] },
-        { "id": "4", "content": "<div>", "images": [] }
+        {
+          "id": "1",
+          "content": "<form>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<fieldset>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<optgroup>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<div>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thẻ <fieldset> nhóm các thẻ trong biểu mẫu lại và tạo đường viền xung quanh để tăng tính mạch lạc."
     },
     {
@@ -251,12 +569,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "disabled", "images": [] },
-        { "id": "2", "content": "readonly", "images": [] },
-        { "id": "3", "content": "locked", "images": [] },
-        { "id": "4", "content": "hidden", "images": [] }
+        {
+          "id": "1",
+          "content": "disabled",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "readonly",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "locked",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "hidden",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thuộc tính readonly (chỉ đọc) ngăn cản việc chỉnh sửa nội dung văn bản nhưng giá trị của ô đó vẫn được đóng gói gửi đi."
     },
     {
@@ -266,12 +602,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "name", "images": [] },
-        { "id": "2", "content": "id", "images": [] },
-        { "id": "3", "content": "value", "images": [] },
-        { "id": "4", "content": "class", "images": [] }
+        {
+          "id": "1",
+          "content": "name",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "id",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "value",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "class",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thuộc tính for trên nhãn <label> phải trỏ đúng tới thuộc tính 'id' của ô nhập liệu liên kết."
     },
     {
@@ -281,12 +635,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "POST", "images": [] },
-        { "id": "2", "content": "GET", "images": [] },
-        { "id": "3", "content": "PUT", "images": [] },
-        { "id": "4", "content": "SUBMIT", "images": [] }
+        {
+          "id": "1",
+          "content": "POST",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "GET",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "PUT",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "SUBMIT",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Nếu bỏ qua thuộc tính method, trình duyệt sẽ mặc định gửi biểu mẫu theo phương thức GET."
     },
     {
@@ -296,12 +668,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<button type='button'>", "images": [] },
-        { "id": "2", "content": "<button type='submit'>", "images": [] },
-        { "id": "3", "content": "<button type='reset'>", "images": [] },
-        { "id": "4", "content": "<button type='send'>", "images": [] }
+        {
+          "id": "1",
+          "content": "<button type='button'>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<button type='submit'>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<button type='reset'>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<button type='send'>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "type='submit' cấu hình nút bấm kích hoạt tiến trình nộp biểu mẫu lên máy chủ."
     }
   ]
