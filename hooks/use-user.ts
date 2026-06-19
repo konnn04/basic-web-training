@@ -5,6 +5,7 @@ import {
   auth,
   isFirebaseConfigured,
   googleProvider,
+  signInWithPopup,
   signInWithRedirect,
   getRedirectResult,
   browserPopupRedirectResolver,
@@ -113,11 +114,19 @@ export function useUser() {
     setIsLoading(true);
     try {
       if (isFirebaseConfigured && auth && googleProvider) {
-        // Use redirect sign-in directly — more reliable in production
-        // (popup is blocked by modern browsers' third-party cookie restrictions)
-        await signInWithRedirect(auth, googleProvider, browserPopupRedirectResolver);
-        // Page will navigate away; result is handled by getRedirectResult on return
-        return true;
+        // Try signInWithPopup first — works on localhost and after Firebase Hosting is deployed
+        try {
+          await signInWithPopup(auth, googleProvider, browserPopupRedirectResolver);
+          return true;
+        } catch (popupError: any) {
+          // If popup is blocked, fall back to redirect sign-in
+          if (popupError.code === "auth/popup-blocked") {
+            console.warn("Popup blocked, falling back to redirect sign-in");
+            await signInWithRedirect(auth, googleProvider, browserPopupRedirectResolver);
+            return true;
+          }
+          throw popupError;
+        }
       } else {
         // Fallback Mock Google login
         const mockName = mockProfile?.name || "Nguyễn Văn A";
