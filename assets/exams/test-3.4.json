@@ -1,0 +1,1245 @@
+{
+  "title": "Bài kiểm tra số 11: Ôn tập tổng hợp + Transition & Animation",
+  "description": "Ôn lại kiến thức CSS cơ bản, selector, flexbox, position từ các đề trước, kết hợp thêm transition và animation.",
+  "duration": 60,
+  "random": true,
+  "questions": [
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `transition` dùng để làm gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Tạo hiệu ứng chuyển đổi mượt mà giữa 2 trạng thái CSS khi giá trị thuộc tính thay đổi",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Đổi vị trí phần tử ngay lập tức",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Ẩn phần tử",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Đặt z-index",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`transition` cho phép một thuộc tính CSS thay đổi giá trị một cách **mượt mà theo thời gian** thay vì thay đổi tức thì, ví dụ khi hover."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Khai báo `transition: background-color 0.3s ease;` gồm những thành phần nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Thuộc tính áp dụng, thời gian, kiểu easing",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Chỉ có thời gian",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Thuộc tính và màu sắc",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không hợp lệ",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Cú pháp gồm: **property** (thuộc tính áp dụng transition), **duration** (thời gian, ở đây 0.3 giây) và **timing-function** (kiểu chuyển động, ở đây `ease`)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `transition-delay` dùng để làm gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đặt thời gian trễ trước khi hiệu ứng transition bắt đầu",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Đặt tổng thời gian transition",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Đặt số lần lặp lại",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không có tác dụng",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`transition-delay` quy định khoảng thời gian chờ trước khi hiệu ứng chuyển đổi thực sự bắt đầu chạy."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Giá trị nào của `transition-timing-function` tạo chuyển động đều, tốc độ không đổi từ đầu đến cuối?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`ease`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`ease-in`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`linear`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`ease-out`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "3"
+      ],
+      "explanation": "`linear` giữ tốc độ chuyển động **không đổi** trong suốt quá trình; các giá trị `ease`, `ease-in`, `ease-out` đều có tốc độ thay đổi (nhanh/chậm dần)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Để tạo transition cho TẤT CẢ thuộc tính có thể thay đổi của phần tử, ta dùng giá trị nào cho property?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`everything`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`all`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`*`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`any`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Từ khóa `all` áp dụng hiệu ứng transition cho mọi thuộc tính CSS có thể chuyển đổi của phần tử."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "`transition` chỉ hoạt động khi giá trị của thuộc tính CSS đó thực sự thay đổi (ví dụ do `:hover`, thay đổi class bằng JS,...).",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Transition chỉ kích hoạt khi có sự thay đổi giá trị thuộc tính được khai báo, ví dụ trạng thái hover, focus, hoặc thay đổi qua JavaScript."
+    },
+    {
+      "type": "short_answer",
+      "question": {
+        "content": "Viết shorthand đầy đủ của transition gồm 4 phần theo thứ tự: property, duration, timing-function và phần còn lại là gì?",
+        "images": []
+      },
+      "answer": [
+        "transition-delay",
+        "delay"
+      ],
+      "explanation": "Thứ tự đầy đủ của shorthand `transition` là: `property duration timing-function delay`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Khác biệt cơ bản giữa `transition` và `animation` là gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Không có khác biệt",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`transition` chỉ chuyển giữa 2 trạng thái (đầu-cuối), còn `animation` có thể định nghĩa nhiều bước trung gian qua `@keyframes` và lặp lại tự động",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`animation` chỉ dùng cho ảnh",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`transition` cần JavaScript, `animation` thì không",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`transition` đơn giản chỉ nội suy giữa 2 trạng thái (bắt đầu và kết thúc) khi có sự kiện kích hoạt; `animation` (kết hợp `@keyframes`) cho phép định nghĩa nhiều bước trung gian phức tạp và có thể tự chạy, lặp lại mà không cần sự kiện kích hoạt."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Quy tắc `@keyframes` dùng để làm gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Định nghĩa các bước (giai đoạn) của một animation",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Định nghĩa font chữ",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Định nghĩa media query",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Định nghĩa biến CSS",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`@keyframes tenAnimation { 0% {...} 100% {...} }` định nghĩa các trạng thái CSS tại từng mốc thời gian (phần trăm) của animation."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `animation-iteration-count: infinite;` có tác dụng gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Animation chạy 1 lần rồi dừng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Animation lặp lại vô hạn",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Animation không bao giờ chạy",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Animation chạy ngược",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`infinite` khiến animation lặp lại liên tục, không bao giờ dừng cho tới khi bị loại bỏ."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `animation-direction: alternate;` có tác dụng gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Animation chạy xuôi rồi ngược xen kẽ qua mỗi lần lặp",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Animation luôn chạy xuôi",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Animation chỉ chạy 1 lần",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không có tác dụng gì",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`alternate` khiến mỗi chu kỳ lặp đảo chiều: chu kỳ lẻ chạy xuôi (0%→100%), chu kỳ chẵn chạy ngược (100%→0%)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `animation-fill-mode: forwards;` có tác dụng gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Giữ nguyên trạng thái CSS của keyframe cuối cùng sau khi animation kết thúc",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Quay lại trạng thái ban đầu sau khi kết thúc",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Lặp lại animation mãi mãi",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không có tác dụng",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`forwards` giữ lại các giá trị CSS được định nghĩa ở keyframe cuối cùng (100%) sau khi animation đã chạy xong, thay vì quay về trạng thái CSS ban đầu."
+    },
+    {
+      "type": "short_answer",
+      "question": {
+        "content": "Thuộc tính nào quy định animation chạy trong bao lâu (1 chu kỳ)?",
+        "images": []
+      },
+      "answer": [
+        "animation-duration"
+      ],
+      "explanation": "`animation-duration` quy định thời gian của **một chu kỳ** animation, ví dụ `animation-duration: 2s;`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Để gắn một animation (đã định nghĩa bằng `@keyframes tenAnimation`) vào một phần tử, ta dùng?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`animation-name: tenAnimation;` kết hợp với `animation-duration`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`@keyframes: tenAnimation;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`apply-animation: tenAnimation;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`use: tenAnimation;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`animation-name` chỉ định tên `@keyframes` sẽ áp dụng, bắt buộc đi kèm `animation-duration` để animation có hiệu lực."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "Animation có thể tự động chạy ngay khi trang tải xong, không cần sự kiện như `:hover`.",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Khác với `transition`, `animation` (gắn `@keyframes`) có thể tự khởi chạy ngay khi phần tử xuất hiện, không cần chờ sự kiện kích hoạt như hover hay thay đổi class."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Mã `rgb(0, 255, 0)` cho ra màu gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đỏ",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Xanh lá (green)",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Xanh dương",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Đen",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Kênh Green = 255 (tối đa), Red và Blue = 0, nên cho ra màu **xanh lá** thuần."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "`box-sizing: border-box;` giúp ích gì cho việc tính toán layout?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Width/height đã bao gồm padding & border, dễ kiểm soát kích thước thực tế",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Tự động responsive",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Không liên quan tới layout",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Loại bỏ hoàn toàn margin",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Giúp lập trình viên không phải cộng thêm padding/border khi tính tổng kích thước hiển thị thực tế của phần tử."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Phần tử `display: inline` có thể đặt `width` và `height` không?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Có, đặt bình thường",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Không, các giá trị này sẽ không có tác dụng",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Chỉ đặt được height",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Chỉ đặt được width",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Phần tử `inline` không thể đặt `width`/`height`; muốn vừa nằm cùng dòng vừa đặt được kích thước, cần dùng `inline-block`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `float` thường đi kèm vấn đề gì cần khắc phục bằng `clear` hoặc `overflow`?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Mất màu nền",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Phần tử cha bị co lại do không 'bao' được các phần tử con float (collapse)",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Mất font chữ",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không liên quan tới float",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Đây là vấn đề margin/height collapse kinh điển khi dùng float, cần `clear: both;` trên phần tử sau, hoặc `overflow: hidden;`/`auto` trên phần tử cha để khắc phục."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Cho HTML:\n\n```html\n<nav>\n  <a href=\"#\" class=\"link\">Trang chủ</a>\n  <a href=\"#\" class=\"link active\">Giới thiệu</a>\n</nav>\n```\n\nSelector nào chỉ chọn link \"Giới thiệu\"?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`.link`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`a`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`.link.active`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`nav a`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "3"
+      ],
+      "explanation": "Chỉ link \"Giới thiệu\" có đồng thời cả 2 class `link` và `active`, nên selector viết liền `.link.active` mới chọn đúng riêng phần tử này."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Selector `div > p` khác `div p` ở điểm nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Không khác gì",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`div > p` chỉ chọn `<p>` là con trực tiếp, `div p` chọn mọi `<p>` con cháu (mọi cấp)",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`div p` chỉ áp dụng 1 lần",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`div > p` không hợp lệ",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`>` là child combinator (chỉ con trực tiếp), trong khi khoảng trắng là descendant combinator (mọi cấp con cháu)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Pseudo-class nào áp dụng style khi một input đang nhận con trỏ để gõ?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`:hover`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`:focus`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`:active`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`:visited`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`:focus` kích hoạt khi phần tử (như input) đang được chọn/focus để tương tác, ví dụ vừa click vào ô nhập liệu."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Để các flex item nằm giữa container theo cả 2 chiều, cần khai báo những thuộc tính nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`display: flex;` + `justify-content: center;` + `align-items: center;`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Chỉ `display: flex;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`position: center;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`text-align: center;` là đủ",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Cần `display: flex;` để kích hoạt flexbox, sau đó `justify-content: center;` căn theo trục chính và `align-items: center;` căn theo trục phụ."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Một thanh điều hướng (navbar) \"dính\" lại ở đầu trang khi cuộn xuống thường dùng thuộc tính position nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`static`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`relative`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`sticky` hoặc `fixed`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`inherit`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "3"
+      ],
+      "explanation": "`position: sticky;` (dính theo ngưỡng cuộn) hoặc `position: fixed;` (cố định tuyệt đối theo viewport) đều là lựa chọn phổ biến cho navbar luôn hiển thị khi cuộn trang."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "`flex-wrap: wrap;` kết hợp với nhiều item có tổng width vượt quá container sẽ dẫn đến điều gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Các item bị ép co lại nằm chung 1 dòng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Các item tự động xuống dòng mới",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Trang web bị lỗi",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Container tự mở rộng vô hạn",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Khi bật `wrap`, các item vượt quá không gian sẽ tự động được đẩy xuống dòng mới thay vì bị ép co lại trên cùng 1 dòng."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Khi một nút bấm dùng `transition: all 0.3s;` và có style `:hover { background-color: blue; }`, điều gì sẽ xảy ra khi rê chuột vào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Màu nền đổi ngay lập tức không có hiệu ứng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Màu nền chuyển dần mượt mà sang xanh dương trong 0.3 giây",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Nút bấm biến mất",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không có gì xảy ra vì thiếu animation-name",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`transition: all 0.3s;` áp dụng hiệu ứng chuyển đổi mượt cho mọi thuộc tính thay đổi, bao gồm `background-color` khi trạng thái `:hover` được kích hoạt."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Một phần tử `position: absolute;` đặt bên trong flex container có còn được flexbox quản lý layout không?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Có, vẫn theo flexbox bình thường",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Không, vì `absolute` đưa phần tử ra khỏi luồng layout, kể cả flex layout",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Chỉ áp dụng nếu dùng `flex: 1`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Tùy trình duyệt",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`position: absolute;` loại phần tử khỏi luồng tài liệu bình thường (normal flow), bao gồm cả flex layout của cha, nên nó không còn được flexbox sắp xếp như các item khác."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Để tạo hiệu ứng loading xoay vòng vô hạn (spinner) bằng CSS thuần, công cụ phù hợp nhất là?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`transition`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`animation` kết hợp `@keyframes` và `animation-iteration-count: infinite;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`float`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`box-sizing`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Vì spinner cần tự động lặp lại liên tục không cần sự kiện kích hoạt, `animation` + `@keyframes` (với `infinite`) là công cụ phù hợp, trong khi `transition` chỉ chuyển giữa 2 trạng thái khi có sự kiện."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "Cả `transition` lẫn `animation` đều có thể tăng tốc xử lý bằng GPU nếu áp dụng cho `transform` và `opacity` thay vì các thuộc tính như `width`/`top`.",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`transform` và `opacity` thường được trình duyệt tối ưu bằng GPU (compositing layer), giúp hiệu ứng mượt hơn so với việc animate trực tiếp `width`, `height`, `top`, `left` (gây reflow)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `cursor: pointer;` thường được kết hợp với `:hover` và `transition` để làm gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Báo hiệu phần tử có thể click được và tạo hiệu ứng phản hồi mượt khi rê chuột",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Đổi con trỏ thành hình mũi tên mặc định",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Vô hiệu hóa click chuột",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Ẩn con trỏ chuột",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`cursor: pointer;` đổi hình dạng con trỏ chuột thành biểu tượng bàn tay, báo hiệu phần tử có thể tương tác (click); thường kết hợp `transition` để hiệu ứng hover mượt mà hơn."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `transition-property` dùng để làm gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Chỉ định thuộc tính CSS nào sẽ được áp dụng hiệu ứng chuyển đổi",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Chỉ định thời gian chuyển đổi",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Chỉ định màu sắc",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không tồn tại trong CSS",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`transition-property` liệt kê (các) thuộc tính CSS cụ thể sẽ có hiệu ứng transition, ví dụ `transition-property: width, color;`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Giá trị `ease-in-out` của timing-function có đặc điểm gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Tốc độ không đổi suốt quá trình",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Bắt đầu chậm, tăng tốc giữa chừng, rồi chậm dần lúc kết thúc",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Luôn dừng đột ngột ở giữa",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Chỉ áp dụng cho animation, không áp dụng transition",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`ease-in-out` tạo chuyển động mượt: chậm ở đầu, nhanh ở giữa, rồi chậm dần khi kết thúc — tạo cảm giác tự nhiên."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "`animation-play-state: paused;` có tác dụng gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Dừng hẳn animation, xóa toàn bộ keyframes",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Tạm dừng animation tại vị trí hiện tại, có thể chạy tiếp khi đổi lại thành `running`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Tăng tốc animation",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không có tác dụng",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`paused` tạm dừng animation ở đúng thời điểm hiện tại; đổi lại `running` sẽ cho animation tiếp tục từ chỗ đã dừng."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `animation` shorthand có thể gộp các giá trị nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "name, duration, timing-function, delay, iteration-count, direction, fill-mode",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Chỉ name và duration",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Chỉ duration và delay",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không thể gộp, phải viết riêng từng dòng",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Shorthand `animation` cho phép gộp tối đa 8 thành phần liên quan tới animation trong một khai báo duy nhất, ví dụ `animation: spin 2s linear infinite;`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Trong flexbox, để đảo ngược hoàn toàn cả hướng VÀ thứ tự item theo cột, ta dùng giá trị nào của `flex-direction`?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`column`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`column-reverse`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`row-reverse`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`reverse`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`column-reverse` sắp xếp item theo trục dọc nhưng đảo ngược thứ tự, item cuối cùng trong HTML hiển thị lên trên cùng."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Phần tử `position: sticky;` cần điều kiện gì để hoạt động đúng?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Không cần điều kiện gì",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Cần khai báo ít nhất 1 trong các thuộc tính `top/right/bottom/left` và phần tử cha không bị `overflow: hidden` cắt mất",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Chỉ hoạt động trong flexbox",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Chỉ hoạt động với phần tử có id",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`sticky` cần xác định ngưỡng dính qua `top`/`bottom`/... và phần tử cha không được có `overflow` cắt mất vùng cuộn, nếu không sticky sẽ không hoạt động như mong đợi."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Mã hex `#808080` đại diện cho màu gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đỏ",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Xám",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Xanh dương",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Vàng",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`#808080` có cả 3 kênh R, G, B bằng nhau ở mức trung bình (128/255), tạo ra màu **xám**."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Để chọn phần tử `<li>` là con thứ 3 trong danh sách `<ul>`, selector nào đúng?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`li:nth-child(3)`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`li:child(3)`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`li[3]`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`li#3`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`:nth-child(3)` chọn phần tử là con thứ 3 trong nhóm con cùng cha — kết hợp với `li` để giới hạn chỉ áp dụng cho thẻ `<li>`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `align-content` khác `align-items` ở điểm nào trong flexbox?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Không khác gì",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`align-content` căn chỉnh khoảng cách giữa NHIỀU DÒNG item khi có `flex-wrap: wrap`, còn `align-items` căn chỉnh từng item trong 1 dòng",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`align-content` chỉ dùng cho grid",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`align-items` chỉ áp dụng cho text",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`align-items` hoạt động khi chỉ có 1 dòng item, căn chỉnh các item theo trục phụ; `align-content` chỉ phát huy tác dụng khi có **nhiều dòng** (do `flex-wrap: wrap`), căn chỉnh khoảng cách giữa các dòng đó."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "`background-size: contain` và `object-fit: contain` (dùng cho thẻ `<img>`) có ý nghĩa tương tự nhau về cách co giãn ảnh giữ tỉ lệ.",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Cả hai đều co giãn nội dung ảnh để vừa khít trong vùng chứa mà vẫn giữ nguyên tỉ lệ khung hình gốc, có thể để lại khoảng trống nếu tỉ lệ khung chứa khác tỉ lệ ảnh."
+    }
+  ]
+}

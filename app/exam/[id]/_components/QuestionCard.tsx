@@ -3,6 +3,7 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
+import { MarkdownRenderer } from "@/components/ui/markdown-renderer";
 import { QuestionData } from "@/hooks/use-quiz";
 
 type QuestionCardProps = {
@@ -44,9 +45,12 @@ export function QuestionCard({
         <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-orange-500 text-white font-extrabold text-sm shadow-md shadow-orange-500/10 flex-shrink-0">
           {currentIndex + 1}
         </div>
-        <h2 className="text-sm sm:text-base font-bold text-zinc-900 dark:text-zinc-100 leading-relaxed pt-1.5 select-text">
-          {qContent}
-        </h2>
+        <div className="pt-1.5 select-text">
+          <MarkdownRenderer
+            content={qContent}
+            className="text-sm sm:text-base font-bold text-zinc-900 dark:text-zinc-100 leading-relaxed"
+          />
+        </div>
       </div>
 
       {/* Question Body */}
@@ -109,7 +113,9 @@ export function QuestionCard({
                     >
                       {alphabet[optIdx]}
                     </div>
-                    <span className="text-xs sm:text-sm select-text leading-relaxed">{optContent}</span>
+                    <span className="text-xs sm:text-sm select-text leading-relaxed">
+                      <MarkdownRenderer content={optContent} />
+                    </span>
                   </button>
                 );
               })}

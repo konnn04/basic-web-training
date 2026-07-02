@@ -1,0 +1,998 @@
+{
+  "title": "Bài kiểm tra số 14: Mockup CSS - Nhận diện thuộc tính qua giao diện",
+  "description": "Đề thi dạng nhận diện: mỗi câu mô tả một mockup giao diện (bạn tự chụp ảnh minh họa tương ứng), yêu cầu xác định thuộc tính/kỹ thuật CSS phù hợp để tạo ra hiệu ứng hoặc bố cục được mô tả.",
+  "duration": 30,
+  "random": true,
+  "questions": [
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "**Mô tả mockup:** Một khối nội dung hình chữ nhật được đặt CHÍNH GIỮA màn hình theo cả chiều ngang và chiều dọc, xung quanh là nền trống.\n\nĐể căn giữa khối này theo cả 2 chiều, cách làm hiện đại và đơn giản nhất là dùng tổ hợp thuộc tính nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`float: center;`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`display: flex; justify-content: center; align-items: center;` trên phần tử cha",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`text-align: center;` trên chính khối đó",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`margin: center;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Đặt phần tử cha thành flex container rồi dùng `justify-content: center;` (trục ngang) và `align-items: center;` (trục dọc) là cách phổ biến và đơn giản nhất để căn giữa hoàn toàn một khối con."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "**Mô tả mockup:** Một thanh điều hướng (navbar) nằm ngang trên cùng trang, gồm logo bên trái và danh sách menu (Home, About, Contact) bên phải, cùng nằm trên 1 hàng, cách đều mép trái/phải.\n\nLayout logo-trái/menu-phải trên cùng 1 hàng này thường được dựng bằng thuộc tính nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`display: flex; justify-content: space-between;`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`display: block;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`float: none;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`position: static;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`display: flex;` trên container kết hợp `justify-content: space-between;` đẩy phần tử đầu tiên (logo) sát trái và phần tử cuối (menu) sát phải, với khoảng trống ở giữa."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "**Mô tả mockup:** Một lưới (grid) gồm 3 thẻ sản phẩm (product card) mỗi hàng, có khoảng cách đều nhau giữa các thẻ, các thẻ tự động xuống hàng mới khi thu nhỏ màn hình.\n\nThuộc tính nào trên flex container cho phép các item TỰ ĐỘNG xuống dòng khi không đủ chỗ?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`flex-wrap: wrap;`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`flex-wrap: nowrap;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`overflow: hidden;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`white-space: nowrap;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`flex-wrap: wrap;` cho phép các flex item tự động chuyển xuống dòng mới khi tổng độ rộng vượt quá không gian của container, tạo hiệu ứng lưới responsive."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "**Mô tả mockup:** Một nút bấm hình chữ nhật bo tròn 4 góc rõ rệt (gần giống viên thuốc/pill), nền màu xanh, chữ trắng ở giữa.\n\nĐể bo tròn góc thành dạng 'viên thuốc' (pill) hoàn toàn (2 đầu tròn hẳn), giá trị `border-radius` phù hợp nhất là?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`border-radius: 0;`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`border-radius: 4px;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`border-radius: 9999px;` (hoặc một giá trị rất lớn / 50% nếu height cố định)",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`border-radius: square;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "3"
+      ],
+      "explanation": "Khi đặt `border-radius` lớn hơn một nửa chiều cao của nút (ví dụ một giá trị rất lớn như `9999px`), góc sẽ bo tròn tối đa, tạo hình dạng viên thuốc đặc trưng."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "**Mô tả mockup:** Một ảnh đại diện (avatar) hình tròn hoàn hảo, kích thước 80x80px, nằm trong một thẻ profile.\n\nĐể biến một ảnh vuông 80x80px thành hình tròn hoàn hảo, ta cần khai báo gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`border-radius: 50%;`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`border-radius: 10px;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`clip-path: square();`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`overflow: visible;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Với phần tử có chiều rộng bằng chiều cao (hình vuông), `border-radius: 50%;` sẽ bo tròn thành hình tròn hoàn hảo."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "**Mô tả mockup:** Một banner lớn ở đầu trang (hero section) có ảnh nền phủ kín toàn bộ chiều rộng và chiều cao của banner mà KHÔNG bị méo hình, dù màn hình có tỉ lệ khác nhau.\n\nThuộc tính CSS nào đảm bảo ảnh nền luôn phủ kín mà không bị méo (có thể bị cắt bớt)?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`background-size: cover;`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`background-size: 100% 100%;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`background-repeat: repeat;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`background-size: auto;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`background-size: cover;` co giãn ảnh giữ nguyên tỉ lệ gốc để phủ kín toàn bộ vùng chứa, chấp nhận cắt bớt phần thừa thay vì làm méo ảnh."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "**Mô tả mockup:** Một sidebar bên trái có chiều rộng cố định 250px, phần nội dung chính bên phải chiếm toàn bộ phần không gian còn lại của màn hình.\n\nTrong flexbox, để sidebar giữ đúng 250px còn nội dung chính tự lấp đầy phần còn lại, ta khai báo flex như thế nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Sidebar: `flex: 0 0 250px;`, Nội dung chính: `flex: 1;`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Cả 2 đều dùng `flex: 1;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Sidebar: `flex: 1;`, Nội dung chính: `flex: 0;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không thể làm bằng flexbox",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`flex: 0 0 250px;` (grow=0, shrink=0, basis=250px) giữ sidebar cố định đúng 250px không co giãn; `flex: 1;` cho nội dung chính tự động giãn lấp đầy toàn bộ không gian còn lại."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "**Mô tả mockup:** Một thẻ thông báo (toast/snackbar) xuất hiện cố định ở góc dưới-phải màn hình, luôn nằm tại đó dù người dùng cuộn trang.\n\nĐể giữ thẻ thông báo cố định tại một góc màn hình bất kể cuộn trang, thuộc tính `position` phù hợp là?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`position: static;`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`position: relative;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`position: fixed;` kết hợp `bottom` và `right`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`position: sticky;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "3"
+      ],
+      "explanation": "`position: fixed;` định vị phần tử theo viewport (khung nhìn), không đổi vị trí khi cuộn trang; kết hợp `bottom: 20px; right: 20px;` để ghim nó vào góc dưới-phải."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "**Mô tả mockup:** Một tiêu đề bảng (table header) luôn 'dính' lại ở trên cùng khi người dùng cuộn xuống xem dữ liệu dài bên dưới, nhưng vẫn nằm trong luồng cuộn bình thường của bảng cho tới khi chạm ngưỡng.\n\nHành vi 'dính lại khi cuộn tới ngưỡng' này là đặc trưng của thuộc tính position nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`position: static;`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`position: absolute;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`position: sticky;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`position: relative;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "3"
+      ],
+      "explanation": "`position: sticky;` kết hợp `top: 0;` tạo đúng hành vi: phần tử cuộn bình thường cho tới khi chạm ngưỡng (top = 0), sau đó \"dính\" cố định tại đó."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "**Mô tả mockup:** Một danh sách các mục (list item) có viền phân cách (đường kẻ mảnh) ở GIỮA các mục, nhưng KHÔNG có viền ở mục đầu tiên và mục cuối cùng.\n\nSelector CSS nào phù hợp để chỉ thêm viền trên cho các mục TRỪ mục đầu tiên?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`li:first-child { border-top: none; }` (hoặc `li:not(:first-child) { border-top: ...; }`)",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`li:hover`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`li::before`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`li:visited`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Có thể dùng `li:not(:first-child)` để áp dụng border-top cho mọi mục trừ mục đầu tiên, hoặc đặt border-top mặc định rồi dùng `li:first-child { border-top: none; }` để loại trừ mục đầu."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "**Mô tả mockup:** Một form đăng nhập với các ô input xếp chồng theo chiều dọc, mỗi ô cách nhau một khoảng đều, toàn bộ form được căn giữa màn hình trong một khung (card) có bóng đổ nhẹ.\n\nBóng đổ nhẹ phía dưới khung form thường được tạo bằng thuộc tính nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`border: 1px dashed;`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`box-shadow`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`outline`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`text-shadow`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`box-shadow` (ví dụ `box-shadow: 0 2px 8px rgba(0,0,0,0.15);`) tạo hiệu ứng đổ bóng cho toàn bộ khối phần tử, thường dùng cho card/form để tạo chiều sâu thị giác."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "**Mô tả mockup:** Một đoạn văn bản dài bị giới hạn chỉ hiển thị 1 dòng, phần thừa được cắt và hiện dấu '...' ở cuối.\n\nCần kết hợp 3 thuộc tính nào để đạt hiệu ứng cắt chữ và hiện dấu ba chấm này?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`white-space: nowrap; overflow: hidden; text-overflow: ellipsis;`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`display: flex; flex-wrap: wrap;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`text-align: justify; line-height: 1.5;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`position: absolute; z-index: 1;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Bộ ba kinh điển: `white-space: nowrap;` (không xuống dòng), `overflow: hidden;` (ẩn phần tràn), `text-overflow: ellipsis;` (hiện dấu '...' tại điểm cắt)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "**Mô tả mockup:** Một nút bấm đổi màu nền mượt mà (không giật cục) khi người dùng di chuột vào, mất khoảng nửa giây để chuyển màu hoàn toàn.\n\nHiệu ứng đổi màu mượt khi hover này được tạo bằng thuộc tính nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`animation-direction`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`transition`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`flex-grow`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`clip-path`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`transition: background-color 0.5s;` (kết hợp `:hover` để đổi giá trị `background-color`) tạo hiệu ứng chuyển màu mượt mà qua thời gian thay vì đổi tức thì."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "**Mô tả mockup:** Một biểu tượng loading dạng vòng tròn xoay liên tục không ngừng cho tới khi dữ liệu tải xong.\n\nHiệu ứng xoay liên tục, lặp vô hạn này phù hợp nhất với công cụ CSS nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`transition` đơn thuần",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`animation` với `@keyframes` xoay `transform: rotate()` và `animation-iteration-count: infinite;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`float: spin;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`position: sticky;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Vì cần lặp lại tự động liên tục mà không cần sự kiện kích hoạt, `animation` kết hợp `@keyframes` (xoay dần từ 0deg đến 360deg) và `infinite` là lựa chọn đúng, khác với `transition` chỉ chuyển giữa 2 trạng thái khi có sự kiện."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "**Mô tả mockup:** Một thẻ sản phẩm (card) phóng to nhẹ lên khoảng 5% và đổ bóng đậm hơn khi người dùng di chuột vào, sau đó trở lại bình thường khi rê chuột ra, chuyển động mượt mà.\n\nTổ hợp thuộc tính nào tạo đúng hiệu ứng phóng to nhẹ kèm chuyển động mượt khi hover?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`transform: scale(1.05);` kết hợp `transition: transform 0.2s, box-shadow 0.2s;` trong `:hover`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`width: 105%;` không cần transition",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`font-size: 105%;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`position: absolute;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`transform: scale(1.05);` phóng to nhẹ phần tử mà không ảnh hưởng tới layout xung quanh (do transform không tác động normal flow), kết hợp `transition` để chuyển động mượt thay vì đột ngột."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "**Mô tả mockup:** Một trang web có 3 cột bằng nhau trên màn hình desktop rộng, nhưng khi thu nhỏ trình duyệt xuống dưới 768px, các cột tự động xếp chồng thành 1 cột duy nhất theo chiều dọc.\n\nĐể chuyển từ layout 3 cột ngang sang 1 cột dọc khi màn hình hẹp, kỹ thuật phù hợp là?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Không cần làm gì, trình duyệt tự xử lý",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Flexbox với `flex-direction: row;` mặc định, dùng `@media (max-width: 768px) { flex-direction: column; }` để đổi hướng",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Chỉ dùng `width: 33%;` cố định, không cần media query",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Dùng `display: none;` để ẩn 2 cột",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Cần media query để chủ động đổi `flex-direction` từ `row` (ngang, desktop) sang `column` (dọc, mobile) khi chiều rộng màn hình dưới ngưỡng quy định."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "**Mô tả mockup:** Một huy hiệu (badge) thông báo số lượng nhỏ, hình tròn màu đỏ, nằm chồng ở góc trên-phải của biểu tượng giỏ hàng.\n\nĐể đặt badge nhỏ chồng đúng vị trí góc trên-phải của icon cha, cách làm phổ biến là?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Icon cha: `position: relative;`, Badge: `position: absolute; top: -5px; right: -5px;`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Cả 2 đều `position: static;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Dùng `float: right;` cho badge",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Dùng `margin-top: -100%;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Đặt phần tử cha (icon) làm điểm neo bằng `position: relative;`, sau đó badge dùng `position: absolute;` với `top`/`right` âm nhẹ để chồng lên đúng góc trên-phải của icon cha."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "**Mô tả mockup:** Một thanh tab điều hướng ngang (Tab 1, Tab 2, Tab 3), tab đang được chọn có đường gạch chân màu nổi bật ở phía dưới, các tab khác không có.\n\nĐể chỉ tab đang active có đường gạch chân riêng biệt, kỹ thuật CSS phù hợp là?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Class riêng (ví dụ `.tab.active { border-bottom: 2px solid blue; }`) áp dụng khi tab được chọn",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`:hover` áp dụng cho mọi tab",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`:visited` áp dụng cho mọi tab",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không thể làm bằng CSS, cần JS hoàn toàn vẽ lại",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Thường dùng class trạng thái (ví dụ `.active`, được JS toggle khi click) kết hợp CSS `border-bottom` để đánh dấu tab đang được chọn khác biệt với các tab còn lại."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "**Mô tả mockup:** Một lớp phủ (overlay) tối mờ phủ toàn màn hình phía sau một hộp thoại (modal) đang hiện ở giữa, người dùng không thể tương tác với nội dung phía sau lớp phủ.\n\nĐể tạo lớp phủ tối mờ toàn màn hình phía sau modal, thuộc tính nào phù hợp?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5);`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`position: static; background: black;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`opacity: 1;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`display: inline;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`position: fixed;` với kích thước 100% theo cả 2 chiều phủ kín toàn màn hình, `background: rgba(0,0,0,0.5);` tạo hiệu ứng tối mờ (đen, độ đục 50%) phía sau modal."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "**Mô tả mockup:** Một bố cục kiểu 'masonry' (Pinterest-style) gồm nhiều thẻ ảnh có chiều cao KHÁC NHAU, xếp thành nhiều cột, các thẻ tự động lấp khoảng trống mà không để lại khoảng trắng lớn.\n\nTrong số các công cụ layout cơ bản (flexbox, grid, float, position), công cụ nào mô phỏng tốt nhất bố cục masonry với nhiều cột tự lấp đầy?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "CSS Grid với thuộc tính cột tự động hoặc CSS columns (`column-count`)",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`display: inline;` đơn thuần",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`position: static;` đơn thuần",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`text-align: justify;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "CSS Grid (kết hợp grid dày đặc) hoặc thuộc tính `columns`/`column-count` (multi-column layout) là công cụ phù hợp để mô phỏng bố cục masonry với các cột tự lấp đầy khoảng trống."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "**Mô tả mockup:** Một ảnh sản phẩm vuông được đặt bên trong khung cố định, ảnh luôn hiển thị TRỌN VẸN không bị cắt, có thể để lại khoảng trống nền nếu tỉ lệ khung khác tỉ lệ ảnh.\n\nGiá trị `background-size` nào phù hợp để ảnh luôn hiển thị trọn vẹn (không cắt) trong khung?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`cover`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`contain`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`100% 100%`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`auto auto`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`background-size: contain;` co giãn ảnh để vừa khít hoàn toàn trong khung chứa, ưu tiên hiển thị trọn vẹn ảnh (có thể để lại khoảng trống nền) thay vì cắt bớt như `cover`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "**Mô tả mockup:** Một thanh điều hướng dạng breadcrumb: 'Trang chủ > Sản phẩm > Áo thun', mỗi mục cách nhau dấu '>' nhỏ màu xám.\n\nĐể tự động chèn dấu '>' giữa các mục mà không cần thêm thẻ HTML thừa, kỹ thuật CSS phù hợp là?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Dùng pseudo-element `::after` với thuộc tính `content: '>';` trên mỗi mục (trừ mục cuối)",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Dùng `text-decoration: underline;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Dùng `float: left;` đơn thuần",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không thể làm bằng CSS thuần",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`::after { content: '>'; }` kết hợp selector loại trừ mục cuối (ví dụ `:not(:last-child)`) cho phép tự động chèn ký tự phân cách mà không cần thêm thẻ HTML thủ công."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "**Mô tả mockup:** Một thanh trượt tiến trình (progress bar) có phần đã hoàn thành màu xanh chiếm 60% chiều rộng, phần còn lại màu xám nhạt.\n\nCách phổ biến để dựng progress bar bằng CSS thuần là?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "2 div lồng nhau: div ngoài làm nền xám, div trong có `width: 60%;` màu xanh",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Chỉ dùng 1 thẻ `<p>` với `text-align: justify;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Dùng `border-style: progress;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không thể làm bằng CSS",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Kỹ thuật phổ biến: div ngoài (track) làm nền xám full width, div con (fill) bên trong có `width` theo phần trăm tiến trình và màu nổi bật, thường kết hợp `transition: width 0.3s;` để cập nhật mượt mà."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "**Mô tả mockup:** Một danh sách sản phẩm hiển thị dạng lưới 4 cột trên màn hình lớn, 2 cột trên tablet, 1 cột trên điện thoại — tự động co giãn theo kích thước màn hình.\n\nĐây là ví dụ điển hình của khái niệm thiết kế nào trong CSS?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Responsive Web Design (kết hợp Grid/Flexbox và media query)",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Fixed Layout cố định",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Print Layout",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Z-index Layering",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Đây chính là Responsive Web Design: dùng layout linh hoạt (Grid/Flexbox) kết hợp các `@media` query ở những ngưỡng breakpoint khác nhau để thay đổi số cột phù hợp với từng kích thước màn hình."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "**Mô tả mockup:** Một icon mũi tên nhỏ xoay 180 độ khi accordion (mục có thể thu/mở) được mở ra, xoay mượt mà chứ không giật cục.\n\nHiệu ứng xoay mượt icon khi đổi trạng thái mở/đóng dùng tổ hợp thuộc tính nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`transform: rotate(180deg);` kết hợp `transition: transform 0.3s;`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`float: rotate;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`position: absolute;` đơn thuần",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`text-align: center;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Khi class trạng thái (ví dụ `.open`) được thêm/xóa, `transform: rotate(180deg);` xoay icon, và `transition: transform 0.3s;` làm quá trình xoay diễn ra mượt mà thay vì đột ngột."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "**Mô tả mockup:** Một bảng so sánh giá (pricing table) với cột ở giữa được làm nổi bật hơn (to hơn, có viền màu, nhãn 'Phổ biến nhất') so với 2 cột bên cạnh dù chung 1 hàng flex.\n\nĐể cột giữa có kích thước khác biệt (lớn hơn) so với các cột còn lại cùng trong 1 flex container, ta dùng?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đặt riêng `flex` hoặc `transform: scale()` khác cho cột giữa so với 2 cột bên",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Bắt buộc mọi flex item phải có cùng kích thước",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Dùng `display: none;` cho cột giữa",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Flexbox không cho phép item có kích thước khác nhau",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Flexbox cho phép từng item có giá trị `flex`/`flex-basis` hoặc `transform: scale()` khác nhau; cột giữa có thể đặt `flex-basis` lớn hơn hoặc `transform: scale(1.05);` để nổi bật hơn các cột lân cận."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "**Mô tả mockup:** Một văn bản tiêu đề lớn có hiệu ứng gradient nhiều màu chạy trên CHỮ (không phải nền), từ tím sang hồng.\n\nKỹ thuật CSS phổ biến để tạo hiệu ứng gradient ngay trên chữ là gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`background: linear-gradient(...); -webkit-background-clip: text; color: transparent;`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`color: linear-gradient(...);` trực tiếp",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`text-decoration: gradient;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không thể làm bằng CSS thuần",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Kỹ thuật phổ biến: đặt `background` là gradient cho phần tử text, sau đó dùng `background-clip: text;` (cùng tiền tố `-webkit-`) để giới hạn vùng hiển thị nền chỉ trong hình dạng của chữ, và `color: transparent;` để chữ trong suốt, lộ ra gradient phía sau."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "**Mô tả mockup:** Một trang sản phẩm có ảnh lớn bên trái và mô tả văn bản bên phải, hai phần có chiều cao bằng nhau dù nội dung khác độ dài, cách đều nhau bằng khoảng trống cố định ở giữa.\n\nĐể 2 cột tự động có chiều cao BẰNG NHAU theo cột cao nhất, thuộc tính flexbox nào chịu trách nhiệm (giá trị mặc định)?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`align-items: stretch;` (giá trị mặc định của `align-items`)",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`justify-content: stretch;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`flex-wrap: wrap;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`order: 1;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Giá trị mặc định của `align-items` trong flex container là `stretch`, tự động kéo dài các item theo trục phụ (chiều cao, với `flex-direction: row`) để bằng item cao nhất trong cùng hàng."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "**Mô tả mockup:** Một trang có chế độ tối (dark mode) chuyển đổi mượt mà: nền và chữ đổi màu dần dần thay vì đổi tức thì khi người dùng bấm nút chuyển đổi.\n\nĐể toàn bộ trang đổi màu mượt khi chuyển theme, kỹ thuật phù hợp là kết hợp CSS Variables với?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`transition: background-color 0.3s, color 0.3s;` trên các phần tử liên quan",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`animation-iteration-count: infinite;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`float: theme;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`display: none;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Kết hợp biến CSS (`--bg-color`, `--text-color`,...) thay đổi giá trị khi toggle theme, cùng `transition` trên `background-color`/`color` để quá trình chuyển đổi diễn ra mượt mà thay vì giật cục."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "**Mô tả mockup:** Một khung chứa video luôn giữ đúng tỉ lệ khung hình 16:9 dù chiều rộng màn hình thay đổi linh hoạt, không bị méo hay biến dạng.\n\nThuộc tính CSS hiện đại nào giúp giữ tỉ lệ khung hình cố định mà không cần kỹ thuật padding-trick cũ?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`aspect-ratio: 16 / 9;`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`object-fit: fill;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`flex-shrink: 0;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`white-space: nowrap;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`aspect-ratio: 16 / 9;` là thuộc tính CSS hiện đại giúp phần tử tự động giữ đúng tỉ lệ chiều rộng/chiều cao đã định, dù chiều rộng thực tế co giãn theo màn hình."
+    }
+  ]
+}

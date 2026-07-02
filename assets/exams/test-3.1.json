@@ -1,0 +1,1181 @@
+{
+  "title": "Bài kiểm tra số 8: CSS cơ bản",
+  "description": "Ôn tập các kiến thức nền tảng về CSS: màu sắc, margin, padding, font, border, box-sizing, display, float và selector cơ bản.",
+  "duration": 60,
+  "random": true,
+  "questions": [
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính CSS nào dùng để đặt **màu chữ**?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`background-color`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`color`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`text-color`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`font-color`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`color` là thuộc tính chuẩn để đặt màu cho văn bản trong CSS."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Mã màu `#FF0000` tương ứng với màu gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Xanh lá",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Xanh dương",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Đỏ",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Vàng",
+          "images": []
+        }
+      ],
+      "answer": [
+        "3"
+      ],
+      "explanation": "`#FF0000` có giá trị Red = 255 (FF), Green = 0, Blue = 0, nên đó là màu **đỏ**."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Cú pháp nào sau đây biểu diễn màu theo hệ **RGB** hợp lệ?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`color: rgb(255, 0, 0);`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`color: rgb(255 0 0 0);`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`color: rgb#255,0,0;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`color: rgb-255-0-0;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Cú pháp RGB chuẩn là `rgb(r, g, b)` với 3 giá trị từ 0-255."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "`rgba()` khác `rgb()` ở điểm nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Không có gì khác",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`rgba()` có thêm kênh alpha (độ trong suốt)",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`rgba()` dùng cho ảnh, `rgb()` dùng cho chữ",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`rgba()` chỉ dùng được trong SVG",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Tham số thứ 4 trong `rgba(r, g, b, a)` là alpha, quy định độ trong suốt từ 0 (trong suốt hoàn toàn) đến 1 (đục hoàn toàn)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Giá trị `hsl(0, 100%, 50%)` cho ra màu gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đỏ",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Xanh lá",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Tím",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Trắng",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Trong HSL, Hue = 0 độ là màu đỏ trên vòng tròn màu, Saturation 100% và Lightness 50% là độ bão hòa và độ sáng chuẩn."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "Mã màu hex luôn bắt đầu bằng dấu `#` và có 3 hoặc 6 ký tự (không tính dấu `#`).",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Mã hex hợp lệ có dạng `#RGB` (3 ký tự, viết tắt) hoặc `#RRGGBB` (6 ký tự)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Từ khóa CSS nào biểu diễn màu **trong suốt hoàn toàn**?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`none`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`empty`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`transparent`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`hidden`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "3"
+      ],
+      "explanation": "`transparent` là giá trị màu đặc biệt biểu diễn độ trong suốt hoàn toàn."
+    },
+    {
+      "type": "short_answer",
+      "question": {
+        "content": "Trong CSS, thuộc tính nào dùng để tô **màu nền** cho một phần tử?",
+        "images": []
+      },
+      "answer": [
+        "background-color",
+        "background"
+      ],
+      "explanation": "`background-color` (hoặc `background` viết tắt) dùng để tô màu nền."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Mã hex `#000000` là màu gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Trắng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Đen",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Xám",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Đỏ",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Khi cả 3 kênh R, G, B đều bằng 0, ta được màu **đen**."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Mã hex `#FFFFFF` là màu gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đen",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Trắng",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Xám nhạt",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Vàng",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Khi cả 3 kênh R, G, B đều ở giá trị tối đa (FF = 255), ta được màu **trắng**."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `margin` dùng để làm gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Tạo khoảng cách bên trong phần tử",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Tạo khoảng cách bên ngoài phần tử (giữa phần tử với phần tử khác)",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Đặt màu viền",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Đặt kích thước phần tử",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`margin` tạo khoảng cách phía **bên ngoài** đường viền (border) của phần tử, ngăn cách với các phần tử lân cận."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Khai báo `margin: 10px 20px;` có nghĩa là gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Trên/dưới = 10px, trái/phải = 20px",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Trái/phải = 10px, trên/dưới = 20px",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Cả 4 cạnh đều 10px",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Chỉ áp dụng cho cạnh trên = 10px, cạnh phải = 20px",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Khi có 2 giá trị: giá trị đầu áp dụng cho **trên và dưới**, giá trị sau áp dụng cho **trái và phải**."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Khai báo `margin: 5px 10px 15px 20px;` áp dụng theo thứ tự nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Trái, phải, trên, dưới",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Trên, phải, dưới, trái",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Dưới, trái, trên, phải",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Phải, trên, trái, dưới",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Thứ tự 4 giá trị margin/padding luôn theo chiều kim đồng hồ: **trên, phải, dưới, trái**."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Để căn giữa một phần tử block theo chiều ngang bằng margin, ta dùng?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`margin: center;`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`margin: 0 auto;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`margin: auto auto;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`margin: middle;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`margin: 0 auto;` đặt margin trên/dưới = 0 và margin trái/phải = `auto`, giúp trình duyệt tự chia đều khoảng trống hai bên để căn giữa phần tử."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "Giá trị `margin` có thể nhận số âm (ví dụ `margin: -10px;`).",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "CSS cho phép margin âm để kéo phần tử chồng lên hoặc gần phần tử lân cận hơn."
+    },
+    {
+      "type": "short_answer",
+      "question": {
+        "content": "Thuộc tính rút gọn để chỉ đặt margin bên trái là gì?",
+        "images": []
+      },
+      "answer": [
+        "margin-left"
+      ],
+      "explanation": "`margin-left` dùng để đặt khoảng cách bên ngoài ở cạnh trái."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Hiện tượng \"margin collapse\" (sụp margin) xảy ra khi nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Margin trái và phải của 1 phần tử cộng dồn",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Margin trên/dưới của hai phần tử block liền kề chồng lên nhau thay vì cộng lại",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Margin bị giới hạn bởi padding",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Margin luôn bị reset về 0",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Margin collapse là hiện tượng margin dọc (trên/dưới) giữa các phần tử block liền kề bị **gộp lại thành 1 khoảng** bằng giá trị lớn hơn, thay vì cộng dồn."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính nào dùng để thay đổi **kích thước chữ**?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`font-style`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`font-size`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`text-size`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`font-weight`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`font-size` quy định kích thước chữ, ví dụ `font-size: 16px;`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `font-weight: bold;` có tác dụng gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "In nghiêng chữ",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "In đậm chữ",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Gạch chân chữ",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Đổi font chữ",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`font-weight` quy định độ đậm của chữ; `bold` tương đương giá trị số `700`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Để in nghiêng văn bản, ta dùng thuộc tính nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`font-style: italic;`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`text-style: italic;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`font-decoration: italic;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`font-italic: true;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`font-style: italic;` làm chữ nghiêng."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `font-family` dùng để làm gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đặt màu chữ",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Đặt kích thước chữ",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Đặt kiểu/họ phông chữ (ví dụ Arial, sans-serif)",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Đặt khoảng cách dòng",
+          "images": []
+        }
+      ],
+      "answer": [
+        "3"
+      ],
+      "explanation": "`font-family` chỉ định danh sách phông chữ ưu tiên sử dụng để hiển thị văn bản."
+    },
+    {
+      "type": "short_answer",
+      "question": {
+        "content": "Thuộc tính nào dùng để đặt khoảng cách giữa các dòng văn bản?",
+        "images": []
+      },
+      "answer": [
+        "line-height"
+      ],
+      "explanation": "`line-height` quy định chiều cao dòng, ảnh hưởng đến khoảng cách giữa các dòng text."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Giá trị nào của `font-weight` thường được dùng để đặt chữ ở mức bình thường (không đậm)?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`bold`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`400` hoặc `normal`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`900`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`light`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`normal` tương đương giá trị số `400`, là độ đậm tiêu chuẩn (không đậm, không nhạt)."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "Thuộc tính `font` là thuộc tính rút gọn (shorthand) có thể gộp `font-style`, `font-weight`, `font-size`, `line-height`, `font-family`.",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`font` là shorthand cho phép viết gộp nhiều thuộc tính font lại với nhau theo thứ tự quy định."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Đơn vị nào sau đây là đơn vị **tương đối** (relative) khi đặt `font-size`?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`px`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`cm`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`em`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`mm`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "3"
+      ],
+      "explanation": "`em` là đơn vị tương đối, tính theo kích thước font của phần tử cha (hoặc gốc với `rem`); `px`, `cm`, `mm` là đơn vị tuyệt đối."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Khai báo `border: 1px solid black;` gồm những thành phần nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Độ dày, kiểu đường viền, màu sắc",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Độ dày, màu nền, kiểu chữ",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Bán kính, độ dày, màu",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Kiểu đường viền, font, màu",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Shorthand `border` gồm 3 phần: `border-width` (độ dày), `border-style` (kiểu nét) và `border-color` (màu sắc)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính nào dùng để bo tròn góc của phần tử?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`border-style`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`border-corner`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`border-radius`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`corner-radius`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "3"
+      ],
+      "explanation": "`border-radius` dùng để bo tròn các góc của phần tử, ví dụ `border-radius: 8px;`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Giá trị nào của `border-style` tạo ra đường viền **nét đứt**?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`solid`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`dotted`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`dashed`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`double`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "3"
+      ],
+      "explanation": "`dashed` tạo đường viền nét đứt (gạch ngang ngắt quãng), còn `dotted` tạo đường viền dạng chấm tròn."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Để tạo một hình tròn hoàn hảo bằng CSS từ một phần tử vuông, ta dùng?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`border-radius: 0;`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`border-radius: 50%;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`border-style: circle;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`shape: circle;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Khi `width = height` và `border-radius: 50%;`, phần tử sẽ trở thành hình tròn hoàn hảo."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "Nếu không khai báo `border-style`, đường viền (border) sẽ không hiển thị dù đã đặt `border-width` và `border-color`.",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`border-style` là thành phần bắt buộc để đường viền hiển thị; mặc định là `none`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `padding` tạo khoảng cách ở đâu?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Bên ngoài viền (border)",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Bên trong viền, giữa nội dung và border",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Giữa các phần tử anh em",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không liên quan đến border",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`padding` là khoảng đệm **bên trong** phần tử, nằm giữa nội dung (content) và đường viền (border)."
+    },
+    {
+      "type": "short_answer",
+      "question": {
+        "content": "Thuộc tính rút gọn để đặt padding ở cạnh trên là gì?",
+        "images": []
+      },
+      "answer": [
+        "padding-top"
+      ],
+      "explanation": "`padding-top` quy định khoảng đệm ở cạnh trên cùng của phần tử."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Khai báo `padding: 10px;` (chỉ 1 giá trị) áp dụng cho?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Chỉ cạnh trên",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Chỉ cạnh trái và phải",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Cả 4 cạnh",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không hợp lệ",
+          "images": []
+        }
+      ],
+      "answer": [
+        "3"
+      ],
+      "explanation": "Khi chỉ có 1 giá trị, padding (và margin) áp dụng cho **cả 4 cạnh** bằng nhau."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "Padding không thể nhận giá trị âm, trong khi margin thì có thể.",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Theo đặc tả CSS, `padding` luôn phải là giá trị không âm, còn `margin` có thể âm."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `box-sizing: border-box;` thay đổi cách tính kích thước như thế nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Width/height chỉ tính phần content",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Width/height bao gồm cả content, padding và border",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Width/height bao gồm cả margin",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không ảnh hưởng đến kích thước",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Với `border-box`, tổng `width`/`height` đã bao gồm cả `padding` và `border`, giúp dễ kiểm soát kích thước thực tế hơn so với mặc định `content-box`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Giá trị mặc định của thuộc tính `box-sizing` là gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`border-box`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`content-box`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`padding-box`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`margin-box`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Mặc định của `box-sizing` là `content-box`, nghĩa là `width`/`height` chỉ tính phần nội dung, chưa bao gồm padding và border."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "Khi dùng `box-sizing: border-box;`, nếu đặt `width: 200px` và `padding: 20px`, chiều rộng tổng thể hiển thị vẫn là 200px (bao gồm cả padding).",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Đây chính là mục đích của `border-box`: tổng width hiển thị (bao gồm padding, border) bằng đúng giá trị `width` đã khai báo."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Phần tử có `display: block` có đặc điểm gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Luôn nằm cùng dòng với phần tử khác",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Chiếm trọn 1 dòng, có thể đặt width/height",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Không thể đặt width/height",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Luôn ẩn đi",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Phần tử `block` (như `<div>`) chiếm toàn bộ chiều rộng có thể, tự xuống dòng mới, và có thể đặt `width`, `height`, `margin`, `padding` đầy đủ."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Phần tử có `display: inline` có đặc điểm gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Chiếm trọn 1 dòng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Nằm cùng dòng với nội dung khác, không thể đặt width/height",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Luôn có border-radius",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Là phần tử cha của block",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Phần tử `inline` (như `<span>`) nằm cùng dòng với các phần tử khác và **không** thể đặt `width`/`height` (cũng như margin/padding dọc không có tác dụng đầy đủ)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "`display: inline-block` kết hợp đặc điểm nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Vừa xuống dòng như block, vừa không đặt được width như inline",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Nằm cùng dòng như inline, nhưng vẫn đặt được width/height như block",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Ẩn phần tử",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không có gì đặc biệt",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`inline-block` cho phép phần tử nằm cùng dòng với phần tử khác (như inline) nhưng vẫn có thể đặt `width`, `height`, `margin`, `padding` đầy đủ (như block)."
+    }
+  ]
+}
