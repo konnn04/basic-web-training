@@ -1,6 +1,8 @@
 {
   "title": "Bài kiểm tra số 7 - Nhận diện phần tử Form qua hình ảnh",
   "description": "Bài kiểm tra thực tế yêu cầu học viên quan sát hình ảnh hiển thị trên trình duyệt để đoán thẻ HTML, thuộc tính, hoặc cơ chế hoạt động tương ứng của các ô nhập liệu.",
+  "category": "HTML",
+  "date": "2026-06-19",
   "duration": 30,
   "random": true,
   "questions": [

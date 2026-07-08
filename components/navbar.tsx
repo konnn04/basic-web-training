@@ -5,11 +5,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useUser } from "@/hooks/use-user";
 import { useExamHistory } from "@/hooks/use-exam-history";
+import { usePracticeHistory } from "@/hooks/use-practice-history";
 import { useConfirm } from "@/hooks/use-confirm";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { isFirebaseConfigured } from "@/lib/firebase";
+import { idbClearAll } from "@/lib/idb-store";
 import {
   Dialog,
   DialogContent,
@@ -45,6 +48,7 @@ import {
   ExternalLink,
   ShieldAlert,
   Trash2,
+  Eraser,
 } from "lucide-react";
 import Image from "next/image";
 
@@ -61,6 +65,11 @@ export function Navbar() {
     logout,
   } = useUser();
   const { history, reloadHistory, deleteScore } = useExamHistory(currentUser, userEmail);
+  const {
+    history: practiceHistory,
+    deleteEntry: deletePracticeEntry,
+    deleteAll: deleteAllPractice,
+  } = usePracticeHistory(userEmail);
   const confirm = useConfirm();
 
   const handleDeleteHistoryRecord = async (resultId: string, examId: string) => {
@@ -76,6 +85,51 @@ export function Navbar() {
       await deleteScore(resultId, examId);
       window.dispatchEvent(new Event("storage"));
     }
+  };
+
+  const handleDeletePracticeRecord = async (id: string) => {
+    const isConfirmed = await confirm({
+      title: "Xóa kết quả thực hành",
+      message: "Bạn có chắc chắn muốn xóa kết quả câu thực hành này? Hành động này cũng sẽ gỡ điểm số của bạn khỏi Bảng xếp hạng.",
+      confirmText: "Xóa",
+      cancelText: "Hủy",
+      variant: "destructive",
+    });
+
+    if (isConfirmed) {
+      await deletePracticeEntry(id);
+      window.dispatchEvent(new Event("storage"));
+    }
+  };
+
+  const handleClearAllLearningData = async () => {
+    const isConfirmed = await confirm({
+      title: "Xóa toàn bộ dữ liệu học tập",
+      message:
+        "Thao tác này sẽ xóa vĩnh viễn toàn bộ lịch sử bài thi, lịch sử thực hành" +
+        (isLoggedIn ? " trên máy chủ" : "") +
+        " và toàn bộ code đang lưu trong trình duyệt này (IndexedDB). Không thể hoàn tác.",
+      confirmText: "Xóa tất cả",
+      cancelText: "Hủy",
+      variant: "destructive",
+    });
+
+    if (!isConfirmed) return;
+
+    // Always clear the browser-local IndexedDB cache (practice code + preview data).
+    await idbClearAll();
+
+    if (isLoggedIn && userEmail) {
+      await Promise.all([
+        fetch(`/api/exams/results?email=${encodeURIComponent(userEmail)}`, { method: "DELETE" }),
+        deleteAllPractice(),
+      ]);
+    } else if (currentUser) {
+      localStorage.removeItem(`exam_scores_${currentUser}`);
+    }
+
+    reloadHistory();
+    window.dispatchEvent(new Event("storage"));
   };
 
   const [nameInput, setNameInput] = useState("");
@@ -159,7 +213,7 @@ export function Navbar() {
         <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-orange-500 to-amber-600 text-white shadow-md shadow-orange-500/20 group-hover:scale-105 transition-transform">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br  transition-transform">
               <Image src="/logo.png" alt="MPClub Web Training" width={32} height={32} className="rounded-md" />
             </div>
             <span className="font-extrabold text-lg tracking-tight bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
@@ -391,75 +445,154 @@ export function Navbar() {
               Lịch sử bài làm của bạn
             </DialogTitle>
             <DialogDescription>
-              Xem lại danh sách các bài thi bạn đã hoàn thành và kết quả đạt được.
+              Xem lại danh sách các bài thi và bài thực hành bạn đã hoàn thành.
             </DialogDescription>
           </DialogHeader>
 
-          <div className="flex-1 overflow-y-auto mt-4 pr-1">
-            {history.length === 0 ? (
-              <div className="text-center py-10 text-zinc-400">
-                <Trophy size={36} className="mx-auto text-zinc-200 mb-2.5" />
-                <p className="text-sm">Chưa có kết quả thi nào được ghi nhận.</p>
-                <p className="text-xs mt-1 text-zinc-500">Hãy bắt đầu thử sức với một bài kiểm tra nhé!</p>
-              </div>
-            ) : (
-              <div className="border border-zinc-100 dark:border-zinc-800 rounded-xl overflow-hidden shadow-sm">
-                <Table>
-                  <TableHeader className="bg-zinc-50/50 dark:bg-zinc-900/50">
-                    <TableRow>
-                      <TableHead className="font-semibold text-xs py-3">Bài kiểm tra</TableHead>
-                      <TableHead className="font-semibold text-xs text-center py-3">Điểm</TableHead>
-                      <TableHead className="font-semibold text-xs text-right py-3">Hành động</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {history.map((record: any) => {
-                      const isPassed = record.score >= 70;
-                      return (
-                        <TableRow key={record.resultId} className="hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10">
+          <Tabs defaultValue="exam" className="flex-1 min-h-0 flex flex-col mt-2 gap-3">
+            <TabsList variant="line" className="border-b border-zinc-200/60 dark:border-zinc-800/60 w-fit shrink-0">
+              <TabsTrigger value="exam" className="text-xs font-bold gap-1.5 px-3 py-2">
+                <BookOpen size={14} />
+                Đề thi
+              </TabsTrigger>
+              <TabsTrigger value="practice" className="text-xs font-bold gap-1.5 px-3 py-2">
+                <Code size={14} />
+                Thực hành
+              </TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="exam" className="flex-1 overflow-y-auto pr-1">
+              {history.length === 0 ? (
+                <div className="text-center py-10 text-zinc-400">
+                  <Trophy size={36} className="mx-auto text-zinc-200 mb-2.5" />
+                  <p className="text-sm">Chưa có kết quả thi nào được ghi nhận.</p>
+                  <p className="text-xs mt-1 text-zinc-500">Hãy bắt đầu thử sức với một bài kiểm tra nhé!</p>
+                </div>
+              ) : (
+                <div className="border border-zinc-100 dark:border-zinc-800 rounded-xl overflow-hidden shadow-sm">
+                  <Table>
+                    <TableHeader className="bg-zinc-50/50 dark:bg-zinc-900/50">
+                      <TableRow>
+                        <TableHead className="font-semibold text-xs py-3">Bài kiểm tra</TableHead>
+                        <TableHead className="font-semibold text-xs text-center py-3">Điểm</TableHead>
+                        <TableHead className="font-semibold text-xs text-right py-3">Hành động</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {history.map((record: any) => {
+                        const isPassed = record.score >= 70;
+                        return (
+                          <TableRow key={record.resultId} className="hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10">
+                            <TableCell className="py-3">
+                              <div className="font-semibold text-xs truncate max-w-[200px] text-zinc-800 dark:text-zinc-200">
+                                {record.title}
+                              </div>
+                              <div className="text-[10px] text-zinc-400 mt-0.5">{record.date}</div>
+                            </TableCell>
+                            <TableCell className="text-center py-3">
+                              <Badge
+                                className={`rounded-full px-2 py-0.5 font-bold text-[10px] border-none ${
+                                  isPassed
+                                    ? "bg-green-100 text-green-700 dark:bg-green-950/50 dark:text-green-400"
+                                    : "bg-red-100 text-red-600 dark:bg-red-950/50 dark:text-red-400"
+                                }`}
+                              >
+                                {record.score}
+                              </Badge>
+                            </TableCell>
+                            <TableCell className="text-right py-3">
+                              <div className="flex items-center justify-end gap-3">
+                                <Link
+                                  href={`/result?id=${record.resultId}`}
+                                  onClick={() => setShowHistoryModal(false)}
+                                  className="inline-flex items-center gap-1 text-[11px] font-bold text-orange-600 hover:text-orange-700 dark:text-orange-400 dark:hover:text-orange-300"
+                                >
+                                  Chi tiết
+                                  <ExternalLink size={10} />
+                                </Link>
+                                <button
+                                  onClick={() => handleDeleteHistoryRecord(record.resultId, record.examId)}
+                                  className="text-red-500 hover:text-red-600 dark:text-red-400 dark:hover:text-red-300 cursor-pointer p-1 rounded hover:bg-red-50 dark:hover:bg-red-950/20 transition-all"
+                                  title="Xóa kết quả này"
+                                >
+                                  <Trash2 size={13} />
+                                </button>
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                        );
+                      })}
+                    </TableBody>
+                  </Table>
+                </div>
+              )}
+            </TabsContent>
+
+            <TabsContent value="practice" className="flex-1 overflow-y-auto pr-1">
+              {!isLoggedIn ? (
+                <div className="text-center py-10 text-zinc-400">
+                  <Code size={36} className="mx-auto text-zinc-200 mb-2.5" />
+                  <p className="text-sm">Đăng nhập bằng Google để lưu và xem lịch sử thực hành.</p>
+                </div>
+              ) : practiceHistory.length === 0 ? (
+                <div className="text-center py-10 text-zinc-400">
+                  <Code size={36} className="mx-auto text-zinc-200 mb-2.5" />
+                  <p className="text-sm">Chưa có câu thực hành nào được giải.</p>
+                  <p className="text-xs mt-1 text-zinc-500">Hãy thử sức với CSS Lab hoặc JS Lab nhé!</p>
+                </div>
+              ) : (
+                <div className="border border-zinc-100 dark:border-zinc-800 rounded-xl overflow-hidden shadow-sm">
+                  <Table>
+                    <TableHeader className="bg-zinc-50/50 dark:bg-zinc-900/50">
+                      <TableRow>
+                        <TableHead className="font-semibold text-xs py-3">Câu thực hành</TableHead>
+                        <TableHead className="font-semibold text-xs text-center py-3">Điểm</TableHead>
+                        <TableHead className="font-semibold text-xs text-right py-3">Hành động</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {practiceHistory.map((record) => (
+                        <TableRow key={record.id} className="hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10">
                           <TableCell className="py-3">
                             <div className="font-semibold text-xs truncate max-w-[200px] text-zinc-800 dark:text-zinc-200">
-                              {record.title}
+                              {record.questionTitle}
                             </div>
-                            <div className="text-[10px] text-zinc-400 mt-0.5">{record.date}</div>
+                            <div className="text-[10px] text-zinc-400 mt-0.5">
+                              {record.setTitle} • {new Date(record.createdAt).toLocaleString("vi-VN")}
+                            </div>
                           </TableCell>
                           <TableCell className="text-center py-3">
-                            <Badge
-                              className={`rounded-full px-2 py-0.5 font-bold text-[10px] border-none ${
-                                isPassed
-                                  ? "bg-green-100 text-green-700 dark:bg-green-950/50 dark:text-green-400"
-                                  : "bg-red-100 text-red-600 dark:bg-red-950/50 dark:text-red-400"
-                              }`}
-                            >
-                              {record.score}
+                            <Badge className="rounded-full px-2 py-0.5 font-bold text-[10px] border-none bg-emerald-100 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-400">
+                              {record.points}
                             </Badge>
                           </TableCell>
                           <TableCell className="text-right py-3">
-                            <div className="flex items-center justify-end gap-3">
-                              <Link
-                                href={`/result?id=${record.resultId}`}
-                                onClick={() => setShowHistoryModal(false)}
-                                className="inline-flex items-center gap-1 text-[11px] font-bold text-orange-600 hover:text-orange-700 dark:text-orange-400 dark:hover:text-orange-300"
-                              >
-                                Chi tiết
-                                <ExternalLink size={10} />
-                              </Link>
-                              <button
-                                onClick={() => handleDeleteHistoryRecord(record.resultId, record.examId)}
-                                className="text-red-500 hover:text-red-600 dark:text-red-400 dark:hover:text-red-300 cursor-pointer p-1 rounded hover:bg-red-50 dark:hover:bg-red-950/20 transition-all"
-                                title="Xóa kết quả này"
-                              >
-                                <Trash2 size={13} />
-                              </button>
-                            </div>
+                            <button
+                              onClick={() => handleDeletePracticeRecord(record.id)}
+                              className="text-red-500 hover:text-red-600 dark:text-red-400 dark:hover:text-red-300 cursor-pointer p-1 rounded hover:bg-red-50 dark:hover:bg-red-950/20 transition-all"
+                              title="Xóa kết quả này"
+                            >
+                              <Trash2 size={13} />
+                            </button>
                           </TableCell>
                         </TableRow>
-                      );
-                    })}
-                  </TableBody>
-                </Table>
-              </div>
-            )}
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
+              )}
+            </TabsContent>
+          </Tabs>
+
+          <div className="flex-shrink-0 pt-3 mt-1 border-t border-zinc-100 dark:border-zinc-800">
+            <Button
+              onClick={handleClearAllLearningData}
+              variant="outline"
+              className="w-full rounded-xl text-xs font-bold gap-1.5 border-red-200 text-red-600 hover:bg-red-50 hover:text-red-700 dark:border-red-950/40 dark:text-red-400 dark:hover:bg-red-950/20 cursor-pointer"
+            >
+              <Eraser size={14} />
+              Xóa tất cả dữ liệu học tập
+            </Button>
           </div>
         </DialogContent>
       </Dialog>

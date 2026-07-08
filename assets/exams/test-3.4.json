@@ -1,6 +1,8 @@
 {
   "title": "Bài kiểm tra số 11: Ôn tập tổng hợp + Transition & Animation",
   "description": "Ôn lại kiến thức CSS cơ bản, selector, flexbox, position từ các đề trước, kết hợp thêm transition và animation.",
+  "category": "CSS",
+  "date": "2026-06-30",
   "duration": 60,
   "random": true,
   "questions": [

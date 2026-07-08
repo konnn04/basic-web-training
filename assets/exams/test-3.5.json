@@ -1,6 +1,8 @@
 {
   "title": "Bài kiểm tra số 12: Tổng hợp CSS",
   "description": "Đề tổng hợp toàn bộ kiến thức CSS đã học: màu sắc, box model, selector, specificity, flexbox, position, transition, animation, responsive — theo hình thức đề thi học kỳ.",
+  "category": "CSS",
+  "date": "2026-06-30",
   "duration": 45,
   "random": true,
   "questions": [

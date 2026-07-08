@@ -1,6 +1,8 @@
 {
   "title": "Bài kiểm tra số 10: Flexbox, Position, Transform & Responsive",
   "description": "Ôn tập về Flexbox, các kiểu định vị (position), phép biến đổi (transform) và thiết kế responsive với media query.",
+  "category": "CSS",
+  "date": "2026-06-30",
   "duration": 60,
   "random": true,
   "questions": [

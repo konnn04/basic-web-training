@@ -21,6 +21,8 @@ export async function GET() {
           id,
           title: data.title,
           description: data.description,
+          category: data.category ?? "Khác",
+          date: data.date ?? null,
           duration: data.duration,
           questionCount: data.questions?.length ?? 0,
         };

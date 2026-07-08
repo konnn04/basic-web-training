@@ -1,6 +1,8 @@
 {
   "title": "Bài kiểm tra số 8: CSS cơ bản",
   "description": "Ôn tập các kiến thức nền tảng về CSS: màu sắc, margin, padding, font, border, box-sizing, display, float và selector cơ bản.",
+  "category": "CSS",
+  "date": "2026-06-30",
   "duration": 60,
   "random": true,
   "questions": [

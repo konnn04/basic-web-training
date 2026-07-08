@@ -1,6 +1,8 @@
 {
   "title": "Bài kiểm tra số 13: Tổng hợp CSS - Đề thi CSS #2",
   "description": "Đề tổng hợp CSS nâng cao theo hình thức thi học kỳ, bao gồm box-shadow, biến CSS, CSS Grid vs Flexbox, accessibility, responsive layout và các kỹ thuật thực chiến.",
+  "category": "CSS",
+  "date": "2026-06-30",
   "duration": 45,
   "random": true,
   "questions": [
