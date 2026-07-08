@@ -4,6 +4,7 @@ import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { CheckCircle2, XCircle, HelpCircle as InfoIcon, ZoomIn } from "lucide-react";
+import { MarkdownRenderer } from "@/components/ui/markdown-renderer";
 import { ExamData } from "@/hooks/use-quiz";
 
 type QuestionReviewListProps = {
@@ -70,7 +71,7 @@ export function QuestionReviewList({
                 {idx + 1}
               </div>
               <div className="flex-1 font-bold text-zinc-900 dark:text-zinc-100 text-sm leading-relaxed pt-0.5 select-text">
-                {qContent}
+                <MarkdownRenderer content={qContent} />
               </div>
               <div className="flex-shrink-0 pt-0.5">
                 {isCorrect ? (
@@ -124,28 +125,33 @@ export function QuestionReviewList({
                 ) : (
                   /* Choice options match check */
                   <div className="space-y-1.5">
-                    <div>
-                      <span className="text-zinc-400">Bạn chọn:</span>
+                    <div className="flex items-start gap-2">
+                      <span className="text-zinc-400 flex-shrink-0 pt-0.5">Bạn chọn:</span>
                       {ua >= 0 && q.options && q.options[ua] ? (
-                        <span className={`ml-2 px-2 py-0.5 rounded-md font-semibold ${isCorrect ? "bg-green-100 text-green-700 dark:bg-green-950/40" : "bg-red-100 text-red-700 dark:bg-red-950/40"}`}>
-                          {alphabet[ua]}. {typeof q.options[ua] === "object" ? (q.options[ua] as any).content : q.options[ua]}
+                        <span className={`flex items-start gap-1 px-2 py-0.5 rounded-md font-semibold ${isCorrect ? "bg-green-100 text-green-700 dark:bg-green-950/40" : "bg-red-100 text-red-700 dark:bg-red-950/40"}`}>
+                          <span className="flex-shrink-0">{alphabet[ua]}.</span>
+                          <MarkdownRenderer
+                            className="[&_p]:m-0"
+                            content={typeof q.options[ua] === "object" ? (q.options[ua] as any).content : q.options[ua]}
+                          />
                         </span>
                       ) : (
-                        <span className="ml-2 text-zinc-400 italic">(chưa trả lời)</span>
+                        <span className="text-zinc-400 italic pt-0.5">(chưa trả lời)</span>
                       )}
                     </div>
 
                     {!isCorrect && (
                       <div className="flex items-start gap-1">
-                        <span className="text-zinc-400 flex-shrink-0">Đáp án đúng:</span>
+                        <span className="text-zinc-400 flex-shrink-0 pt-0.5">Đáp án đúng:</span>
                         <div className="flex flex-col gap-1 ml-1.5">
                           {(q.options || []).map((opt: any, optIdx: number) => {
                             const optContent = typeof opt === "object" ? opt.content : opt;
                             const isOptCorrect = (q.answer || []).includes(typeof opt === "object" ? opt.id : String(optIdx));
                             if (!isOptCorrect) return null;
                             return (
-                              <span key={optIdx} className="px-2 py-0.5 rounded-md bg-green-100 text-green-700 dark:bg-green-950/40 font-semibold max-w-max">
-                                {alphabet[optIdx]}. {optContent}
+                              <span key={optIdx} className="flex items-start gap-1 px-2 py-0.5 rounded-md bg-green-100 text-green-700 dark:bg-green-950/40 font-semibold max-w-max">
+                                <span className="flex-shrink-0">{alphabet[optIdx]}.</span>
+                                <MarkdownRenderer className="[&_p]:m-0" content={optContent} />
                               </span>
                             );
                           })}
@@ -161,7 +167,7 @@ export function QuestionReviewList({
                     <InfoIcon size={12} className="text-orange-500 flex-shrink-0 mt-0.5" />
                     <span>
                       <strong className="font-bold text-zinc-600 dark:text-zinc-400">Giải thích: </strong>
-                      {q.explanation}
+                      <MarkdownRenderer className="inline [&_p]:inline [&_p]:m-0" content={q.explanation} />
                     </span>
                   </div>
                 )}
