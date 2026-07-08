@@ -140,6 +140,7 @@ export function Navbar() {
   // Force student to enter name/login if empty
   useEffect(() => {
     if (!isLoading && !currentUser) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setNameInput("");
       setShowNameModal(true);
     } else {
@@ -479,7 +480,7 @@ export function Navbar() {
                       </TableRow>
                     </TableHeader>
                     <TableBody>
-                      {history.map((record: any) => {
+                      {history.map((record: { score: number; resultId: string; title: string; date: string, examId: string }) => {
                         const isPassed = record.score >= 70;
                         return (
                           <TableRow key={record.resultId} className="hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10">

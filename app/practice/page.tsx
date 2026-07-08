@@ -1,11 +1,11 @@
 import React from "react";
 import fs from "fs/promises";
 import path from "path";
-import { PracticeListClient } from "./_components/PracticeListClient";
+import { PracticeListClient, type DbConfig } from "./_components/PracticeListClient";
 
 export default async function PracticePage() {
   const practiceDir = path.join(process.cwd(), "assets", "practice");
-  const exercises: Array<{ id: string; title: string; content: string; description?: string; dbConfig?: unknown }> = [];
+  const exercises: Array<{ id: string; title: string; content: string; description?: string; dbConfig?: DbConfig }> = [];
 
   try {
     const entries = await fs.readdir(practiceDir, { withFileTypes: true });

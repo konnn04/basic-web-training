@@ -28,7 +28,7 @@ const CODE_LABS = [
   },
 ];
 
-type DbConfig = {
+export type DbConfig = {
   collection: string;
   title: string;
   endpoint: string;
