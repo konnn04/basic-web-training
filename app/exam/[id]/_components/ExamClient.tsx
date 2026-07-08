@@ -8,7 +8,7 @@ import { useQuiz } from "@/hooks/use-quiz";
 import { useExamHistory } from "@/hooks/use-exam-history";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { ChevronLeft, ChevronRight, CheckCircle, AlertCircle } from "lucide-react";
+import { ChevronLeft, ChevronRight, CheckCircle, AlertCircle, LogIn } from "lucide-react";
 
 import { TimerCard } from "./TimerCard";
 import { QuestionsMap } from "./QuestionsMap";
@@ -20,7 +20,7 @@ type ExamClientProps = {
 
 export function ExamClient({ examId }: ExamClientProps) {
   const router = useRouter();
-  const { currentUser, userEmail, userImage, isLoading: userLoading } = useUser();
+  const { currentUser, userEmail, userImage, isLoggedIn, isLoading: userLoading } = useUser();
   const { saveScore } = useExamHistory(currentUser, userEmail);
 
   const {
@@ -132,6 +132,15 @@ export function ExamClient({ examId }: ExamClientProps) {
           Mã bài thi: {examId} • Tổng số {examData.questions.length} câu hỏi • Thời gian {examData.duration} phút
         </p>
       </div>
+
+      {!isLoggedIn && (
+        <div className="mb-6 flex items-start gap-2.5 rounded-xl border border-amber-500/30 bg-amber-50/60 dark:bg-amber-950/15 p-3.5">
+          <LogIn size={16} className="text-amber-500 shrink-0 mt-0.5" />
+          <p className="text-xs font-bold leading-relaxed text-amber-700 dark:text-amber-400">
+            Bạn đang làm bài với tên khách. Đăng nhập bằng Google để điểm của bạn được ghi nhận trên bảng xếp hạng.
+          </p>
+        </div>
+      )}
 
       <div className="grid gap-6 md:grid-cols-4 items-start">
         

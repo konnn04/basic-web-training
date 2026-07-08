@@ -5,12 +5,17 @@ import Link from "next/link";
 import { ArrowLeft, ExternalLink, Terminal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "@/components/ui/resizable";
-import { CodeEditor } from "./CodeEditor";
+import { CodeEditorTabs } from "./CodeEditorTabs";
 import { PreviewFrame } from "./PreviewFrame";
-import { QuestionListPanel } from "./QuestionListPanel";
+import { QuestionSidebar } from "./QuestionSidebar";
+import { QuestionDescriptionPanel } from "./QuestionDescriptionPanel";
 import { buildPreviewDocument } from "@/lib/code-practice/build-doc";
 import { runChecker } from "@/lib/code-practice/run-checker";
+import { useUser } from "@/hooks/use-user";
+import { idbGet, idbSet } from "@/lib/idb-store";
 import type { CodePracticeSet, LabMode, CodePracticeQuestion } from "@/lib/code-practice/types";
+
+const SIDEBAR_COLLAPSED_KEY = "practice:sidebar-collapsed";
 
 type LabClientProps = {
   mode: LabMode;
@@ -37,6 +42,7 @@ function findQuestion(
 }
 
 export function LabClient({ mode, sets, pageTitle }: LabClientProps) {
+  const { currentUser, userEmail, userImage, isLoggedIn } = useUser();
   const firstSet = sets[0];
   const firstQuestion = firstSet?.questions[0];
 
@@ -45,29 +51,66 @@ export function LabClient({ mode, sets, pageTitle }: LabClientProps) {
   const [code, setCode] = useState(firstQuestion?.starter ?? "");
   const [srcDoc, setSrcDoc] = useState("");
   const [results, setResults] = useState<Record<string, ProgressEntry>>({});
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(
+    () => typeof window !== "undefined" && window.localStorage.getItem(SIDEBAR_COLLAPSED_KEY) === "1"
+  );
+
+  const toggleSidebarCollapsed = useCallback(() => {
+    setSidebarCollapsed((prev) => {
+      const next = !prev;
+      window.localStorage.setItem(SIDEBAR_COLLAPSED_KEY, next ? "1" : "0");
+      return next;
+    });
+  }, []);
 
   const activeQuestion = useMemo(
     () => findQuestion(sets, activeSetId, activeQuestionId),
     [sets, activeSetId, activeQuestionId]
   );
 
-  // Load code + progress for the active question (from localStorage, falling back to starter)
+  // Preload pass/fail status for every question in every set up front, so the sidebar
+  // shows overall progress immediately instead of only after visiting each question.
+  useEffect(() => {
+    let cancelled = false;
+
+    Promise.all(
+      sets.flatMap((set) =>
+        set.questions.map(async (q) => {
+          const saved = await idbGet<ProgressEntry>(progressKey(mode, set.id, q.id));
+          return saved ? ([q.id, saved] as const) : null;
+        })
+      )
+    ).then((entries) => {
+      if (cancelled) return;
+      const loaded = entries.filter((e): e is readonly [string, ProgressEntry] => e !== null);
+      if (loaded.length === 0) return;
+      setResults((prev) => ({ ...Object.fromEntries(loaded), ...prev }));
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [sets, mode]);
+
+  // Load code + progress for the active question (from IndexedDB, falling back to starter)
   useEffect(() => {
     if (!activeQuestion) return;
+    let cancelled = false;
     const key = progressKey(mode, activeSetId, activeQuestionId);
-    const saved = typeof window !== "undefined" ? window.localStorage.getItem(key) : null;
 
-    if (saved) {
-      try {
-        const parsed: ProgressEntry = JSON.parse(saved);
-        setCode(parsed.code);
-        setResults((prev) => ({ ...prev, [activeQuestionId]: parsed }));
-        return;
-      } catch {
-        // fall through to starter
+    idbGet<ProgressEntry>(key).then((saved) => {
+      if (cancelled) return;
+      if (saved) {
+        setCode(saved.code);
+        setResults((prev) => ({ ...prev, [activeQuestionId]: saved }));
+      } else {
+        setCode(activeQuestion.starter);
       }
-    }
-    setCode(activeQuestion.starter);
+    });
+
+    return () => {
+      cancelled = true;
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeSetId, activeQuestionId]);
 
@@ -86,12 +129,31 @@ export function LabClient({ mode, sets, pageTitle }: LabClientProps) {
       if (!activeQuestion) return;
       const result = runChecker(activeQuestion.checker, doc, win, code);
       const entry: ProgressEntry = { code, pass: result.pass, message: result.message };
+      const wasPassing = results[activeQuestion.id]?.pass === true;
       setResults((prev) => ({ ...prev, [activeQuestion.id]: entry }));
-      if (typeof window !== "undefined") {
-        window.localStorage.setItem(progressKey(mode, activeSetId, activeQuestion.id), JSON.stringify(entry));
+      idbSet(progressKey(mode, activeSetId, activeQuestion.id), entry).catch((err) =>
+        console.error("Không thể lưu tiến độ vào IndexedDB:", err)
+      );
+
+      // Record the pass on the server for the leaderboard — requires a real Google login
+      // (userEmail), once per question per pass transition.
+      if (result.pass && !wasPassing && isLoggedIn && userEmail) {
+        fetch("/api/practice/results", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            mode,
+            setId: activeSetId,
+            questionId: activeQuestion.id,
+            points: activeQuestion.points,
+            userName: currentUser,
+            userEmail,
+            userImage: userImage || undefined,
+          }),
+        }).catch((err) => console.error("Không thể gửi kết quả thực hành:", err));
       }
     },
-    [activeQuestion, code, mode, activeSetId]
+    [activeQuestion, code, mode, activeSetId, results, currentUser, userEmail, userImage, isLoggedIn]
   );
 
   const handleSelect = (setId: string, questionId: string) => {
@@ -99,11 +161,14 @@ export function LabClient({ mode, sets, pageTitle }: LabClientProps) {
     setActiveQuestionId(questionId);
   };
 
-  const handleOpenNewTab = () => {
+  const handleOpenNewTab = async () => {
     if (!activeQuestion || typeof window === "undefined") return;
+    const newTab = window.open("", "_blank");
     const key = previewKey(mode, activeSetId, activeQuestion.id);
-    window.localStorage.setItem(key, srcDoc);
-    window.open(`/practice/preview?key=${encodeURIComponent(key)}`, "_blank");
+    await idbSet(key, srcDoc);
+    if (newTab) {
+      newTab.location.href = `/practice/preview?key=${encodeURIComponent(key)}`;
+    }
   };
 
   if (!activeQuestion) {
@@ -135,32 +200,50 @@ export function LabClient({ mode, sets, pageTitle }: LabClientProps) {
         </Button>
       </div>
 
-      <ResizablePanelGroup orientation="horizontal" className="flex-1">
-        <ResizablePanel defaultSize={60} minSize={35}>
-          <ResizablePanelGroup orientation="vertical">
-            <ResizablePanel defaultSize={55} minSize={20}>
-              <PreviewFrame srcDoc={srcDoc} onLoadResult={handleLoadResult} title="Xem trước" />
-            </ResizablePanel>
-            <ResizableHandle withHandle />
-            <ResizablePanel defaultSize={45} minSize={20}>
-              <CodeEditor
-                value={code}
-                onChange={setCode}
-                language={mode === "css" ? "css" : "javascript"}
-              />
-            </ResizablePanel>
-          </ResizablePanelGroup>
-        </ResizablePanel>
-        <ResizableHandle withHandle />
-        <ResizablePanel defaultSize={40} minSize={25}>
-          <QuestionListPanel
+      <div className="flex-1 flex min-h-0">
+        <div
+          className={`shrink-0 min-h-0 border-r border-zinc-200/60 dark:border-zinc-800/60 transition-[width] duration-200 ${
+            sidebarCollapsed ? "w-14" : "w-64"
+          }`}
+        >
+          <QuestionSidebar
             sets={sets}
+            activeSetId={activeSetId}
             activeQuestionId={activeQuestionId}
             results={results}
+            collapsed={sidebarCollapsed}
+            onToggleCollapsed={toggleSidebarCollapsed}
             onSelect={handleSelect}
           />
-        </ResizablePanel>
-      </ResizablePanelGroup>
+        </div>
+
+        <ResizablePanelGroup orientation="horizontal" className="flex-1">
+          <ResizablePanel defaultSize={30} minSize={20}>
+            <QuestionDescriptionPanel
+              question={activeQuestion}
+              result={results[activeQuestion.id]}
+              isLoggedIn={isLoggedIn}
+            />
+          </ResizablePanel>
+          <ResizableHandle withHandle />
+          <ResizablePanel defaultSize={70} minSize={40}>
+            <ResizablePanelGroup orientation="horizontal">
+              <ResizablePanel defaultSize={55} minSize={30}>
+                <CodeEditorTabs
+                  key={activeQuestion.id}
+                  question={activeQuestion}
+                  code={code}
+                  onChange={setCode}
+                />
+              </ResizablePanel>
+              <ResizableHandle withHandle />
+              <ResizablePanel defaultSize={45} minSize={20}>
+                <PreviewFrame srcDoc={srcDoc} onLoadResult={handleLoadResult} title="Xem trước" />
+              </ResizablePanel>
+            </ResizablePanelGroup>
+          </ResizablePanel>
+        </ResizablePanelGroup>
+      </div>
     </div>
   );
 }

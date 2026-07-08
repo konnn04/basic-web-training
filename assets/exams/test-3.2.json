@@ -1,6 +1,8 @@
 {
   "title": "Bài kiểm tra số 9: CSS Selector nâng cao & Background",
   "description": "Ôn tập về các selector nâng cao (combinator, pseudo-class, pseudo-element, attribute selector) qua các đoạn code HTML mẫu, cùng các thuộc tính background trong CSS.",
+  "category": "CSS",
+  "date": "2026-06-30",
   "duration": 60,
   "random": true,
   "questions": [

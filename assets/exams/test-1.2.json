@@ -1,6 +1,8 @@
 {
   "title": "Bài kiểm tra số 2 - HTML nhập môn",
   "description": "HTML, Frontend, GitHub Pages",
+  "category": "Tổng quan Web",
+  "date": "2026-06-09",
   "duration": 30,
   "random": true,
   "questions": [
@@ -398,7 +400,7 @@
       "answer": [
         "1"
       ],
-      "explanation": "Thẻ \u003cmain\u003e trong HTML được dùng để chứa nội dung chính của trang. Header là phần đầu trang, Footer là phần chân trang, Nav là thanh điều hướng."
+      "explanation": "Thẻ <main> trong HTML được dùng để chứa nội dung chính của trang. Header là phần đầu trang, Footer là phần chân trang, Nav là thanh điều hướng."
     },
     {
       "type": "multiple_choice",
@@ -730,7 +732,7 @@
         "Markup",
         "markup"
       ],
-      "explanation": "HTML viết tắt của HyperText Markup Language (Ngôn ngữ đánh dấu siêu văn bản). Từ còn thiếu là \u0027Markup\u0027."
+      "explanation": "HTML viết tắt của HyperText Markup Language (Ngôn ngữ đánh dấu siêu văn bản). Từ còn thiếu là 'Markup'."
     },
     {
       "type": "short_answer",
@@ -743,7 +745,7 @@
         "Sheets",
         "sheets"
       ],
-      "explanation": "CSS viết tắt của Cascading Style Sheets (Các bảng định kiểu xếp chồng). Từ còn thiếu là \u0027Sheets\u0027."
+      "explanation": "CSS viết tắt của Cascading Style Sheets (Các bảng định kiểu xếp chồng). Từ còn thiếu là 'Sheets'."
     },
     {
       "type": "short_answer",
@@ -771,7 +773,7 @@
         "Pages",
         "pages"
       ],
-      "explanation": "GitHub Pages là dịch vụ hosting miễn phí của GitHub dành cho website tĩnh. Từ còn thiếu là \u0027Pages\u0027."
+      "explanation": "GitHub Pages là dịch vụ hosting miễn phí của GitHub dành cho website tĩnh. Từ còn thiếu là 'Pages'."
     },
     {
       "type": "short_answer",
@@ -784,7 +786,7 @@
         "Code",
         "code"
       ],
-      "explanation": "VS Code (Visual Studio Code) là trình soạn thảo code miễn phí, phổ biến nhất của Microsoft. Từ còn thiếu là \u0027Code\u0027."
+      "explanation": "VS Code (Visual Studio Code) là trình soạn thảo code miễn phí, phổ biến nhất của Microsoft. Từ còn thiếu là 'Code'."
     }
   ]
 }

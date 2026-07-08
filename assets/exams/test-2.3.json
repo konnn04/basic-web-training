@@ -1,6 +1,8 @@
 {
   "title": "Bài kiểm tra số 6 - HTML Forms & Inputs",
   "description": "Bài học chuyên sâu về biểu mẫu HTML, các loại ô nhập liệu (inputs), nhãn (label), vùng văn bản (textarea), hộp lựa chọn (select), nhóm biểu mẫu (fieldset) và các thuộc tính ràng buộc dữ liệu.",
+  "category": "HTML",
+  "date": "2026-06-19",
   "duration": 45,
   "random": true,
   "questions": [
@@ -11,12 +13,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<input>", "images": [] },
-        { "id": "2", "content": "<form>", "images": [] },
-        { "id": "3", "content": "<select>", "images": [] },
-        { "id": "4", "content": "<button>", "images": [] }
+        {
+          "id": "1",
+          "content": "<input>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<form>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<select>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<button>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thẻ <form> định nghĩa một biểu mẫu HTML để thu thập thông tin đầu vào từ người dùng."
     },
     {
@@ -26,12 +46,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "method", "images": [] },
-        { "id": "2", "content": "target", "images": [] },
-        { "id": "3", "content": "action", "images": [] },
-        { "id": "4", "content": "name", "images": [] }
+        {
+          "id": "1",
+          "content": "method",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "target",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "action",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "name",
+          "images": []
+        }
       ],
-      "answer": ["3"],
+      "answer": [
+        "3"
+      ],
       "explanation": "Thuộc tính action chỉ định URL của trang hoặc dịch vụ xử lý dữ liệu khi biểu mẫu được gửi đi."
     },
     {
@@ -41,12 +79,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "POST", "images": [] },
-        { "id": "2", "content": "GET", "images": [] },
-        { "id": "3", "content": "PUT", "images": [] },
-        { "id": "4", "content": "DELETE", "images": [] }
+        {
+          "id": "1",
+          "content": "POST",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "GET",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "PUT",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "DELETE",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Phương thức GET đính kèm dữ liệu biểu mẫu vào cuối URL dưới dạng các cặp khóa/giá trị (ví dụ: ?name=value)."
     },
     {
@@ -56,12 +112,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "GET", "images": [] },
-        { "id": "2", "content": "POST", "images": [] },
-        { "id": "3", "content": "HEAD", "images": [] },
-        { "id": "4", "content": "OPTIONS", "images": [] }
+        {
+          "id": "1",
+          "content": "GET",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "POST",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "HEAD",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "OPTIONS",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Phương thức POST gửi dữ liệu bên trong body của HTTP request, thường dùng để gửi thông tin nhạy cảm hoặc lượng dữ liệu lớn."
     },
     {
@@ -71,12 +145,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "POST", "images": [] },
-        { "id": "2", "content": "GET", "images": [] },
-        { "id": "3", "content": "PUT", "images": [] },
-        { "id": "4", "content": "Không có phương thức nào", "images": [] }
+        {
+          "id": "1",
+          "content": "POST",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "GET",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "PUT",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không có phương thức nào",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Nếu không khai báo thuộc tính method, phương thức gửi biểu mẫu mặc định của trình duyệt là GET."
     },
     {
@@ -86,12 +178,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "button", "images": [] },
-        { "id": "2", "content": "reset", "images": [] },
-        { "id": "3", "content": "submit", "images": [] },
-        { "id": "4", "content": "menu", "images": [] }
+        {
+          "id": "1",
+          "content": "button",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "reset",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "submit",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "menu",
+          "images": []
+        }
       ],
-      "answer": ["3"],
+      "answer": [
+        "3"
+      ],
       "explanation": "Bất kỳ thẻ <button> nào nằm trong thẻ <form> mà không ghi rõ thuộc tính type thì mặc định có type='submit' (khi click sẽ gửi biểu mẫu)."
     },
     {
@@ -101,12 +211,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<input type='text'>", "images": [] },
-        { "id": "2", "content": "<input type='password'>", "images": [] },
-        { "id": "3", "content": "<input type='secret'>", "images": [] },
-        { "id": "4", "content": "<input type='hidden'>", "images": [] }
+        {
+          "id": "1",
+          "content": "<input type='text'>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<input type='password'>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<input type='secret'>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<input type='hidden'>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "type='password' tạo một ô nhập liệu hiển thị ký tự dưới dạng dấu chấm hoặc dấu sao để bảo vệ mật khẩu."
     },
     {
@@ -116,12 +244,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<input type='text'>", "images": [] },
-        { "id": "2", "content": "<input type='email'>", "images": [] },
-        { "id": "3", "content": "<input type='url'>", "images": [] },
-        { "id": "4", "content": "<input type='address'>", "images": [] }
+        {
+          "id": "1",
+          "content": "<input type='text'>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<input type='email'>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<input type='url'>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<input type='address'>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "type='email' yêu cầu người dùng phải nhập đúng cấu trúc email (chứa ký tự '@' và tên miền hợp lệ) trước khi submit."
     },
     {
@@ -131,12 +277,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<input type='radio'>", "images": [] },
-        { "id": "2", "content": "<input type='checkbox'>", "images": [] },
-        { "id": "3", "content": "<input type='select'>", "images": [] },
-        { "id": "4", "content": "<input type='button'>", "images": [] }
+        {
+          "id": "1",
+          "content": "<input type='radio'>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<input type='checkbox'>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<input type='select'>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<input type='button'>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "type='checkbox' tạo hộp kiểm, cho phép người dùng chọn không giới hạn số lượng lựa chọn."
     },
     {
@@ -146,12 +310,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<input type='checkbox'>", "images": [] },
-        { "id": "2", "content": "<input type='radio'>", "images": [] },
-        { "id": "3", "content": "<input type='toggle'>", "images": [] },
-        { "id": "4", "content": "<input type='select'>", "images": [] }
+        {
+          "id": "1",
+          "content": "<input type='checkbox'>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<input type='radio'>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<input type='toggle'>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<input type='select'>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "type='radio' tạo nút radio. Trong cùng một nhóm, người dùng chỉ được phép chọn một giá trị duy nhất."
     },
     {
@@ -161,12 +343,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "id", "images": [] },
-        { "id": "2", "content": "name", "images": [] },
-        { "id": "3", "content": "value", "images": [] },
-        { "id": "4", "content": "class", "images": [] }
+        {
+          "id": "1",
+          "content": "id",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "name",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "value",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "class",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Các thẻ input type='radio' có chung thuộc tính name sẽ được coi là một nhóm lựa chọn loại trừ lẫn nhau."
     },
     {
@@ -176,12 +376,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<input type='file'>", "images": [] },
-        { "id": "2", "content": "<input type='upload'>", "images": [] },
-        { "id": "3", "content": "<input type='download'>", "images": [] },
-        { "id": "4", "content": "<input type='image'>", "images": [] }
+        {
+          "id": "1",
+          "content": "<input type='file'>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<input type='upload'>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<input type='download'>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<input type='image'>",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "type='file' tạo giao diện chọn file để người dùng tải tập tin lên trang web."
     },
     {
@@ -191,12 +409,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<input type='invisible'>", "images": [] },
-        { "id": "2", "content": "<input type='hidden'>", "images": [] },
-        { "id": "3", "content": "<input type='secret'>", "images": [] },
-        { "id": "4", "content": "<input type='none'>", "images": [] }
+        {
+          "id": "1",
+          "content": "<input type='invisible'>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<input type='hidden'>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<input type='secret'>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<input type='none'>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "type='hidden' tạo ô nhập liệu ẩn, thường dùng để gửi ID phiên, mã bảo mật CSRF hoặc các tham số kỹ thuật ngầm."
     },
     {
@@ -206,12 +442,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<input type='palette'>", "images": [] },
-        { "id": "2", "content": "<input type='color'>", "images": [] },
-        { "id": "3", "content": "<input type='rgb'>", "images": [] },
-        { "id": "4", "content": "<input type='paint'>", "images": [] }
+        {
+          "id": "1",
+          "content": "<input type='palette'>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<input type='color'>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<input type='rgb'>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<input type='paint'>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "type='color' cung cấp một bảng chọn màu để người dùng lựa chọn mã màu HEX mong muốn."
     },
     {
@@ -221,12 +475,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<input type='slider'>", "images": [] },
-        { "id": "2", "content": "<input type='range'>", "images": [] },
-        { "id": "3", "content": "<input type='scroll'>", "images": [] },
-        { "id": "4", "content": "<input type='progress'>", "images": [] }
+        {
+          "id": "1",
+          "content": "<input type='slider'>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<input type='range'>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<input type='scroll'>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<input type='progress'>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "type='range' định nghĩa một thanh trượt chọn số trong phạm vi giới hạn bởi min và max."
     },
     {
@@ -236,12 +508,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<input type='text'>", "images": [] },
-        { "id": "2", "content": "<input type='number'>", "images": [] },
-        { "id": "3", "content": "<input type='digit'>", "images": [] },
-        { "id": "4", "content": "<input type='calc'>", "images": [] }
+        {
+          "id": "1",
+          "content": "<input type='text'>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<input type='number'>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<input type='digit'>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<input type='calc'>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "type='number' hạn chế người dùng chỉ được nhập các chữ số và hỗ trợ các nút tăng/giảm giá trị nhanh."
     },
     {
@@ -251,12 +541,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<input type='calendar'>", "images": [] },
-        { "id": "2", "content": "<input type='date'>", "images": [] },
-        { "id": "3", "content": "<input type='time'>", "images": [] },
-        { "id": "4", "content": "<input type='month'>", "images": [] }
+        {
+          "id": "1",
+          "content": "<input type='calendar'>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<input type='date'>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<input type='time'>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<input type='month'>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "type='date' tạo giao diện lịch để người dùng dễ dàng chọn ngày, tháng, năm."
     },
     {
@@ -266,12 +574,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<input type='clock'>", "images": [] },
-        { "id": "2", "content": "<input type='time'>", "images": [] },
-        { "id": "3", "content": "<input type='hour'>", "images": [] },
-        { "id": "4", "content": "<input type='date'>", "images": [] }
+        {
+          "id": "1",
+          "content": "<input type='clock'>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<input type='time'>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<input type='hour'>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<input type='date'>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "type='time' cho phép người dùng chọn thời gian cụ thể (giờ và phút) không bao gồm múi giờ."
     },
     {
@@ -281,12 +607,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<input type='datetime'>", "images": [] },
-        { "id": "2", "content": "<input type='datetime-local'>", "images": [] },
-        { "id": "3", "content": "<input type='date-time'>", "images": [] },
-        { "id": "4", "content": "<input type='timestamp'>", "images": [] }
+        {
+          "id": "1",
+          "content": "<input type='datetime'>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<input type='datetime-local'>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<input type='date-time'>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<input type='timestamp'>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "type='datetime-local' tạo ô chọn cả ngày, tháng, năm và giờ, phút của múi giờ địa phương."
     },
     {
@@ -296,12 +640,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "value", "images": [] },
-        { "id": "2", "content": "placeholder", "images": [] },
-        { "id": "3", "content": "hint", "images": [] },
-        { "id": "4", "content": "title", "images": [] }
+        {
+          "id": "1",
+          "content": "value",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "placeholder",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "hint",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "title",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thuộc tính placeholder định nghĩa chuỗi văn bản gợi ý hiển thị bên trong phần tử nhập liệu trước khi người dùng gõ."
     },
     {
@@ -311,12 +673,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "validate", "images": [] },
-        { "id": "2", "content": "required", "images": [] },
-        { "id": "3", "content": "important", "images": [] },
-        { "id": "4", "content": "disabled", "images": [] }
+        {
+          "id": "1",
+          "content": "validate",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "required",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "important",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "disabled",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thuộc tính boolean required làm cho trường đó trở thành bắt buộc. Biểu mẫu sẽ bị chặn lại nếu trường này trống."
     },
     {
@@ -326,12 +706,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "disabled", "images": [] },
-        { "id": "2", "content": "readonly", "images": [] },
-        { "id": "3", "content": "locked", "images": [] },
-        { "id": "4", "content": "freeze", "images": [] }
+        {
+          "id": "1",
+          "content": "disabled",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "readonly",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "locked",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "freeze",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thuộc tính readonly (chỉ đọc) ngăn cấm người dùng sửa đổi văn bản trong ô nhập liệu, tuy nhiên dữ liệu của ô đó vẫn được nộp đi."
     },
     {
@@ -341,12 +739,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "readonly", "images": [] },
-        { "id": "2", "content": "disabled", "images": [] },
-        { "id": "3", "content": "block", "images": [] },
-        { "id": "4", "content": "hidden", "images": [] }
+        {
+          "id": "1",
+          "content": "readonly",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "disabled",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "block",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "hidden",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thuộc tính boolean disabled vô hiệu hóa trường nhập dữ liệu, đồng thời trình duyệt sẽ loại bỏ hoàn toàn giá trị này khỏi payload khi gửi biểu mẫu."
     },
     {
@@ -356,12 +772,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "selected", "images": [] },
-        { "id": "2", "content": "checked", "images": [] },
-        { "id": "3", "content": "active", "images": [] },
-        { "id": "4", "content": "default", "images": [] }
+        {
+          "id": "1",
+          "content": "selected",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "checked",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "active",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "default",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thuộc tính checked dùng cho input type='checkbox' hoặc type='radio' để đánh dấu trạng thái được chọn mặc định."
     },
     {
@@ -371,12 +805,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "accept", "images": [] },
-        { "id": "2", "content": "multiple", "images": [] },
-        { "id": "3", "content": "files", "images": [] },
-        { "id": "4", "content": "group", "images": [] }
+        {
+          "id": "1",
+          "content": "accept",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "multiple",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "files",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "group",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thuộc tính multiple cho phép người dùng chọn nhiều tệp tin cùng một lúc (hoặc nhiều email trong input type='email')."
     },
     {
@@ -386,12 +838,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "format", "images": [] },
-        { "id": "2", "content": "accept", "images": [] },
-        { "id": "3", "content": "type", "images": [] },
-        { "id": "4", "content": "pattern", "images": [] }
+        {
+          "id": "1",
+          "content": "format",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "accept",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "type",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "pattern",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thuộc tính accept quy định các loại định dạng tệp tin mà biểu mẫu chấp nhận (ví dụ: accept='image/*' để chỉ nhận ảnh)."
     },
     {
@@ -401,12 +871,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "validate", "images": [] },
-        { "id": "2", "content": "pattern", "images": [] },
-        { "id": "3", "content": "regexp", "images": [] },
-        { "id": "4", "content": "match", "images": [] }
+        {
+          "id": "1",
+          "content": "validate",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "pattern",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "regexp",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "match",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thuộc tính pattern chứa một biểu thức chính quy dùng để xác thực định dạng dữ liệu đầu vào của thẻ input."
     },
     {
@@ -416,12 +904,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "minimum", "images": [] },
-        { "id": "2", "content": "min", "images": [] },
-        { "id": "3", "content": "low", "images": [] },
-        { "id": "4", "content": "bottom", "images": [] }
+        {
+          "id": "1",
+          "content": "minimum",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "min",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "low",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "bottom",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thuộc tính min đặt giới hạn giá trị nhỏ nhất đối với các input dạng number, range, date, time..."
     },
     {
@@ -431,12 +937,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "jump", "images": [] },
-        { "id": "2", "content": "step", "images": [] },
-        { "id": "3", "content": "range", "images": [] },
-        { "id": "4", "content": "interval", "images": [] }
+        {
+          "id": "1",
+          "content": "jump",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "step",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "range",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "interval",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thuộc tính step chỉ định bước tăng/giảm giá trị của input số (ví dụ: step='2' bắt đầu từ 0 sẽ chỉ cho nhập số chia hết cho 2)."
     },
     {
@@ -446,12 +970,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "length", "images": [] },
-        { "id": "2", "content": "maxlength", "images": [] },
-        { "id": "3", "content": "size", "images": [] },
-        { "id": "4", "content": "limit", "images": [] }
+        {
+          "id": "1",
+          "content": "length",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "maxlength",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "size",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "limit",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thuộc tính maxlength xác định độ dài chuỗi ký tự tối đa được phép nhập vào ô input hoặc textarea."
     },
     {
@@ -461,12 +1003,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "focus", "images": [] },
-        { "id": "2", "content": "autofocus", "images": [] },
-        { "id": "3", "content": "target", "images": [] },
-        { "id": "4", "content": "select", "images": [] }
+        {
+          "id": "1",
+          "content": "focus",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "autofocus",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "target",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "select",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thuộc tính boolean autofocus chỉ định rằng phần tử nhập liệu đó sẽ tự động nhận tiêu điểm (focus) khi trang được tải xong."
     },
     {
@@ -476,12 +1036,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<input type='text'>", "images": [] },
-        { "id": "2", "content": "<textarea>", "images": [] },
-        { "id": "3", "content": "<textbox>", "images": [] },
-        { "id": "4", "content": "<input type='paragraph'>", "images": [] }
+        {
+          "id": "1",
+          "content": "<input type='text'>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<textarea>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<textbox>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<input type='paragraph'>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thẻ <textarea> tạo một ô nhập văn bản lớn gồm nhiều hàng và cột mà người dùng có thể gõ xuống dòng tùy ý."
     },
     {
@@ -491,12 +1069,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "height", "images": [] },
-        { "id": "2", "content": "rows", "images": [] },
-        { "id": "3", "content": "cols", "images": [] },
-        { "id": "4", "content": "lines", "images": [] }
+        {
+          "id": "1",
+          "content": "height",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "rows",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "cols",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "lines",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thuộc tính rows đặt chiều cao mặc định cho textarea bằng cách chỉ định số hàng văn bản hiển thị."
     },
     {
@@ -506,12 +1102,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "width", "images": [] },
-        { "id": "2", "content": "cols", "images": [] },
-        { "id": "3", "content": "rows", "images": [] },
-        { "id": "4", "content": "size", "images": [] }
+        {
+          "id": "1",
+          "content": "width",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "cols",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "rows",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "size",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thuộc tính cols đặt chiều rộng hiển thị mặc định của textarea đo bằng số lượng ký tự trung bình trên mỗi dòng."
     },
     {
@@ -521,12 +1135,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<dropdown>", "images": [] },
-        { "id": "2", "content": "<select>", "images": [] },
-        { "id": "3", "content": "<list>", "images": [] },
-        { "id": "4", "content": "<option>", "images": [] }
+        {
+          "id": "1",
+          "content": "<dropdown>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<select>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<list>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<option>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thẻ <select> được dùng để khởi tạo một hộp thả xuống chứa danh sách các lựa chọn khác nhau."
     },
     {
@@ -536,12 +1168,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<item>", "images": [] },
-        { "id": "2", "content": "<option>", "images": [] },
-        { "id": "3", "content": "<list>", "images": [] },
-        { "id": "4", "content": "<select-item>", "images": [] }
+        {
+          "id": "1",
+          "content": "<item>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<option>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<list>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<select-item>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Mỗi giá trị lựa chọn bên trong thẻ <select> được định nghĩa bằng một thẻ <option>."
     },
     {
@@ -551,12 +1201,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "checked", "images": [] },
-        { "id": "2", "content": "selected", "images": [] },
-        { "id": "3", "content": "active", "images": [] },
-        { "id": "4", "content": "default", "images": [] }
+        {
+          "id": "1",
+          "content": "checked",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "selected",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "active",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "default",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thuộc tính selected dùng trên thẻ <option> để chọn trước tùy chọn này khi danh sách thả xuống xuất hiện."
     },
     {
@@ -566,12 +1234,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<optiongroup>", "images": [] },
-        { "id": "2", "content": "<optgroup>", "images": [] },
-        { "id": "3", "content": "<group>", "images": [] },
-        { "id": "4", "content": "<fieldset>", "images": [] }
+        {
+          "id": "1",
+          "content": "<optiongroup>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<optgroup>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<group>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<fieldset>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thẻ <optgroup> (option group) dùng để phân nhóm các lựa chọn bên trong thẻ select. Thuộc tính 'label' chỉ định tên nhóm."
     },
     {
@@ -581,12 +1267,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "Khai báo qua thuộc tính value (ví dụ: <textarea value='Nội dung'></textarea>)", "images": [] },
-        { "id": "2", "content": "Viết nội dung ở giữa thẻ mở và thẻ đóng (ví dụ: <textarea>Nội dung</textarea>)", "images": [] },
-        { "id": "3", "content": "Sử dụng thuộc tính content (ví dụ: <textarea content='Nội dung'></textarea>)", "images": [] },
-        { "id": "4", "content": "Thẻ <textarea> không hỗ trợ đặt nội dung mặc định ban đầu.", "images": [] }
+        {
+          "id": "1",
+          "content": "Khai báo qua thuộc tính value (ví dụ: <textarea value='Nội dung'></textarea>)",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Viết nội dung ở giữa thẻ mở và thẻ đóng (ví dụ: <textarea>Nội dung</textarea>)",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Sử dụng thuộc tính content (ví dụ: <textarea content='Nội dung'></textarea>)",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Thẻ <textarea> không hỗ trợ đặt nội dung mặc định ban đầu.",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Khác với thẻ <input>, thẻ <textarea> đặt nội dung mặc định của nó bằng cách viết trực tiếp văn bản ở giữa thẻ mở và thẻ đóng <textarea>...</textarea>."
     },
     {
@@ -596,12 +1300,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "skipvalidation", "images": [] },
-        { "id": "2", "content": "novalidate", "images": [] },
-        { "id": "3", "content": "unchecked", "images": [] },
-        { "id": "4", "content": "ignore", "images": [] }
+        {
+          "id": "1",
+          "content": "skipvalidation",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "novalidate",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "unchecked",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "ignore",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thuộc tính novalidate (boolean) khi khai báo trên thẻ <form> sẽ ngăn không cho trình duyệt tự động thực hiện kiểm tra tính hợp lệ của dữ liệu (như required, email, v.v.) lúc gửi form."
     },
     {
@@ -611,12 +1333,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<span>", "images": [] },
-        { "id": "2", "content": "<label>", "images": [] },
-        { "id": "3", "content": "<text>", "images": [] },
-        { "id": "4", "content": "<p>", "images": [] }
+        {
+          "id": "1",
+          "content": "<span>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<label>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<text>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<p>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thẻ <label> mô tả nhãn cho một phần tử biểu mẫu. Khi click vào nhãn này, con trỏ sẽ tự động chuyển vào ô nhập tương ứng."
     },
     {
@@ -626,12 +1366,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "name", "images": [] },
-        { "id": "2", "content": "id", "images": [] },
-        { "id": "3", "content": "value", "images": [] },
-        { "id": "4", "content": "type", "images": [] }
+        {
+          "id": "1",
+          "content": "name",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "id",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "value",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "type",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thuộc tính 'for' trên <label> liên kết trực tiếp với thuộc tính 'id' duy nhất của phần tử nhập liệu tương ứng."
     },
     {
@@ -641,10 +1399,20 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "Đúng", "images": [] },
-        { "id": "2", "content": "Sai", "images": [] }
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "Đúng. Trường hợp này rất phổ biến ở các input type='radio' (cùng tên để tạo nhóm loại trừ) hoặc checkbox (cùng tên để nhận một mảng giá trị)."
     },
     {
@@ -654,10 +1422,20 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "Đúng", "images": [] },
-        { "id": "2", "content": "Sai", "images": [] }
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Sai. Thuộc tính name là BẮT BUỘC để dữ liệu được đóng gói gửi đi. Nếu thiếu name, trình duyệt sẽ bỏ qua trường đó khi gửi payload lên server."
     },
     {
@@ -667,10 +1445,20 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "Đúng", "images": [] },
-        { "id": "2", "content": "Sai", "images": [] }
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "Đúng. Thẻ <textarea> có hỗ trợ thuộc tính placeholder để hướng dẫn người dùng nhập liệu."
     },
     {
@@ -680,10 +1468,20 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "Đúng", "images": [] },
-        { "id": "2", "content": "Sai", "images": [] }
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Sai. readonly cho phép gửi dữ liệu đi và vẫn nhận focus/copy được, trong khi disabled khóa hẳn trường nhập, làm mờ đi và ngăn cản gửi dữ liệu đi."
     },
     {
@@ -693,10 +1491,20 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "Đúng", "images": [] },
-        { "id": "2", "content": "Sai", "images": [] }
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "Đúng. Nếu không khai báo định dạng mã hóa multipart/form-data, dữ liệu của file tải lên sẽ bị lỗi hoặc không thể gửi lên máy chủ."
     },
     {
@@ -706,7 +1514,10 @@
         "images": []
       },
       "options": null,
-      "answer": ["label", "LABEL"],
+      "answer": [
+        "label",
+        "LABEL"
+      ],
       "explanation": "Thẻ <label> được sử dụng để liên kết và mô tả nhãn tên cho ô nhập liệu."
     },
     {
@@ -716,7 +1527,10 @@
         "images": []
       },
       "options": null,
-      "answer": ["required", "REQUIRED"],
+      "answer": [
+        "required",
+        "REQUIRED"
+      ],
       "explanation": "Thuộc tính required buộc người dùng nhập thông tin trước khi nộp biểu mẫu."
     },
     {
@@ -726,7 +1540,10 @@
         "images": []
       },
       "options": null,
-      "answer": ["file", "FILE"],
+      "answer": [
+        "file",
+        "FILE"
+      ],
       "explanation": "Dùng input type='file' để tạo giao diện chọn và upload tệp tin từ máy cục bộ."
     }
   ]

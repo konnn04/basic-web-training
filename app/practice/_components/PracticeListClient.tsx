@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Code, Database, FileText, ArrowRight, Sparkles, Terminal, Palette, Braces } from "lucide-react";
@@ -32,7 +32,7 @@ type DbConfig = {
   collection: string;
   title: string;
   endpoint: string;
-  fields: any[];
+  fields: unknown[];
 };
 
 type Exercise = {
@@ -49,8 +49,7 @@ type PracticeListClientProps = {
 
 export function PracticeListClient({ exercises }: PracticeListClientProps) {
   return (
-    <div className="container mx-auto px-4 max-w-5xl py-8 flex-grow flex flex-col justify-center animate-in fade-in duration-300">
-      {/* Page Header */}
+    <div className="container mx-auto px-4 max-w-5xl py-8 grow flex flex-col justify-center animate-in fade-in duration-300">
       <div className="mb-8 pb-5 border-b border-zinc-200/50 dark:border-zinc-800/40 text-center sm:text-left select-none">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50 dark:bg-orange-950/20 border border-orange-200/30 dark:border-orange-900/35 mb-3.5">
           <Sparkles className="h-3.5 w-3.5 text-orange-500 animate-pulse" />
@@ -93,7 +92,7 @@ export function PracticeListClient({ exercises }: PracticeListClientProps) {
             </div>
             <div className="p-6 pt-0 border-t border-zinc-100/50 dark:border-zinc-800/20 mt-auto">
               <Link href={lab.href} passHref>
-                <Button className="w-full bg-zinc-50 dark:bg-zinc-800 hover:bg-orange-500 dark:hover:bg-orange-600 hover:text-white dark:text-zinc-200 font-extrabold text-xs rounded-xl shadow-none group-hover:bg-orange-500 group-hover:text-white transition-all cursor-pointer h-9 px-4 flex items-center justify-center gap-1.5">
+                <Button className="w-full bg-orange-400 text-white dark:bg-zinc-800 hover:bg-orange-500 dark:hover:bg-orange-600 hover:text-white dark:text-zinc-200 font-extrabold text-xs rounded-xl shadow-none group-hover:bg-orange-500 group-hover:text-white transition-all cursor-pointer h-9 px-4 flex items-center justify-center gap-1.5">
                   Bắt đầu làm bài
                   <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
                 </Button>
@@ -111,7 +110,7 @@ export function PracticeListClient({ exercises }: PracticeListClientProps) {
         </Card>
       ) : (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2 items-stretch">
-          {exercises.map((ex, index) => {
+          {exercises.map((ex) => {
             const hasDb = !!ex.dbConfig;
             let badgeText = "HTML & CSS Form";
             let badgeColor = "bg-blue-50 text-blue-700 dark:bg-blue-950/30 dark:text-blue-400 border border-blue-200/20";
@@ -133,7 +132,6 @@ export function PracticeListClient({ exercises }: PracticeListClientProps) {
                 className="group relative border border-zinc-200/60 dark:border-zinc-800/80 rounded-2xl bg-white dark:bg-zinc-900/40 shadow-sm hover:shadow-md hover:border-orange-500/45 dark:hover:border-orange-500/35 transition-all duration-300 flex flex-col justify-between overflow-hidden"
               >
                 <div className="p-6 space-y-4">
-                  {/* Card Header Section */}
                   <div className="flex items-center justify-between">
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-50 dark:bg-orange-950/30 text-orange-500 group-hover:scale-105 transition-transform duration-300">
                       <Icon className="h-5 w-5" />
@@ -143,7 +141,6 @@ export function PracticeListClient({ exercises }: PracticeListClientProps) {
                     </Badge>
                   </div>
 
-                  {/* Card Info */}
                   <div className="space-y-1.5">
                     <h3 className="font-extrabold text-sm sm:text-base text-zinc-900 dark:text-white leading-snug group-hover:text-orange-500 transition-colors">
                       {ex.title}
@@ -154,11 +151,10 @@ export function PracticeListClient({ exercises }: PracticeListClientProps) {
                   </div>
                 </div>
 
-                {/* Card Footer Button */}
                 <div className="p-6 pt-0 border-t border-zinc-100/50 dark:border-zinc-800/20 mt-auto">
                   <Link href={`/practice/${ex.id}`} passHref>
                     <Button 
-                      className="w-full bg-zinc-50 dark:bg-zinc-800 hover:bg-orange-500 dark:hover:bg-orange-600 hover:text-white dark:text-zinc-200 font-extrabold text-xs rounded-xl shadow-none group-hover:bg-orange-500 group-hover:text-white transition-all cursor-pointer h-9 px-4 flex items-center justify-center gap-1.5"
+                      className="w-full bg-orange-400 text-white dark:bg-zinc-800 hover:bg-orange-500 dark:hover:bg-orange-600 hover:text-white dark:text-zinc-200 font-extrabold text-xs rounded-xl shadow-none group-hover:bg-orange-500 group-hover:text-white transition-all cursor-pointer h-9 px-4 flex items-center justify-center gap-1.5"
                     >
                       Bắt đầu làm bài
                       <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />

@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { idbGet } from "@/lib/idb-store";
 
 export function PreviewPageClient() {
   const searchParams = useSearchParams();
@@ -11,15 +12,22 @@ export function PreviewPageClient() {
 
   useEffect(() => {
     if (!key) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setNotFound(true);
       return;
     }
-    const stored = window.localStorage.getItem(key);
-    if (!stored) {
-      setNotFound(true);
-      return;
-    }
-    setSrcDoc(stored);
+    let cancelled = false;
+    idbGet<string>(key).then((stored) => {
+      if (cancelled) return;
+      if (!stored) {
+        setNotFound(true);
+        return;
+      }
+      setSrcDoc(stored);
+    });
+    return () => {
+      cancelled = true;
+    };
   }, [key]);
 
   if (notFound) {

@@ -5,7 +5,7 @@ import { PracticeListClient } from "./_components/PracticeListClient";
 
 export default async function PracticePage() {
   const practiceDir = path.join(process.cwd(), "assets", "practice");
-  const exercises: Array<{ id: string; title: string; content: string; description?: string; dbConfig?: any }> = [];
+  const exercises: Array<{ id: string; title: string; content: string; description?: string; dbConfig?: unknown }> = [];
 
   try {
     const entries = await fs.readdir(practiceDir, { withFileTypes: true });

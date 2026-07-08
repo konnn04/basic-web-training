@@ -1,471 +1,1257 @@
 {
   "title": "Bài kiểm tra số 10: JavaScript cơ bản (Phần 2)",
   "description": "Ôn tập các cấu trúc điều khiển if/switch/while/for, tham số mặc định, rest parameter, arrow function, hoisting, closure, phạm vi biến, giá trị truthy/falsy và các phép so sánh, ép kiểu trong JavaScript.",
+  "category": "JavaScript",
+  "date": "2026-07-08",
   "duration": 60,
   "random": true,
   "questions": [
     {
       "type": "multiple_choice",
-      "question": { "content": "Cấu trúc điều kiện `if...else` dùng để làm gì?", "images": [] },
+      "question": {
+        "content": "Cấu trúc điều kiện `if...else` dùng để làm gì?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "Lặp lại một đoạn code nhiều lần", "images": [] },
-        { "id": "2", "content": "Thực thi đoạn code khác nhau tùy theo điều kiện đúng hay sai", "images": [] },
-        { "id": "3", "content": "Định nghĩa một hàm mới", "images": [] },
-        { "id": "4", "content": "Khai báo một biến mới", "images": [] }
+        {
+          "id": "1",
+          "content": "Lặp lại một đoạn code nhiều lần",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Thực thi đoạn code khác nhau tùy theo điều kiện đúng hay sai",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Định nghĩa một hàm mới",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Khai báo một biến mới",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "`if...else` cho phép chương trình rẽ nhánh: thực thi khối lệnh này nếu điều kiện đúng, hoặc khối lệnh khác nếu điều kiện sai."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "Cho đoạn code:\n```js\nlet age = 20;\nif (age >= 18) {\n  console.log(\"Người lớn\");\n} else {\n  console.log(\"Trẻ em\");\n}\n```\nKết quả in ra là gì?", "images": [] },
+      "question": {
+        "content": "Cho đoạn code:\n```js\nlet age = 20;\nif (age >= 18) {\n  console.log(\"Người lớn\");\n} else {\n  console.log(\"Trẻ em\");\n}\n```\nKết quả in ra là gì?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "\"Người lớn\"", "images": [] },
-        { "id": "2", "content": "\"Trẻ em\"", "images": [] },
-        { "id": "3", "content": "undefined", "images": [] },
-        { "id": "4", "content": "Báo lỗi", "images": [] }
+        {
+          "id": "1",
+          "content": "\"Người lớn\"",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "\"Trẻ em\"",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "undefined",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Báo lỗi",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "Vì `age = 20 >= 18` là đúng, nên khối lệnh trong `if` được thực thi, in ra \"Người lớn\"."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "Cú pháp `else if` được dùng trong trường hợp nào?", "images": [] },
+      "question": {
+        "content": "Cú pháp `else if` được dùng trong trường hợp nào?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "Khi có nhiều hơn 2 khả năng cần kiểm tra tuần tự", "images": [] },
-        { "id": "2", "content": "Khi chỉ có đúng 1 điều kiện duy nhất", "images": [] },
-        { "id": "3", "content": "Không bao giờ được sử dụng trong JS", "images": [] },
-        { "id": "4", "content": "Chỉ dùng được bên trong vòng lặp", "images": [] }
+        {
+          "id": "1",
+          "content": "Khi có nhiều hơn 2 khả năng cần kiểm tra tuần tự",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Khi chỉ có đúng 1 điều kiện duy nhất",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Không bao giờ được sử dụng trong JS",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Chỉ dùng được bên trong vòng lặp",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "`else if` cho phép kiểm tra thêm các điều kiện khác nhau khi điều kiện `if` đầu tiên sai, phù hợp khi có nhiều hơn 2 trường hợp."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "Câu lệnh `switch` khác `if...else` chủ yếu ở điểm nào?", "images": [] },
+      "question": {
+        "content": "Câu lệnh `switch` khác `if...else` chủ yếu ở điểm nào?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "`switch` không thể so sánh được giá trị", "images": [] },
-        { "id": "2", "content": "`switch` phù hợp để so sánh 1 biến với nhiều giá trị cụ thể, rõ ràng", "images": [] },
-        { "id": "3", "content": "`switch` luôn chạy nhanh hơn `if...else` trong mọi trường hợp", "images": [] },
-        { "id": "4", "content": "`switch` không cần từ khóa `break`", "images": [] }
+        {
+          "id": "1",
+          "content": "`switch` không thể so sánh được giá trị",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`switch` phù hợp để so sánh 1 biến với nhiều giá trị cụ thể, rõ ràng",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`switch` luôn chạy nhanh hơn `if...else` trong mọi trường hợp",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`switch` không cần từ khóa `break`",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "`switch` giúp code rõ ràng hơn khi cần so sánh 1 biến với nhiều giá trị rời rạc, cụ thể, thay vì viết chuỗi `if...else if` dài."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "Cho đoạn code:\n```js\nlet day = 3;\nswitch (day) {\n  case 1: console.log(\"T2\"); break;\n  case 2: console.log(\"T3\"); break;\n  case 3: console.log(\"T4\"); break;\n  default: console.log(\"Khác\");\n}\n```\nKết quả in ra là gì?", "images": [] },
+      "question": {
+        "content": "Cho đoạn code:\n```js\nlet day = 3;\nswitch (day) {\n  case 1: console.log(\"T2\"); break;\n  case 2: console.log(\"T3\"); break;\n  case 3: console.log(\"T4\"); break;\n  default: console.log(\"Khác\");\n}\n```\nKết quả in ra là gì?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "\"T2\"", "images": [] },
-        { "id": "2", "content": "\"T3\"", "images": [] },
-        { "id": "3", "content": "\"T4\"", "images": [] },
-        { "id": "4", "content": "\"Khác\"", "images": [] }
+        {
+          "id": "1",
+          "content": "\"T2\"",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "\"T3\"",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "\"T4\"",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "\"Khác\"",
+          "images": []
+        }
       ],
-      "answer": ["3"],
+      "answer": [
+        "3"
+      ],
       "explanation": "`day` bằng `3`, khớp với `case 3`, nên in ra \"T4\" rồi dừng lại nhờ `break`."
     },
     {
       "type": "true_false",
-      "question": { "content": "Nếu thiếu từ khóa `break` trong một `case` của `switch`, chương trình sẽ tiếp tục thực thi các `case` tiếp theo (fall-through) cho đến khi gặp `break` hoặc kết thúc `switch`.", "images": [] },
+      "question": {
+        "content": "Nếu thiếu từ khóa `break` trong một `case` của `switch`, chương trình sẽ tiếp tục thực thi các `case` tiếp theo (fall-through) cho đến khi gặp `break` hoặc kết thúc `switch`.",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "Đúng", "images": [] },
-        { "id": "2", "content": "Sai", "images": [] }
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "Đây là hiện tượng \"fall-through\" của `switch`: nếu thiếu `break`, các case phía sau sẽ tiếp tục được thực thi bất kể điều kiện của chúng có khớp hay không."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "Vòng lặp `for` cơ bản thường gồm mấy phần chính trong dấu ngoặc `()`?", "images": [] },
+      "question": {
+        "content": "Vòng lặp `for` cơ bản thường gồm mấy phần chính trong dấu ngoặc `()`?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "1", "images": [] },
-        { "id": "2", "content": "2", "images": [] },
-        { "id": "3", "content": "3", "images": [] },
-        { "id": "4", "content": "4", "images": [] }
+        {
+          "id": "1",
+          "content": "1",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "2",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "3",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "4",
+          "images": []
+        }
       ],
-      "answer": ["3"],
+      "answer": [
+        "3"
+      ],
       "explanation": "Vòng lặp `for` gồm 3 phần: khởi tạo (`let i = 0`), điều kiện lặp (`i < n`) và bước cập nhật (`i++`)."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "Cho đoạn code:\n```js\nlet sum = 0;\nfor (let i = 1; i <= 5; i++) {\n  sum += i;\n}\nconsole.log(sum);\n```\nKết quả in ra là gì?", "images": [] },
+      "question": {
+        "content": "Cho đoạn code:\n```js\nlet sum = 0;\nfor (let i = 1; i <= 5; i++) {\n  sum += i;\n}\nconsole.log(sum);\n```\nKết quả in ra là gì?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "10", "images": [] },
-        { "id": "2", "content": "15", "images": [] },
-        { "id": "3", "content": "5", "images": [] },
-        { "id": "4", "content": "20", "images": [] }
+        {
+          "id": "1",
+          "content": "10",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "15",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "5",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "20",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Vòng lặp cộng dồn `1 + 2 + 3 + 4 + 5 = 15`."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "Vòng lặp `while` khác `do...while` chủ yếu ở điểm nào?", "images": [] },
+      "question": {
+        "content": "Vòng lặp `while` khác `do...while` chủ yếu ở điểm nào?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "`while` kiểm tra điều kiện trước khi chạy, `do...while` luôn chạy ít nhất 1 lần trước khi kiểm tra", "images": [] },
-        { "id": "2", "content": "`while` luôn chạy nhanh hơn `do...while`", "images": [] },
-        { "id": "3", "content": "`do...while` không cần điều kiện dừng", "images": [] },
-        { "id": "4", "content": "Không có sự khác biệt nào", "images": [] }
+        {
+          "id": "1",
+          "content": "`while` kiểm tra điều kiện trước khi chạy, `do...while` luôn chạy ít nhất 1 lần trước khi kiểm tra",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`while` luôn chạy nhanh hơn `do...while`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`do...while` không cần điều kiện dừng",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không có sự khác biệt nào",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "`do...while` thực thi khối lệnh trước, sau đó mới kiểm tra điều kiện, nên luôn chạy ít nhất 1 lần dù điều kiện ban đầu sai."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "Cho đoạn code:\n```js\nlet i = 10;\nwhile (i < 5) {\n  console.log(i);\n  i++;\n}\nconsole.log(\"Xong\");\n```\nKết quả in ra là gì?", "images": [] },
+      "question": {
+        "content": "Cho đoạn code:\n```js\nlet i = 10;\nwhile (i < 5) {\n  console.log(i);\n  i++;\n}\nconsole.log(\"Xong\");\n```\nKết quả in ra là gì?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "In ra 10 rồi \"Xong\"", "images": [] },
-        { "id": "2", "content": "Chỉ in ra \"Xong\"", "images": [] },
-        { "id": "3", "content": "Lặp vô hạn", "images": [] },
-        { "id": "4", "content": "Báo lỗi", "images": [] }
+        {
+          "id": "1",
+          "content": "In ra 10 rồi \"Xong\"",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Chỉ in ra \"Xong\"",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Lặp vô hạn",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Báo lỗi",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Điều kiện `i < 5` (tức `10 < 5`) sai ngay từ đầu, nên vòng lặp `while` không chạy lần nào, chỉ có `\"Xong\"` được in ra."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "Từ khóa nào dùng để thoát khỏi vòng lặp ngay lập tức?", "images": [] },
+      "question": {
+        "content": "Từ khóa nào dùng để thoát khỏi vòng lặp ngay lập tức?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "`continue`", "images": [] },
-        { "id": "2", "content": "`break`", "images": [] },
-        { "id": "3", "content": "`return`", "images": [] },
-        { "id": "4", "content": "`exit`", "images": [] }
+        {
+          "id": "1",
+          "content": "`continue`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`break`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`return`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`exit`",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "`break` dùng để thoát ngay khỏi vòng lặp (hoặc `switch`) đang thực thi."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "Từ khóa nào dùng để bỏ qua lần lặp hiện tại và chuyển sang lần lặp tiếp theo?", "images": [] },
+      "question": {
+        "content": "Từ khóa nào dùng để bỏ qua lần lặp hiện tại và chuyển sang lần lặp tiếp theo?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "`break`", "images": [] },
-        { "id": "2", "content": "`continue`", "images": [] },
-        { "id": "3", "content": "`skip`", "images": [] },
-        { "id": "4", "content": "`pass`", "images": [] }
+        {
+          "id": "1",
+          "content": "`break`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`continue`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`skip`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`pass`",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "`continue` bỏ qua phần code còn lại của lần lặp hiện tại và nhảy sang lần lặp kế tiếp."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "Cho đoạn code:\n```js\nfor (let i = 0; i < 5; i++) {\n  if (i === 2) continue;\n  console.log(i);\n}\n```\nCác giá trị nào được in ra?", "images": [] },
+      "question": {
+        "content": "Cho đoạn code:\n```js\nfor (let i = 0; i < 5; i++) {\n  if (i === 2) continue;\n  console.log(i);\n}\n```\nCác giá trị nào được in ra?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "0, 1, 2, 3, 4", "images": [] },
-        { "id": "2", "content": "0, 1, 3, 4", "images": [] },
-        { "id": "3", "content": "0, 1", "images": [] },
-        { "id": "4", "content": "2, 3, 4", "images": [] }
+        {
+          "id": "1",
+          "content": "0, 1, 2, 3, 4",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "0, 1, 3, 4",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "0, 1",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "2, 3, 4",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Khi `i === 2`, `continue` bỏ qua `console.log(2)`, nên các giá trị được in là 0, 1, 3, 4."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "Cách khai báo nào sau đây tạo tham số **mặc định** (default parameter) cho hàm trong ES6?", "images": [] },
+      "question": {
+        "content": "Cách khai báo nào sau đây tạo tham số **mặc định** (default parameter) cho hàm trong ES6?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "`function f(a = 1) {}`", "images": [] },
-        { "id": "2", "content": "`function f(a: 1) {}`", "images": [] },
-        { "id": "3", "content": "`function f(a == 1) {}`", "images": [] },
-        { "id": "4", "content": "`function f(default a) {}`", "images": [] }
+        {
+          "id": "1",
+          "content": "`function f(a = 1) {}`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`function f(a: 1) {}`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`function f(a == 1) {}`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`function f(default a) {}`",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "ES6 cho phép đặt giá trị mặc định cho tham số ngay trong khai báo hàm bằng cú pháp `a = giá_trị_mặc_định`."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "Cho đoạn code:\n```js\nfunction greet(name = \"Khách\") {\n  return `Xin chào, ${name}!`;\n}\nconsole.log(greet());\n```\nKết quả in ra là gì?", "images": [] },
+      "question": {
+        "content": "Cho đoạn code:\n```js\nfunction greet(name = \"Khách\") {\n  return `Xin chào, ${name}!`;\n}\nconsole.log(greet());\n```\nKết quả in ra là gì?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "\"Xin chào, Khách!\"", "images": [] },
-        { "id": "2", "content": "\"Xin chào, undefined!\"", "images": [] },
-        { "id": "3", "content": "Báo lỗi", "images": [] },
-        { "id": "4", "content": "\"Xin chào, !\"", "images": [] }
+        {
+          "id": "1",
+          "content": "\"Xin chào, Khách!\"",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "\"Xin chào, undefined!\"",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Báo lỗi",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "\"Xin chào, !\"",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "Vì gọi `greet()` không truyền tham số, `name` nhận giá trị mặc định là `\"Khách\"`."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "**Rest parameter** (`...args`) trong khai báo hàm dùng để làm gì?", "images": [] },
+      "question": {
+        "content": "**Rest parameter** (`...args`) trong khai báo hàm dùng để làm gì?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "Gộp tất cả các tham số còn lại thành một mảng", "images": [] },
-        { "id": "2", "content": "Xóa bớt tham số của hàm", "images": [] },
-        { "id": "3", "content": "Định nghĩa kiểu dữ liệu cho tham số", "images": [] },
-        { "id": "4", "content": "Chỉ dùng được cho object", "images": [] }
+        {
+          "id": "1",
+          "content": "Gộp tất cả các tham số còn lại thành một mảng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Xóa bớt tham số của hàm",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Định nghĩa kiểu dữ liệu cho tham số",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Chỉ dùng được cho object",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "Rest parameter (`function f(...args)`) cho phép hàm nhận số lượng tham số bất kỳ, gộp lại thành một mảng `args`."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "Arrow function khác với function thông thường chủ yếu ở điểm nào liên quan đến `this`?", "images": [] },
+      "question": {
+        "content": "Arrow function khác với function thông thường chủ yếu ở điểm nào liên quan đến `this`?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "Arrow function tự tạo `this` riêng của nó", "images": [] },
-        { "id": "2", "content": "Arrow function không có `this` riêng, mà kế thừa `this` từ ngữ cảnh (scope) bên ngoài", "images": [] },
-        { "id": "3", "content": "Arrow function luôn có `this` trỏ đến `window`", "images": [] },
-        { "id": "4", "content": "Không có sự khác biệt nào", "images": [] }
+        {
+          "id": "1",
+          "content": "Arrow function tự tạo `this` riêng của nó",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Arrow function không có `this` riêng, mà kế thừa `this` từ ngữ cảnh (scope) bên ngoài",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Arrow function luôn có `this` trỏ đến `window`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không có sự khác biệt nào",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Arrow function không tự định nghĩa `this` của riêng nó, mà lấy `this` từ phạm vi (lexical scope) nơi nó được định nghĩa."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "**Hoisting** trong JavaScript là gì?", "images": [] },
+      "question": {
+        "content": "**Hoisting** trong JavaScript là gì?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "Cơ chế đưa khai báo biến/hàm lên đầu phạm vi trước khi mã được thực thi", "images": [] },
-        { "id": "2", "content": "Cách tối ưu hóa tốc độ vòng lặp", "images": [] },
-        { "id": "3", "content": "Kỹ thuật nén (minify) mã nguồn", "images": [] },
-        { "id": "4", "content": "Một loại biến đặc biệt trong JS", "images": [] }
+        {
+          "id": "1",
+          "content": "Cơ chế đưa khai báo biến/hàm lên đầu phạm vi trước khi mã được thực thi",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Cách tối ưu hóa tốc độ vòng lặp",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Kỹ thuật nén (minify) mã nguồn",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Một loại biến đặc biệt trong JS",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "Hoisting là cơ chế của JS engine, đưa các khai báo `var`, `function`, `let`, `const` lên đầu phạm vi chứa chúng trước khi thực thi code, dù cách xử lý mỗi loại khác nhau."
     },
     {
       "type": "true_false",
-      "question": { "content": "Cho đoạn code:\n```js\nconsole.log(a);\nvar a = 5;\n```\nKết quả in ra là `undefined` (không phải lỗi).", "images": [] },
+      "question": {
+        "content": "Cho đoạn code:\n```js\nconsole.log(a);\nvar a = 5;\n```\nKết quả in ra là `undefined` (không phải lỗi).",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "Đúng", "images": [] },
-        { "id": "2", "content": "Sai", "images": [] }
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "Do hoisting, khai báo `var a` được đưa lên đầu phạm vi và tự khởi tạo giá trị `undefined`, nên `console.log(a)` in ra `undefined` thay vì báo lỗi."
     },
     {
       "type": "true_false",
-      "question": { "content": "Cho đoạn code:\n```js\nconsole.log(b);\nlet b = 5;\n```\nĐoạn code trên sẽ gây ra lỗi `ReferenceError` do \"temporal dead zone\".", "images": [] },
+      "question": {
+        "content": "Cho đoạn code:\n```js\nconsole.log(b);\nlet b = 5;\n```\nĐoạn code trên sẽ gây ra lỗi `ReferenceError` do \"temporal dead zone\".",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "Đúng", "images": [] },
-        { "id": "2", "content": "Sai", "images": [] }
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "Biến `let`/`const` cũng được hoisting nhưng nằm trong \"vùng chết tạm thời\" (temporal dead zone) cho đến dòng khai báo, nên truy cập trước đó sẽ gây lỗi."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "Hàm (function) trong JavaScript là gì?", "images": [] },
+      "question": {
+        "content": "Hàm (function) trong JavaScript là gì?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "Một khối lệnh có thể tái sử dụng, có thể nhận tham số và trả về giá trị", "images": [] },
-        { "id": "2", "content": "Một loại biến đặc biệt", "images": [] },
-        { "id": "3", "content": "Một kiểu dữ liệu nguyên thủy", "images": [] },
-        { "id": "4", "content": "Một loại vòng lặp đặc biệt", "images": [] }
+        {
+          "id": "1",
+          "content": "Một khối lệnh có thể tái sử dụng, có thể nhận tham số và trả về giá trị",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Một loại biến đặc biệt",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Một kiểu dữ liệu nguyên thủy",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Một loại vòng lặp đặc biệt",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "Hàm là khối lệnh được đặt tên (hoặc ẩn danh), có thể nhận tham số đầu vào, thực thi logic và trả về kết quả, giúp tái sử dụng code."
     },
     {
       "type": "short_answer",
-      "question": { "content": "Từ khóa nào dùng để trả về giá trị từ một hàm trong JavaScript?", "images": [] },
-      "answer": ["return"],
+      "question": {
+        "content": "Từ khóa nào dùng để trả về giá trị từ một hàm trong JavaScript?",
+        "images": []
+      },
+      "answer": [
+        "return"
+      ],
       "explanation": "`return` dùng để kết thúc hàm và trả giá trị về nơi gọi hàm."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "Phạm vi biến **toàn cục** (global scope) nghĩa là gì?", "images": [] },
+      "question": {
+        "content": "Phạm vi biến **toàn cục** (global scope) nghĩa là gì?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "Biến chỉ dùng được bên trong 1 hàm cụ thể", "images": [] },
-        { "id": "2", "content": "Biến có thể truy cập được ở mọi nơi trong chương trình", "images": [] },
-        { "id": "3", "content": "Biến chỉ tồn tại trong 1 vòng lặp", "images": [] },
-        { "id": "4", "content": "Biến không thể thay đổi giá trị", "images": [] }
+        {
+          "id": "1",
+          "content": "Biến chỉ dùng được bên trong 1 hàm cụ thể",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Biến có thể truy cập được ở mọi nơi trong chương trình",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Biến chỉ tồn tại trong 1 vòng lặp",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Biến không thể thay đổi giá trị",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Biến khai báo ở phạm vi toàn cục (ngoài mọi hàm/khối lệnh) có thể được truy cập từ bất kỳ đâu trong chương trình."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "Cho đoạn code:\n```js\nfunction outer() {\n  let x = 10;\n  function inner() {\n    console.log(x);\n  }\n  inner();\n}\nouter();\n```\nKết quả in ra là gì?", "images": [] },
+      "question": {
+        "content": "Cho đoạn code:\n```js\nfunction outer() {\n  let x = 10;\n  function inner() {\n    console.log(x);\n  }\n  inner();\n}\nouter();\n```\nKết quả in ra là gì?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "10", "images": [] },
-        { "id": "2", "content": "undefined", "images": [] },
-        { "id": "3", "content": "Báo lỗi", "images": [] },
-        { "id": "4", "content": "NaN", "images": [] }
+        {
+          "id": "1",
+          "content": "10",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "undefined",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Báo lỗi",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "NaN",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "Đây là hiện tượng **closure**: hàm `inner` được định nghĩa bên trong `outer` nên vẫn truy cập được biến `x` của hàm cha nhờ phạm vi từ vựng (lexical scope)."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "Toán tử nào dùng để phủ định (NOT) một giá trị boolean trong JavaScript?", "images": [] },
+      "question": {
+        "content": "Toán tử nào dùng để phủ định (NOT) một giá trị boolean trong JavaScript?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "`!`", "images": [] },
-        { "id": "2", "content": "`~`", "images": [] },
-        { "id": "3", "content": "`not`", "images": [] },
-        { "id": "4", "content": "`--`", "images": [] }
+        {
+          "id": "1",
+          "content": "`!`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`~`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`not`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`--`",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "Toán tử `!` đảo ngược giá trị boolean, ví dụ `!true` cho ra `false`."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "Giá trị nào sau đây được coi là **falsy** (giả) trong JavaScript?", "images": [] },
+      "question": {
+        "content": "Giá trị nào sau đây được coi là **falsy** (giả) trong JavaScript?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "`\"0\"` (chuỗi chứa ký tự 0)", "images": [] },
-        { "id": "2", "content": "`0` (số 0)", "images": [] },
-        { "id": "3", "content": "`[]` (mảng rỗng)", "images": [] },
-        { "id": "4", "content": "`{}` (object rỗng)", "images": [] }
+        {
+          "id": "1",
+          "content": "`\"0\"` (chuỗi chứa ký tự 0)",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`0` (số 0)",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`[]` (mảng rỗng)",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`{}` (object rỗng)",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Các giá trị falsy trong JS gồm: `false`, `0`, `\"\"`, `null`, `undefined`, `NaN`. Chuỗi `\"0\"`, mảng rỗng `[]` và object rỗng `{}` đều là truthy."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "Kết quả của `Boolean(\"\")` là gì?", "images": [] },
+      "question": {
+        "content": "Kết quả của `Boolean(\"\")` là gì?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "true", "images": [] },
-        { "id": "2", "content": "false", "images": [] },
-        { "id": "3", "content": "\"\"", "images": [] },
-        { "id": "4", "content": "undefined", "images": [] }
+        {
+          "id": "1",
+          "content": "true",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "false",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "\"\"",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "undefined",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Chuỗi rỗng `\"\"` là giá trị falsy, nên `Boolean(\"\")` trả về `false`."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "Kết quả của `Boolean(\"false\")` (chuỗi chứa chữ \"false\") là gì?", "images": [] },
+      "question": {
+        "content": "Kết quả của `Boolean(\"false\")` (chuỗi chứa chữ \"false\") là gì?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "true", "images": [] },
-        { "id": "2", "content": "false", "images": [] },
-        { "id": "3", "content": "Báo lỗi", "images": [] },
-        { "id": "4", "content": "undefined", "images": [] }
+        {
+          "id": "1",
+          "content": "true",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "false",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Báo lỗi",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "undefined",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "Bất kỳ chuỗi không rỗng nào cũng là truthy, kể cả chuỗi `\"false\"`, vì nó không phải chuỗi rỗng."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "Cho đoạn code:\n```js\nlet a = 5, b = \"5\";\nconsole.log(a === Number(b));\n```\nKết quả in ra là gì?", "images": [] },
+      "question": {
+        "content": "Cho đoạn code:\n```js\nlet a = 5, b = \"5\";\nconsole.log(a === Number(b));\n```\nKết quả in ra là gì?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "true", "images": [] },
-        { "id": "2", "content": "false", "images": [] },
-        { "id": "3", "content": "Báo lỗi", "images": [] },
-        { "id": "4", "content": "NaN", "images": [] }
+        {
+          "id": "1",
+          "content": "true",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "false",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Báo lỗi",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "NaN",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "`Number(\"5\")` chuyển chuỗi `\"5\"` thành số `5`, nên `5 === 5` là `true`."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "Hàm `parseInt(\"10px\")` trả về giá trị nào?", "images": [] },
+      "question": {
+        "content": "Hàm `parseInt(\"10px\")` trả về giá trị nào?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "10", "images": [] },
-        { "id": "2", "content": "NaN", "images": [] },
-        { "id": "3", "content": "\"10px\"", "images": [] },
-        { "id": "4", "content": "0", "images": [] }
+        {
+          "id": "1",
+          "content": "10",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "NaN",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "\"10px\"",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "0",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "`parseInt` phân tích các ký tự số ở đầu chuỗi cho đến khi gặp ký tự không hợp lệ, nên trả về `10`."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "`console.log(typeof \"123\" + 1)` in ra kết quả gì? (chú ý độ ưu tiên toán tử)", "images": [] },
+      "question": {
+        "content": "`console.log(typeof \"123\" + 1)` in ra kết quả gì? (chú ý độ ưu tiên toán tử)",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "\"string1\"", "images": [] },
-        { "id": "2", "content": "\"number\"", "images": [] },
-        { "id": "3", "content": "124", "images": [] },
-        { "id": "4", "content": "Báo lỗi", "images": [] }
+        {
+          "id": "1",
+          "content": "\"string1\"",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "\"number\"",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "124",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Báo lỗi",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "`typeof` có độ ưu tiên cao hơn `+`, nên `typeof \"123\"` được tính trước, cho ra `\"string\"`, rồi `\"string\" + 1` nối chuỗi thành `\"string1\"`."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "`console.log(5 + \"5\")` in ra kết quả gì?", "images": [] },
+      "question": {
+        "content": "`console.log(5 + \"5\")` in ra kết quả gì?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "10", "images": [] },
-        { "id": "2", "content": "\"55\"", "images": [] },
-        { "id": "3", "content": "\"10\"", "images": [] },
-        { "id": "4", "content": "NaN", "images": [] }
+        {
+          "id": "1",
+          "content": "10",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "\"55\"",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "\"10\"",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "NaN",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Khi 1 vế của toán tử `+` là chuỗi, JS ưu tiên chuyển vế còn lại thành chuỗi rồi nối lại, cho ra `\"55\"`."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "`console.log(5 - \"2\")` in ra kết quả gì?", "images": [] },
+      "question": {
+        "content": "`console.log(5 - \"2\")` in ra kết quả gì?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "3", "images": [] },
-        { "id": "2", "content": "\"5-2\"", "images": [] },
-        { "id": "3", "content": "NaN", "images": [] },
-        { "id": "4", "content": "\"3\"", "images": [] }
+        {
+          "id": "1",
+          "content": "3",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "\"5-2\"",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "NaN",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "\"3\"",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "Với toán tử `-`, JS luôn cố gắng ép chuỗi về số nếu có thể, nên `\"2\"` được chuyển thành số `2`, kết quả là `5 - 2 = 3` (kiểu number)."
     },
     {
       "type": "true_false",
-      "question": { "content": "Các toán tử `>`, `<`, `>=`, `<=` được gọi là toán tử so sánh tương đối (relational), còn `==`, `===` là toán tử so sánh bằng (equality).", "images": [] },
+      "question": {
+        "content": "Các toán tử `>`, `<`, `>=`, `<=` được gọi là toán tử so sánh tương đối (relational), còn `==`, `===` là toán tử so sánh bằng (equality).",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "Đúng", "images": [] },
-        { "id": "2", "content": "Sai", "images": [] }
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "Đây là cách phân loại chuẩn: so sánh tương đối xác định thứ tự lớn/nhỏ, so sánh bằng xác định 2 giá trị có bằng nhau hay không."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "Biểu thức `\"10\" > \"9\"` (so sánh 2 chuỗi) trả về giá trị nào?", "images": [] },
+      "question": {
+        "content": "Biểu thức `\"10\" > \"9\"` (so sánh 2 chuỗi) trả về giá trị nào?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "true", "images": [] },
-        { "id": "2", "content": "false", "images": [] },
-        { "id": "3", "content": "Báo lỗi", "images": [] },
-        { "id": "4", "content": "NaN", "images": [] }
+        {
+          "id": "1",
+          "content": "true",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "false",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Báo lỗi",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "NaN",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Khi so sánh 2 chuỗi, JS so sánh theo thứ tự từ điển (ký tự Unicode) từng ký tự một; ký tự `\"1\"` có mã nhỏ hơn `\"9\"`, nên `\"10\" < \"9\"` xét theo kiểu chuỗi, do đó `\"10\" > \"9\"` là `false`."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "Để so sánh 2 chuỗi số một cách chính xác về mặt số học (ví dụ `\"10\"` và `\"9\"`), ta nên làm gì?", "images": [] },
+      "question": {
+        "content": "Để so sánh 2 chuỗi số một cách chính xác về mặt số học (ví dụ `\"10\"` và `\"9\"`), ta nên làm gì?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "So sánh trực tiếp bằng `>`, `<` mà không cần xử lý gì thêm", "images": [] },
-        { "id": "2", "content": "Chuyển đổi cả hai về kiểu `Number` trước khi so sánh", "images": [] },
-        { "id": "3", "content": "Dùng `==` thay vì `===`", "images": [] },
-        { "id": "4", "content": "Không thể so sánh được hai chuỗi số", "images": [] }
+        {
+          "id": "1",
+          "content": "So sánh trực tiếp bằng `>`, `<` mà không cần xử lý gì thêm",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Chuyển đổi cả hai về kiểu `Number` trước khi so sánh",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Dùng `==` thay vì `===`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không thể so sánh được hai chuỗi số",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Nên chuyển cả hai chuỗi về kiểu số bằng `Number()` hoặc `parseInt()` trước khi so sánh, để tránh so sánh theo thứ tự từ điển gây sai lệch."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "Hàm `parseFloat(\"3.14abc\")` trả về giá trị nào?", "images": [] },
+      "question": {
+        "content": "Hàm `parseFloat(\"3.14abc\")` trả về giá trị nào?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "3.14", "images": [] },
-        { "id": "2", "content": "NaN", "images": [] },
-        { "id": "3", "content": "\"3.14\"", "images": [] },
-        { "id": "4", "content": "3", "images": [] }
+        {
+          "id": "1",
+          "content": "3.14",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "NaN",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "\"3.14\"",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "3",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "`parseFloat` phân tích phần số thực hợp lệ ở đầu chuỗi, dừng lại khi gặp ký tự không phải số, nên trả về `3.14`."
     },
     {
       "type": "true_false",
-      "question": { "content": "Vòng lặp `for (;;) {}` (không có điều kiện dừng) sẽ chạy vô hạn nếu bên trong không có `break` hoặc `return`.", "images": [] },
+      "question": {
+        "content": "Vòng lặp `for (;;) {}` (không có điều kiện dừng) sẽ chạy vô hạn nếu bên trong không có `break` hoặc `return`.",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "Đúng", "images": [] },
-        { "id": "2", "content": "Sai", "images": [] }
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "Khi bỏ trống điều kiện lặp, JS mặc định coi điều kiện luôn đúng, nên vòng lặp sẽ chạy vô hạn nếu không có cách thoát bằng `break` hoặc `return`."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "Sự khác biệt giữa `function declaration` (`function f() {}`) và `function expression` (`const f = function() {}`) về hoisting là gì?", "images": [] },
+      "question": {
+        "content": "Sự khác biệt giữa `function declaration` (`function f() {}`) và `function expression` (`const f = function() {}`) về hoisting là gì?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "Cả hai đều có thể gọi trước khi khai báo trong code", "images": [] },
-        { "id": "2", "content": "`function declaration` được hoisting toàn bộ (gọi được trước khi khai báo), còn `function expression` thì không", "images": [] },
-        { "id": "3", "content": "Không loại nào được hoisting", "images": [] },
-        { "id": "4", "content": "`function expression` luôn được hoisting đầy đủ", "images": [] }
+        {
+          "id": "1",
+          "content": "Cả hai đều có thể gọi trước khi khai báo trong code",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`function declaration` được hoisting toàn bộ (gọi được trước khi khai báo), còn `function expression` thì không",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Không loại nào được hoisting",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`function expression` luôn được hoisting đầy đủ",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "`function declaration` được hoisting toàn bộ thân hàm nên có thể gọi trước khi khai báo trong code; `function expression` chỉ hoisting phần biến (`var`/`let`/`const`), nên gọi trước sẽ lỗi hoặc `undefined`."
     },
     {
       "type": "multiple_choice",
-      "question": { "content": "Vòng lặp `for...of` khác `for...in` chủ yếu ở điểm nào?", "images": [] },
+      "question": {
+        "content": "Vòng lặp `for...of` khác `for...in` chủ yếu ở điểm nào?",
+        "images": []
+      },
       "options": [
-        { "id": "1", "content": "`for...of` duyệt qua giá trị của các phần tử (thường dùng cho mảng), `for...in` duyệt qua key/chỉ số", "images": [] },
-        { "id": "2", "content": "`for...in` chỉ dùng được cho số", "images": [] },
-        { "id": "3", "content": "Không có sự khác biệt nào", "images": [] },
-        { "id": "4", "content": "`for...of` chỉ dùng được cho object", "images": [] }
+        {
+          "id": "1",
+          "content": "`for...of` duyệt qua giá trị của các phần tử (thường dùng cho mảng), `for...in` duyệt qua key/chỉ số",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`for...in` chỉ dùng được cho số",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Không có sự khác biệt nào",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`for...of` chỉ dùng được cho object",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "`for...of` lặp qua **giá trị** của các phần tử có thể lặp (mảng, chuỗi...), còn `for...in` lặp qua **key** (chỉ số của mảng hoặc thuộc tính của object)."
     }
   ]

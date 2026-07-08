@@ -24,6 +24,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    if (!userEmail || typeof userEmail !== "string" || userEmail.trim() === "") {
+      return NextResponse.json(
+        { error: "Bạn cần đăng nhập bằng Google để lưu điểm lên bảng xếp hạng" },
+        { status: 401 }
+      );
+    }
+
     let userId: string | null = null;
 
     if (userEmail && typeof userEmail === "string" && userEmail.trim() !== "") {
@@ -108,22 +115,22 @@ export async function DELETE(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const id = searchParams.get("id");
+    const email = searchParams.get("email");
 
-    if (!id) {
-      return NextResponse.json(
-        { error: "Thiếu mã kết quả bài thi (id)" },
-        { status: 400 }
-      );
+    if (id) {
+      await db.examResult.delete({ where: { id } });
+      return NextResponse.json({ success: true, message: "Đã xóa kết quả bài thi thành công" });
     }
 
-    // Delete from database
-    await db.examResult.delete({
-      where: {
-        id: id,
-      },
-    });
+    if (email) {
+      const { count } = await db.examResult.deleteMany({ where: { userEmail: email } });
+      return NextResponse.json({ success: true, message: `Đã xóa ${count} kết quả bài thi` });
+    }
 
-    return NextResponse.json({ success: true, message: "Đã xóa kết quả bài thi thành công" });
+    return NextResponse.json(
+      { error: "Thiếu mã kết quả bài thi (id) hoặc email" },
+      { status: 400 }
+    );
   } catch (error) {
     console.error("Lỗi khi xóa kết quả bài thi:", error);
     return NextResponse.json(

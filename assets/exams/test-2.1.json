@@ -1,6 +1,8 @@
 {
   "title": "Bài kiểm tra số 4 - HTML Cơ bản (Đề 1)",
   "description": "HTML Elements, Attributes, Headings, Paragraphs, Styles, Formatting, Quotations, Comments, Colors, CSS, Links, Images, Favicon, Page Title, Tables, Lists, Block & Inline, Div, Classes, Id, Buttons, Iframes, JavaScript, File Paths, Head, Layout, Responsive",
+  "category": "HTML",
+  "date": "2026-06-12",
   "duration": 30,
   "random": true,
   "questions": [
@@ -11,12 +13,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<h6>", "images": [] },
-        { "id": "2", "content": "<h1>", "images": [] },
-        { "id": "3", "content": "<heading>", "images": [] },
-        { "id": "4", "content": "<title>", "images": [] }
+        {
+          "id": "1",
+          "content": "<h6>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<h1>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<heading>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<title>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thẻ <h1> tạo tiêu đề lớn nhất, <h6> là nhỏ nhất. HTML hỗ trợ 6 cấp heading từ <h1> đến <h6>."
     },
     {
@@ -26,12 +46,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<para>", "images": [] },
-        { "id": "2", "content": "<p>", "images": [] },
-        { "id": "3", "content": "<text>", "images": [] },
-        { "id": "4", "content": "<span>", "images": [] }
+        {
+          "id": "1",
+          "content": "<para>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<p>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<text>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<span>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thẻ <p> (paragraph) được dùng để tạo một đoạn văn bản trong HTML."
     },
     {
@@ -41,12 +79,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "src", "images": [] },
-        { "id": "2", "content": "href", "images": [] },
-        { "id": "3", "content": "link", "images": [] },
-        { "id": "4", "content": "url", "images": [] }
+        {
+          "id": "1",
+          "content": "src",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "href",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "link",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "url",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thuộc tính href (Hypertext REFerence) chỉ định URL mà liên kết trỏ tới."
     },
     {
@@ -56,12 +112,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<image>", "images": [] },
-        { "id": "2", "content": "<img>", "images": [] },
-        { "id": "3", "content": "<pic>", "images": [] },
-        { "id": "4", "content": "<photo>", "images": [] }
+        {
+          "id": "1",
+          "content": "<image>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<img>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<pic>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<photo>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thẻ <img> là thẻ tự đóng (self-closing), dùng để chèn hình ảnh vào trang HTML."
     },
     {
@@ -71,12 +145,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<ul>", "images": [] },
-        { "id": "2", "content": "<ol>", "images": [] },
-        { "id": "3", "content": "<list>", "images": [] },
-        { "id": "4", "content": "<dl>", "images": [] }
+        {
+          "id": "1",
+          "content": "<ul>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<ol>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<list>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<dl>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thẻ <ol> (Ordered List) tạo danh sách có đánh số thứ tự. <ul> tạo danh sách không thứ tự."
     },
     {
@@ -86,12 +178,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<br>", "images": [] },
-        { "id": "2", "content": "<hr>", "images": [] },
-        { "id": "3", "content": "<div>", "images": [] },
-        { "id": "4", "content": "<img>", "images": [] }
+        {
+          "id": "1",
+          "content": "<br>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<hr>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<div>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<img>",
+          "images": []
+        }
       ],
-      "answer": ["3"],
+      "answer": [
+        "3"
+      ],
       "explanation": "<div> cần có thẻ đóng </div>. <br>, <hr>, <img> là các thẻ tự đóng."
     },
     {
@@ -101,12 +211,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "// Đây là comment", "images": [] },
-        { "id": "2", "content": "/* Đây là comment */", "images": [] },
-        { "id": "3", "content": "<!-- Đây là comment -->", "images": [] },
-        { "id": "4", "content": "# Đây là comment", "images": [] }
+        {
+          "id": "1",
+          "content": "// Đây là comment",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "/* Đây là comment */",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<!-- Đây là comment -->",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "# Đây là comment",
+          "images": []
+        }
       ],
-      "answer": ["3"],
+      "answer": [
+        "3"
+      ],
       "explanation": "Comment trong HTML được viết trong <!-- -->. Đây là cú pháp duy nhất để comment trong HTML."
     },
     {
@@ -116,12 +244,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<table>", "images": [] },
-        { "id": "2", "content": "<grid>", "images": [] },
-        { "id": "3", "content": "<tab>", "images": [] },
-        { "id": "4", "content": "<sheet>", "images": [] }
+        {
+          "id": "1",
+          "content": "<table>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<grid>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<tab>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<sheet>",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "Thẻ <table> được dùng để tạo bảng, bên trong chứa <tr> (hàng), <td> (ô) và <th> (ô tiêu đề)."
     },
     {
@@ -131,12 +277,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "Inline", "images": [] },
-        { "id": "2", "content": "Block", "images": [] },
-        { "id": "3", "content": "Inline-Block", "images": [] },
-        { "id": "4", "content": "Hidden", "images": [] }
+        {
+          "id": "1",
+          "content": "Inline",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Block",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Inline-Block",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Hidden",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "<div> là phần tử Block-level, luôn bắt đầu trên một dòng mới và chiếm toàn bộ chiều rộng có sẵn."
     },
     {
@@ -146,12 +310,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "Block", "images": [] },
-        { "id": "2", "content": "Inline", "images": [] },
-        { "id": "3", "content": "Table", "images": [] },
-        { "id": "4", "content": "Flex", "images": [] }
+        {
+          "id": "1",
+          "content": "Block",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Inline",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Table",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Flex",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "<span> là phần tử Inline, không bắt đầu dòng mới và chỉ chiếm chiều rộng cần thiết."
     },
     {
@@ -161,12 +343,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<list>", "images": [] },
-        { "id": "2", "content": "<li>", "images": [] },
-        { "id": "3", "content": "<item>", "images": [] },
-        { "id": "4", "content": "<ul>", "images": [] }
+        {
+          "id": "1",
+          "content": "<list>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<li>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<item>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<ul>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thẻ <li> (List Item) được dùng để khai báo một mục trong danh sách có thứ tự hoặc không thứ tự."
     },
     {
@@ -176,12 +376,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<a href='url' new='true'>", "images": [] },
-        { "id": "2", "content": "<a href='url' target='_blank'>", "images": [] },
-        { "id": "3", "content": "<a href='url' open='new'>", "images": [] },
-        { "id": "4", "content": "<a href='url' tab='new'>", "images": [] }
+        {
+          "id": "1",
+          "content": "<a href='url' new='true'>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<a href='url' target='_blank'>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<a href='url' open='new'>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<a href='url' tab='new'>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "target='_blank' khiến liên kết mở trong tab/cửa sổ mới. target='_self' mở trong cùng tab."
     },
     {
@@ -191,12 +409,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<javascript>", "images": [] },
-        { "id": "2", "content": "<script>", "images": [] },
-        { "id": "3", "content": "<js>", "images": [] },
-        { "id": "4", "content": "<code>", "images": [] }
+        {
+          "id": "1",
+          "content": "<javascript>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<script>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<js>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<code>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thẻ <script> được dùng để viết trực tiếp hoặc liên kết đến một file JavaScript bên ngoài."
     },
     {
@@ -206,12 +442,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "Thay đổi kích thước ảnh", "images": [] },
-        { "id": "2", "content": "Văn bản thay thế khi ảnh không tải được", "images": [] },
-        { "id": "3", "content": "Đặt tên file ảnh", "images": [] },
-        { "id": "4", "content": "Thêm link cho ảnh", "images": [] }
+        {
+          "id": "1",
+          "content": "Thay đổi kích thước ảnh",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Văn bản thay thế khi ảnh không tải được",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Đặt tên file ảnh",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Thêm link cho ảnh",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "alt (alternative text) hiển thị văn bản thay thế khi ảnh không tải được, cũng hỗ trợ SEO và trình đọc màn hình."
     },
     {
@@ -221,12 +475,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<embed>", "images": [] },
-        { "id": "2", "content": "<iframe>", "images": [] },
-        { "id": "3", "content": "<object>", "images": [] },
-        { "id": "4", "content": "<include>", "images": [] }
+        {
+          "id": "1",
+          "content": "<embed>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<iframe>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<object>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<include>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thẻ <iframe> (inline frame) cho phép nhúng một trang web khác vào bên trong trang hiện tại."
     },
     {
@@ -236,12 +508,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<i>", "images": [] },
-        { "id": "2", "content": "<b>", "images": [] },
-        { "id": "3", "content": "<u>", "images": [] },
-        { "id": "4", "content": "<s>", "images": [] }
+        {
+          "id": "1",
+          "content": "<i>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<b>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<u>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<s>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thẻ <b> (bold) dùng để in đậm văn bản. <i> in nghiêng, <u> gạch chân, <s> gạch ngang."
     },
     {
@@ -251,12 +541,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "class", "images": [] },
-        { "id": "2", "content": "id", "images": [] },
-        { "id": "3", "content": "name", "images": [] },
-        { "id": "4", "content": "key", "images": [] }
+        {
+          "id": "1",
+          "content": "class",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "id",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "name",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "key",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thuộc tính id xác định mã định danh DUY NHẤT cho một phần tử. class có thể dùng cho nhiều phần tử."
     },
     {
@@ -266,12 +574,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "Trong <body>", "images": [] },
-        { "id": "2", "content": "Trong <head>", "images": [] },
-        { "id": "3", "content": "Trong <footer>", "images": [] },
-        { "id": "4", "content": "Trong <main>", "images": [] }
+        {
+          "id": "1",
+          "content": "Trong <body>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Trong <head>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Trong <footer>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Trong <main>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thẻ <title> nằm trong <head>, xác định tiêu đề hiển thị trên tab trình duyệt và kết quả tìm kiếm."
     },
     {
@@ -281,12 +607,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<btn>", "images": [] },
-        { "id": "2", "content": "<button>", "images": [] },
-        { "id": "3", "content": "<click>", "images": [] },
-        { "id": "4", "content": "<input type='btn'>", "images": [] }
+        {
+          "id": "1",
+          "content": "<btn>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<button>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<click>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<input type='btn'>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thẻ <button> tạo nút bấm. Cũng có thể dùng <input type='button'> nhưng <button> linh hoạt hơn."
     },
     {
@@ -296,12 +640,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "Tạo đường kẻ ngang", "images": [] },
-        { "id": "2", "content": "Ngắt dòng", "images": [] },
-        { "id": "3", "content": "In đậm", "images": [] },
-        { "id": "4", "content": "Tạo border", "images": [] }
+        {
+          "id": "1",
+          "content": "Tạo đường kẻ ngang",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Ngắt dòng",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "In đậm",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Tạo border",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thẻ <br> (break) dùng để ngắt dòng. <hr> mới tạo đường kẻ ngang."
     },
     {
@@ -311,12 +673,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<style src='...'>", "images": [] },
-        { "id": "2", "content": "<link rel='stylesheet' href='...'>", "images": [] },
-        { "id": "3", "content": "<css href='...'>", "images": [] },
-        { "id": "4", "content": "<script src='...'>", "images": [] }
+        {
+          "id": "1",
+          "content": "<style src='...'>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<link rel='stylesheet' href='...'>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<css href='...'>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<script src='...'>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Thẻ <link rel='stylesheet' href='...'> được sử dụng trong phần <head> để liên kết file CSS bên ngoài."
     },
     {
@@ -326,12 +706,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<style>", "images": [] },
-        { "id": "2", "content": "<css>", "images": [] },
-        { "id": "3", "content": "<script>", "images": [] },
-        { "id": "4", "content": "<link>", "images": [] }
+        {
+          "id": "1",
+          "content": "<style>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<css>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<script>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<link>",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "Thẻ <style> được đặt trong <head> để viết trực tiếp mã CSS trang trí cho các phần tử HTML trong trang."
     },
     {
@@ -341,12 +739,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "Tạo đoạn trích dẫn ngắn", "images": [] },
-        { "id": "2", "content": "Tạo câu hỏi", "images": [] },
-        { "id": "3", "content": "Tạo danh sách", "images": [] },
-        { "id": "4", "content": "Tạo nút bấm", "images": [] }
+        {
+          "id": "1",
+          "content": "Tạo đoạn trích dẫn ngắn",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Tạo câu hỏi",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Tạo danh sách",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Tạo nút bấm",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "Thẻ <q> (quotation) tạo trích dẫn ngắn nội dòng, tự động thêm dấu ngoặc kép. <blockquote> dùng cho trích dẫn dài."
     },
     {
@@ -356,12 +772,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "border", "images": [] },
-        { "id": "2", "content": "cellpadding", "images": [] },
-        { "id": "3", "content": "src", "images": [] },
-        { "id": "4", "content": "width", "images": [] }
+        {
+          "id": "1",
+          "content": "border",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "cellpadding",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "src",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "width",
+          "images": []
+        }
       ],
-      "answer": ["3"],
+      "answer": [
+        "3"
+      ],
       "explanation": "src là thuộc tính của thẻ <img>, <script>, <iframe>, không phải của <table>."
     },
     {
@@ -371,12 +805,30 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "<icon src='favicon.ico'>", "images": [] },
-        { "id": "2", "content": "<link rel='icon' href='favicon.ico'>", "images": [] },
-        { "id": "3", "content": "<favicon href='favicon.ico'>", "images": [] },
-        { "id": "4", "content": "<img src='favicon.ico' id='favicon'>", "images": [] }
+        {
+          "id": "1",
+          "content": "<icon src='favicon.ico'>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<link rel='icon' href='favicon.ico'>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<favicon href='favicon.ico'>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<img src='favicon.ico' id='favicon'>",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Favicon được khai báo trong <head> bằng thẻ <link rel='icon' href='favicon.ico'>."
     },
     {
@@ -386,10 +838,20 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "Đúng", "images": [] },
-        { "id": "2", "content": "Sai", "images": [] }
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "Đúng. Về mặt kỹ thuật HTML, có thể dùng nhiều <h1>, nhưng về SEO và cấu trúc tốt thì nên chỉ dùng một <h1> mỗi trang."
     },
     {
@@ -399,10 +861,20 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "Đúng", "images": [] },
-        { "id": "2", "content": "Sai", "images": [] }
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Sai. <img> là thẻ tự đóng (self-closing), KHÔNG cần thẻ đóng. Viết đúng: <img src='...' alt='...'>"
     },
     {
@@ -412,10 +884,20 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "Đúng", "images": [] },
-        { "id": "2", "content": "Sai", "images": [] }
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "Đúng. class có thể gán cho nhiều phần tử để áp dụng style chung. Ngược lại, id phải là duy nhất."
     },
     {
@@ -425,10 +907,20 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "Đúng", "images": [] },
-        { "id": "2", "content": "Sai", "images": [] }
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Sai. Comment trong HTML không hiển thị trên giao diện trình duyệt, nhưng có thể xem được qua View Source."
     },
     {
@@ -438,10 +930,20 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "Đúng", "images": [] },
-        { "id": "2", "content": "Sai", "images": [] }
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
       ],
-      "answer": ["2"],
+      "answer": [
+        "2"
+      ],
       "explanation": "Sai. <ul> (Unordered List) tạo danh sách không thứ tự (dấu chấm). <ol> mới tạo danh sách có đánh số."
     },
     {
@@ -451,10 +953,20 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "Đúng", "images": [] },
-        { "id": "2", "content": "Sai", "images": [] }
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "Đúng. Thẻ <td> (Table Data) định nghĩa một ô chứa dữ liệu trong bảng, còn <th> (Table Header) định nghĩa ô tiêu đề."
     },
     {
@@ -464,10 +976,20 @@
         "images": []
       },
       "options": [
-        { "id": "1", "content": "Đúng", "images": [] },
-        { "id": "2", "content": "Sai", "images": [] }
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
       ],
-      "answer": ["1"],
+      "answer": [
+        "1"
+      ],
       "explanation": "Đúng. Dùng mailto: trong href: <a href='mailto:example@email.com'>Gửi email</a>"
     },
     {
@@ -477,7 +999,10 @@
         "images": []
       },
       "options": null,
-      "answer": ["h1", "H1"],
+      "answer": [
+        "h1",
+        "H1"
+      ],
       "explanation": "Thẻ <h1> là heading lớn nhất trong HTML."
     },
     {
@@ -487,7 +1012,10 @@
         "images": []
       },
       "options": null,
-      "answer": ["src", "SRC"],
+      "answer": [
+        "src",
+        "SRC"
+      ],
       "explanation": "Thuộc tính src (source) chỉ định đường dẫn đến file ảnh trong thẻ <img>."
     },
     {
@@ -497,7 +1025,10 @@
         "images": []
       },
       "options": null,
-      "answer": ["tr", "TR"],
+      "answer": [
+        "tr",
+        "TR"
+      ],
       "explanation": "Thẻ <tr> (Table Row) tạo một hàng trong bảng HTML."
     }
   ]

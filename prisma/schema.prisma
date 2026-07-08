@@ -7,13 +7,14 @@ generator client {
 }
 
 model User {
-  id        String       @id @default(cuid())
-  email     String       @unique
-  name      String?
-  image     String?
-  createdAt DateTime     @default(now())
-  updatedAt DateTime     @updatedAt
-  results   ExamResult[]
+  id             String           @id @default(cuid())
+  email          String           @unique
+  name           String?
+  image          String?
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+  results        ExamResult[]
+  practiceResults PracticeResult[]
 }
 
 model ExamResult {
@@ -35,4 +36,27 @@ model ExamResult {
   userName  String
   userEmail String?
   userImage String?
+}
+
+model PracticeResult {
+  id         String   @id @default(cuid())
+  mode       String   // "css" | "js"
+  setId      String
+  questionId String
+  points     Int
+  createdAt  DateTime @default(now())
+
+  // Relation to User (optional, allows guest submissions)
+  userId String?
+  user   User?   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Snapshot details (supports guests and keeps a copy of their name/avatar at submission)
+  userName  String
+  userEmail String?
+  userImage String?
+
+  // One solved record per user per question (dedup key resolved in application code
+  // since userEmail is optional for guests)
+  @@index([mode, setId, questionId])
+  @@index([userEmail])
 }

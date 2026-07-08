@@ -98,6 +98,7 @@ export function useExamHistory(username: string, userEmail?: string) {
   }, [username, userEmail, getStorageKey]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     loadHistory();
   }, [loadHistory]);
 
@@ -116,7 +117,6 @@ export function useExamHistory(username: string, userEmail?: string) {
 
       const activeEmail = emailOverride || userEmail;
 
-      // 1. Save to local storage (for fallback/guest reference)
       if (username) {
         try {
           const key = getStorageKey(username);
@@ -143,40 +143,40 @@ export function useExamHistory(username: string, userEmail?: string) {
         }
       }
 
-      // 2. Sync / Save to DB via backend endpoint
-      try {
-        // Retrieve detailed record details (timeUsed & duration) from local storage
-        let timeUsed = 0;
-        let duration = 10;
-        const detailedRaw = localStorage.getItem(`exam_result_${resultId}`);
-        if (detailedRaw) {
-          try {
-            const detailed = JSON.parse(detailedRaw);
-            timeUsed = detailed.timeUsed || 0;
-            duration = detailed.duration || 10;
-          } catch (e) {}
-        }
+      if (activeEmail) {
+        try {
+          let timeUsed = 0;
+          let duration = 10;
+          const detailedRaw = localStorage.getItem(`exam_result_${resultId}`);
+          if (detailedRaw) {
+            try {
+              const detailed = JSON.parse(detailedRaw);
+              timeUsed = detailed.timeUsed || 0;
+              duration = detailed.duration || 10;
+            } catch (e) {}
+          }
 
-        await fetch("/api/exams/results", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            examId,
-            examTitle,
-            score,
-            correctCount: correct,
-            totalQuestions: total,
-            timeUsed,
-            duration,
-            userName: username || "Khách",
-            userEmail: activeEmail || null,
-            userImage: imageOverride || null,
-          }),
-        });
-      } catch (dbErr) {
-        console.error("Lỗi khi gửi kết quả thi lên server:", dbErr);
+          await fetch("/api/exams/results", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              examId,
+              examTitle,
+              score,
+              correctCount: correct,
+              totalQuestions: total,
+              timeUsed,
+              duration,
+              userName: username || "Khách",
+              userEmail: activeEmail,
+              userImage: imageOverride || null,
+            }),
+          });
+        } catch (dbErr) {
+          console.error("Lỗi khi gửi kết quả thi lên server:", dbErr);
+        }
       }
 
       // Reload state list

@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { BookOpen, Layers, Code, ArrowRight, Sparkles } from "lucide-react";
+import { BookOpen, Layers, Code, ArrowRight, Trophy } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 export function HomeClient() {
@@ -29,7 +29,7 @@ export function HomeClient() {
     },
     {
       title: "Góc Thực Hành & API",
-      description: "Trải nghiệm viết mã HTML/CSS trực quan với Live Preview và giả lập gọi API ngẫu nhiên xúc sắc để hiểu giao tiếp Client-Server.",
+      description: "Trải nghiệm viết mã HTML/CSS/JS trực quan với Live Preview, chấm điểm tự động và giả lập gọi API để hiểu giao tiếp Client-Server.",
       icon: Code,
       href: "/practice",
       badge: "Viết code & Gọi API",
@@ -39,30 +39,57 @@ export function HomeClient() {
   ];
 
   return (
-    <div className="flex-1 flex flex-col justify-center bg-zinc-50/50 dark:bg-zinc-950/40">
+    <div className="flex-1 flex flex-col bg-zinc-50/50 dark:bg-zinc-950/40">
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-16 sm:py-24 text-center border-b border-zinc-200/50 bg-gradient-to-b from-orange-50/40 to-transparent dark:from-orange-950/10 dark:border-zinc-800/30">
+      <section className="relative overflow-hidden py-16 sm:py-20 text-center border-b border-zinc-200/50 bg-gradient-to-b from-orange-50/40 to-transparent dark:from-orange-950/10 dark:border-zinc-800/30">
         <div className="container mx-auto px-4 max-w-4xl">
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-orange-100/80 px-3 py-1 text-xs font-bold text-orange-600 dark:bg-orange-950/40 dark:text-orange-400 mb-6">
-            <Sparkles size={12} className="animate-spin" />
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-orange-100/80 px-3 py-1 text-[11px] font-bold text-orange-600 dark:bg-orange-950/40 dark:text-orange-400 mb-6 uppercase tracking-wider">
             <span>Training Web MPClub 2026</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-zinc-900 dark:text-white leading-tight">
-            Học xong thì phải{" "}
+            Học lý thuyết,{" "}
             <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
-              làm bài tập!
+              rèn kỹ năng thực chiến
             </span>
           </h1>
 
           <p className="mt-6 text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-            Chọn một trong các phân mục bên dưới để bắt đầu ôn luyện. Hãy cố gắng lên nhé, lười biếng thì thầy cô cũng không biết cứu kiểu gì đâu! 😉
+            Nền tảng ôn luyện Web dành cho học viên MPClub: trắc nghiệm kiến thức, phân tích bố cục giao diện thực tế
+            và thực hành viết code có chấm điểm tự động.
           </p>
+
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Link href="/exam">
+              <Button className="rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm px-6 h-11 shadow-md shadow-orange-500/20 cursor-pointer">
+                Bắt đầu ôn luyện
+                <ArrowRight size={16} className="ml-1.5" />
+              </Button>
+            </Link>
+            <Link href="/leaderboard">
+              <Button
+                variant="outline"
+                className="rounded-xl border-zinc-200 dark:border-zinc-800 font-bold text-sm px-6 h-11 gap-1.5 cursor-pointer"
+              >
+                <Trophy size={15} className="text-amber-500" />
+                Xem bảng xếp hạng
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* Main Cards Section */}
-      <div className="container mx-auto px-4 max-w-5xl py-12 sm:py-16 flex-grow flex items-center justify-center">
+      <div className="container mx-auto px-4 max-w-5xl py-12 sm:py-16 flex-grow">
+        <div className="mb-8 text-center sm:text-left">
+          <h2 className="text-lg font-extrabold text-zinc-900 dark:text-white tracking-tight">
+            Các phân mục ôn luyện
+          </h2>
+          <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-1.5">
+            Chọn một trong các phân mục bên dưới để bắt đầu.
+          </p>
+        </div>
+
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 w-full">
           {cards.map((item, index) => {
             const Icon = item.icon;

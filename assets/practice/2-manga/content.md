@@ -1,4 +1,4 @@
-# Bài 2: Tương tác RESTful API (Quản Lý Manga)
+# Tương tác RESTful API
 
 Bài thực hành này yêu cầu bạn sử dụng ngôn ngữ JavaScript (phương thức `fetch` hoặc các thư viện AJAX) để xây dựng ứng dụng Web đơn trang (SPA - Single Page Application) quản lý danh sách truyện tranh Manga, tương tác trực tiếp với API RESTful của hệ thống.
 

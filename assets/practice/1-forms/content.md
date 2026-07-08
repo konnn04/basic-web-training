@@ -1,4 +1,4 @@
-# Bài 1: Thiết kế các Form HTML cơ bản
+# Thiết kế các Form HTML cơ bản
 
 Bài thực hành này yêu cầu bạn xây dựng 3 trang web chứa các biểu mẫu (form) nhập liệu thông dụng: Đăng Nhập, Đăng Ký và Cài Đặt Thông Tin Cá Nhân.
 

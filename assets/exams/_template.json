@@ -1,6 +1,8 @@
 {
     "title": "Bài kiểm tra số 1",
     "description": "Đây là bài kiểm tra số 1 của bạn. Hãy làm tốt nhé!",
+    "category": "Tổng quan Web",
+    "date": "2026-01-01",
     "duration": 10,
     "random": false,
     "questions": [
