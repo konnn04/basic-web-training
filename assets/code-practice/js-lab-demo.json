@@ -1,0 +1,50 @@
+{
+  "id": "js-lab-demo",
+  "mode": "js",
+  "title": "Thực hành JavaScript cơ bản",
+  "description": "Bộ 3 bài luyện thao tác DOM, sự kiện và mảng dữ liệu.",
+  "questions": [
+    {
+      "id": "q1-set-text",
+      "title": "Hiển thị lời chào",
+      "description": "Viết JavaScript để đặt nội dung chữ (`textContent`) của thẻ có `id=\"greeting\"` thành chính xác: `Xin chào, Web!`",
+      "points": 10,
+      "files": {
+        "html": "<h2 id=\"greeting\"></h2>",
+        "css": "",
+        "js": ""
+      },
+      "editable": "js",
+      "starter": "// Viết JavaScript của bạn ở đây\n",
+      "checker": "const el = doc.getElementById('greeting'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử #greeting.' }; if (el.textContent === 'Xin chào, Web!') return { pass: true, message: 'Chính xác!' }; return { pass: false, message: 'Nội dung hiện tại: \"' + el.textContent + '\", cần đúng: \"Xin chào, Web!\"' };"
+    },
+    {
+      "id": "q2-click-counter",
+      "title": "Bộ đếm khi bấm nút",
+      "description": "Có nút `#incBtn` và ô hiển thị `#count` (đang là `0`). Viết JavaScript để mỗi lần bấm nút, số hiển thị trong `#count` tăng thêm 1.",
+      "points": 15,
+      "files": {
+        "html": "<button id=\"incBtn\">Tăng</button>\n<span id=\"count\">0</span>",
+        "css": "",
+        "js": ""
+      },
+      "editable": "js",
+      "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: document.getElementById('incBtn').addEventListener('click', ...)\n",
+      "checker": "const btn = doc.getElementById('incBtn'); const span = doc.getElementById('count'); if (!btn || !span) return { pass: false, message: 'Không tìm thấy #incBtn hoặc #count.' }; btn.click(); btn.click(); btn.click(); if (span.textContent.trim() === '3') return { pass: true, message: 'Chính xác! Bộ đếm hoạt động đúng.' }; return { pass: false, message: 'Sau 3 lần bấm, #count đang là \"' + span.textContent + '\", cần là \"3\".' };"
+    },
+    {
+      "id": "q3-filter-render",
+      "title": "Lọc và hiển thị danh sách",
+      "description": "Biến toàn cục `window.fruits` chứa mảng tên trái cây. Hãy lọc ra các tên có độ dài lớn hơn 2 ký tự, rồi render mỗi tên còn lại thành một thẻ `<li class=\"list-item\">` bên trong phần tử `#list`.",
+      "points": 20,
+      "files": {
+        "html": "<script>window.fruits = ['áo', 'táo', 'chuối', 'cam', 'dưa hấu'];</script>\n<ul id=\"list\"></ul>",
+        "css": "",
+        "js": ""
+      },
+      "editable": "js",
+      "starter": "// Viết JavaScript của bạn ở đây\n// window.fruits có sẵn danh sách trái cây\n",
+      "checker": "const list = doc.getElementById('list'); if (!list) return { pass: false, message: 'Không tìm thấy phần tử #list.' }; const items = Array.from(list.querySelectorAll('.list-item')).map(li => li.textContent.trim()); const expected = ['táo', 'chuối', 'cam', 'dưa hấu']; const sameLength = items.length === expected.length; const sameSet = sameLength && expected.every(name => items.includes(name)); if (sameSet) return { pass: true, message: 'Chính xác! Danh sách đã được lọc và hiển thị đúng.' }; return { pass: false, message: 'Danh sách hiển thị: [' + items.join(', ') + '], cần chứa đúng: [' + expected.join(', ') + '].' };"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "css-lab-demo",
+  "mode": "css",
+  "title": "Thực hành CSS cơ bản",
+  "description": "Bộ 3 bài luyện chọn selector, thuộc tính màu sắc và layout Flexbox.",
+  "questions": [
+    {
+      "id": "q1-color-selector",
+      "title": "Đổi màu chữ tiêu đề",
+      "description": "Viết một CSS selector nhắm vào thẻ có `id=\"title\"` và đổi màu chữ (`color`) của nó thành đỏ thuần (`#ff0000` / `red`).",
+      "points": 10,
+      "files": {
+        "html": "<h1 id=\"title\">Xin chào Web!</h1>",
+        "css": "",
+        "js": ""
+      },
+      "editable": "css",
+      "starter": "/* Viết CSS của bạn ở đây */\n#title {\n\n}\n",
+      "checker": "const el = doc.getElementById('title'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử #title.' }; const color = win.getComputedStyle(el).color; if (color === 'rgb(255, 0, 0)') return { pass: true, message: 'Chính xác! Màu chữ đã là đỏ.' }; return { pass: false, message: 'Màu chữ hiện tại là ' + color + ', cần là rgb(255, 0, 0).' };"
+    },
+    {
+      "id": "q2-highlight-class",
+      "title": "Tô nền cho ghi chú",
+      "description": "Đoạn văn có sẵn class `note`. Hãy viết CSS để đặt màu nền (`background-color`) của nó thành vàng thuần (`#ffff00` / `yellow`).",
+      "points": 10,
+      "files": {
+        "html": "<p class=\"note\">Đây là một ghi chú quan trọng cần được chú ý.</p>",
+        "css": "",
+        "js": ""
+      },
+      "editable": "css",
+      "starter": "/* Viết CSS của bạn ở đây */\n.note {\n\n}\n",
+      "checker": "const el = doc.querySelector('.note'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử .note.' }; const bg = win.getComputedStyle(el).backgroundColor; if (bg === 'rgb(255, 255, 0)') return { pass: true, message: 'Chính xác! Nền đã là màu vàng.' }; return { pass: false, message: 'Màu nền hiện tại là ' + bg + ', cần là rgb(255, 255, 0).' };"
+    },
+    {
+      "id": "q3-flexbox-center",
+      "title": "Căn giữa bằng Flexbox",
+      "description": "Bên trong `.container` có 3 phần tử `.item`. Hãy dùng Flexbox để căn giữa chúng theo cả chiều ngang và chiều dọc bên trong `.container`.",
+      "points": 15,
+      "files": {
+        "html": "<div class=\"container\" style=\"height:200px;border:1px solid #ccc;\">\n  <div class=\"item\">1</div>\n  <div class=\"item\">2</div>\n  <div class=\"item\">3</div>\n</div>",
+        "css": ".item { padding: 8px 14px; margin: 0 4px; background: #eee; }",
+        "js": ""
+      },
+      "editable": "css",
+      "starter": "/* Viết CSS của bạn ở đây */\n.container {\n\n}\n",
+      "checker": "const el = doc.querySelector('.container'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử .container.' }; const style = win.getComputedStyle(el); if (style.display !== 'flex') return { pass: false, message: 'container cần có display: flex (hiện tại: ' + style.display + ').' }; if (style.justifyContent !== 'center') return { pass: false, message: 'justify-content cần là center (hiện tại: ' + style.justifyContent + ').' }; if (style.alignItems !== 'center') return { pass: false, message: 'align-items cần là center (hiện tại: ' + style.alignItems + ').' }; return { pass: true, message: 'Chính xác! Đã căn giữa bằng Flexbox.' };"
+    }
+  ]
+}
