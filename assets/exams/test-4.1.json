@@ -1,0 +1,460 @@
+{
+  "title": "Bài kiểm tra số 9: JavaScript cơ bản (Phần 1)",
+  "description": "Ôn tập JavaScript cơ bản: khái niệm JS, cú pháp ES6, khai báo biến let/var/const, tham trị/tham chiếu, kiểu dữ liệu Number/String/Boolean, toán tử so sánh, AND/OR, toán tử ba ngôi và các phương thức Math.",
+  "duration": 60,
+  "random": true,
+  "questions": [
+    {
+      "type": "multiple_choice",
+      "question": { "content": "JavaScript là ngôn ngữ lập trình chủ yếu dùng để làm gì trên trang web?", "images": [] },
+      "options": [
+        { "id": "1", "content": "Tạo kiểu dáng (giao diện) cho trang web", "images": [] },
+        { "id": "2", "content": "Thêm tính tương tác và xử lý logic cho trang web", "images": [] },
+        { "id": "3", "content": "Định nghĩa cấu trúc (bố cục) trang web", "images": [] },
+        { "id": "4", "content": "Quản lý cơ sở dữ liệu phía máy chủ", "images": [] }
+      ],
+      "answer": ["2"],
+      "explanation": "JavaScript là ngôn ngữ lập trình kịch bản, giúp trang web có khả năng tương tác, xử lý logic, thao tác DOM... Còn HTML lo cấu trúc, CSS lo giao diện."
+    },
+    {
+      "type": "true_false",
+      "question": { "content": "JavaScript là ngôn ngữ **biên dịch** (compiled), bắt buộc phải biên dịch trước khi chạy giống C++.", "images": [] },
+      "options": [
+        { "id": "1", "content": "Đúng", "images": [] },
+        { "id": "2", "content": "Sai", "images": [] }
+      ],
+      "answer": ["2"],
+      "explanation": "JavaScript được thông dịch (interpreted) bởi engine (V8, SpiderMonkey...) ngay tại thời điểm chạy, không cần biên dịch trước như C/C++ (dù engine hiện đại có dùng JIT compile để tối ưu tốc độ)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": { "content": "Engine JavaScript nào được sử dụng trong Google Chrome và Node.js?", "images": [] },
+      "options": [
+        { "id": "1", "content": "V8", "images": [] },
+        { "id": "2", "content": "SpiderMonkey", "images": [] },
+        { "id": "3", "content": "Chakra", "images": [] },
+        { "id": "4", "content": "Rhino", "images": [] }
+      ],
+      "answer": ["1"],
+      "explanation": "V8 là engine JavaScript mã nguồn mở của Google, được dùng trong Chrome và làm nền tảng cho Node.js."
+    },
+    {
+      "type": "multiple_choice",
+      "question": { "content": "JavaScript có đặc điểm nào sau đây về kiểu dữ liệu?", "images": [] },
+      "options": [
+        { "id": "1", "content": "Ngôn ngữ kiểu tĩnh (static typing)", "images": [] },
+        { "id": "2", "content": "Ngôn ngữ kiểu động (dynamic typing)", "images": [] },
+        { "id": "3", "content": "Không hỗ trợ định nghĩa hàm", "images": [] },
+        { "id": "4", "content": "Chỉ chạy được trên trình duyệt", "images": [] }
+      ],
+      "answer": ["2"],
+      "explanation": "JavaScript là ngôn ngữ kiểu động (dynamic typing): kiểu dữ liệu của biến được xác định tự động lúc runtime, không cần khai báo kiểu tường minh."
+    },
+    {
+      "type": "short_answer",
+      "question": { "content": "Thẻ HTML nào dùng để nhúng hoặc liên kết mã JavaScript vào trang web?", "images": [] },
+      "answer": ["script", "<script>"],
+      "explanation": "Thẻ `<script>` dùng để nhúng trực tiếp mã JS hoặc liên kết tới file `.js` bên ngoài thông qua thuộc tính `src`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": { "content": "Cú pháp nào sau đây là khai báo **hàm mũi tên** (arrow function) trong ES6?", "images": [] },
+      "options": [
+        { "id": "1", "content": "`function() {}`", "images": [] },
+        { "id": "2", "content": "`() => {}`", "images": [] },
+        { "id": "3", "content": "`def():`", "images": [] },
+        { "id": "4", "content": "`lambda ():`", "images": [] }
+      ],
+      "answer": ["2"],
+      "explanation": "ES6 giới thiệu cú pháp hàm mũi tên `() => {}` giúp viết hàm ngắn gọn hơn `function`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": { "content": "Chuỗi mẫu (**template literals**) trong ES6 sử dụng ký tự nào để bao quanh chuỗi?", "images": [] },
+      "options": [
+        { "id": "1", "content": "Dấu nháy đơn `'`", "images": [] },
+        { "id": "2", "content": "Dấu nháy kép `\"`", "images": [] },
+        { "id": "3", "content": "Dấu backtick `` ` ``", "images": [] },
+        { "id": "4", "content": "Dấu ngoặc vuông `[]`", "images": [] }
+      ],
+      "answer": ["3"],
+      "explanation": "Template literals dùng dấu backtick `` ` `` cho phép nhúng biểu thức bằng cú pháp `${expression}` và viết chuỗi nhiều dòng dễ dàng."
+    },
+    {
+      "type": "multiple_choice",
+      "question": { "content": "Cú pháp nào sau đây minh họa **destructuring assignment** (phá hủy cấu trúc) cho object?", "images": [] },
+      "options": [
+        { "id": "1", "content": "`const [a, b] = obj;`", "images": [] },
+        { "id": "2", "content": "`const {a, b} = obj;`", "images": [] },
+        { "id": "3", "content": "`const a.b = obj;`", "images": [] },
+        { "id": "4", "content": "`const a = obj[];`", "images": [] }
+      ],
+      "answer": ["2"],
+      "explanation": "Destructuring object dùng dấu ngoặc nhọn `{}` để lấy trực tiếp các thuộc tính ra thành biến, ví dụ `const {a, b} = obj;`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": { "content": "Toán tử **spread** (`...`) trong ES6 dùng để làm gì?", "images": [] },
+      "options": [
+        { "id": "1", "content": "Gộp/mở rộng phần tử của mảng hoặc object", "images": [] },
+        { "id": "2", "content": "Xóa phần tử khỏi mảng", "images": [] },
+        { "id": "3", "content": "So sánh hai giá trị", "images": [] },
+        { "id": "4", "content": "Định nghĩa hàm ẩn danh", "images": [] }
+      ],
+      "answer": ["1"],
+      "explanation": "Toán tử spread `...` dùng để \"trải\" các phần tử của mảng/object ra, thường dùng để sao chép hoặc gộp mảng/object, ví dụ `[...arr1, ...arr2]`."
+    },
+    {
+      "type": "true_false",
+      "question": { "content": "`let` và `const` được giới thiệu từ ES6 (ES2015).", "images": [] },
+      "options": [
+        { "id": "1", "content": "Đúng", "images": [] },
+        { "id": "2", "content": "Sai", "images": [] }
+      ],
+      "answer": ["1"],
+      "explanation": "Trước ES6, JavaScript chỉ có `var`. ES6 (2015) bổ sung `let` và `const` với phạm vi khối (block scope)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": { "content": "Biến khai báo bằng `var` có phạm vi (scope) như thế nào?", "images": [] },
+      "options": [
+        { "id": "1", "content": "Block scope (phạm vi khối lệnh)", "images": [] },
+        { "id": "2", "content": "Function scope (phạm vi hàm)", "images": [] },
+        { "id": "3", "content": "Module scope", "images": [] },
+        { "id": "4", "content": "Chỉ tồn tại trong vòng lặp `for`", "images": [] }
+      ],
+      "answer": ["2"],
+      "explanation": "`var` có phạm vi hàm (function scope): biến `var` khai báo trong 1 khối `if`/`for` vẫn có thể truy cập được bên ngoài khối đó, miễn là cùng trong 1 hàm."
+    },
+    {
+      "type": "multiple_choice",
+      "question": { "content": "Biến khai báo bằng `let` có phạm vi (scope) như thế nào?", "images": [] },
+      "options": [
+        { "id": "1", "content": "Function scope", "images": [] },
+        { "id": "2", "content": "Block scope (phạm vi khối `{}`)", "images": [] },
+        { "id": "3", "content": "Global scope bắt buộc", "images": [] },
+        { "id": "4", "content": "File scope", "images": [] }
+      ],
+      "answer": ["2"],
+      "explanation": "`let` có phạm vi khối: biến chỉ tồn tại trong cặp dấu `{}` nơi nó được khai báo (ví dụ trong 1 khối `if`, `for`)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": { "content": "Sự khác biệt chính giữa `let` và `const` là gì?", "images": [] },
+      "options": [
+        { "id": "1", "content": "`const` không thể gán lại giá trị sau khi khởi tạo", "images": [] },
+        { "id": "2", "content": "`let` chạy nhanh hơn `const`", "images": [] },
+        { "id": "3", "content": "`const` chỉ dùng được cho object", "images": [] },
+        { "id": "4", "content": "`let` không thể dùng trong vòng lặp `for`", "images": [] }
+      ],
+      "answer": ["1"],
+      "explanation": "Biến khai báo `const` phải được gán giá trị ngay khi khai báo và không thể gán lại (reassign) sau đó."
+    },
+    {
+      "type": "true_false",
+      "question": { "content": "Với `const arr = [1, 2, 3];`, ta vẫn có thể dùng `arr.push(4)` để thêm phần tử vào mảng.", "images": [] },
+      "options": [
+        { "id": "1", "content": "Đúng", "images": [] },
+        { "id": "2", "content": "Sai", "images": [] }
+      ],
+      "answer": ["1"],
+      "explanation": "`const` chỉ ngăn việc **gán lại** biến (`arr = [...]`), không ngăn việc thay đổi nội dung bên trong object/mảng mà biến đó tham chiếu tới."
+    },
+    {
+      "type": "multiple_choice",
+      "question": { "content": "Tên biến nào sau đây là **hợp lệ** trong JavaScript?", "images": [] },
+      "options": [
+        { "id": "1", "content": "`2value`", "images": [] },
+        { "id": "2", "content": "`_myVar`", "images": [] },
+        { "id": "3", "content": "`my-var`", "images": [] },
+        { "id": "4", "content": "`let`", "images": [] }
+      ],
+      "answer": ["2"],
+      "explanation": "Tên biến hợp lệ không được bắt đầu bằng chữ số, không được chứa dấu gạch ngang `-`, và không được trùng với từ khóa dành riêng (`let`, `const`,...)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": { "content": "JavaScript truyền tham số vào hàm theo kiểu nào đối với kiểu dữ liệu **nguyên thủy** (number, string, boolean)?", "images": [] },
+      "options": [
+        { "id": "1", "content": "Truyền theo tham chiếu (by reference)", "images": [] },
+        { "id": "2", "content": "Truyền theo giá trị (by value)", "images": [] },
+        { "id": "3", "content": "Tùy trường hợp cụ thể", "images": [] },
+        { "id": "4", "content": "Không truyền được", "images": [] }
+      ],
+      "answer": ["2"],
+      "explanation": "Với kiểu nguyên thủy, JS sao chép giá trị vào tham số của hàm, nên thay đổi tham số bên trong hàm không ảnh hưởng đến biến gốc bên ngoài."
+    },
+    {
+      "type": "multiple_choice",
+      "question": { "content": "Khi truyền một **object** vào hàm, JavaScript truyền theo cách nào?", "images": [] },
+      "options": [
+        { "id": "1", "content": "Truyền theo giá trị hoàn toàn (sao chép toàn bộ object)", "images": [] },
+        { "id": "2", "content": "Truyền tham chiếu đến object đó", "images": [] },
+        { "id": "3", "content": "Sao chép sâu (deep copy) object", "images": [] },
+        { "id": "4", "content": "Không truyền được object vào hàm", "images": [] }
+      ],
+      "answer": ["2"],
+      "explanation": "Với object/mảng, biến chỉ lưu tham chiếu (địa chỉ vùng nhớ), nên khi truyền vào hàm, thay đổi thuộc tính bên trong hàm sẽ ảnh hưởng đến object gốc bên ngoài."
+    },
+    {
+      "type": "true_false",
+      "question": { "content": "Cho đoạn code:\n```js\nfunction change(x) { x = 100; }\nlet a = 5;\nchange(a);\nconsole.log(a);\n```\nKết quả in ra là `100`.", "images": [] },
+      "options": [
+        { "id": "1", "content": "Đúng", "images": [] },
+        { "id": "2", "content": "Sai", "images": [] }
+      ],
+      "answer": ["2"],
+      "explanation": "`a` vẫn là `5` vì number được truyền theo giá trị (by value) — thay đổi `x` bên trong hàm không ảnh hưởng đến biến `a` bên ngoài."
+    },
+    {
+      "type": "multiple_choice",
+      "question": { "content": "Cho đoạn code:\n```js\nfunction changeObj(o) { o.value = 100; }\nlet obj = { value: 5 };\nchangeObj(obj);\nconsole.log(obj.value);\n```\nKết quả in ra là gì?", "images": [] },
+      "options": [
+        { "id": "1", "content": "5", "images": [] },
+        { "id": "2", "content": "100", "images": [] },
+        { "id": "3", "content": "undefined", "images": [] },
+        { "id": "4", "content": "Báo lỗi", "images": [] }
+      ],
+      "answer": ["2"],
+      "explanation": "Object được truyền theo tham chiếu, nên thay đổi `o.value` bên trong hàm cũng làm thay đổi `obj.value` ở ngoài."
+    },
+    {
+      "type": "multiple_choice",
+      "question": { "content": "Cách khai báo nào sau đây tạo ra một **hàm ẩn danh** (anonymous function) gán cho biến?", "images": [] },
+      "options": [
+        { "id": "1", "content": "`function ten() {}`", "images": [] },
+        { "id": "2", "content": "`const f = function() {}`", "images": [] },
+        { "id": "3", "content": "`function f() {}`", "images": [] },
+        { "id": "4", "content": "`class F {}`", "images": [] }
+      ],
+      "answer": ["2"],
+      "explanation": "Hàm không có tên (anonymous function) thường được gán cho một biến, ví dụ `const f = function() {}`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": { "content": "Trong JavaScript, `NaN` là viết tắt của cụm từ nào?", "images": [] },
+      "options": [
+        { "id": "1", "content": "Not a Number", "images": [] },
+        { "id": "2", "content": "New and Null", "images": [] },
+        { "id": "3", "content": "Number and Null", "images": [] },
+        { "id": "4", "content": "None", "images": [] }
+      ],
+      "answer": ["1"],
+      "explanation": "`NaN` (Not a Number) là giá trị đặc biệt biểu diễn kết quả của một phép toán số học không hợp lệ, ví dụ `0 / \"abc\"`."
+    },
+    {
+      "type": "true_false",
+      "question": { "content": "`typeof NaN` trả về `\"number\"`.", "images": [] },
+      "options": [
+        { "id": "1", "content": "Đúng", "images": [] },
+        { "id": "2", "content": "Sai", "images": [] }
+      ],
+      "answer": ["1"],
+      "explanation": "Dù tên gọi là \"Not a Number\", `NaN` vẫn thuộc kiểu dữ liệu `number` trong JavaScript."
+    },
+    {
+      "type": "multiple_choice",
+      "question": { "content": "Kết quả của biểu thức `0.1 + 0.2 === 0.3` trong JavaScript là gì?", "images": [] },
+      "options": [
+        { "id": "1", "content": "true", "images": [] },
+        { "id": "2", "content": "false", "images": [] },
+        { "id": "3", "content": "Báo lỗi cú pháp", "images": [] },
+        { "id": "4", "content": "undefined", "images": [] }
+      ],
+      "answer": ["2"],
+      "explanation": "Do lỗi làm tròn số thực dấu phẩy động (floating-point), `0.1 + 0.2` thực chất bằng `0.30000000000000004`, khác với `0.3`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": { "content": "Toán tử nào dùng để so sánh **cả giá trị và kiểu dữ liệu** (so sánh nghiêm ngặt)?", "images": [] },
+      "options": [
+        { "id": "1", "content": "`==`", "images": [] },
+        { "id": "2", "content": "`===`", "images": [] },
+        { "id": "3", "content": "`=`", "images": [] },
+        { "id": "4", "content": "`<>`", "images": [] }
+      ],
+      "answer": ["2"],
+      "explanation": "`===` (so sánh nghiêm ngặt) kiểm tra cả giá trị lẫn kiểu dữ liệu, trong khi `==` cho phép ép kiểu trước khi so sánh."
+    },
+    {
+      "type": "true_false",
+      "question": { "content": "`\"5\" == 5` trả về `true` trong JavaScript.", "images": [] },
+      "options": [
+        { "id": "1", "content": "Đúng", "images": [] },
+        { "id": "2", "content": "Sai", "images": [] }
+      ],
+      "answer": ["1"],
+      "explanation": "Toán tử `==` ép kiểu trước khi so sánh, nên chuỗi `\"5\"` được chuyển thành số `5` rồi so sánh, kết quả là `true`."
+    },
+    {
+      "type": "true_false",
+      "question": { "content": "`\"5\" === 5` trả về `true` trong JavaScript.", "images": [] },
+      "options": [
+        { "id": "1", "content": "Đúng", "images": [] },
+        { "id": "2", "content": "Sai", "images": [] }
+      ],
+      "answer": ["2"],
+      "explanation": "`===` không ép kiểu, mà `\"5\"` (string) và `5` (number) khác kiểu dữ liệu, nên kết quả là `false`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": { "content": "Toán tử `&&` (AND) trả về giá trị nào nếu tất cả các vế đều là truthy?", "images": [] },
+      "options": [
+        { "id": "1", "content": "Giá trị của vế đầu tiên", "images": [] },
+        { "id": "2", "content": "Giá trị của vế cuối cùng", "images": [] },
+        { "id": "3", "content": "Luôn trả về `true`", "images": [] },
+        { "id": "4", "content": "Luôn trả về `false`", "images": [] }
+      ],
+      "answer": ["2"],
+      "explanation": "`&&` trả về giá trị của vế đầu tiên là falsy; nếu tất cả các vế đều truthy, nó trả về giá trị của **vế cuối cùng**."
+    },
+    {
+      "type": "multiple_choice",
+      "question": { "content": "Toán tử `||` (OR) trả về giá trị nào nếu vế đầu tiên là truthy?", "images": [] },
+      "options": [
+        { "id": "1", "content": "Giá trị của vế đầu tiên", "images": [] },
+        { "id": "2", "content": "Giá trị của vế thứ hai", "images": [] },
+        { "id": "3", "content": "Luôn trả về `false`", "images": [] },
+        { "id": "4", "content": "Luôn trả về `undefined`", "images": [] }
+      ],
+      "answer": ["1"],
+      "explanation": "`||` trả về giá trị đầu tiên là truthy; nếu vế đầu đã truthy, nó dừng lại và trả về ngay giá trị đó."
+    },
+    {
+      "type": "multiple_choice",
+      "question": { "content": "`console.log(0 || \"Hello\")` sẽ in ra gì?", "images": [] },
+      "options": [
+        { "id": "1", "content": "0", "images": [] },
+        { "id": "2", "content": "\"Hello\"", "images": [] },
+        { "id": "3", "content": "undefined", "images": [] },
+        { "id": "4", "content": "false", "images": [] }
+      ],
+      "answer": ["2"],
+      "explanation": "`0` là giá trị falsy, nên `||` tiếp tục xét vế sau và trả về `\"Hello\"`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": { "content": "Toán tử **ba ngôi** (ternary) trong JavaScript có cú pháp nào?", "images": [] },
+      "options": [
+        { "id": "1", "content": "`if condition then a else b`", "images": [] },
+        { "id": "2", "content": "`condition ? a : b`", "images": [] },
+        { "id": "3", "content": "`condition => a : b`", "images": [] },
+        { "id": "4", "content": "`switch(condition) a b`", "images": [] }
+      ],
+      "answer": ["2"],
+      "explanation": "Toán tử ba ngôi có cú pháp `điều_kiện ? giá_trị_nếu_đúng : giá_trị_nếu_sai`, là dạng rút gọn của `if...else`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": { "content": "Cho đoạn code:\n```js\nlet x = 10;\nlet result = x > 5 ? \"Lớn\" : \"Nhỏ\";\nconsole.log(result);\n```\nKết quả in ra là gì?", "images": [] },
+      "options": [
+        { "id": "1", "content": "\"Lớn\"", "images": [] },
+        { "id": "2", "content": "\"Nhỏ\"", "images": [] },
+        { "id": "3", "content": "10", "images": [] },
+        { "id": "4", "content": "true", "images": [] }
+      ],
+      "answer": ["1"],
+      "explanation": "Vì `x > 5` (10 > 5) là `true`, toán tử ba ngôi trả về giá trị đầu tiên là `\"Lớn\"`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": { "content": "Phương thức nào của `Math` trả về một số thực ngẫu nhiên trong khoảng `[0, 1)`?", "images": [] },
+      "options": [
+        { "id": "1", "content": "`Math.random()`", "images": [] },
+        { "id": "2", "content": "`Math.floor()`", "images": [] },
+        { "id": "3", "content": "`Math.rand()`", "images": [] },
+        { "id": "4", "content": "`Math.random(1)`", "images": [] }
+      ],
+      "answer": ["1"],
+      "explanation": "`Math.random()` trả về một số thực ngẫu nhiên từ 0 (bao gồm) đến 1 (không bao gồm)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": { "content": "Biểu thức nào sau đây tạo ra một số nguyên ngẫu nhiên từ 0 đến 9?", "images": [] },
+      "options": [
+        { "id": "1", "content": "`Math.random() * 10`", "images": [] },
+        { "id": "2", "content": "`Math.floor(Math.random() * 10)`", "images": [] },
+        { "id": "3", "content": "`Math.ceil(Math.random())`", "images": [] },
+        { "id": "4", "content": "`Math.round(10)`", "images": [] }
+      ],
+      "answer": ["2"],
+      "explanation": "`Math.random() * 10` cho ra số thực trong [0, 10); bọc thêm `Math.floor()` để lấy phần nguyên, cho ra số nguyên từ 0 đến 9."
+    },
+    {
+      "type": "multiple_choice",
+      "question": { "content": "`Math.floor(4.7)` trả về giá trị nào?", "images": [] },
+      "options": [
+        { "id": "1", "content": "4", "images": [] },
+        { "id": "2", "content": "5", "images": [] },
+        { "id": "3", "content": "4.7", "images": [] },
+        { "id": "4", "content": "0", "images": [] }
+      ],
+      "answer": ["1"],
+      "explanation": "`Math.floor()` làm tròn xuống, luôn trả về số nguyên nhỏ hơn hoặc bằng giá trị truyền vào."
+    },
+    {
+      "type": "multiple_choice",
+      "question": { "content": "`Math.ceil(4.2)` trả về giá trị nào?", "images": [] },
+      "options": [
+        { "id": "1", "content": "4", "images": [] },
+        { "id": "2", "content": "5", "images": [] },
+        { "id": "3", "content": "4.2", "images": [] },
+        { "id": "4", "content": "0", "images": [] }
+      ],
+      "answer": ["2"],
+      "explanation": "`Math.ceil()` làm tròn lên, luôn trả về số nguyên lớn hơn hoặc bằng giá trị truyền vào."
+    },
+    {
+      "type": "multiple_choice",
+      "question": { "content": "`Math.round(4.5)` trả về giá trị nào?", "images": [] },
+      "options": [
+        { "id": "1", "content": "4", "images": [] },
+        { "id": "2", "content": "5", "images": [] },
+        { "id": "3", "content": "4.4", "images": [] },
+        { "id": "4", "content": "4.6", "images": [] }
+      ],
+      "answer": ["2"],
+      "explanation": "`Math.round()` làm tròn đến số nguyên gần nhất; với phần thập phân đúng bằng `.5`, nó làm tròn lên."
+    },
+    {
+      "type": "short_answer",
+      "question": { "content": "Phương thức nào của `Math` trả về giá trị **tuyệt đối** của một số?", "images": [] },
+      "answer": ["Math.abs", "abs", "Math.abs()"],
+      "explanation": "`Math.abs(x)` trả về giá trị tuyệt đối (luôn không âm) của `x`, ví dụ `Math.abs(-5)` trả về `5`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": { "content": "So sánh `null == undefined` trả về giá trị nào?", "images": [] },
+      "options": [
+        { "id": "1", "content": "true", "images": [] },
+        { "id": "2", "content": "false", "images": [] },
+        { "id": "3", "content": "Báo lỗi", "images": [] },
+        { "id": "4", "content": "NaN", "images": [] }
+      ],
+      "answer": ["1"],
+      "explanation": "Theo quy tắc ép kiểu của `==`, `null` và `undefined` được coi là bằng nhau, nhưng không bằng bất kỳ giá trị nào khác."
+    },
+    {
+      "type": "true_false",
+      "question": { "content": "`null === undefined` trả về `true`.", "images": [] },
+      "options": [
+        { "id": "1", "content": "Đúng", "images": [] },
+        { "id": "2", "content": "Sai", "images": [] }
+      ],
+      "answer": ["2"],
+      "explanation": "`===` so sánh cả kiểu dữ liệu; `null` và `undefined` là hai kiểu dữ liệu khác nhau, nên kết quả là `false`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": { "content": "Kiểu dữ liệu nào sau đây **không phải** là kiểu nguyên thủy (primitive) trong JavaScript?", "images": [] },
+      "options": [
+        { "id": "1", "content": "Number", "images": [] },
+        { "id": "2", "content": "String", "images": [] },
+        { "id": "3", "content": "Boolean", "images": [] },
+        { "id": "4", "content": "Object", "images": [] }
+      ],
+      "answer": ["4"],
+      "explanation": "Các kiểu nguyên thủy trong JS gồm: `Number`, `String`, `Boolean`, `null`, `undefined`, `Symbol`, `BigInt`. `Object` (bao gồm cả mảng, hàm) là kiểu dữ liệu tham chiếu, không phải nguyên thủy."
+    }
+  ]
+}
