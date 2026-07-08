@@ -5,7 +5,28 @@ import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Code, Database, FileText, ArrowRight, Sparkles, Terminal } from "lucide-react";
+import { Code, Database, FileText, ArrowRight, Sparkles, Terminal, Palette, Braces } from "lucide-react";
+
+const CODE_LABS = [
+  {
+    id: "css-lab",
+    href: "/practice/css-lab",
+    title: "Thực hành CSS trực tiếp",
+    description: "Sửa CSS, xem preview và được chấm điểm ngay khi gõ (realtime, có debounce).",
+    icon: Palette,
+    badgeText: "Live CSS Lab",
+    badgeColor: "bg-pink-50 text-pink-700 dark:bg-pink-950/30 dark:text-pink-400 border border-pink-200/20",
+  },
+  {
+    id: "js-lab",
+    href: "/practice/js-lab",
+    title: "Thực hành JavaScript trực tiếp",
+    description: "Sửa JavaScript, xem preview và được chấm điểm ngay khi gõ (realtime, có debounce).",
+    icon: Braces,
+    badgeText: "Live JS Lab",
+    badgeColor: "bg-yellow-50 text-yellow-700 dark:bg-yellow-950/30 dark:text-yellow-400 border border-yellow-200/20",
+  },
+];
 
 type DbConfig = {
   collection: string;
@@ -46,6 +67,42 @@ export function PracticeListClient({ exercises }: PracticeListClientProps) {
         </p>
       </div>
 
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2 items-stretch mb-6">
+        {CODE_LABS.map((lab) => (
+          <Card
+            key={lab.id}
+            className="group relative border border-zinc-200/60 dark:border-zinc-800/80 rounded-2xl bg-white dark:bg-zinc-900/40 shadow-sm hover:shadow-md hover:border-orange-500/45 dark:hover:border-orange-500/35 transition-all duration-300 flex flex-col justify-between overflow-hidden"
+          >
+            <div className="p-6 space-y-4">
+              <div className="flex items-center justify-between">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-50 dark:bg-orange-950/30 text-orange-500 group-hover:scale-105 transition-transform duration-300">
+                  <lab.icon className="h-5 w-5" />
+                </div>
+                <Badge className={`rounded-full px-2.5 py-0.5 text-[9px] font-black uppercase tracking-wider ${lab.badgeColor}`}>
+                  {lab.badgeText}
+                </Badge>
+              </div>
+              <div className="space-y-1.5">
+                <h3 className="font-extrabold text-sm sm:text-base text-zinc-900 dark:text-white leading-snug group-hover:text-orange-500 transition-colors">
+                  {lab.title}
+                </h3>
+                <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed line-clamp-3">
+                  {lab.description}
+                </p>
+              </div>
+            </div>
+            <div className="p-6 pt-0 border-t border-zinc-100/50 dark:border-zinc-800/20 mt-auto">
+              <Link href={lab.href} passHref>
+                <Button className="w-full bg-zinc-50 dark:bg-zinc-800 hover:bg-orange-500 dark:hover:bg-orange-600 hover:text-white dark:text-zinc-200 font-extrabold text-xs rounded-xl shadow-none group-hover:bg-orange-500 group-hover:text-white transition-all cursor-pointer h-9 px-4 flex items-center justify-center gap-1.5">
+                  Bắt đầu làm bài
+                  <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
+                </Button>
+              </Link>
+            </div>
+          </Card>
+        ))}
+      </div>
+
       {exercises.length === 0 ? (
         <Card className="border border-dashed border-zinc-200 dark:border-zinc-850 p-12 text-center select-none rounded-2xl bg-zinc-50/20">
           <Terminal className="mx-auto h-10 w-10 text-zinc-350 dark:text-zinc-600 mb-3" />
@@ -53,7 +110,6 @@ export function PracticeListClient({ exercises }: PracticeListClientProps) {
           <CardDescription className="text-xs text-zinc-400 mt-1">Các bài thực hành đang được cập nhật, vui lòng quay lại sau.</CardDescription>
         </Card>
       ) : (
-        /* Exercises Grid */
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2 items-stretch">
           {exercises.map((ex, index) => {
             const hasDb = !!ex.dbConfig;
