@@ -6,15 +6,20 @@ export type CodePracticeFiles = {
   js: string;
 };
 
+export type CodePracticeCheck = {
+  label: string;
+  points: number;
+  checker: string;
+};
+
 export type CodePracticeQuestion = {
   id: string;
   title: string;
   description: string;
-  points: number;
   files: CodePracticeFiles;
   editable: LabMode;
   starter: string;
-  checker: string;
+  checks: CodePracticeCheck[];
 };
 
 export type CodePracticeSet = {
@@ -25,7 +30,13 @@ export type CodePracticeSet = {
   questions: CodePracticeQuestion[];
 };
 
-export type CheckerResult = {
+export type CheckResult = {
+  label: string;
+  points: number;
   pass: boolean;
   message: string;
 };
+
+export function questionPoints(question: CodePracticeQuestion): number {
+  return question.checks.reduce((sum, c) => sum + c.points, 0);
+}

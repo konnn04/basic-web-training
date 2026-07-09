@@ -1,0 +1,19 @@
+{
+  "id": "q4-if-else-text",
+  "title": "Kiểm tra số chẵn lẻ",
+  "description": "Biến toàn cục `window.number` chứa một số nguyên. Hãy hiển thị vào `#parity` chữ `Chẵn` nếu số đó chia hết cho 2, ngược lại hiển thị `Lẻ`.\n\nGợi ý: Dùng `if/else` và phép chia lấy dư `%`",
+  "files": {
+    "html": "<script>window.number = 7;</script>\n<p id=\"parity\"></p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// window.number có sẵn giá trị số\n",
+  "checks": [
+    {
+      "label": "Kiểm tra số chẵn lẻ",
+      "points": 10,
+      "checker": "const el = doc.getElementById('parity'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử #parity.' }; if (el.textContent.trim() === 'Lẻ') return { pass: true, message: 'Chính xác! 7 là số lẻ.' }; return { pass: false, message: 'Nội dung hiện tại: \"' + el.textContent + '\", cần đúng: \"Lẻ\" (vì window.number = 7).' };"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "q2-card-shadow-rounded",
+  "title": "Card có bóng đổ và bo góc",
+  "description": "`.card` cần trông như một thẻ card hiện đại: góc bo tròn mềm mại và có bóng đổ nhẹ để nổi bật khỏi nền xung quanh.\n\nGợi ý: dùng `border-radius` (tối thiểu 8px) và `box-shadow`.",
+  "files": {
+    "html": "<div class=\"card\" style=\"width:200px;height:120px;background:#fff;padding:12px;\">Nội dung card</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.card {\n\n}\n",
+  "checks": [
+    {
+      "label": ".card có bo góc tối thiểu 8px và box-shadow",
+      "points": 15,
+      "checker": "const el = doc.querySelector('.card'); if (!el) return { pass: false, message: 'Không tìm thấy .card.' }; const s = win.getComputedStyle(el); const radius = parseFloat(s.borderTopLeftRadius) || 0; if (radius < 8) return { pass: false, message: 'border-radius cần tối thiểu 8px (hiện tại: ' + s.borderTopLeftRadius + ').' }; if (!s.boxShadow || s.boxShadow === 'none') return { pass: false, message: 'Cần thêm box-shadow cho card (hiện tại: none).' }; return { pass: true, message: 'Chính xác! Card đã có bo góc và bóng đổ.' };"
+    }
+  ]
+}

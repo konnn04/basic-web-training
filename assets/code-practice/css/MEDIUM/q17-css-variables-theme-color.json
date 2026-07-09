@@ -1,0 +1,19 @@
+{
+  "id": "q17-css-variables-theme-color",
+  "title": "Biến CSS (custom property) cho màu chủ đạo",
+  "description": "Hãy khai báo một biến CSS mang giá trị xanh dương thương hiệu (`#3366ff`) ở cấp cao nhất (`:root`), sau đó áp dụng biến này làm màu chữ cho `.branded`. Bắt buộc phải lấy màu thông qua biến (không được ghi thẳng mã màu vào `.branded`), để sau này chỉ cần đổi biến là toàn bộ trang đổi theo.\n\nGợi ý: đặt tên biến `--main-color`, dùng `var(--main-color)` trong thuộc tính `color`.",
+  "files": {
+    "html": "<p class=\"branded\">Văn bản dùng màu chủ đạo của thương hiệu.</p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n:root {\n  --main-color: #3366ff;\n}\n.branded {\n\n}\n",
+  "checks": [
+    {
+      "label": ".branded lấy màu chữ từ biến CSS --main-color",
+      "points": 15,
+      "checker": "if (!/--main-color\\s*:/.test(code)) return { pass: false, message: 'Cần khai báo biến --main-color trên :root.' }; if (!/\\.branded\\s*\\{[^}]*var\\(\\s*--main-color\\s*\\)/.test(code)) return { pass: false, message: '.branded cần dùng var(--main-color) để lấy màu, không ghi thẳng mã màu.' }; const el = doc.querySelector('.branded'); if (!el) return { pass: false, message: 'Không tìm thấy .branded.' }; const color = win.getComputedStyle(el).color; if (color !== 'rgb(51, 102, 255)') return { pass: false, message: 'Màu chữ hiện tại là ' + color + ', cần là rgb(51, 102, 255).' }; return { pass: true, message: 'Chính xác! .branded đã lấy màu từ biến CSS.' };"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "q11-display-inline-block",
+  "title": "Chuyển sang display: block",
+  "description": "Thẻ `<span>` có class `label` mặc định nằm cùng dòng với nội dung xung quanh (`inline`). Hãy làm cho nó chiếm trọn một dòng riêng như một khối.\n\nGợi ý: dùng thuộc tính `display`, giá trị `block`.",
+  "files": {
+    "html": "<span class=\"label\">Nhãn</span>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.label {\n\n}\n",
+  "checks": [
+    {
+      "label": ".label chuyển sang display: block",
+      "points": 5,
+      "checker": "const el = doc.querySelector('.label'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử .label.' }; const d = win.getComputedStyle(el).display; if (d === 'block') return { pass: true, message: 'Chính xác! display đã là block.' }; return { pass: false, message: 'display hiện tại là ' + d + ', cần là block.' };"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "q9-responsive-media-query",
+  "title": "Layout co giãn theo Media Query",
+  "description": "`.responsive-box` mặc định (màn rộng) cần chiếm chiều rộng cố định `600px`. Khi màn hình hẹp hơn `500px`, hộp cần đổi thành chiếm toàn bộ chiều rộng và có thêm khoảng đệm để nội dung không sát mép màn hình nhỏ. Vì trình mô phỏng có thể không đổi kích thước thật, checker sẽ đọc trực tiếp các rule trong mã CSS bạn viết để xác nhận cấu trúc đúng, đồng thời kiểm tra computed style ở kích thước hiện tại khớp với rule mặc định.\n\nGợi ý: mặc định `.responsive-box { width: 600px; }`; trong `@media (max-width: 500px)` — `width: 100%; padding: 10px;`.",
+  "files": {
+    "html": "<div class=\"responsive-box\" style=\"background:#eee;height:60px;\">Box responsive</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.responsive-box {\n\n}\n\n@media (max-width: 500px) {\n  .responsive-box {\n\n  }\n}\n",
+  "checks": [
+    {
+      "label": ".responsive-box mặc định rộng 600px",
+      "points": 15,
+      "checker": "const el = doc.querySelector('.responsive-box'); if (!el) return { pass: false, message: 'Không tìm thấy .responsive-box.' }; const w = win.getComputedStyle(el).width; if (w !== '600px') return { pass: false, message: '.responsive-box (mặc định) cần width: 600px (hiện tại: ' + w + ').' }; return { pass: true, message: 'Chính xác! Chiều rộng mặc định đã đúng 600px.' };"
+    },
+    {
+      "label": "Trong @media (max-width: 500px), box chiếm 100% và có padding",
+      "points": 15,
+      "checker": "const mediaMatch = code.match(/@media\\s*\\(\\s*max-width\\s*:\\s*500px\\s*\\)\\s*\\{([\\s\\S]*)\\}\\s*\\}?/); if (!mediaMatch) return { pass: false, message: 'Không tìm thấy khối @media (max-width: 500px) { ... }.' }; const innerMatch = code.match(/@media\\s*\\(\\s*max-width\\s*:\\s*500px\\s*\\)\\s*\\{[\\s\\S]*?\\.responsive-box\\s*\\{([^}]*)\\}/); if (!innerMatch || !/width\\s*:\\s*100%/.test(innerMatch[1])) return { pass: false, message: 'Trong @media (max-width: 500px), .responsive-box cần width: 100%.' }; if (!/padding\\s*:\\s*10px/.test(innerMatch[1])) return { pass: false, message: 'Trong @media (max-width: 500px), .responsive-box cần thêm padding: 10px để nội dung không sát mép.' }; return { pass: true, message: 'Chính xác! Layout đã co giãn đúng theo media query.' };"
+    }
+  ]
+}

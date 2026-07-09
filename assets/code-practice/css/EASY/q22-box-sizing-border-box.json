@@ -1,0 +1,19 @@
+{
+  "id": "q22-box-sizing-border-box",
+  "title": "box-sizing: border-box",
+  "description": "Hộp có class `sizer` với `width: 100px;`, `padding: 20px;`, `border: 5px solid #000000;` (đã có sẵn trong HTML). Theo cách tính kích thước mặc định của trình duyệt, tổng chiều rộng hiển thị sẽ lớn hơn 100px vì padding và border bị cộng thêm vào. Hãy làm cho tổng chiều rộng hiển thị của hộp đúng bằng 100px mà không cần sửa lại các giá trị trên.\n\nGợi ý: dùng thuộc tính `box-sizing`, giá trị `border-box`.",
+  "files": {
+    "html": "<div class=\"sizer\" style=\"width:100px;height:60px;padding:20px;border:5px solid #000000;background:#eeeeee;\"></div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.sizer {\n\n}\n",
+  "checks": [
+    {
+      "label": ".sizer dùng box-sizing: border-box giữ đúng 100px",
+      "points": 10,
+      "checker": "const el = doc.querySelector('.sizer'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử .sizer.' }; const boxSizing = win.getComputedStyle(el).boxSizing; if (boxSizing !== 'border-box') return { pass: false, message: 'box-sizing hiện tại là ' + boxSizing + ', cần là border-box.' }; const width = el.getBoundingClientRect().width; if (Math.abs(width - 100) > 1) return { pass: false, message: 'Chiều rộng hiển thị hiện tại là ' + width.toFixed(0) + 'px, cần đúng 100px.' }; return { pass: true, message: 'Chính xác! Tổng chiều rộng đã đúng 100px nhờ border-box.' };"
+    }
+  ]
+}

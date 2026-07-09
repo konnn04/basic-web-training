@@ -1,0 +1,29 @@
+{
+  "id": "q11-grid-gallery-span",
+  "title": "Thư viện ảnh Grid: 4 cột + ô nổi bật chiếm 2 cột + khoảng cách đều",
+  "description": "`.gallery` chứa 5 ô `.tile`, trong đó `.tile.featured` là ảnh nổi bật cần chiếm không gian gấp đôi các ô còn lại. Hãy chia lưới thành 4 cột đều nhau với khoảng cách đều giữa các ô, và làm ô nổi bật trải rộng bằng 2 cột.\n\nGợi ý: `display: grid` với `grid-template-columns: repeat(4, 1fr)`; `gap` tối thiểu 10px; `grid-column: span 2;` cho `.tile.featured`.",
+  "files": {
+    "html": "<div class=\"gallery\" style=\"width:400px;\">\n  <div class=\"tile featured\" style=\"background:#999;height:60px;\">Nổi bật</div>\n  <div class=\"tile\" style=\"background:#ccc;height:60px;\">2</div>\n  <div class=\"tile\" style=\"background:#ccc;height:60px;\">3</div>\n  <div class=\"tile\" style=\"background:#ccc;height:60px;\">4</div>\n  <div class=\"tile\" style=\"background:#ccc;height:60px;\">5</div>\n</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.gallery {\n\n}\n.tile.featured {\n\n}\n",
+  "checks": [
+    {
+      "label": ".gallery chia lưới 4 cột đều nhau",
+      "points": 12,
+      "checker": "const gallery = doc.querySelector('.gallery'); if (!gallery) return { pass: false, message: 'Không tìm thấy .gallery.' }; const gs = win.getComputedStyle(gallery); if (gs.display !== 'grid') return { pass: false, message: '.gallery cần display: grid (hiện tại: ' + gs.display + ').' }; const cols = gs.gridTemplateColumns.trim().split(/\\s+/); if (cols.length !== 4) return { pass: false, message: '.gallery cần chia đúng 4 cột bằng nhau (hiện tại: ' + gs.gridTemplateColumns + ').' }; const widths = cols.map(parseFloat); if (!widths.every(w => Math.abs(w - widths[0]) < 1)) return { pass: false, message: '4 cột cần có độ rộng bằng nhau (hiện tại: ' + gs.gridTemplateColumns + ').' }; return { pass: true, message: 'Chính xác! Lưới đã chia đều 4 cột.' };"
+    },
+    {
+      "label": "Khoảng cách giữa các ô tối thiểu 10px",
+      "points": 12,
+      "checker": "const gallery = doc.querySelector('.gallery'); if (!gallery) return { pass: false, message: 'Không tìm thấy .gallery.' }; const gs = win.getComputedStyle(gallery); const gap = parseFloat(gs.columnGap || gs.gap) || 0; if (gap < 10) return { pass: false, message: '.gallery cần gap tối thiểu 10px giữa các ô (hiện tại: ' + gs.columnGap + ').' }; return { pass: true, message: 'Chính xác! Khoảng cách giữa các ô đã đủ rộng.' };"
+    },
+    {
+      "label": ".tile.featured chiếm gấp đôi chiều rộng (grid-column: span 2)",
+      "points": 11,
+      "checker": "const featured = doc.querySelector('.tile.featured'); const normal = Array.from(doc.querySelectorAll('.tile')).find(el => !el.classList.contains('featured')); if (!featured || !normal) return { pass: false, message: 'Không tìm thấy .tile.featured hoặc ô thường.' }; const wFeatured = featured.getBoundingClientRect().width; const wNormal = normal.getBoundingClientRect().width; if (wFeatured < wNormal * 1.7) return { pass: false, message: '.tile.featured cần chiếm gấp đôi chiều rộng ô thường (hiện tại: ' + wFeatured.toFixed(0) + 'px so với ' + wNormal.toFixed(0) + 'px), hãy dùng grid-column: span 2.' }; return { pass: true, message: 'Chính xác! Ô nổi bật đã chiếm gấp đôi không gian.' };"
+    }
+  ]
+}

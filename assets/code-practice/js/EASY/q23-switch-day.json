@@ -1,0 +1,19 @@
+{
+  "id": "q23-switch-day",
+  "title": "Dùng switch để đổi tên thứ",
+  "description": "Biến toàn cục `window.day` chứa số `3` (quy ước: `1` = Chủ nhật, `2` = Thứ hai, `3` = Thứ ba, `4` = Thứ tư, `5` = Thứ năm, `6` = Thứ sáu, `7` = Thứ bảy). Hãy hiển thị lên `#dayName` đúng tên thứ trong tuần tương ứng với số đó.\n\nGợi ý: Dùng `switch`",
+  "files": {
+    "html": "<script>window.day = 3;</script>\n<p id=\"dayName\"></p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: switch (window.day) { case 1: ...; break; ... }\n",
+  "checks": [
+    {
+      "label": "Dùng switch để đổi tên thứ",
+      "points": 10,
+      "checker": "const el = doc.getElementById('dayName'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử #dayName.' }; if (el.textContent.trim() === 'Thứ ba') return { pass: true, message: 'Chính xác! window.day = 3 là Thứ ba.' }; return { pass: false, message: 'Nội dung hiện tại: \"' + el.textContent + '\", cần đúng: \"Thứ ba\" (vì window.day = 3).' };"
+    }
+  ]
+}

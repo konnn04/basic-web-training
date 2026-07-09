@@ -1,0 +1,19 @@
+{
+  "id": "q7-drag-free-reorder-by-buttons",
+  "title": "Sắp xếp danh sách bằng nút lên/xuống",
+  "description": "Danh sách `<ul id=\"rankList\">` có sẵn 3 mục theo thứ tự `Một`, `Hai`, `Ba`, mỗi mục có một nút lên `.up-btn` và một nút xuống `.down-btn`. Bấm nút lên của một mục phải hoán đổi vị trí mục đó với mục ngay phía trước nó (nếu mục đã ở đầu danh sách thì không làm gì). Bấm nút xuống hoán đổi với mục ngay phía sau (nếu đã ở cuối thì không làm gì).\n\nGợi ý: Dùng event delegation trên `#rankList`, và `insertBefore`/`after` để đổi vị trí các `<li>` trong DOM",
+  "files": {
+    "html": "<ul id=\"rankList\">\n<li class=\"rank-item\">Một <button class=\"up-btn\">↑</button><button class=\"down-btn\">↓</button></li>\n<li class=\"rank-item\">Hai <button class=\"up-btn\">↑</button><button class=\"down-btn\">↓</button></li>\n<li class=\"rank-item\">Ba <button class=\"up-btn\">↑</button><button class=\"down-btn\">↓</button></li>\n</ul>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: dùng event delegation trên #rankList, và insertBefore để đổi thứ tự các <li>\n",
+  "checks": [
+    {
+      "label": "Sắp xếp danh sách bằng nút lên/xuống",
+      "points": 35,
+      "checker": "const list = doc.getElementById('rankList'); if (!list) return { pass: false, message: 'Không tìm thấy #rankList.' }; function names() { return Array.from(list.querySelectorAll('.rank-item')).map(li => li.childNodes[0].textContent.trim()); } let order = names(); if (order.length !== 3 || order[0] !== 'Một') return { pass: false, message: 'Ban đầu thứ tự phải là [Một, Hai, Ba], hiện đang là [' + order.join(', ') + '].' }; let items = list.querySelectorAll('.rank-item'); const upBtnOfSecond = items[1].querySelector('.up-btn'); if (!upBtnOfSecond) return { pass: false, message: 'Mục thứ 2 phải có nút .up-btn.' }; upBtnOfSecond.click(); order = names(); if (order.join(',') !== 'Hai,Một,Ba') return { pass: false, message: 'Sau khi bấm ↑ ở mục \"Hai\", thứ tự phải là [Hai, Một, Ba], hiện đang là [' + order.join(', ') + '].' }; items = list.querySelectorAll('.rank-item'); const downBtnOfFirst = items[0].querySelector('.down-btn'); downBtnOfFirst.click(); order = names(); if (order.join(',') !== 'Một,Hai,Ba') return { pass: false, message: 'Sau khi bấm ↓ ở mục đầu (\"Hai\"), thứ tự phải quay lại [Một, Hai, Ba], hiện đang là [' + order.join(', ') + '].' }; return { pass: true, message: 'Chính xác!' };"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "q23-required-field-after",
+  "title": "Dấu bắt buộc bằng ::after",
+  "description": "Nhãn `.required-label` đánh dấu trường bắt buộc trong form. Hãy thêm một dấu sao đỏ ngay sau nội dung nhãn mà không sửa HTML, để người dùng biết trường này bắt buộc phải điền.\n\nGợi ý: dùng pseudo-element `::after` với `content: ' *'` và `color` đỏ.",
+  "files": {
+    "html": "<label class=\"required-label\">Email</label>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.required-label::after {\n\n}\n",
+  "checks": [
+    {
+      "label": ".required-label có ::after là dấu * màu đỏ",
+      "points": 15,
+      "checker": "const el = doc.querySelector('.required-label'); if (!el) return { pass: false, message: 'Không tìm thấy .required-label.' }; const after = win.getComputedStyle(el, '::after'); if (!after.content || after.content === 'none' || !after.content.includes('*')) return { pass: false, message: '::after của .required-label cần content chứa dấu * (hiện tại: ' + after.content + ').' }; if (after.color !== 'rgb(255, 0, 0)') return { pass: false, message: '::after cần color đỏ rgb(255, 0, 0) (hiện tại: ' + after.color + ').' }; return { pass: true, message: 'Chính xác! Dấu sao đỏ đã hiện sau nhãn bắt buộc.' };"
+    }
+  ]
+}

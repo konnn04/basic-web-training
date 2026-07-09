@@ -1,0 +1,19 @@
+{
+  "id": "q12-click-set-text",
+  "title": "Bấm nút để đổi chữ",
+  "description": "Có nút `#showBtn` và thẻ `#message` đang trống. Khi bấm nút, thẻ đó cần hiển thị dòng chữ `Xin chào!`.\n\nGợi ý: Lắng nghe sự kiện `click` bằng `addEventListener`",
+  "files": {
+    "html": "<button id=\"showBtn\">Bấm vào đây</button>\n<p id=\"message\"></p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n",
+  "checks": [
+    {
+      "label": "Bấm nút để đổi chữ",
+      "points": 10,
+      "checker": "const btn = doc.getElementById('showBtn'); const msg = doc.getElementById('message'); if (!btn || !msg) return { pass: false, message: 'Không tìm thấy #showBtn hoặc #message.' }; btn.click(); if (msg.textContent.trim() === 'Xin chào!') return { pass: true, message: 'Chính xác!' }; return { pass: false, message: 'Sau khi bấm nút, #message đang là \"' + msg.textContent + '\", cần là \"Xin chào!\"' };"
+    }
+  ]
+}

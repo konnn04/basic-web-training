@@ -8,39 +8,47 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Plus, Trash2, Copy, Check } from "lucide-react";
 import type { LabMode } from "@/lib/code-practice/types";
 
+type DraftCheck = {
+  label: string;
+  points: number;
+  checker: string;
+};
+
 type DraftQuestion = {
   id: string;
   title: string;
   description: string;
-  points: number;
   html: string;
   css: string;
   js: string;
   starter: string;
-  checker: string;
+  checks: DraftCheck[];
 };
+
+function emptyCheck(): DraftCheck {
+  return { label: "", points: 10, checker: "" };
+}
 
 function emptyQuestion(index: number): DraftQuestion {
   return {
     id: `q${index}`,
     title: "",
     description: "",
-    points: 10,
     html: "",
     css: "",
     js: "",
     starter: "",
-    checker: "",
+    checks: [emptyCheck()],
   };
 }
 
 export function CreatePracticeTestClient() {
   const [mode, setMode] = useState<LabMode>("css");
-  const [setId, setSetId] = useState("my-lab-set");
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const [group, setGroup] = useState<"EASY" | "MEDIUM" | "HARD">("EASY");
+  const [groupTitle, setGroupTitle] = useState("");
+  const [groupDescription, setGroupDescription] = useState("");
   const [questions, setQuestions] = useState<DraftQuestion[]>([emptyQuestion(1)]);
-  const [copied, setCopied] = useState(false);
+  const [copiedKey, setCopiedKey] = useState<string | null>(null);
 
   const updateQuestion = (index: number, patch: Partial<DraftQuestion>) => {
     setQuestions((prev) => prev.map((q, i) => (i === index ? { ...q, ...patch } : q)));
@@ -50,30 +58,61 @@ export function CreatePracticeTestClient() {
   const removeQuestion = (index: number) =>
     setQuestions((prev) => prev.filter((_, i) => i !== index));
 
-  const json = useMemo(() => {
-    const set = {
-      id: setId,
-      mode,
-      title,
-      description,
-      questions: questions.map((q) => ({
-        id: q.id,
-        title: q.title,
-        description: q.description,
-        points: q.points,
-        files: { html: q.html, css: q.css, js: q.js },
-        editable: mode,
-        starter: q.starter,
-        checker: q.checker,
-      })),
-    };
-    return JSON.stringify(set, null, 2);
-  }, [setId, mode, title, description, questions]);
+  const updateCheck = (qIndex: number, cIndex: number, patch: Partial<DraftCheck>) => {
+    setQuestions((prev) =>
+      prev.map((q, i) =>
+        i === qIndex
+          ? { ...q, checks: q.checks.map((c, j) => (j === cIndex ? { ...c, ...patch } : c)) }
+          : q
+      )
+    );
+  };
 
-  const handleCopy = async () => {
-    await navigator.clipboard.writeText(json);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const addCheck = (qIndex: number) =>
+    setQuestions((prev) =>
+      prev.map((q, i) => (i === qIndex ? { ...q, checks: [...q.checks, emptyCheck()] } : q))
+    );
+
+  const removeCheck = (qIndex: number, cIndex: number) =>
+    setQuestions((prev) =>
+      prev.map((q, i) =>
+        i === qIndex ? { ...q, checks: q.checks.filter((_, j) => j !== cIndex) } : q
+      )
+    );
+
+  const groupJson = useMemo(() => {
+    return JSON.stringify(
+      { id: `${mode}-${group.toLowerCase()}`, title: groupTitle, description: groupDescription },
+      null,
+      2
+    );
+  }, [mode, group, groupTitle, groupDescription]);
+
+  const questionFiles = useMemo(
+    () =>
+      questions.map((q) => ({
+        filename: `${q.id || "q"}.json`,
+        content: JSON.stringify(
+          {
+            id: q.id,
+            title: q.title,
+            description: q.description,
+            files: { html: q.html, css: q.css, js: q.js },
+            editable: mode,
+            starter: q.starter,
+            checks: q.checks,
+          },
+          null,
+          2
+        ),
+      })),
+    [questions, mode]
+  );
+
+  const handleCopy = async (key: string, text: string) => {
+    await navigator.clipboard.writeText(text);
+    setCopiedKey(key);
+    setTimeout(() => setCopiedKey((k) => (k === key ? null : k)), 2000);
   };
 
   return (
@@ -83,13 +122,14 @@ export function CreatePracticeTestClient() {
           Công cụ tạo đề code-practice
         </h1>
         <p className="text-xs text-zinc-500 mt-1">
-          Điền thông tin bên dưới rồi copy JSON, dán vào file trong <code>assets/code-practice/</code>.
+          Điền thông tin bên dưới rồi copy từng JSON. Đặt file <code>_group.json</code> và các file câu hỏi vào{" "}
+          <code>assets/code-practice/{"{mode}"}/{"{EASY|MEDIUM|HARD}"}/</code>.
         </p>
       </div>
 
       <Card className="rounded-2xl">
         <CardHeader>
-          <CardTitle className="text-sm font-extrabold">Thông tin bộ đề</CardTitle>
+          <CardTitle className="text-sm font-extrabold">Thông tin bộ đề (_group.json)</CardTitle>
         </CardHeader>
         <CardContent className="space-y-3">
           <div className="grid sm:grid-cols-2 gap-3">
@@ -105,17 +145,39 @@ export function CreatePracticeTestClient() {
               </select>
             </div>
             <div className="space-y-1">
-              <label className="text-xs font-bold text-zinc-500">ID bộ đề (tên file gợi ý)</label>
-              <Input value={setId} onChange={(e) => setSetId(e.target.value)} className="text-xs" />
+              <label className="text-xs font-bold text-zinc-500">Độ khó (tên thư mục)</label>
+              <select
+                value={group}
+                onChange={(e) => setGroup(e.target.value as "EASY" | "MEDIUM" | "HARD")}
+                className="w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-3 py-2 text-xs font-bold"
+              >
+                <option value="EASY">EASY</option>
+                <option value="MEDIUM">MEDIUM</option>
+                <option value="HARD">HARD</option>
+              </select>
             </div>
           </div>
           <div className="space-y-1">
-            <label className="text-xs font-bold text-zinc-500">Tiêu đề</label>
-            <Input value={title} onChange={(e) => setTitle(e.target.value)} className="text-xs" />
+            <label className="text-xs font-bold text-zinc-500">Tiêu đề bộ đề</label>
+            <Input value={groupTitle} onChange={(e) => setGroupTitle(e.target.value)} className="text-xs" />
           </div>
           <div className="space-y-1">
-            <label className="text-xs font-bold text-zinc-500">Mô tả</label>
-            <Textarea value={description} onChange={(e) => setDescription(e.target.value)} rows={2} className="text-xs" />
+            <label className="text-xs font-bold text-zinc-500">Mô tả bộ đề</label>
+            <Textarea value={groupDescription} onChange={(e) => setGroupDescription(e.target.value)} rows={2} className="text-xs" />
+          </div>
+          <div className="space-y-1">
+            <div className="flex items-center justify-between">
+              <label className="text-xs font-bold text-zinc-500">
+                assets/code-practice/{mode}/{group}/_group.json
+              </label>
+              <Button onClick={() => handleCopy("group", groupJson)} size="sm" variant="outline" className="rounded-xl text-xs font-bold gap-1.5 cursor-pointer">
+                {copiedKey === "group" ? <Check size={12} /> : <Copy size={12} />}
+                {copiedKey === "group" ? "Đã copy" : "Copy"}
+              </Button>
+            </div>
+            <pre className="bg-zinc-950 text-zinc-200 text-[11px] font-mono p-3 rounded-xl overflow-x-auto max-h-[160px] select-all">
+              {groupJson}
+            </pre>
           </div>
         </CardContent>
       </Card>
@@ -136,7 +198,7 @@ export function CreatePracticeTestClient() {
           <CardContent className="space-y-3">
             <div className="grid sm:grid-cols-3 gap-3">
               <div className="space-y-1">
-                <label className="text-xs font-bold text-zinc-500">ID câu hỏi</label>
+                <label className="text-xs font-bold text-zinc-500">ID câu hỏi (= tên file)</label>
                 <Input value={q.id} onChange={(e) => updateQuestion(index, { id: e.target.value })} className="text-xs" />
               </div>
               <div className="space-y-1 sm:col-span-2">
@@ -145,17 +207,10 @@ export function CreatePracticeTestClient() {
               </div>
             </div>
             <div className="space-y-1">
-              <label className="text-xs font-bold text-zinc-500">Mô tả / yêu cầu (markdown)</label>
+              <label className="text-xs font-bold text-zinc-500">
+                Mô tả / yêu cầu (markdown — mô tả mục tiêu, gợi ý tên thuộc tính/API ở dòng &quot;Gợi ý:&quot; cuối cùng)
+              </label>
               <Textarea value={q.description} onChange={(e) => updateQuestion(index, { description: e.target.value })} rows={3} className="text-xs" />
-            </div>
-            <div className="space-y-1">
-              <label className="text-xs font-bold text-zinc-500">Điểm</label>
-              <Input
-                type="number"
-                value={q.points}
-                onChange={(e) => updateQuestion(index, { points: Number(e.target.value) || 0 })}
-                className="text-xs w-32"
-              />
             </div>
             <div className="grid sm:grid-cols-3 gap-3">
               <div className="space-y-1">
@@ -177,11 +232,62 @@ export function CreatePracticeTestClient() {
               </label>
               <Textarea value={q.starter} onChange={(e) => updateQuestion(index, { starter: e.target.value })} rows={3} className="text-xs font-mono" />
             </div>
-            <div className="space-y-1">
-              <label className="text-xs font-bold text-zinc-500">
-                Checker (thân hàm JS, nhận doc, win, code — trả về &#123; pass, message &#125;)
-              </label>
-              <Textarea value={q.checker} onChange={(e) => updateQuestion(index, { checker: e.target.value })} rows={4} className="text-xs font-mono" />
+
+            <div className="space-y-2 pt-2 border-t border-zinc-100 dark:border-zinc-800">
+              <div className="flex items-center justify-between">
+                <label className="text-xs font-bold text-zinc-700 dark:text-zinc-300">
+                  Yêu cầu chấm điểm (checks) — mỗi yêu cầu độc lập là 1 dòng checklist học viên nhìn thấy
+                </label>
+                <Button onClick={() => addCheck(index)} size="sm" variant="outline" className="rounded-xl text-[11px] font-bold gap-1 cursor-pointer">
+                  <Plus size={12} />
+                  Thêm yêu cầu
+                </Button>
+              </div>
+
+              {q.checks.map((c, cIndex) => (
+                <div key={cIndex} className="rounded-xl border border-zinc-200/70 dark:border-zinc-800/70 p-3 space-y-2">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">
+                      Yêu cầu {cIndex + 1}
+                    </span>
+                    {q.checks.length > 1 && (
+                      <button
+                        onClick={() => removeCheck(index, cIndex)}
+                        className="text-zinc-400 hover:text-red-500 cursor-pointer"
+                        title="Xóa yêu cầu này"
+                      >
+                        <Trash2 size={13} />
+                      </button>
+                    )}
+                  </div>
+                  <div className="grid sm:grid-cols-4 gap-3">
+                    <div className="space-y-1 sm:col-span-3">
+                      <label className="text-xs font-bold text-zinc-500">Mô tả ngắn (label, hiện trong checklist)</label>
+                      <Input value={c.label} onChange={(e) => updateCheck(index, cIndex, { label: e.target.value })} className="text-xs" />
+                    </div>
+                    <div className="space-y-1">
+                      <label className="text-xs font-bold text-zinc-500">Điểm</label>
+                      <Input
+                        type="number"
+                        value={c.points}
+                        onChange={(e) => updateCheck(index, cIndex, { points: Number(e.target.value) || 0 })}
+                        className="text-xs"
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-1">
+                    <label className="text-xs font-bold text-zinc-500">
+                      Checker (thân hàm JS, nhận doc, win, code — trả về &#123; pass, message &#125;)
+                    </label>
+                    <Textarea
+                      value={c.checker}
+                      onChange={(e) => updateCheck(index, cIndex, { checker: e.target.value })}
+                      rows={4}
+                      className="text-xs font-mono"
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
           </CardContent>
         </Card>
@@ -193,17 +299,31 @@ export function CreatePracticeTestClient() {
       </Button>
 
       <Card className="rounded-2xl">
-        <CardHeader className="flex flex-row items-center justify-between">
-          <CardTitle className="text-sm font-extrabold">JSON xuất ra</CardTitle>
-          <Button onClick={handleCopy} size="sm" className="rounded-xl text-xs font-bold gap-1.5 cursor-pointer">
-            {copied ? <Check size={13} /> : <Copy size={13} />}
-            {copied ? "Đã copy" : "Copy JSON"}
-          </Button>
+        <CardHeader>
+          <CardTitle className="text-sm font-extrabold">JSON xuất ra (mỗi câu hỏi 1 file)</CardTitle>
         </CardHeader>
-        <CardContent>
-          <pre className="bg-zinc-950 text-zinc-200 text-[11px] font-mono p-4 rounded-xl overflow-x-auto max-h-[400px] select-all">
-            {json}
-          </pre>
+        <CardContent className="space-y-4">
+          {questionFiles.map((f, i) => (
+            <div key={i} className="space-y-1">
+              <div className="flex items-center justify-between">
+                <label className="text-xs font-bold text-zinc-500">
+                  assets/code-practice/{mode}/{group}/{f.filename}
+                </label>
+                <Button
+                  onClick={() => handleCopy(`q${i}`, f.content)}
+                  size="sm"
+                  variant="outline"
+                  className="rounded-xl text-xs font-bold gap-1.5 cursor-pointer"
+                >
+                  {copiedKey === `q${i}` ? <Check size={13} /> : <Copy size={13} />}
+                  {copiedKey === `q${i}` ? "Đã copy" : "Copy JSON"}
+                </Button>
+              </div>
+              <pre className="bg-zinc-950 text-zinc-200 text-[11px] font-mono p-4 rounded-xl overflow-x-auto max-h-[400px] select-all">
+                {f.content}
+              </pre>
+            </div>
+          ))}
         </CardContent>
       </Card>
     </div>

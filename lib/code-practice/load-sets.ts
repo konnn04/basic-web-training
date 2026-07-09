@@ -1,47 +1,100 @@
 import fs from "fs/promises";
 import path from "path";
-import type { CodePracticeSet, LabMode } from "./types";
+import type { CodePracticeQuestion, CodePracticeSet, LabMode } from "./types";
+
+const GROUP_ORDER = ["EASY", "MEDIUM", "HARD"];
+
+type GroupMeta = {
+  id?: string;
+  title?: string;
+  description?: string;
+};
 
 export async function loadCodePracticeSets(mode: LabMode): Promise<CodePracticeSet[]> {
-  const dir = path.join(process.cwd(), "assets", "code-practice");
-  const sets: CodePracticeSet[] = [];
+  const modeDir = path.join(process.cwd(), "assets", "code-practice", mode);
 
-  let entries: string[];
+  let groupNames: string[];
   try {
-    entries = (await fs.readdir(dir)).filter((f) => f.endsWith(".json"));
+    groupNames = (await fs.readdir(modeDir, { withFileTypes: true }))
+      .filter((entry) => entry.isDirectory())
+      .map((entry) => entry.name);
   } catch (error) {
-    console.error("Không đọc được thư mục assets/code-practice:", error);
+    console.error(`Không đọc được thư mục assets/code-practice/${mode}:`, error);
     return [];
   }
 
-  for (const fileName of entries) {
-    const filePath = path.join(dir, fileName);
+  const groups: Array<{ groupName: string; set: CodePracticeSet }> = [];
+
+  for (const groupName of groupNames) {
+    const groupDir = path.join(modeDir, groupName);
+
+    let meta: GroupMeta = {};
     try {
-      const raw = await fs.readFile(filePath, "utf-8");
-      const parsed = JSON.parse(raw) as CodePracticeSet;
+      const metaRaw = await fs.readFile(path.join(groupDir, "_group.json"), "utf-8");
+      meta = JSON.parse(metaRaw);
+    } catch {
+      console.warn(`[code-practice] Thiếu hoặc lỗi _group.json trong ${groupDir}, dùng giá trị mặc định.`);
+    }
 
-      if (parsed.mode !== mode) continue;
+    let files: string[];
+    try {
+      files = (await fs.readdir(groupDir)).filter((f) => f.endsWith(".json") && f !== "_group.json");
+    } catch (error) {
+      console.error(`Lỗi đọc thư mục ${groupDir}:`, error);
+      continue;
+    }
 
-      const validQuestions = parsed.questions.filter((q) => {
+    const questions: CodePracticeQuestion[] = [];
+
+    for (const file of files) {
+      const filePath = path.join(groupDir, file);
+      try {
+        const raw = await fs.readFile(filePath, "utf-8");
+        const q = JSON.parse(raw) as CodePracticeQuestion;
+
         if (q.editable !== mode) {
           console.warn(
-            `[code-practice] Bỏ qua câu "${q.id}" trong "${fileName}": editable="${q.editable}" không khớp mode="${mode}"`
+            `[code-practice] Bỏ qua câu "${q.id}" trong "${groupName}/${file}": editable="${q.editable}" không khớp mode="${mode}"`
           );
-          return false;
+          continue;
         }
         if (!q.files || typeof q.files.html !== "string") {
-          console.warn(`[code-practice] Bỏ qua câu "${q.id}" trong "${fileName}": thiếu files.html`);
-          return false;
+          console.warn(`[code-practice] Bỏ qua câu "${q.id}" trong "${groupName}/${file}": thiếu files.html`);
+          continue;
         }
-        return true;
-      });
+        if (!Array.isArray(q.checks) || q.checks.length === 0) {
+          console.warn(`[code-practice] Bỏ qua câu "${q.id}" trong "${groupName}/${file}": thiếu checks[]`);
+          continue;
+        }
 
-      sets.push({ ...parsed, questions: validQuestions });
-    } catch (error) {
-      console.error(`Lỗi đọc/parse file ${fileName}:`, error);
+        questions.push(q);
+      } catch (error) {
+        console.error(`Lỗi đọc/parse file ${groupDir}/${file}:`, error);
+      }
     }
+
+    questions.sort((a, b) => a.id.localeCompare(b.id));
+
+    groups.push({
+      groupName,
+      set: {
+        id: meta.id ?? `${mode}-${groupName.toLowerCase()}`,
+        mode,
+        title: meta.title ?? groupName,
+        description: meta.description ?? "",
+        questions,
+      },
+    });
   }
 
-  sets.sort((a, b) => a.id.localeCompare(b.id));
-  return sets;
+  groups.sort((a, b) => {
+    const ai = GROUP_ORDER.indexOf(a.groupName.toUpperCase());
+    const bi = GROUP_ORDER.indexOf(b.groupName.toUpperCase());
+    if (ai !== -1 && bi !== -1) return ai - bi;
+    if (ai !== -1) return -1;
+    if (bi !== -1) return 1;
+    return a.groupName.localeCompare(b.groupName);
+  });
+
+  return groups.map((g) => g.set);
 }

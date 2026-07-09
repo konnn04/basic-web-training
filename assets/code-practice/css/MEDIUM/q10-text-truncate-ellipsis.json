@@ -1,0 +1,19 @@
+{
+  "id": "q10-text-truncate-ellipsis",
+  "title": "Cắt chữ với dấu ba chấm",
+  "description": "`.truncate` chứa văn bản dài trong một hộp hẹp. Hãy làm cho văn bản không tràn ra ngoài mà bị cắt gọn và hiện dấu `...` ở cuối khi không đủ chỗ hiển thị hết.\n\nGợi ý: dùng `white-space: nowrap`, `overflow: hidden` và `text-overflow: ellipsis`.",
+  "files": {
+    "html": "<div class=\"truncate\" style=\"width:120px;border:1px solid #ccc;\">Đây là một đoạn văn bản rất dài sẽ bị tràn ra khỏi hộp chứa nó</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.truncate {\n\n}\n",
+  "checks": [
+    {
+      "label": ".truncate cắt chữ với dấu ba chấm (ellipsis)",
+      "points": 15,
+      "checker": "const el = doc.querySelector('.truncate'); if (!el) return { pass: false, message: 'Không tìm thấy .truncate.' }; const s = win.getComputedStyle(el); if (s.whiteSpace !== 'nowrap') return { pass: false, message: 'Cần white-space: nowrap (hiện tại: ' + s.whiteSpace + ').' }; if (s.overflow !== 'hidden' && s.overflowX !== 'hidden') return { pass: false, message: 'Cần overflow: hidden (hiện tại: ' + s.overflow + ').' }; if (s.textOverflow !== 'ellipsis') return { pass: false, message: 'Cần text-overflow: ellipsis (hiện tại: ' + s.textOverflow + ').' }; return { pass: true, message: 'Chính xác! Văn bản đã bị cắt với dấu ba chấm.' };"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "q5-text-align-center",
+  "title": "Căn giữa văn bản",
+  "description": "Đoạn văn có class `caption`. Hãy căn dòng chữ vào giữa theo chiều ngang, giống như một chú thích ảnh.\n\nGợi ý: dùng thuộc tính `text-align`, giá trị `center`.",
+  "files": {
+    "html": "<p class=\"caption\">Dòng chữ này cần được căn giữa.</p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.caption {\n\n}\n",
+  "checks": [
+    {
+      "label": ".caption được căn giữa văn bản",
+      "points": 5,
+      "checker": "const el = doc.querySelector('.caption'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử .caption.' }; const align = win.getComputedStyle(el).textAlign; if (align === 'center') return { pass: true, message: 'Chính xác! Văn bản đã được căn giữa.' }; return { pass: false, message: 'text-align hiện tại là ' + align + ', cần là center.' };"
+    }
+  ]
+}

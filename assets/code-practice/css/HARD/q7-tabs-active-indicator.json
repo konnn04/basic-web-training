@@ -1,0 +1,29 @@
+{
+  "id": "q7-tabs-active-indicator",
+  "title": "Thanh tab: dàn hàng ngang + tab active nổi bật",
+  "description": "`.tabs` chứa nhiều `.tab`. Hãy dàn các tab theo hàng ngang; các tab chưa được chọn hiển thị màu xám nhạt, còn tab đang chọn (`.tab.active`) hiển thị chữ đen đậm nét hơn kèm gạch chân để dễ phân biệt đang xem mục nào.\n\nGợi ý: `display: flex` cho `.tabs`; `color: rgb(128, 128, 128)` cho `.tab` thường; `color: rgb(0, 0, 0)` + `border-bottom: 2px solid <màu>` cho `.tab.active`.",
+  "files": {
+    "html": "<div class=\"tabs\">\n  <span class=\"tab active\">Tổng quan</span>\n  <span class=\"tab\">Chi tiết</span>\n  <span class=\"tab\">Đánh giá</span>\n</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.tabs {\n\n}\n.tab {\n\n}\n.tab.active {\n\n}\n",
+  "checks": [
+    {
+      "label": ".tabs dàn hàng ngang bằng Flexbox",
+      "points": 10,
+      "checker": "const tabs = doc.querySelector('.tabs'); if (!tabs) return { pass: false, message: 'Không tìm thấy .tabs.' }; const ts = win.getComputedStyle(tabs); if (ts.display !== 'flex') return { pass: false, message: '.tabs cần display: flex (hiện tại: ' + ts.display + ').' }; return { pass: true, message: 'Chính xác! Các tab đã dàn hàng ngang.' };"
+    },
+    {
+      "label": "Tab chưa chọn hiển thị màu xám nhạt",
+      "points": 10,
+      "checker": "const inactiveTab = Array.from(doc.querySelectorAll('.tab')).find(el => !el.classList.contains('active')); if (!inactiveTab) return { pass: false, message: 'Không tìm thấy tab không active.' }; const its = win.getComputedStyle(inactiveTab); if (its.color !== 'rgb(128, 128, 128)') return { pass: false, message: '.tab (thường) cần color rgb(128, 128, 128) (hiện tại: ' + its.color + ').' }; return { pass: true, message: 'Chính xác! Tab chưa chọn đã có màu xám nhạt.' };"
+    },
+    {
+      "label": ".tab.active nổi bật với chữ đen đậm và gạch chân",
+      "points": 10,
+      "checker": "const activeTab = doc.querySelector('.tab.active'); if (!activeTab) return { pass: false, message: 'Không tìm thấy .tab.active.' }; const ats = win.getComputedStyle(activeTab); if (ats.color !== 'rgb(0, 0, 0)') return { pass: false, message: '.tab.active cần color rgb(0, 0, 0) (hiện tại: ' + ats.color + ').' }; if (ats.borderBottomWidth === '0px' || ats.borderBottomStyle === 'none') return { pass: false, message: '.tab.active cần border-bottom: 2px solid <màu>.' }; return { pass: true, message: 'Chính xác! Tab đang chọn đã nổi bật rõ ràng.' };"
+    }
+  ]
+}

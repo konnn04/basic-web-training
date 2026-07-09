@@ -1,0 +1,19 @@
+{
+  "id": "q17-margin-shorthand",
+  "title": "Margin viết tắt (shorthand) 2 giá trị",
+  "description": "Hộp có class `box4`. Hãy đặt khoảng cách ngoài sao cho trên/dưới hộp cách `10px`, còn trái/phải cách `20px` — dùng cú pháp rút gọn 2 giá trị thay vì viết 4 dòng riêng.\n\nGợi ý: dùng thuộc tính `margin` dạng shorthand (`margin: 10px 20px;`).",
+  "files": {
+    "html": "<div class=\"wrap\" style=\"background:#f5f5f5;\">\n  <div class=\"box4\" style=\"width:50px;height:50px;background:#333;\"></div>\n</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.box4 {\n\n}\n",
+  "checks": [
+    {
+      "label": ".box4 có margin shorthand 10px 20px",
+      "points": 5,
+      "checker": "const el = doc.querySelector('.box4'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử .box4.' }; const s = win.getComputedStyle(el); if (s.marginTop === '10px' && s.marginBottom === '10px' && s.marginLeft === '20px' && s.marginRight === '20px') return { pass: true, message: 'Chính xác! margin đã đúng 10px trên/dưới, 20px trái/phải.' }; return { pass: false, message: 'margin hiện tại: trên ' + s.marginTop + ', dưới ' + s.marginBottom + ', trái ' + s.marginLeft + ', phải ' + s.marginRight + '.' };"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "q16-arrow-function",
+  "title": "Arrow function nhân đôi",
+  "description": "Biến toàn cục `window.baseNum` chứa một số (`6`). Hãy viết một arrow function để tính gấp đôi giá trị đó, rồi hiển thị kết quả (dạng chuỗi) lên thẻ `#doubled`.\n\nGợi ý: `const double = n => n * 2;`",
+  "files": {
+    "html": "<script>window.baseNum = 6;</script>\n<p id=\"doubled\"></p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: const double = n => n * 2;\n",
+  "checks": [
+    {
+      "label": "Arrow function nhân đôi",
+      "points": 5,
+      "checker": "const el = doc.getElementById('doubled'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử #doubled.' }; if (el.textContent.trim() === '12') return { pass: true, message: 'Chính xác!' }; return { pass: false, message: 'Nội dung hiện tại: \"' + el.textContent + '\", cần đúng: \"12\" (gấp đôi của window.baseNum = 6).' };"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "q14-radial-gradient-badge",
+  "title": "Nền gradient toả tròn (radial-gradient)",
+  "description": "`.spot` cần có nền dạng đốm sáng toả tròn từ tâm ra ngoài, ví dụ vàng ở giữa chuyển dần sang cam ở viền.\n\nGợi ý: dùng `background` với hàm `radial-gradient(...)` (ví dụ `radial-gradient(circle, gold, orange)`).",
+  "files": {
+    "html": "<div class=\"spot\" style=\"width:100px;height:100px;border-radius:50%;\"></div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.spot {\n\n}\n",
+  "checks": [
+    {
+      "label": ".spot có nền gradient toả tròn (radial-gradient)",
+      "points": 15,
+      "checker": "const el = doc.querySelector('.spot'); if (!el) return { pass: false, message: 'Không tìm thấy .spot.' }; const bgImage = win.getComputedStyle(el).backgroundImage; if (!bgImage.includes('radial-gradient')) return { pass: false, message: 'background-image hiện tại là ' + bgImage + ', cần dùng radial-gradient(...).' }; return { pass: true, message: 'Chính xác! .spot đã có nền gradient toả tròn.' };"
+    }
+  ]
+}

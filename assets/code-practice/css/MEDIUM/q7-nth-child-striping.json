@@ -1,0 +1,19 @@
+{
+  "id": "q7-nth-child-striping",
+  "title": "Kẻ sọc xen kẽ các dòng danh sách",
+  "description": "`.rows` chứa nhiều `.row`. Hãy kẻ sọc xen kẽ cho danh sách: các dòng chẵn có nền xám nhạt (`#f0f0f0`), các dòng lẻ giữ nền trắng/mặc định, giúp người đọc dễ theo dõi từng dòng.\n\nGợi ý: dùng pseudo-class `:nth-child(even)` và thuộc tính `background-color`.",
+  "files": {
+    "html": "<div class=\"rows\">\n  <div class=\"row\">Dòng 1</div>\n  <div class=\"row\">Dòng 2</div>\n  <div class=\"row\">Dòng 3</div>\n  <div class=\"row\">Dòng 4</div>\n</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.row:nth-child(even) {\n\n}\n",
+  "checks": [
+    {
+      "label": "Các dòng chẵn trong .rows có nền xám nhạt, dòng lẻ giữ nguyên",
+      "points": 20,
+      "checker": "const rows = doc.querySelectorAll('.rows .row'); if (!rows || rows.length !== 4) return { pass: false, message: 'Không tìm thấy đủ 4 phần tử .row.' }; const bg2 = win.getComputedStyle(rows[1]).backgroundColor; const bg1 = win.getComputedStyle(rows[0]).backgroundColor; const bg4 = win.getComputedStyle(rows[3]).backgroundColor; if (bg2 !== 'rgb(240, 240, 240)' || bg4 !== 'rgb(240, 240, 240)') return { pass: false, message: 'Các dòng chẵn (2, 4) cần có background-color rgb(240, 240, 240) (hiện tại dòng 2: ' + bg2 + ').' }; if (bg1 === 'rgb(240, 240, 240)') return { pass: false, message: 'Dòng lẻ (1) không nên bị đổi màu, chỉ dòng chẵn mới đổi.' }; return { pass: true, message: 'Chính xác! Các dòng đã được kẻ sọc xen kẽ.' };"
+    }
+  ]
+}

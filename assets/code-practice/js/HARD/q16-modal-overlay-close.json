@@ -1,0 +1,34 @@
+{
+  "id": "q16-modal-overlay-close",
+  "title": "Hộp thoại (modal): mở/đóng, bấm ra ngoài để đóng",
+  "description": "Trang có nút `#openModalBtn` để mở một hộp thoại (modal), phần nền mờ `#modalOverlay` (bên trong chứa hộp nội dung `#modalBox` và nút `#modalCloseBtn`), mặc định modal đang ẩn. Bấm nút mở phải hiện modal lên. Người dùng có thể đóng modal bằng nút đóng, HOẶC bằng cách bấm ra vùng nền mờ bên ngoài hộp nội dung — nhưng bấm vào bên trong hộp nội dung (nội dung modal) thì KHÔNG được đóng. Sau khi đóng, modal vẫn phải mở lại được bình thường ở lần bấm tiếp theo.\n\nGợi ý: Dùng `classList` để ẩn/hiện qua class `hidden`; gắn sự kiện `click` trên `#modalOverlay` và kiểm tra `event.target` để phân biệt bấm vào nền hay bấm vào bên trong `#modalBox`",
+  "files": {
+    "html": "<button id=\"openModalBtn\">Mở hộp thoại</button>\n<div id=\"modalOverlay\" class=\"hidden\">\n<div id=\"modalBox\">\n<p>Nội dung hộp thoại</p>\n<button id=\"modalCloseBtn\">Đóng</button>\n</div>\n</div>",
+    "css": ".hidden { display: none; } #modalOverlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); } #modalBox { background: #fff; margin: 10% auto; padding: 16px; width: 260px; }",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: gắn sự kiện click trên #modalOverlay, kiểm tra event.target === overlay để biết có bấm ra ngoài hay không\n",
+  "checks": [
+    {
+      "label": "Mở modal bằng #openModalBtn",
+      "points": 10,
+      "checker": "const openBtn = doc.getElementById('openModalBtn'); const overlay = doc.getElementById('modalOverlay'); if (!openBtn || !overlay) return { pass: false, message: 'Không tìm thấy #openModalBtn hoặc #modalOverlay.' }; if (!overlay.classList.contains('hidden')) return { pass: false, message: 'Ban đầu #modalOverlay phải có class \"hidden\" (modal đang đóng).' }; openBtn.click(); if (overlay.classList.contains('hidden')) return { pass: false, message: 'Sau khi bấm #openModalBtn, #modalOverlay phải mất class \"hidden\" để hiện modal.' }; return { pass: true, message: 'Chính xác! Mở modal hoạt động đúng.' };"
+    },
+    {
+      "label": "Bấm vào bên trong nội dung modal (#modalBox) KHÔNG được đóng modal",
+      "points": 8,
+      "checker": "const openBtn = doc.getElementById('openModalBtn'); const overlay = doc.getElementById('modalOverlay'); const box = doc.getElementById('modalBox'); if (!openBtn || !overlay || !box) return { pass: false, message: 'Không tìm thấy #openModalBtn, #modalOverlay hoặc #modalBox.' }; if (overlay.classList.contains('hidden')) openBtn.click(); box.click(); if (overlay.classList.contains('hidden')) return { pass: false, message: 'Bấm vào bên trong #modalBox không được làm đóng modal.' }; return { pass: true, message: 'Chính xác! Bấm vào nội dung modal không đóng modal.' };"
+    },
+    {
+      "label": "Đóng modal bằng #modalCloseBtn, mở lại được bình thường sau đó",
+      "points": 9,
+      "checker": "const openBtn = doc.getElementById('openModalBtn'); const overlay = doc.getElementById('modalOverlay'); const closeBtn = doc.getElementById('modalCloseBtn'); if (!openBtn || !overlay || !closeBtn) return { pass: false, message: 'Không tìm thấy #openModalBtn, #modalOverlay hoặc #modalCloseBtn.' }; if (overlay.classList.contains('hidden')) openBtn.click(); closeBtn.click(); if (!overlay.classList.contains('hidden')) return { pass: false, message: 'Sau khi bấm #modalCloseBtn, #modalOverlay phải có lại class \"hidden\" (đóng modal).' }; openBtn.click(); if (overlay.classList.contains('hidden')) return { pass: false, message: 'Mở lại modal lần 2 bằng #openModalBtn vẫn phải hoạt động.' }; return { pass: true, message: 'Chính xác! Đóng bằng nút đóng và mở lại đều hoạt động đúng.' };"
+    },
+    {
+      "label": "Bấm ra vùng nền mờ (#modalOverlay) để đóng modal",
+      "points": 8,
+      "checker": "const openBtn = doc.getElementById('openModalBtn'); const overlay = doc.getElementById('modalOverlay'); if (!openBtn || !overlay) return { pass: false, message: 'Không tìm thấy #openModalBtn hoặc #modalOverlay.' }; if (overlay.classList.contains('hidden')) openBtn.click(); overlay.click(); if (!overlay.classList.contains('hidden')) return { pass: false, message: 'Bấm trực tiếp vào #modalOverlay (bên ngoài #modalBox) phải đóng modal.' }; return { pass: true, message: 'Chính xác! Bấm ra ngoài modal (nền mờ) để đóng hoạt động đúng.' };"
+    }
+  ]
+}

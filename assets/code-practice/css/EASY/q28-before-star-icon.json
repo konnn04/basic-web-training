@@ -1,0 +1,19 @@
+{
+  "id": "q28-before-star-icon",
+  "title": "Thêm ký hiệu bằng ::before",
+  "description": "Danh sách `.feature-list` có các mục `<li>`. Hãy thêm một ký hiệu ngôi sao ★ phía trước mỗi mục mà không sửa HTML, để trông giống danh sách tính năng nổi bật.\n\nGợi ý: dùng pseudo-element `::before` với `content: '★ ';`.",
+  "files": {
+    "html": "<ul class=\"feature-list\">\n  <li>Hỗ trợ 24/7</li>\n  <li>Giao hàng miễn phí</li>\n  <li>Đổi trả trong 30 ngày</li>\n</ul>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.feature-list li::before {\n\n}\n",
+  "checks": [
+    {
+      "label": "Mỗi mục .feature-list li có ::before chứa ★",
+      "points": 10,
+      "checker": "const items = doc.querySelectorAll('.feature-list li'); if (!items || items.length === 0) return { pass: false, message: 'Không tìm thấy .feature-list li.' }; let ok = true; items.forEach(function(li) { const c = win.getComputedStyle(li, '::before').content; if (!c || c === 'none') ok = false; }); if (!ok) return { pass: false, message: 'Các mục cần có ::before với content chứa ký hiệu ★.' }; const first = win.getComputedStyle(items[0], '::before').content; if (!first.includes('★')) return { pass: false, message: 'content của ::before cần chứa ký hiệu ★ (hiện tại: ' + first + ').' }; return { pass: true, message: 'Chính xác! Mỗi mục đã có ngôi sao phía trước.' };"
+    }
+  ]
+}

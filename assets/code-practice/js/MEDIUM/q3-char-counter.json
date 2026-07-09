@@ -1,0 +1,19 @@
+{
+  "id": "q3-char-counter",
+  "title": "Bộ đếm ký tự cho textarea",
+  "description": "Có ô `<textarea id=\"content\">` và thẻ `#charCount` (đang là `0`). Người dùng cần thấy ngay số ký tự mình đã gõ, cập nhật theo thời gian thực mỗi khi gõ thêm hoặc xóa bớt.\n\nGợi ý: Lắng nghe sự kiện `input`, dùng thuộc tính `length`",
+  "files": {
+    "html": "<textarea id=\"content\"></textarea>\n<span id=\"charCount\">0</span>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n",
+  "checks": [
+    {
+      "label": "Bộ đếm ký tự cho textarea",
+      "points": 15,
+      "checker": "const area = doc.getElementById('content'); const count = doc.getElementById('charCount'); if (!area || !count) return { pass: false, message: 'Không tìm thấy #content hoặc #charCount.' }; area.value = 'Xin chao'; area.dispatchEvent(new win.Event('input', { bubbles: true })); if (count.textContent.trim() !== '8') return { pass: false, message: '#charCount đang là \"' + count.textContent + '\", cần là \"8\" (độ dài của \"Xin chao\").' }; area.value = ''; area.dispatchEvent(new win.Event('input', { bubbles: true })); if (count.textContent.trim() !== '0') return { pass: false, message: 'Sau khi xóa trắng textarea, #charCount phải là \"0\", hiện đang là \"' + count.textContent + '\".' }; area.value = 'Xin chao cac ban'; area.dispatchEvent(new win.Event('input', { bubbles: true })); if (count.textContent.trim() !== '16') return { pass: false, message: 'Với nội dung mới dài 16 ký tự, #charCount phải là \"16\", hiện đang là \"' + count.textContent + '\".' }; return { pass: true, message: 'Chính xác!' };"
+    }
+  ]
+}

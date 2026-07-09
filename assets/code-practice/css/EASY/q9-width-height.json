@@ -1,0 +1,19 @@
+{
+  "id": "q9-width-height",
+  "title": "Đặt kích thước hộp",
+  "description": "Hộp có class `box2`. Hãy đặt kích thước cố định cho hộp: rộng 150px, cao 100px.\n\nGợi ý: dùng thuộc tính `width` và `height`.",
+  "files": {
+    "html": "<div class=\"box2\" style=\"background:#eee;\"></div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.box2 {\n\n}\n",
+  "checks": [
+    {
+      "label": ".box2 có kích thước 150x100px",
+      "points": 5,
+      "checker": "const el = doc.querySelector('.box2'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử .box2.' }; const s = win.getComputedStyle(el); if (s.width === '150px' && s.height === '100px') return { pass: true, message: 'Chính xác! Kích thước đã đúng 150x100px.' }; return { pass: false, message: 'Kích thước hiện tại: ' + s.width + ' x ' + s.height + ', cần 150px x 100px.' };"
+    }
+  ]
+}

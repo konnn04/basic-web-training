@@ -1,0 +1,34 @@
+{
+  "id": "q10-accordion-panel",
+  "title": "Accordion: chiều cao co giãn mượt + xoay icon + viền nhấn active",
+  "description": "`.accordion-item` chứa phần nội dung có thể mở/đóng (`.panel`) và icon mũi tên (`.icon`). Ở trạng thái đóng, nội dung cần ẩn gọn (chiều cao bằng 0). Khi mục được mở (có class `open`, đã có sẵn trong HTML mẫu để bạn xem trước): nội dung giãn ra hiển thị đầy đủ một cách mượt mà, icon xoay ngược 180 độ, và phần header được nhấn viền trái để báo hiệu đang mở.\n\nGợi ý: `.panel` mặc định `max-height: 0; overflow: hidden;` + `transition` chứa `max-height`; `.accordion-item.open .panel { max-height: 200px; }`; `.accordion-item.open .icon { transform: rotate(180deg); }`; `.accordion-item.open { border-left: 4px solid <màu>; }`.",
+  "files": {
+    "html": "<div class=\"accordion-item open\" style=\"border:1px solid #ccc;padding:8px;\">\n  <div class=\"header\">Câu hỏi 1 <span class=\"icon\">▾</span></div>\n  <div class=\"panel\">Nội dung trả lời chi tiết cho câu hỏi 1.</div>\n</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.panel {\n\n}\n.accordion-item.open .panel {\n\n}\n.accordion-item.open .icon {\n\n}\n.accordion-item.open {\n\n}\n",
+  "checks": [
+    {
+      "label": ".panel có transition mượt cho max-height",
+      "points": 10,
+      "checker": "const panel = doc.querySelector('.panel'); if (!panel) return { pass: false, message: 'Không tìm thấy .panel.' }; const ps = win.getComputedStyle(panel); if (!ps.transition || !ps.transition.includes('max-height')) return { pass: false, message: '.panel cần transition chứa max-height để hiệu ứng mượt (hiện tại: ' + ps.transition + ').' }; return { pass: true, message: 'Chính xác! Panel có hiệu ứng chuyển đổi mượt mà.' };"
+    },
+    {
+      "label": ".accordion-item.open .panel giãn ra hiển thị đầy đủ",
+      "points": 10,
+      "checker": "const panel = doc.querySelector('.panel'); if (!panel) return { pass: false, message: 'Không tìm thấy .panel.' }; const ps = win.getComputedStyle(panel); const maxH = parseFloat(ps.maxHeight); if (!(maxH > 0)) return { pass: false, message: '.accordion-item.open .panel cần max-height lớn hơn 0px (hiện tại: ' + ps.maxHeight + ', lưu ý HTML mẫu đã có class open sẵn trên .accordion-item).' }; return { pass: true, message: 'Chính xác! Nội dung đã giãn ra hiển thị đầy đủ khi mở.' };"
+    },
+    {
+      "label": ".accordion-item.open .icon xoay ngược 180 độ",
+      "points": 10,
+      "checker": "const icon = doc.querySelector('.icon'); if (!icon) return { pass: false, message: 'Không tìm thấy .icon.' }; const is = win.getComputedStyle(icon); const rotateOk = /matrix\\(([^)]+)\\)/.test(is.transform) && (() => { const p = is.transform.match(/matrix\\(([^)]+)\\)/)[1].split(',').map(parseFloat); return Math.abs(p[0] - (-1)) < 0.01; })(); if (!rotateOk) return { pass: false, message: '.accordion-item.open .icon cần transform: rotate(180deg) (hiện tại transform: ' + is.transform + ').' }; return { pass: true, message: 'Chính xác! Icon đã xoay ngược khi mở.' };"
+    },
+    {
+      "label": ".accordion-item.open được nhấn viền trái báo hiệu đang mở",
+      "points": 10,
+      "checker": "const item = doc.querySelector('.accordion-item.open'); if (!item) return { pass: false, message: 'Không tìm thấy .accordion-item.open.' }; const iss = win.getComputedStyle(item); if (iss.borderLeftWidth === '0px' || iss.borderLeftStyle === 'none') return { pass: false, message: '.accordion-item.open cần border-left: 4px solid <màu>.' }; return { pass: true, message: 'Chính xác! Mục đang mở đã được nhấn viền trái.' };"
+    }
+  ]
+}

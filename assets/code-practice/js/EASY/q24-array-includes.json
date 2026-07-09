@@ -1,0 +1,19 @@
+{
+  "id": "q24-array-includes",
+  "title": "Kiểm tra phần tử trong mảng với includes",
+  "description": "Biến toàn cục `window.fruits` là mảng `['táo', 'cam', 'chuối']`. Hãy kiểm tra mảng có chứa `\"cam\"` hay không, rồi hiển thị `Có` hoặc `Không` vào `#hasResult`.\n\nGợi ý: Dùng `includes()`",
+  "files": {
+    "html": "<script>window.fruits = ['táo', 'cam', 'chuối'];</script>\n<p id=\"hasResult\"></p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: window.fruits.includes('cam')\n",
+  "checks": [
+    {
+      "label": "Kiểm tra phần tử trong mảng với includes",
+      "points": 5,
+      "checker": "const el = doc.getElementById('hasResult'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử #hasResult.' }; if (el.textContent.trim() === 'Có') return { pass: true, message: 'Chính xác!' }; return { pass: false, message: 'Nội dung hiện tại: \"' + el.textContent + '\", cần đúng: \"Có\" (vì mảng chứa \"cam\").' };"
+    }
+  ]
+}

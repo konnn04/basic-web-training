@@ -1,0 +1,19 @@
+{
+  "id": "q23-inline-block-width",
+  "title": "display: inline-block để đặt kích thước",
+  "description": "Thẻ `<span>` có class `tag-inline` mặc định nằm cùng dòng (`inline`) nên không nhận `width`/`height`. Hãy làm cho nó có kích thước cố định 80px x 30px.\n\nGợi ý: cần đổi `display` thành `inline-block` trước, sau đó mới đặt được `width`/`height`.",
+  "files": {
+    "html": "<span class=\"tag-inline\" style=\"background:#dddddd;\">Nhãn</span>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.tag-inline {\n\n}\n",
+  "checks": [
+    {
+      "label": ".tag-inline dùng inline-block để nhận kích thước 80x30px",
+      "points": 10,
+      "checker": "const el = doc.querySelector('.tag-inline'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử .tag-inline.' }; const s = win.getComputedStyle(el); if (s.display !== 'inline-block') return { pass: false, message: 'display hiện tại là ' + s.display + ', cần là inline-block.' }; const rect = el.getBoundingClientRect(); if (Math.abs(rect.width - 80) > 1 || Math.abs(rect.height - 30) > 1) return { pass: false, message: 'Kích thước hiện tại là ' + rect.width.toFixed(0) + 'x' + rect.height.toFixed(0) + 'px, cần 80x30px (chỉ inline-block/block mới nhận width/height).' }; return { pass: true, message: 'Chính xác! Nhãn đã có kích thước cố định.' };"
+    }
+  ]
+}

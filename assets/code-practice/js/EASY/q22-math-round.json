@@ -1,0 +1,19 @@
+{
+  "id": "q22-math-round",
+  "title": "Làm tròn số với Math.round",
+  "description": "Biến toàn cục `window.price` chứa `19.678`. Hãy làm tròn số này về số nguyên gần nhất rồi hiển thị kết quả (dạng chuỗi) lên `#rounded`.\n\nGợi ý: Dùng `Math.round`",
+  "files": {
+    "html": "<script>window.price = 19.678;</script>\n<p id=\"rounded\"></p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: Math.round(window.price)\n",
+  "checks": [
+    {
+      "label": "Làm tròn số với Math.round",
+      "points": 5,
+      "checker": "const el = doc.getElementById('rounded'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử #rounded.' }; if (el.textContent.trim() === '20') return { pass: true, message: 'Chính xác!' }; return { pass: false, message: 'Nội dung hiện tại: \"' + el.textContent + '\", cần đúng: \"20\" (Math.round(19.678)).' };"
+    }
+  ]
+}

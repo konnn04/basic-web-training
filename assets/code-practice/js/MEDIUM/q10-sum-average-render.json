@@ -1,0 +1,19 @@
+{
+  "id": "q10-sum-average-render",
+  "title": "Tính tổng và trung bình từ mảng",
+  "description": "Biến toàn cục `window.numbers` là một dãy số. Trang cần liệt kê từng số thành một dòng `<li>` trong `#numList`, đồng thời hiển thị tổng các số vào `#sum` và điểm trung bình vào `#avg` (giữ nguyên giá trị, không làm tròn).\n\nGợi ý: Dùng `reduce` để tính tổng, rồi chia cho `length` để lấy trung bình",
+  "files": {
+    "html": "<script>window.numbers = [7, 23, 100, 41, 9];</script>\n<ul id=\"numList\"></ul>\n<p id=\"sum\"></p>\n<p id=\"avg\"></p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// window.numbers có sẵn mảng số\n// Gợi ý: dùng reduce để tính tổng\n",
+  "checks": [
+    {
+      "label": "Tính tổng và trung bình từ mảng",
+      "points": 15,
+      "checker": "const list = doc.getElementById('numList'); const sumEl = doc.getElementById('sum'); const avgEl = doc.getElementById('avg'); if (!list || !sumEl || !avgEl) return { pass: false, message: 'Không tìm thấy #numList, #sum hoặc #avg.' }; const items = Array.from(list.querySelectorAll('li')).map(li => li.textContent.trim()); const expectedItems = ['7', '23', '100', '41', '9']; if (items.length !== 5 || !expectedItems.every((v, i) => items[i] === v)) return { pass: false, message: 'Danh sách #numList phải là [7, 23, 100, 41, 9], hiện đang là [' + items.join(', ') + '].' }; if (sumEl.textContent.trim() !== '180') return { pass: false, message: '#sum đang là \"' + sumEl.textContent + '\", cần là \"180\".' }; if (avgEl.textContent.trim() !== '36') return { pass: false, message: '#avg đang là \"' + avgEl.textContent + '\", cần là \"36\".' }; return { pass: true, message: 'Chính xác!' };"
+    }
+  ]
+}

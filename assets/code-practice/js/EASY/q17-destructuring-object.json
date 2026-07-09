@@ -1,0 +1,19 @@
+{
+  "id": "q17-destructuring-object",
+  "title": "Destructuring object",
+  "description": "Biến toàn cục `window.user` là object `{ name: \"Lan\", age: 22 }`. Hãy lấy ra tên và tuổi rồi hiển thị lên `#userInfo` đúng định dạng: `Lan - 22`.\n\nGợi ý: Dùng destructuring `const { name, age } = window.user;`",
+  "files": {
+    "html": "<script>window.user = { name: 'Lan', age: 22 };</script>\n<p id=\"userInfo\"></p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: const { name, age } = window.user;\n",
+  "checks": [
+    {
+      "label": "Destructuring object",
+      "points": 10,
+      "checker": "const el = doc.getElementById('userInfo'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử #userInfo.' }; if (el.textContent.trim() === 'Lan - 22') return { pass: true, message: 'Chính xác!' }; return { pass: false, message: 'Nội dung hiện tại: \"' + el.textContent + '\", cần đúng: \"Lan - 22\".' };"
+    }
+  ]
+}

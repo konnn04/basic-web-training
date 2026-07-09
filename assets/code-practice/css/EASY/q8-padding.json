@@ -1,0 +1,19 @@
+{
+  "id": "q8-padding",
+  "title": "Tạo khoảng cách trong (padding)",
+  "description": "Nút bấm có class `btn`. Hãy tạo khoảng đệm đều 10px ở cả 4 cạnh bên trong nút để chữ không sát viền.\n\nGợi ý: dùng thuộc tính `padding`.",
+  "files": {
+    "html": "<button class=\"btn\">Bấm vào đây</button>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.btn {\n\n}\n",
+  "checks": [
+    {
+      "label": ".btn có padding đều 10px 4 cạnh",
+      "points": 5,
+      "checker": "const el = doc.querySelector('.btn'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử .btn.' }; const s = win.getComputedStyle(el); if (s.paddingTop === '10px' && s.paddingRight === '10px' && s.paddingBottom === '10px' && s.paddingLeft === '10px') return { pass: true, message: 'Chính xác! padding đã là 10px đều 4 cạnh.' }; return { pass: false, message: 'padding hiện tại: ' + s.paddingTop + ' ' + s.paddingRight + ' ' + s.paddingBottom + ' ' + s.paddingLeft + ', cần 10px cho cả 4 cạnh.' };"
+    }
+  ]
+}

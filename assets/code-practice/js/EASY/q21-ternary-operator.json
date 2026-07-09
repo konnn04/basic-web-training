@@ -1,0 +1,19 @@
+{
+  "id": "q21-ternary-operator",
+  "title": "Toán tử ba ngôi (ternary)",
+  "description": "Biến toàn cục `window.age` chứa `15`. Hãy hiển thị vào `#ageResult` chữ `Người lớn` nếu tuổi từ 18 trở lên, ngược lại hiển thị `Trẻ em`.\n\nGợi ý: Dùng toán tử ba ngôi `? :`",
+  "files": {
+    "html": "<script>window.age = 15;</script>\n<p id=\"ageResult\"></p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: window.age >= 18 ? \"Người lớn\" : \"Trẻ em\"\n",
+  "checks": [
+    {
+      "label": "Toán tử ba ngôi (ternary)",
+      "points": 10,
+      "checker": "const el = doc.getElementById('ageResult'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử #ageResult.' }; if (el.textContent.trim() === 'Trẻ em') return { pass: true, message: 'Chính xác! window.age = 15 nên là Trẻ em.' }; return { pass: false, message: 'Nội dung hiện tại: \"' + el.textContent + '\", cần đúng: \"Trẻ em\" (vì window.age = 15 < 18).' };"
+    }
+  ]
+}

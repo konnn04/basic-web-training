@@ -1,0 +1,19 @@
+{
+  "id": "q1-navbar-flex",
+  "title": "Thanh điều hướng dàn đều bằng Flexbox",
+  "description": "`.navbar` chứa 4 liên kết `.nav-link`. Hãy dùng Flexbox để dàn các liên kết ra đều hai đầu thanh điều hướng, tạo khoảng trống lớn ở giữa giống một navbar thực tế.\n\nGợi ý: dùng `display: flex` và `justify-content: space-between`.",
+  "files": {
+    "html": "<nav class=\"navbar\">\n  <a class=\"nav-link\" href=\"#\">Trang chủ</a>\n  <a class=\"nav-link\" href=\"#\">Giới thiệu</a>\n  <a class=\"nav-link\" href=\"#\">Dịch vụ</a>\n  <a class=\"nav-link\" href=\"#\">Liên hệ</a>\n</nav>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.navbar {\n\n}\n",
+  "checks": [
+    {
+      "label": ".navbar dùng Flexbox dàn đều 2 đầu (justify-content: space-between)",
+      "points": 15,
+      "checker": "const nav = doc.querySelector('.navbar'); if (!nav) return { pass: false, message: 'Không tìm thấy .navbar.' }; const s = win.getComputedStyle(nav); if (s.display !== 'flex') return { pass: false, message: '.navbar cần display: flex (hiện tại: ' + s.display + ').' }; if (s.justifyContent !== 'space-between') return { pass: false, message: '.navbar cần justify-content: space-between (hiện tại: ' + s.justifyContent + ').' }; return { pass: true, message: 'Chính xác! Thanh điều hướng đã dàn đều các liên kết.' };"
+    }
+  ]
+}

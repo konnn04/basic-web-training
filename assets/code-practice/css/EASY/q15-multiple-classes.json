@@ -1,0 +1,19 @@
+{
+  "id": "q15-multiple-classes",
+  "title": "Kết hợp nhiều class trong một selector",
+  "description": "Có 2 hộp: một hộp chỉ có class `box3`, một hộp có cả `box3` và `highlight`. Hãy làm cho hộp có **cả hai** class chuyển sang màu nền cam thuần (`#ffa500` / `orange`), trong khi hộp chỉ có `box3` giữ nguyên màu gốc.\n\nGợi ý: dùng selector kết hợp `.box3.highlight` (viết liền, không dấu cách) và thuộc tính `background-color`.",
+  "files": {
+    "html": "<div class=\"box3\" style=\"width:80px;height:40px;margin-bottom:8px;\">Hộp 1</div>\n<div class=\"box3 highlight\" style=\"width:80px;height:40px;\">Hộp 2</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.box3.highlight {\n\n}\n",
+  "checks": [
+    {
+      "label": "Chỉ hộp có cả 2 class .box3.highlight đổi màu cam",
+      "points": 10,
+      "checker": "const boxes = doc.querySelectorAll('.box3'); if (!boxes || boxes.length < 2) return { pass: false, message: 'Không tìm thấy đủ 2 phần tử .box3.' }; const plain = Array.from(boxes).find(el => !el.classList.contains('highlight')); const highlighted = Array.from(boxes).find(el => el.classList.contains('highlight')); if (!plain || !highlighted) return { pass: false, message: 'Không xác định được hộp thường và hộp highlight.' }; const bgPlain = win.getComputedStyle(plain).backgroundColor; const bgHighlight = win.getComputedStyle(highlighted).backgroundColor; if (bgHighlight === 'rgb(255, 165, 0)' && bgPlain !== 'rgb(255, 165, 0)') return { pass: true, message: 'Chính xác! Chỉ hộp có cả 2 class mới đổi màu cam.' }; if (bgPlain === 'rgb(255, 165, 0)') return { pass: false, message: 'Hộp chỉ có .box3 (không có .highlight) cũng bị đổi màu, hãy dùng selector .box3.highlight.' }; return { pass: false, message: 'Màu nền hộp highlight hiện tại là ' + bgHighlight + ', cần là rgb(255, 165, 0).' };"
+    }
+  ]
+}

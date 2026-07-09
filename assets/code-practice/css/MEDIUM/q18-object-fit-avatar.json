@@ -1,0 +1,19 @@
+{
+  "id": "q18-object-fit-avatar",
+  "title": "Ảnh đại diện không méo với object-fit",
+  "description": "Thẻ `<img class=\"avatar-img\">` có tỉ lệ gốc không vuông. Hãy hiển thị nó thành hình vuông `100px x 100px` mà không làm ảnh bị kéo méo.\n\nGợi ý: đặt `width`/`height` cố định (`100px`) và dùng `object-fit: cover;`.",
+  "files": {
+    "html": "<img class=\"avatar-img\" src=\"https://picsum.photos/300/200\" alt=\"Ảnh đại diện\" />",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.avatar-img {\n\n}\n",
+  "checks": [
+    {
+      "label": ".avatar-img vuông 100x100px, không méo nhờ object-fit: cover",
+      "points": 15,
+      "checker": "const el = doc.querySelector('.avatar-img'); if (!el) return { pass: false, message: 'Không tìm thấy .avatar-img.' }; const s = win.getComputedStyle(el); if (s.width !== '100px' || s.height !== '100px') return { pass: false, message: 'Kích thước hiện tại là ' + s.width + ' x ' + s.height + ', cần 100px x 100px.' }; if (s.objectFit !== 'cover') return { pass: false, message: 'object-fit hiện tại là ' + s.objectFit + ', cần là cover.' }; return { pass: true, message: 'Chính xác! Ảnh đại diện đã vuông vắn và không bị méo.' };"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "q7-margin",
+  "title": "Tạo khoảng cách ngoài (margin)",
+  "description": "Hộp có class `spacer`. Hãy tạo khoảng cách phía trên hộp là 30px so với phần tử phía trên nó.\n\nGợi ý: dùng thuộc tính `margin-top`.",
+  "files": {
+    "html": "<div class=\"spacer\" style=\"width:80px;height:40px;background:#ddd;\"></div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.spacer {\n\n}\n",
+  "checks": [
+    {
+      "label": ".spacer có margin-top 30px",
+      "points": 5,
+      "checker": "const el = doc.querySelector('.spacer'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử .spacer.' }; const mt = win.getComputedStyle(el).marginTop; if (mt === '30px') return { pass: true, message: 'Chính xác! margin-top đã là 30px.' }; return { pass: false, message: 'margin-top hiện tại là ' + mt + ', cần là 30px.' };"
+    }
+  ]
+}

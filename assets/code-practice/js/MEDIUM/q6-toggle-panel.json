@@ -1,0 +1,19 @@
+{
+  "id": "q6-toggle-panel",
+  "title": "Bật/tắt bảng chi tiết",
+  "description": "Có nút `#toggleDetailsBtn` và khối `#details` (mặc định đang ẩn, có sẵn nội dung). Mỗi lần bấm nút, phần chi tiết cần bật/tắt hiển thị, đồng thời nhãn trên nút phải phản ánh đúng hành động tiếp theo: `Ẩn chi tiết` khi đang hiện, `Xem chi tiết` khi đang ẩn.\n\nGợi ý: Dùng `classList.toggle('hidden')` và cập nhật `textContent` của nút",
+  "files": {
+    "html": "<button id=\"toggleDetailsBtn\">Xem chi tiết</button>\n<div id=\"details\" class=\"hidden\">Đây là thông tin chi tiết.</div>",
+    "css": ".hidden { display: none; }",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n",
+  "checks": [
+    {
+      "label": "Bật/tắt bảng chi tiết",
+      "points": 20,
+      "checker": "const btn = doc.getElementById('toggleDetailsBtn'); const details = doc.getElementById('details'); if (!btn || !details) return { pass: false, message: 'Không tìm thấy #toggleDetailsBtn hoặc #details.' }; btn.click(); if (details.classList.contains('hidden')) return { pass: false, message: 'Sau khi bấm nút lần 1, #details vẫn còn class \"hidden\".' }; if (btn.textContent.trim() !== 'Ẩn chi tiết') return { pass: false, message: 'Sau khi hiện chi tiết, nút phải hiển thị \"Ẩn chi tiết\", hiện đang là \"' + btn.textContent + '\".' }; btn.click(); if (!details.classList.contains('hidden')) return { pass: false, message: 'Sau khi bấm nút lần 2, #details phải có lại class \"hidden\".' }; if (btn.textContent.trim() !== 'Xem chi tiết') return { pass: false, message: 'Sau khi ẩn lại, nút phải hiển thị \"Xem chi tiết\", hiện đang là \"' + btn.textContent + '\".' }; return { pass: true, message: 'Chính xác!' };"
+    }
+  ]
+}

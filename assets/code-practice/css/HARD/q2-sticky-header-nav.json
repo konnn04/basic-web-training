@@ -1,0 +1,39 @@
+{
+  "id": "q2-sticky-header-nav",
+  "title": "Header dính (sticky) với màu tương phản, nav Flexbox và gạch chân active",
+  "description": "`.site-header` cần dính lại ở đỉnh màn hình khi người dùng cuộn trang xuống, đồng thời có nền và màu chữ tương phản rõ ràng để vẫn dễ đọc khi nằm đè lên nội dung phía dưới (nền xanh đậm, chữ trắng). Bên trong, `.nav` dùng Flexbox để dàn đều các `.nav-item`. Liên kết đang active (`.nav-item.active`) cần có gạch chân để đánh dấu trang hiện tại. Hãy cuộn thử trong khung xem trước để kiểm tra hiệu ứng dính.\n\nGợi ý: `position: sticky; top: 0;` + `background-color: #1a1a2e; color: #ffffff;` cho `.site-header`; `display: flex; justify-content: space-between;` cho `.nav`; `border-bottom: 2px solid <màu>` cho `.nav-item.active`.",
+  "files": {
+    "html": "<header class=\"site-header\">\n  <nav class=\"nav\">\n    <a class=\"nav-item active\" href=\"#\">Trang chủ</a>\n    <a class=\"nav-item\" href=\"#\">Sản phẩm</a>\n    <a class=\"nav-item\" href=\"#\">Giới thiệu</a>\n  </nav>\n</header>\n<main>\n  <p>Đoạn nội dung 1 để tạo chiều cao cho trang, giúp bạn cuộn thử và quan sát header dính lại ở đỉnh.</p>\n  <p>Đoạn nội dung 2.</p>\n  <p>Đoạn nội dung 3.</p>\n  <p>Đoạn nội dung 4.</p>\n  <p>Đoạn nội dung 5.</p>\n  <p>Đoạn nội dung 6.</p>\n  <p>Đoạn nội dung 7.</p>\n  <p>Đoạn nội dung 8.</p>\n  <p>Đoạn nội dung 9.</p>\n  <p>Đoạn nội dung 10.</p>\n</main>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.site-header {\n\n}\n.nav {\n\n}\n.nav-item.active {\n\n}\n",
+  "checks": [
+    {
+      "label": ".site-header dính lại ở đỉnh khi cuộn (position: sticky; top: 0;)",
+      "points": 8,
+      "checker": "const header = doc.querySelector('.site-header'); if (!header) return { pass: false, message: 'Không tìm thấy .site-header.' }; const hs = win.getComputedStyle(header); if (hs.position !== 'sticky' || hs.top !== '0px') return { pass: false, message: '.site-header cần position: sticky; top: 0; (hiện tại: ' + hs.position + ', top ' + hs.top + ').' }; return { pass: true, message: 'Header đã dính đúng vị trí.' };"
+    },
+    {
+      "label": ".site-header có nền xanh đậm rgb(26, 26, 46)",
+      "points": 7,
+      "checker": "const header = doc.querySelector('.site-header'); if (!header) return { pass: false, message: 'Không tìm thấy .site-header.' }; const hs = win.getComputedStyle(header); if (hs.backgroundColor !== 'rgb(26, 26, 46)') return { pass: false, message: '.site-header cần background-color rgb(26, 26, 46) (hiện tại: ' + hs.backgroundColor + ').' }; return { pass: true, message: 'Màu nền đã đúng.' };"
+    },
+    {
+      "label": ".site-header có chữ trắng để tương phản với nền",
+      "points": 7,
+      "checker": "const header = doc.querySelector('.site-header'); if (!header) return { pass: false, message: 'Không tìm thấy .site-header.' }; const hs = win.getComputedStyle(header); if (hs.color !== 'rgb(255, 255, 255)') return { pass: false, message: '.site-header cần color rgb(255, 255, 255) (hiện tại: ' + hs.color + ').' }; return { pass: true, message: 'Màu chữ đã tương phản tốt.' };"
+    },
+    {
+      "label": ".nav dùng Flexbox dàn đều các .nav-item",
+      "points": 8,
+      "checker": "const nav = doc.querySelector('.nav'); if (!nav) return { pass: false, message: 'Không tìm thấy .nav.' }; const ns = win.getComputedStyle(nav); if (ns.display !== 'flex' || ns.justifyContent !== 'space-between') return { pass: false, message: '.nav cần display: flex; justify-content: space-between; (hiện tại: ' + ns.display + ', ' + ns.justifyContent + ').' }; return { pass: true, message: 'Nav đã dùng Flexbox đúng.' };"
+    },
+    {
+      "label": ".nav-item.active có gạch chân đánh dấu trang hiện tại",
+      "points": 5,
+      "checker": "const active = doc.querySelector('.nav-item.active'); if (!active) return { pass: false, message: 'Không tìm thấy .nav-item.active.' }; const as = win.getComputedStyle(active); if (as.borderBottomWidth === '0px' || as.borderBottomStyle === 'none') return { pass: false, message: '.nav-item.active cần border-bottom: 2px solid <màu> để gạch chân.' }; return { pass: true, message: 'Đã có gạch chân đánh dấu active.' };"
+    }
+  ]
+}

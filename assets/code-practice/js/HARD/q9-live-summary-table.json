@@ -1,0 +1,19 @@
+{
+  "id": "q9-live-summary-table",
+  "title": "Bảng tổng hợp trực tiếp theo bộ lọc",
+  "description": "Biến toàn cục `window.orders` là danh sách đơn hàng `{ customer, status, amount }` với `status` là `paid` hoặc `pending`. Có `<select id=\"statusFilter\">` (3 lựa chọn `all`, `paid`, `pending`), danh sách `<ul id=\"orderList\">` và `<p id=\"orderTotal\">`. Mỗi khi người dùng đổi lựa chọn trong select: (1) chỉ giữ lại các đơn hàng khớp trạng thái đã chọn (`all` nghĩa là giữ tất cả). (2) hiển thị mỗi đơn còn lại thành `<li class=\"order-item\">Khách: Số tiền</li>`. (3) `#orderTotal` hiển thị `Tổng: X` với X là tổng `amount` của các đơn đang hiển thị.\n\nGợi ý: Lắng nghe sự kiện `change`, dùng `filter` rồi `reduce` để tính tổng",
+  "files": {
+    "html": "<script>window.orders = [{ customer: 'An', status: 'paid', amount: 100 }, { customer: 'Bình', status: 'pending', amount: 50 }, { customer: 'Chi', status: 'paid', amount: 80 }, { customer: 'Dũng', status: 'pending', amount: 120 }, { customer: 'Em', status: 'paid', amount: 60 }, { customer: 'Phúc', status: 'pending', amount: 35 }];</script>\n<select id=\"statusFilter\"><option value=\"all\">Tất cả</option><option value=\"paid\">Đã trả</option><option value=\"pending\">Chờ</option></select>\n<ul id=\"orderList\"></ul>\n<p id=\"orderTotal\"></p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// window.orders có sẵn mảng object { customer, status, amount }\n",
+  "checks": [
+    {
+      "label": "Bảng tổng hợp trực tiếp theo bộ lọc",
+      "points": 40,
+      "checker": "const select = doc.getElementById('statusFilter'); const list = doc.getElementById('orderList'); const total = doc.getElementById('orderTotal'); if (!select || !list || !total) return { pass: false, message: 'Không tìm thấy #statusFilter, #orderList hoặc #orderTotal.' }; select.value = 'paid'; select.dispatchEvent(new win.Event('change', { bubbles: true })); let items = Array.from(list.querySelectorAll('.order-item')).map(li => li.textContent.trim()); const expectedPaid = ['An: 100', 'Chi: 80', 'Em: 60']; if (items.length !== expectedPaid.length || !expectedPaid.every(e => items.includes(e))) return { pass: false, message: 'Với bộ lọc \"paid\", danh sách phải chứa [' + expectedPaid.join(', ') + '], hiện đang là [' + items.join(', ') + '].' }; if (total.textContent.trim() !== 'Tổng: 240') return { pass: false, message: '#orderTotal với bộ lọc \"paid\" phải là \"Tổng: 240\", hiện đang là \"' + total.textContent + '\".' }; select.value = 'pending'; select.dispatchEvent(new win.Event('change', { bubbles: true })); items = Array.from(list.querySelectorAll('.order-item')).map(li => li.textContent.trim()); const expectedPending = ['Bình: 50', 'Dũng: 120', 'Phúc: 35']; if (items.length !== expectedPending.length || !expectedPending.every(e => items.includes(e))) return { pass: false, message: 'Với bộ lọc \"pending\", danh sách phải chứa [' + expectedPending.join(', ') + '], hiện đang là [' + items.join(', ') + '].' }; if (total.textContent.trim() !== 'Tổng: 205') return { pass: false, message: '#orderTotal với bộ lọc \"pending\" phải là \"Tổng: 205\", hiện đang là \"' + total.textContent + '\".' }; select.value = 'all'; select.dispatchEvent(new win.Event('change', { bubbles: true })); items = Array.from(list.querySelectorAll('.order-item')); if (items.length !== 6) return { pass: false, message: 'Với bộ lọc \"all\", danh sách phải có 6 đơn hàng, hiện có ' + items.length + '.' }; if (total.textContent.trim() !== 'Tổng: 445') return { pass: false, message: '#orderTotal với bộ lọc \"all\" phải là \"Tổng: 445\", hiện đang là \"' + total.textContent + '\".' }; return { pass: true, message: 'Chính xác!' };"
+    }
+  ]
+}

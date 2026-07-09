@@ -8,7 +8,7 @@ type QuestionSidebarProps = {
   sets: CodePracticeSet[];
   activeSetId: string;
   activeQuestionId: string;
-  results: Record<string, { pass: boolean; message: string }>;
+  results: Record<string, { pass: boolean }>;
   collapsed: boolean;
   onToggleCollapsed: () => void;
   onSelect: (setId: string, questionId: string) => void;

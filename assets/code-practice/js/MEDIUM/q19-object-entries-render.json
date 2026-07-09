@@ -1,0 +1,19 @@
+{
+  "id": "q19-object-entries-render",
+  "title": "Render object bằng Object.entries",
+  "description": "Biến toàn cục `window.inventory` là object tồn kho dạng `{ Tên sản phẩm: Số lượng }`. Có nút `#renderBtn` và `<ul id=\"invList\">`. Khi bấm nút, cần liệt kê từng sản phẩm trong kho thành một dòng `<li class=\"inv-item\">Tên: SL</li>`, giữ đúng thứ tự các sản phẩm đã khai báo trong object, ví dụ `Bút: 10`.\n\nGợi ý: Dùng `Object.entries()` (hoặc `Object.keys`/`Object.values`) kết hợp `forEach`",
+  "files": {
+    "html": "<script>window.inventory = { 'Bút': 10, 'Vở': 5, 'Thước': 0, 'Gôm': 12, 'Kẹp giấy': 30 };</script>\n<button id=\"renderBtn\">Hiển thị</button>\n<ul id=\"invList\"></ul>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// window.inventory có sẵn object { tên: soLuong }\n// Gợi ý: Object.entries(window.inventory).forEach(([name, qty]) => { ... })\n",
+  "checks": [
+    {
+      "label": "Render object bằng Object.entries",
+      "points": 20,
+      "checker": "const btn = doc.getElementById('renderBtn'); const list = doc.getElementById('invList'); if (!btn || !list) return { pass: false, message: 'Không tìm thấy #renderBtn hoặc #invList.' }; btn.click(); let items = Array.from(list.querySelectorAll('.inv-item')).map(li => li.textContent.trim()); let expected = ['Bút: 10', 'Vở: 5', 'Thước: 0', 'Gôm: 12', 'Kẹp giấy: 30']; if (items.length !== expected.length) return { pass: false, message: 'Sau khi bấm #renderBtn, phải có đúng ' + expected.length + ' phần tử .inv-item, hiện có ' + items.length + '.' }; for (let i = 0; i < expected.length; i++) { if (items[i] !== expected[i]) return { pass: false, message: 'Dòng thứ ' + (i + 1) + ' đang là \"' + items[i] + '\", cần là \"' + expected[i] + '\".' }; } win.inventory['Kéo'] = 3; btn.click(); items = Array.from(list.querySelectorAll('.inv-item')).map(li => li.textContent.trim()); expected = ['Bút: 10', 'Vở: 5', 'Thước: 0', 'Gôm: 12', 'Kẹp giấy: 30', 'Kéo: 3']; if (items.length !== expected.length || items[5] !== 'Kéo: 3') return { pass: false, message: 'Sau khi thêm \"Kéo: 3\" vào window.inventory và bấm lại #renderBtn, danh sách phải có 6 dòng và dòng cuối là \"Kéo: 3\". Hiện đang là [' + items.join(', ') + ']. Đừng gán cứng danh sách, hãy đọc lại window.inventory mỗi lần bấm.' }; return { pass: true, message: 'Chính xác!' };"
+    }
+  ]
+}

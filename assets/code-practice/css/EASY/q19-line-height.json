@@ -1,0 +1,19 @@
+{
+  "id": "q19-line-height",
+  "title": "Giãn dòng với line-height",
+  "description": "Đoạn văn có class `paragraph`. Hãy đặt cỡ chữ `16px` và giãn dòng rộng gấp đôi cỡ chữ (tức chiều cao dòng `32px`) để văn bản dễ đọc hơn.\n\nGợi ý: dùng `font-size` và `line-height` (giá trị `line-height: 2;`).",
+  "files": {
+    "html": "<p class=\"paragraph\">Dòng chữ này cần được giãn dòng rộng hơn để dễ đọc.</p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.paragraph {\n\n}\n",
+  "checks": [
+    {
+      "label": ".paragraph có font-size 16px và line-height 32px",
+      "points": 5,
+      "checker": "const el = doc.querySelector('.paragraph'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử .paragraph.' }; const s = win.getComputedStyle(el); if (s.fontSize !== '16px') return { pass: false, message: 'font-size hiện tại là ' + s.fontSize + ', cần là 16px.' }; if (s.lineHeight !== '32px') return { pass: false, message: 'line-height hiện tại là ' + s.lineHeight + ', cần là 32px (line-height: 2 với font-size 16px).' }; return { pass: true, message: 'Chính xác! Dòng đã được giãn rộng hơn.' };"
+    }
+  ]
+}

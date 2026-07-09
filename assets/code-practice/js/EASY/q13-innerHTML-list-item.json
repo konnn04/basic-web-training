@@ -1,0 +1,19 @@
+{
+  "id": "q13-innerHTML-list-item",
+  "title": "Thêm dòng vào danh sách có sẵn",
+  "description": "Danh sách `<ul id=\"list\">` đang có sẵn 2 mục. Hãy thêm một mục mới với nội dung `Mục ba` vào cuối danh sách.\n\nGợi ý: Dùng `document.createElement('li')` và `appendChild`",
+  "files": {
+    "html": "<ul id=\"list\"><li>Mục một</li><li>Mục hai</li></ul>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: document.createElement('li') rồi appendChild\n",
+  "checks": [
+    {
+      "label": "Thêm dòng vào danh sách có sẵn",
+      "points": 10,
+      "checker": "const list = doc.getElementById('list'); if (!list) return { pass: false, message: 'Không tìm thấy phần tử #list.' }; const items = Array.from(list.querySelectorAll('li')).map(li => li.textContent.trim()); if (items.length !== 3) return { pass: false, message: 'Danh sách hiện có ' + items.length + ' mục, cần đúng 3 mục.' }; if (items[2] === 'Mục ba') return { pass: true, message: 'Chính xác!' }; return { pass: false, message: 'Mục thứ ba đang là \"' + items[2] + '\", cần là \"Mục ba\".' };"
+    }
+  ]
+}

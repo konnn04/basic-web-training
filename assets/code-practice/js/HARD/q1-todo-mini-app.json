@@ -1,0 +1,29 @@
+{
+  "id": "q1-todo-mini-app",
+  "title": "Mini-app Todo: thêm, xóa, hoàn thành",
+  "description": "Xây dựng một mini-app quản lý việc cần làm. Có ô nhập `#todoInput`, nút `#addBtn`, và danh sách `<ul id=\"todoList\">`. Yêu cầu: (1) Bấm `#addBtn` HOẶC nhấn phím `Enter` trong ô nhập sẽ thêm một mục mới `<li class=\"todo-item\">` (chứa nội dung đã nhập kèm một nút xóa `<button class=\"del-btn\">x</button>`) vào cuối danh sách, rồi xóa trắng ô nhập. (2) Nếu ô nhập đang trống hoặc chỉ có khoảng trắng, bấm Thêm (hoặc Enter) KHÔNG được thêm mục rỗng vào danh sách. (3) Bấm nút xóa (`.del-btn`) bên trong một mục sẽ xóa đúng mục đó khỏi danh sách. (4) Bấm trực tiếp vào phần chữ của một mục sẽ bật/tắt class `done` trên mục đó (đánh dấu đã hoàn thành).\n\nGợi ý: Lắng nghe `keydown` để bắt phím Enter trên ô nhập; dùng event delegation trên `#todoList` cho việc xóa và toggle done; dùng `trim()` để kiểm tra chuỗi rỗng",
+  "files": {
+    "html": "<input id=\"todoInput\" type=\"text\" />\n<button id=\"addBtn\">Thêm</button>\n<ul id=\"todoList\"></ul>",
+    "css": ".done { text-decoration: line-through; }",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: xử lý sự kiện 'keydown' trên input để bắt phím Enter\n// Gợi ý: dùng event delegation trên #todoList cho việc xóa và toggle done\n",
+  "checks": [
+    {
+      "label": "Thêm việc mới qua nút Thêm hoặc phím Enter, chặn nội dung rỗng/khoảng trắng",
+      "points": 20,
+      "checker": "const input = doc.getElementById('todoInput'); const addBtn = doc.getElementById('addBtn'); const list = doc.getElementById('todoList'); if (!input || !addBtn || !list) return { pass: false, message: 'Không tìm thấy #todoInput, #addBtn hoặc #todoList.' }; input.value = ''; addBtn.click(); let items = Array.from(list.querySelectorAll('.todo-item')); if (items.length !== 0) return { pass: false, message: 'Bấm Thêm khi ô nhập đang trống không được thêm mục nào vào danh sách.' }; input.value = '   '; addBtn.click(); items = Array.from(list.querySelectorAll('.todo-item')); if (items.length !== 0) return { pass: false, message: 'Bấm Thêm khi ô nhập chỉ có khoảng trắng cũng không được thêm mục rỗng vào danh sách.' }; input.value = 'Học bài'; addBtn.click(); items = Array.from(list.querySelectorAll('.todo-item')); if (items.length !== 1) return { pass: false, message: 'Sau khi bấm Thêm với nội dung hợp lệ, danh sách phải có 1 mục, hiện có ' + items.length + '.' }; if (input.value.trim() !== '') return { pass: false, message: 'Sau khi thêm, ô nhập phải được xóa trắng.' }; input.value = 'Đi chợ'; input.dispatchEvent(new win.KeyboardEvent('keydown', { key: 'Enter', bubbles: true })); items = Array.from(list.querySelectorAll('.todo-item')); if (items.length !== 2) return { pass: false, message: 'Sau khi nhấn Enter với \"Đi chợ\", danh sách phải có 2 mục, hiện có ' + items.length + '.' }; return { pass: true, message: 'Chính xác! Thêm việc qua nút và phím Enter đều hoạt động, chặn được nội dung rỗng.' };"
+    },
+    {
+      "label": "Bấm vào một mục để đánh dấu hoàn thành (toggle class \"done\")",
+      "points": 10,
+      "checker": "const input = doc.getElementById('todoInput'); const addBtn = doc.getElementById('addBtn'); const list = doc.getElementById('todoList'); if (!input || !addBtn || !list) return { pass: false, message: 'Không tìm thấy #todoInput, #addBtn hoặc #todoList.' }; input.value = 'Tập thể dục'; addBtn.click(); const items = Array.from(list.querySelectorAll('.todo-item')); const target = items[items.length - 1]; if (!target) return { pass: false, message: 'Không thêm được mục để kiểm tra toggle done.' }; target.click(); if (!target.classList.contains('done')) return { pass: false, message: 'Bấm vào phần chữ của một mục phải bật class \"done\" trên mục đó.' }; return { pass: true, message: 'Chính xác! Bấm vào mục để đánh dấu hoàn thành hoạt động đúng.' };"
+    },
+    {
+      "label": "Bấm nút xóa (.del-btn) để xóa đúng mục khỏi danh sách",
+      "points": 10,
+      "checker": "const input = doc.getElementById('todoInput'); const addBtn = doc.getElementById('addBtn'); const list = doc.getElementById('todoList'); if (!input || !addBtn || !list) return { pass: false, message: 'Không tìm thấy #todoInput, #addBtn hoặc #todoList.' }; input.value = 'Rửa chén'; addBtn.click(); const before = list.querySelectorAll('.todo-item').length; const items = Array.from(list.querySelectorAll('.todo-item')); const target = items[items.length - 1]; const delBtn = target ? target.querySelector('.del-btn') : null; if (!delBtn) return { pass: false, message: 'Mỗi mục cần có nút xóa với class \"del-btn\".' }; delBtn.click(); const after = list.querySelectorAll('.todo-item').length; if (after !== before - 1) return { pass: false, message: 'Sau khi bấm nút xóa, danh sách phải giảm đúng 1 mục.' }; return { pass: true, message: 'Chính xác! Bấm nút xóa loại bỏ đúng mục.' };"
+    }
+  ]
+}

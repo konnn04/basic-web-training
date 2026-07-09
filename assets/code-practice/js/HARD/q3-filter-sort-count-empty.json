@@ -1,0 +1,19 @@
+{
+  "id": "q3-filter-sort-count-empty",
+  "title": "Lọc, sắp xếp, đếm kết quả và trạng thái rỗng",
+  "description": "Biến toàn cục `window.products` là danh sách sản phẩm `{ name, category, price }`. Có ô nhập `#minPrice`, danh sách kết quả `<ul id=\"resultList\">` và `<p id=\"resultCount\">`. Mỗi khi người dùng gõ vào `#minPrice`: (1) Chỉ giữ lại các sản phẩm có giá từ giá trị đã nhập trở lên (nếu ô trống, coi như 0). (2) Sắp xếp kết quả theo giá tăng dần. (3) Hiển thị mỗi sản phẩm còn lại thành `<li class=\"product\">Tên: Giá</li>`. (4) Cập nhật `#resultCount` thành `Tìm thấy N sản phẩm` (N là số lượng đang hiển thị). (5) Nếu không sản phẩm nào thỏa điều kiện, hiển thị đúng một `<li class=\"empty\">Không có sản phẩm phù hợp</li>` thay cho danh sách sản phẩm.\n\nGợi ý: Dùng `filter` rồi `sort`, đọc giá trị `#minPrice` bằng `Number()`",
+  "files": {
+    "html": "<script>window.products = [{ name: 'Bút', category: 'VP', price: 10 }, { name: 'Balo', category: 'PK', price: 200 }, { name: 'Sổ', category: 'VP', price: 20 }, { name: 'Kẹp', category: 'VP', price: 5 }, { name: 'Giày', category: 'PK', price: 450 }, { name: 'Mũ', category: 'PK', price: 90 }, { name: 'Ví', category: 'PK', price: 150 }];</script>\n<input id=\"minPrice\" type=\"number\" />\n<ul id=\"resultList\"></ul>\n<p id=\"resultCount\"></p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// window.products có sẵn mảng object { name, category, price }\n",
+  "checks": [
+    {
+      "label": "Lọc, sắp xếp, đếm kết quả và trạng thái rỗng",
+      "points": 40,
+      "checker": "const input = doc.getElementById('minPrice'); const list = doc.getElementById('resultList'); const countEl = doc.getElementById('resultCount'); if (!input || !list || !countEl) return { pass: false, message: 'Không tìm thấy #minPrice, #resultList hoặc #resultCount.' }; input.value = '15'; input.dispatchEvent(new win.Event('input', { bubbles: true })); let items = Array.from(list.querySelectorAll('.product')).map(li => li.textContent.trim()); const expected = ['Sổ: 20', 'Mũ: 90', 'Ví: 150', 'Balo: 200', 'Giày: 450']; if (items.length !== expected.length || !expected.every((v, i) => items[i] === v)) return { pass: false, message: 'Với giá >= 15, kết quả phải là [' + expected.join(', ') + '] (đã sắp xếp tăng dần theo giá), hiện đang là [' + items.join(', ') + '].' }; if (countEl.textContent.trim() !== 'Tìm thấy 5 sản phẩm') return { pass: false, message: '#resultCount phải là \"Tìm thấy 5 sản phẩm\", hiện đang là \"' + countEl.textContent + '\".' }; input.value = '9999'; input.dispatchEvent(new win.Event('input', { bubbles: true })); const emptyItems = list.querySelectorAll('.empty'); if (emptyItems.length !== 1 || emptyItems[0].textContent.trim() !== 'Không có sản phẩm phù hợp') return { pass: false, message: 'Khi không có kết quả, phải hiển thị đúng một .empty với nội dung \"Không có sản phẩm phù hợp\".' }; if (countEl.textContent.trim() !== 'Tìm thấy 0 sản phẩm') return { pass: false, message: '#resultCount phải là \"Tìm thấy 0 sản phẩm\" khi không có kết quả, hiện đang là \"' + countEl.textContent + '\".' }; return { pass: true, message: 'Chính xác!' };"
+    }
+  ]
+}

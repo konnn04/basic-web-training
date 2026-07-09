@@ -1,0 +1,19 @@
+{
+  "id": "q29-nth-child-3n",
+  "title": "Chọn theo chu kỳ với :nth-child(3n)",
+  "description": "Danh sách `.numbers` có 6 mục. Hãy tô đậm chữ cứ mỗi mục thứ 3 một lần (mục 3, mục 6, ...), các mục còn lại giữ nguyên độ đậm bình thường.\n\nGợi ý: dùng pseudo-class `:nth-child(3n)` và thuộc tính `font-weight`.",
+  "files": {
+    "html": "<ul class=\"numbers\">\n  <li>Mục 1</li>\n  <li>Mục 2</li>\n  <li>Mục 3</li>\n  <li>Mục 4</li>\n  <li>Mục 5</li>\n  <li>Mục 6</li>\n</ul>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.numbers li:nth-child(3n) {\n\n}\n",
+  "checks": [
+    {
+      "label": "Mục thứ 3 và 6 in đậm nhờ :nth-child(3n)",
+      "points": 10,
+      "checker": "const items = doc.querySelectorAll('.numbers li'); if (!items || items.length !== 6) return { pass: false, message: 'Không tìm thấy đủ 6 mục .numbers li.' }; const bold = function(w) { return w === '700' || w === 'bold'; }; const w3 = win.getComputedStyle(items[2]).fontWeight; const w6 = win.getComputedStyle(items[5]).fontWeight; const w1 = win.getComputedStyle(items[0]).fontWeight; if (!bold(w3) || !bold(w6)) return { pass: false, message: 'Mục thứ 3 và thứ 6 cần in đậm (font-weight: bold).' }; if (bold(w1)) return { pass: false, message: 'Mục thứ 1 không nên bị in đậm, chỉ mục chia hết cho 3 mới in đậm.' }; return { pass: true, message: 'Chính xác! Cứ mỗi mục thứ 3 đã được in đậm.' };"
+    }
+  ]
+}

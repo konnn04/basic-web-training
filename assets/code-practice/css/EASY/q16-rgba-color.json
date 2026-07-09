@@ -1,0 +1,19 @@
+{
+  "id": "q16-rgba-color",
+  "title": "Màu nền trong suốt với rgba",
+  "description": "Hộp có class `banner`. Hãy đặt nền hộp thành màu đỏ nhưng trong suốt 50% (để thấy được nội dung phía sau mờ qua lớp màu).\n\nGợi ý: dùng thuộc tính `background-color` với giá trị `rgba(255, 0, 0, 0.5)`.",
+  "files": {
+    "html": "<div class=\"banner\" style=\"width:150px;height:60px;\">Thông báo</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.banner {\n\n}\n",
+  "checks": [
+    {
+      "label": ".banner có nền đỏ trong suốt 50% (rgba)",
+      "points": 5,
+      "checker": "const el = doc.querySelector('.banner'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử .banner.' }; const bg = win.getComputedStyle(el).backgroundColor; if (bg === 'rgba(255, 0, 0, 0.5)') return { pass: true, message: 'Chính xác! Nền đã là đỏ trong suốt 50%.' }; return { pass: false, message: 'Màu nền hiện tại là ' + bg + ', cần là rgba(255, 0, 0, 0.5).' };"
+    }
+  ]
+}

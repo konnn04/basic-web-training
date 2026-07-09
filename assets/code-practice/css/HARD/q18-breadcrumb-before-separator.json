@@ -1,0 +1,29 @@
+{
+  "id": "q18-breadcrumb-before-separator",
+  "title": "Breadcrumb với dấu phân cách bằng ::before",
+  "description": "Thanh điều hướng `.breadcrumb` chứa các mục `.crumb` (Trang chủ / Sản phẩm / Bàn phím cơ). Hãy sắp xếp chúng nằm ngang, và tự động thêm dấu phân cách `/` phía trước mỗi mục (trừ mục đầu tiên) mà không sửa HTML, giống breadcrumb thường thấy trên các trang thương mại điện tử.\n\nGợi ý: dùng `display: flex` cho `.breadcrumb`; dùng `.crumb:not(:first-child)::before` với `content: '/ '` để chèn dấu phân cách.",
+  "files": {
+    "html": "<div class=\"breadcrumb\">\n  <span class=\"crumb\">Trang chủ</span>\n  <span class=\"crumb\">Sản phẩm</span>\n  <span class=\"crumb\">Bàn phím cơ</span>\n</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.breadcrumb {\n\n}\n.crumb:not(:first-child)::before {\n\n}\n",
+  "checks": [
+    {
+      "label": ".breadcrumb dàn hàng ngang bằng Flexbox",
+      "points": 10,
+      "checker": "const bc = doc.querySelector('.breadcrumb'); if (!bc) return { pass: false, message: 'Không tìm thấy .breadcrumb.' }; const bs = win.getComputedStyle(bc); if (bs.display !== 'flex') return { pass: false, message: '.breadcrumb cần display: flex (hiện tại: ' + bs.display + ').' }; return { pass: true, message: 'Chính xác! Breadcrumb đã dàn hàng ngang.' };"
+    },
+    {
+      "label": "Mục đầu tiên không có dấu phân cách phía trước",
+      "points": 10,
+      "checker": "const crumbs = doc.querySelectorAll('.crumb'); if (!crumbs || crumbs.length < 1) return { pass: false, message: 'Không tìm thấy .crumb.' }; const firstBefore = win.getComputedStyle(crumbs[0], '::before'); if (firstBefore.content && firstBefore.content !== 'none' && firstBefore.content.includes('/')) return { pass: false, message: 'Mục đầu tiên không nên có dấu phân cách phía trước.' }; return { pass: true, message: 'Chính xác! Mục đầu tiên không có dấu phân cách thừa.' };"
+    },
+    {
+      "label": "Các mục sau mục đầu tiên có dấu phân cách \"/\" phía trước",
+      "points": 10,
+      "checker": "const crumbs = doc.querySelectorAll('.crumb'); if (!crumbs || crumbs.length < 3) return { pass: false, message: 'Không tìm thấy đủ 3 .crumb.' }; const secondBefore = win.getComputedStyle(crumbs[1], '::before'); if (!secondBefore.content || secondBefore.content === 'none' || !secondBefore.content.includes('/')) return { pass: false, message: 'Các mục sau mục đầu tiên cần ::before với content chứa dấu / (hiện tại: ' + secondBefore.content + ').' }; const thirdBefore = win.getComputedStyle(crumbs[2], '::before'); if (!thirdBefore.content || thirdBefore.content === 'none' || !thirdBefore.content.includes('/')) return { pass: false, message: 'Mục thứ ba cũng cần dấu phân cách phía trước.' }; return { pass: true, message: 'Chính xác! Dấu phân cách đã tự động chèn đúng vị trí.' };"
+    }
+  ]
+}

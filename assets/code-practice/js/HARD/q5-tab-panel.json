@@ -1,0 +1,19 @@
+{
+  "id": "q5-tab-panel",
+  "title": "Chuyển tab nội dung",
+  "description": "Có 3 nút chuyển tab `.tab-btn` (mỗi nút có `data-tab` là `1`, `2`, `3`) và 3 khối nội dung `.tab-panel` (mỗi khối có `data-panel` tương ứng; panel `1` đang hiển thị sẵn, hai panel còn lại đang ẩn). Bấm vào một nút tab phải: (1) đánh dấu đúng nút vừa bấm là đang active, bỏ đánh dấu các nút khác. (2) hiện đúng panel tương ứng, ẩn các panel còn lại. Hành vi này phải đúng khi chuyển qua lại nhiều lần giữa các tab, không chỉ đúng ở lần bấm đầu tiên.\n\nGợi ý: Dùng `querySelectorAll` + `forEach` để gắn sự kiện, so khớp `data-tab` với `data-panel`, dùng `classList.add`/`remove` cho class `active`",
+  "files": {
+    "html": "<button class=\"tab-btn active\" data-tab=\"1\">Tab 1</button>\n<button class=\"tab-btn\" data-tab=\"2\">Tab 2</button>\n<button class=\"tab-btn\" data-tab=\"3\">Tab 3</button>\n<div class=\"tab-panel active\" data-panel=\"1\">Nội dung 1</div>\n<div class=\"tab-panel\" data-panel=\"2\">Nội dung 2</div>\n<div class=\"tab-panel\" data-panel=\"3\">Nội dung 3</div>",
+    "css": ".tab-panel { display: none; } .tab-panel.active { display: block; }",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: dùng querySelectorAll('.tab-btn') và forEach để gắn sự kiện cho từng nút\n",
+  "checks": [
+    {
+      "label": "Chuyển tab nội dung",
+      "points": 30,
+      "checker": "const btns = doc.querySelectorAll('.tab-btn'); const panels = doc.querySelectorAll('.tab-panel'); if (btns.length !== 3 || panels.length !== 3) return { pass: false, message: 'Cần đúng 3 .tab-btn và 3 .tab-panel trong HTML.' }; const btn2 = doc.querySelector('.tab-btn[data-tab=\"2\"]'); if (!btn2) return { pass: false, message: 'Không tìm thấy nút tab với data-tab=\"2\".' }; btn2.click(); let activeBtns = Array.from(btns).filter(b => b.classList.contains('active')); if (activeBtns.length !== 1 || activeBtns[0].getAttribute('data-tab') !== '2') return { pass: false, message: 'Sau khi bấm Tab 2, chỉ nút Tab 2 được có class \"active\".' }; let activePanels = Array.from(panels).filter(p => p.classList.contains('active')); if (activePanels.length !== 1 || activePanels[0].getAttribute('data-panel') !== '2') return { pass: false, message: 'Sau khi bấm Tab 2, chỉ panel có data-panel=\"2\" được có class \"active\".' }; const btn3 = doc.querySelector('.tab-btn[data-tab=\"3\"]'); if (!btn3) return { pass: false, message: 'Không tìm thấy nút tab với data-tab=\"3\".' }; btn3.click(); activeBtns = Array.from(btns).filter(b => b.classList.contains('active')); if (activeBtns.length !== 1 || activeBtns[0].getAttribute('data-tab') !== '3') return { pass: false, message: 'Sau khi bấm Tab 3, chỉ nút Tab 3 được có class \"active\" (kiểm tra đổi tab nhiều lần, không chỉ một lần).' }; activePanels = Array.from(panels).filter(p => p.classList.contains('active')); if (activePanels.length !== 1 || activePanels[0].getAttribute('data-panel') !== '3') return { pass: false, message: 'Sau khi bấm Tab 3, chỉ panel có data-panel=\"3\" được có class \"active\".' }; const btn1 = doc.querySelector('.tab-btn[data-tab=\"1\"]'); btn1.click(); activeBtns = Array.from(btns).filter(b => b.classList.contains('active')); activePanels = Array.from(panels).filter(p => p.classList.contains('active')); if (activeBtns.length !== 1 || activeBtns[0].getAttribute('data-tab') !== '1' || activePanels.length !== 1 || activePanels[0].getAttribute('data-panel') !== '1') return { pass: false, message: 'Sau khi bấm lại Tab 1, chỉ nút và panel của Tab 1 được có class \"active\".' }; return { pass: true, message: 'Chính xác!' };"
+    }
+  ]
+}

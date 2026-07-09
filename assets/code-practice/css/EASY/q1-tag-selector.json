@@ -1,0 +1,19 @@
+{
+  "id": "q1-tag-selector",
+  "title": "Chọn theo tên thẻ",
+  "description": "Trang có một thẻ `<p>` duy nhất. Hãy dùng **tag selector** `p` để đổi màu chữ của đoạn văn sao cho nổi bật hơn, chuyển sang tông xanh dương thuần (`#0000ff` / `blue`).\n\nGợi ý: dùng thuộc tính `color`.",
+  "files": {
+    "html": "<p>Xin chào, đây là đoạn văn đầu tiên của bạn.</p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\np {\n\n}\n",
+  "checks": [
+    {
+      "label": "Đoạn văn có màu chữ xanh dương thuần",
+      "points": 5,
+      "checker": "const el = doc.querySelector('p'); if (!el) return { pass: false, message: 'Không tìm thấy thẻ p.' }; const color = win.getComputedStyle(el).color; if (color === 'rgb(0, 0, 255)') return { pass: true, message: 'Chính xác! Chữ đã có màu xanh dương.' }; return { pass: false, message: 'Màu chữ hiện tại là ' + color + ', cần là rgb(0, 0, 255).' };"
+    }
+  ]
+}
