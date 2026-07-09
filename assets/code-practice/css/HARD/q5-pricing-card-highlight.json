@@ -1,0 +1,34 @@
+{
+  "id": "q5-pricing-card-highlight",
+  "title": "Bảng giá: card nổi bật + danh sách tính năng + nút CTA",
+  "description": "`.pricing-card.featured` cần nổi bật hơn card thường: phóng to nhẹ và có bóng đổ rõ ràng. Bên trong, `.feature-list .feature` cần có khoảng cách dòng thoải mái để dễ đọc. Nút `.cta-btn` cần chiếm hết chiều ngang card và có màu nền nổi bật (xanh dương) với chữ trắng để thu hút click.\n\nGợi ý: `.pricing-card.featured` — `transform: scale(N)` với N > 1 và `box-shadow` khác `none`; `.feature-list .feature` — `padding-top`/`padding-bottom` tối thiểu 4px mỗi phía; `.cta-btn` — `width: 100%; background-color: #3366ff; color: #ffffff;`.",
+  "files": {
+    "html": "<div class=\"pricing-card featured\" style=\"width:180px;padding:16px;background:#fff;\">\n  <h3>Gói Pro</h3>\n  <ul class=\"feature-list\">\n    <li class=\"feature\">Tính năng A</li>\n    <li class=\"feature\">Tính năng B</li>\n  </ul>\n  <button class=\"cta-btn\">Đăng ký</button>\n</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.pricing-card.featured {\n\n}\n.feature-list .feature {\n\n}\n.cta-btn {\n\n}\n",
+  "checks": [
+    {
+      "label": ".pricing-card.featured phóng to nhẹ và có bóng đổ",
+      "points": 10,
+      "checker": "const card = doc.querySelector('.pricing-card.featured'); if (!card) return { pass: false, message: 'Không tìm thấy .pricing-card.featured.' }; const cs = win.getComputedStyle(card); const scaleOk = /matrix\\(([^)]+)\\)/.test(cs.transform) ? (() => { const parts = cs.transform.match(/matrix\\(([^)]+)\\)/)[1].split(',').map(parseFloat); return parts[0] > 1; })() : false; if (!scaleOk) return { pass: false, message: '.pricing-card.featured cần transform: scale(N) với N > 1 (hiện tại transform: ' + cs.transform + ').' }; if (!cs.boxShadow || cs.boxShadow === 'none') return { pass: false, message: '.pricing-card.featured cần box-shadow khác none.' }; return { pass: true, message: 'Chính xác! Card nổi bật đã phóng to và có bóng đổ.' };"
+    },
+    {
+      "label": ".feature-list .feature có khoảng cách dòng thoải mái",
+      "points": 10,
+      "checker": "const feature = doc.querySelector('.feature-list .feature'); if (!feature) return { pass: false, message: 'Không tìm thấy .feature-list .feature.' }; const fs = win.getComputedStyle(feature); if (parseFloat(fs.paddingTop) < 4 || parseFloat(fs.paddingBottom) < 4) return { pass: false, message: '.feature-list .feature cần padding-top và padding-bottom tối thiểu 4px (hiện tại: ' + fs.paddingTop + ' / ' + fs.paddingBottom + ').' }; return { pass: true, message: 'Chính xác! Danh sách tính năng đã có khoảng cách dòng thoải mái.' };"
+    },
+    {
+      "label": ".cta-btn chiếm hết chiều ngang card",
+      "points": 10,
+      "checker": "const card = doc.querySelector('.pricing-card.featured'); if (!card) return { pass: false, message: 'Không tìm thấy .pricing-card.featured.' }; const btn = doc.querySelector('.cta-btn'); if (!btn) return { pass: false, message: 'Không tìm thấy .cta-btn.' }; const cardWidth = card.getBoundingClientRect().width; const btnWidth = btn.getBoundingClientRect().width; if (btnWidth < cardWidth * 0.85) return { pass: false, message: '.cta-btn cần width: 100% để chiếm hết chiều ngang card (hiện tại rộng ' + btnWidth.toFixed(0) + 'px trên tổng ' + cardWidth.toFixed(0) + 'px).' }; return { pass: true, message: 'Chính xác! Nút CTA đã chiếm hết chiều ngang card.' };"
+    },
+    {
+      "label": ".cta-btn có màu nền xanh dương, chữ trắng",
+      "points": 10,
+      "checker": "const btn = doc.querySelector('.cta-btn'); if (!btn) return { pass: false, message: 'Không tìm thấy .cta-btn.' }; const bs = win.getComputedStyle(btn); if (bs.backgroundColor !== 'rgb(51, 102, 255)') return { pass: false, message: '.cta-btn cần background-color rgb(51, 102, 255) (hiện tại: ' + bs.backgroundColor + ').' }; if (bs.color !== 'rgb(255, 255, 255)') return { pass: false, message: '.cta-btn cần color rgb(255, 255, 255) (hiện tại: ' + bs.color + ').' }; return { pass: true, message: 'Chính xác! Nút CTA đã nổi bật với nền xanh dương chữ trắng.' };"
+    }
+  ]
+}

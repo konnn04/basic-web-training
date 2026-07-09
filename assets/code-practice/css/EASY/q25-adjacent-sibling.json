@@ -1,0 +1,19 @@
+{
+  "id": "q25-adjacent-sibling",
+  "title": "Selector anh em liền kề (+)",
+  "description": "Có `<h2>` theo sau bởi hai đoạn `<p>`. Hãy chỉ đổi màu chữ của đoạn văn **ngay sau** `<h2>` sang màu tím (`#800080` / `purple`), đoạn văn thứ hai (không liền kề `<h2>`) phải giữ nguyên.\n\nGợi ý: dùng **adjacent sibling selector** `h2 + p` và thuộc tính `color`.",
+  "files": {
+    "html": "<div class=\"article\">\n  <h2>Tiêu đề</h2>\n  <p class=\"first\">Đoạn đầu tiên ngay sau tiêu đề.</p>\n  <p class=\"second\">Đoạn thứ hai, không liền kề h2.</p>\n</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\nh2 + p {\n\n}\n",
+  "checks": [
+    {
+      "label": "Chỉ đoạn văn liền kề h2 (h2 + p) đổi màu tím",
+      "points": 10,
+      "checker": "const first = doc.querySelector('.first'); const second = doc.querySelector('.second'); if (!first || !second) return { pass: false, message: 'Không tìm thấy đủ 2 đoạn văn.' }; const colorFirst = win.getComputedStyle(first).color; const colorSecond = win.getComputedStyle(second).color; if (colorFirst !== 'rgb(128, 0, 128)') return { pass: false, message: 'Đoạn văn ngay sau h2 cần có màu rgb(128, 0, 128) (hiện tại: ' + colorFirst + ').' }; if (colorSecond === 'rgb(128, 0, 128)') return { pass: false, message: 'Đoạn văn thứ hai không liền kề h2 nên không được đổi màu.' }; return { pass: true, message: 'Chính xác! Chỉ đoạn văn liền kề h2 đã đổi màu tím.' };"
+    }
+  ]
+}

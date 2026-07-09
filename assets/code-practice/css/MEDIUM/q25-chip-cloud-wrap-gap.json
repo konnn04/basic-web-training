@@ -1,0 +1,29 @@
+{
+  "id": "q25-chip-cloud-wrap-gap",
+  "title": "Đám mây thẻ kỹ năng: wrap + gap",
+  "description": "`.chip-cloud` chứa nhiều `.chip` (tên các kỹ năng). Hãy sắp xếp chúng thành một 'đám mây thẻ': nằm ngang, tự động xuống dòng khi hết chỗ, và có khoảng cách đều 8px giữa các thẻ theo cả chiều ngang lẫn chiều dọc (kể cả giữa các dòng).\n\nGợi ý: dùng `display: flex`, `flex-wrap: wrap` và `gap: 8px`.",
+  "files": {
+    "html": "<div class=\"chip-cloud\" style=\"width:180px;\">\n  <span class=\"chip\" style=\"background:#eee;padding:4px 10px;\">HTML</span>\n  <span class=\"chip\" style=\"background:#eee;padding:4px 10px;\">CSS</span>\n  <span class=\"chip\" style=\"background:#eee;padding:4px 10px;\">JavaScript</span>\n  <span class=\"chip\" style=\"background:#eee;padding:4px 10px;\">React</span>\n  <span class=\"chip\" style=\"background:#eee;padding:4px 10px;\">Vue</span>\n  <span class=\"chip\" style=\"background:#eee;padding:4px 10px;\">Node.js</span>\n</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.chip-cloud {\n\n}\n",
+  "checks": [
+    {
+      "label": ".chip-cloud dùng display: flex",
+      "points": 5,
+      "checker": "const el = doc.querySelector('.chip-cloud'); if (!el) return { pass: false, message: 'Không tìm thấy .chip-cloud.' }; const s = win.getComputedStyle(el); if (s.display !== 'flex') return { pass: false, message: '.chip-cloud cần display: flex (hiện tại: ' + s.display + ').' }; return { pass: true, message: 'Chính xác! .chip-cloud đã là flex container.' };"
+    },
+    {
+      "label": "Các .chip tự động xuống dòng (flex-wrap: wrap)",
+      "points": 5,
+      "checker": "const el = doc.querySelector('.chip-cloud'); if (!el) return { pass: false, message: 'Không tìm thấy .chip-cloud.' }; const s = win.getComputedStyle(el); if (s.flexWrap !== 'wrap') return { pass: false, message: '.chip-cloud cần flex-wrap: wrap (hiện tại: ' + s.flexWrap + ').' }; const chips = doc.querySelectorAll('.chip'); if (chips.length < 4) return { pass: false, message: 'Không tìm thấy đủ các .chip.' }; const top1 = chips[0].getBoundingClientRect().top; const topLast = chips[chips.length - 1].getBoundingClientRect().top; if (Math.abs(top1 - topLast) < 2) return { pass: false, message: 'Các thẻ chưa xuống dòng, kiểm tra flex-wrap và độ rộng .chip-cloud.' }; return { pass: true, message: 'Chính xác! Các thẻ đã tự xuống dòng khi hết chỗ.' };"
+    },
+    {
+      "label": "Khoảng cách đều 8px giữa các .chip (gap)",
+      "points": 5,
+      "checker": "const el = doc.querySelector('.chip-cloud'); if (!el) return { pass: false, message: 'Không tìm thấy .chip-cloud.' }; const s = win.getComputedStyle(el); const gap = parseFloat(s.gap || s.rowGap) || 0; if (gap < 8) return { pass: false, message: '.chip-cloud cần gap tối thiểu 8px (hiện tại: ' + s.gap + ').' }; return { pass: true, message: 'Chính xác! Khoảng cách giữa các thẻ đã đều 8px.' };"
+    }
+  ]
+}

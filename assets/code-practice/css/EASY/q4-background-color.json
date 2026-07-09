@@ -1,0 +1,19 @@
+{
+  "id": "q4-background-color",
+  "title": "Tô màu nền",
+  "description": "Hộp có class `box`. Hãy làm cho nền của hộp chuyển sang màu vàng thuần (`#ffff00` / `yellow`) để dễ chú ý hơn.\n\nGợi ý: dùng thuộc tính `background-color`.",
+  "files": {
+    "html": "<div class=\"box\" style=\"width:100px;height:60px;\"></div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.box {\n\n}\n",
+  "checks": [
+    {
+      "label": ".box có nền vàng thuần",
+      "points": 5,
+      "checker": "const el = doc.querySelector('.box'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử .box.' }; const bg = win.getComputedStyle(el).backgroundColor; if (bg === 'rgb(255, 255, 0)') return { pass: true, message: 'Chính xác! Nền đã là màu vàng.' }; return { pass: false, message: 'Màu nền hiện tại là ' + bg + ', cần là rgb(255, 255, 0).' };"
+    }
+  ]
+}

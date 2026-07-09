@@ -1,0 +1,19 @@
+{
+  "id": "q1-disable-submit-until-filled",
+  "title": "Vô hiệu hóa nút gửi cho đến khi có nội dung",
+  "description": "Có ô nhập `#nameField` và nút `#submitBtn` (mặc định bị vô hiệu hóa). Nút chỉ được phép bấm khi người dùng đã gõ nội dung thật sự (không tính khoảng trắng thừa); nếu xóa hết nội dung, nút phải vô hiệu hóa trở lại.\n\nGợi ý: Lắng nghe sự kiện `input`, dùng `trim()` để kiểm tra rỗng, và thuộc tính `disabled`",
+  "files": {
+    "html": "<input id=\"nameField\" type=\"text\" />\n<button id=\"submitBtn\" disabled>Gửi</button>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: lắng nghe sự kiện 'input' trên #nameField\n",
+  "checks": [
+    {
+      "label": "Vô hiệu hóa nút gửi cho đến khi có nội dung",
+      "points": 15,
+      "checker": "const field = doc.getElementById('nameField'); const btn = doc.getElementById('submitBtn'); if (!field || !btn) return { pass: false, message: 'Không tìm thấy #nameField hoặc #submitBtn.' }; field.value = 'An'; field.dispatchEvent(new win.Event('input', { bubbles: true })); if (btn.disabled) return { pass: false, message: 'Sau khi nhập \"An\", nút #submitBtn vẫn đang bị vô hiệu hóa.' }; field.value = ''; field.dispatchEvent(new win.Event('input', { bubbles: true })); if (!btn.disabled) return { pass: false, message: 'Sau khi xóa trắng ô nhập, nút #submitBtn phải bị vô hiệu hóa trở lại.' }; return { pass: true, message: 'Chính xác!' };"
+    }
+  ]
+}

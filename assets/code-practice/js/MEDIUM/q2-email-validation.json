@@ -1,0 +1,19 @@
+{
+  "id": "q2-email-validation",
+  "title": "Kiểm tra email hợp lệ",
+  "description": "Có ô nhập `#emailField` và thẻ `#emailError` để hiển thị lỗi. Mỗi khi người dùng gõ, cần kiểm tra xem giá trị nhập có giống định dạng email hay không (coi là hợp lệ nếu có chứa ký tự `@`); nếu không hợp lệ hiển thị `Email không hợp lệ` vào `#emailError`, nếu hợp lệ thì xóa thông báo lỗi.\n\nGợi ý: Lắng nghe sự kiện `input`, dùng `includes('@')`",
+  "files": {
+    "html": "<input id=\"emailField\" type=\"text\" />\n<span id=\"emailError\"></span>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: kiểm tra value.includes('@')\n",
+  "checks": [
+    {
+      "label": "Kiểm tra email hợp lệ",
+      "points": 15,
+      "checker": "const field = doc.getElementById('emailField'); const err = doc.getElementById('emailError'); if (!field || !err) return { pass: false, message: 'Không tìm thấy #emailField hoặc #emailError.' }; field.value = 'khongco-at'; field.dispatchEvent(new win.Event('input', { bubbles: true })); if (err.textContent.trim() !== 'Email không hợp lệ') return { pass: false, message: 'Với giá trị không chứa @, #emailError phải là \"Email không hợp lệ\", hiện đang là \"' + err.textContent + '\".' }; field.value = 'a@b.com'; field.dispatchEvent(new win.Event('input', { bubbles: true })); if (err.textContent.trim() !== '') return { pass: false, message: 'Với email hợp lệ, #emailError phải là chuỗi rỗng, hiện đang là \"' + err.textContent + '\".' }; return { pass: true, message: 'Chính xác!' };"
+    }
+  ]
+}

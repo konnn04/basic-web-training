@@ -1,0 +1,19 @@
+{
+  "id": "q22-sidebar-content-flex",
+  "title": "Bố cục Sidebar + nội dung bằng flex: 1",
+  "description": "`.layout` chứa `.sidebar` (cố định `180px`) và `.content` (phần nội dung chính). Hãy sắp xếp chúng nằm cạnh nhau theo hàng ngang, trong đó `.content` tự giãn ra chiếm hết phần không gian còn lại, còn `.sidebar` giữ nguyên chiều rộng cố định.\n\nGợi ý: dùng `display: flex` trên `.layout`, `flex-shrink: 0` (hoặc `flex: none`) trên `.sidebar`, và `flex: 1` trên `.content`.",
+  "files": {
+    "html": "<div class=\"layout\" style=\"width:400px;\">\n  <div class=\"sidebar\" style=\"width:180px;background:#eee;\">Sidebar</div>\n  <div class=\"content\" style=\"background:#ddd;\">Nội dung chính</div>\n</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.layout {\n\n}\n.sidebar {\n\n}\n.content {\n\n}\n",
+  "checks": [
+    {
+      "label": ".layout xếp hàng ngang: .sidebar cố định 180px, .content giãn lấp đầy (flex: 1)",
+      "points": 20,
+      "checker": "const layout = doc.querySelector('.layout'); if (!layout) return { pass: false, message: 'Không tìm thấy .layout.' }; const ls = win.getComputedStyle(layout); if (ls.display !== 'flex') return { pass: false, message: '.layout cần display: flex (hiện tại: ' + ls.display + ').' }; const sidebar = doc.querySelector('.sidebar'); const content = doc.querySelector('.content'); if (!sidebar || !content) return { pass: false, message: 'Không tìm thấy .sidebar hoặc .content.' }; const sw = sidebar.getBoundingClientRect().width; const cw = content.getBoundingClientRect().width; if (Math.abs(sw - 180) > 5) return { pass: false, message: '.sidebar cần giữ nguyên chiều rộng 180px (hiện tại: ' + sw.toFixed(0) + 'px). Hãy dùng flex-shrink: 0 hoặc flex: none.' }; if (cw < 200) return { pass: false, message: '.content chưa giãn ra để lấp đầy phần còn lại (hiện tại: ' + cw.toFixed(0) + 'px). Hãy dùng flex: 1 trên .content.' }; return { pass: true, message: 'Chính xác! Sidebar giữ cố định còn nội dung đã giãn lấp đầy không gian còn lại.' };"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "q15-default-params-greet",
+  "title": "Tham số mặc định (default parameters)",
+  "description": "Có ô nhập tên `#nameInput` (có thể để trống) và nút `#greetBtn`. Khi bấm nút, trang cần hiển thị lời chào vào `#greetResult` dạng `Xin chào, X!` với X là tên đã nhập; nếu ô nhập đang trống, dùng tên mặc định là `Khách`.\n\nGợi ý: Viết hàm `greet(name = \"Khách\")` dùng tham số mặc định",
+  "files": {
+    "html": "<input id=\"nameInput\" type=\"text\" />\n<button id=\"greetBtn\">Chào</button>\n<p id=\"greetResult\"></p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: function greet(name = \"Khách\") { return `Xin chào, ${name}!`; }\n",
+  "checks": [
+    {
+      "label": "Tham số mặc định (default parameters)",
+      "points": 15,
+      "checker": "const input = doc.getElementById('nameInput'); const btn = doc.getElementById('greetBtn'); const out = doc.getElementById('greetResult'); if (!input || !btn || !out) return { pass: false, message: 'Không tìm thấy #nameInput, #greetBtn hoặc #greetResult.' }; input.value = ''; btn.click(); if (out.textContent.trim() !== 'Xin chào, Khách!') return { pass: false, message: 'Khi ô nhập trống, #greetResult phải là \"Xin chào, Khách!\" (dùng tham số mặc định), hiện đang là \"' + out.textContent + '\".' }; input.value = 'Lan'; btn.click(); if (out.textContent.trim() !== 'Xin chào, Lan!') return { pass: false, message: 'Khi ô nhập là \"Lan\", #greetResult phải là \"Xin chào, Lan!\", hiện đang là \"' + out.textContent + '\".' }; return { pass: true, message: 'Chính xác!' };"
+    }
+  ]
+}

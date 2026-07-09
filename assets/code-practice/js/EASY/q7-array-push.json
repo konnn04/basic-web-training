@@ -1,0 +1,19 @@
+{
+  "id": "q7-array-push",
+  "title": "Thêm phần tử vào mảng",
+  "description": "Biến toàn cục `window.tasks` là một mảng công việc. Hãy thêm công việc mới `Học JS` vào cuối danh sách, rồi hiển thị công việc cuối cùng của mảng lên thẻ `#last`.\n\nGợi ý: Dùng `push`",
+  "files": {
+    "html": "<script>window.tasks = ['Dọn nhà', 'Nấu ăn'];</script>\n<p id=\"last\"></p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// window.tasks có sẵn mảng công việc\n",
+  "checks": [
+    {
+      "label": "Thêm phần tử vào mảng",
+      "points": 10,
+      "checker": "const el = doc.getElementById('last'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử #last.' }; if (el.textContent.trim() === 'Học JS') return { pass: true, message: 'Chính xác!' }; return { pass: false, message: 'Nội dung hiện tại: \"' + el.textContent + '\", cần đúng: \"Học JS\".' };"
+    }
+  ]
+}

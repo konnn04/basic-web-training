@@ -1,0 +1,19 @@
+{
+  "id": "q14-font-size-heading",
+  "title": "Tăng cỡ chữ tiêu đề phụ",
+  "description": "Thẻ `<h2>` có sẵn trong trang. Hãy tăng cỡ chữ của nó lên `28px` để làm nổi bật tiêu đề phụ.\n\nGợi ý: dùng thuộc tính `font-size`.",
+  "files": {
+    "html": "<h2>Tiêu đề phụ</h2>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\nh2 {\n\n}\n",
+  "checks": [
+    {
+      "label": "h2 có font-size 28px",
+      "points": 5,
+      "checker": "const el = doc.querySelector('h2'); if (!el) return { pass: false, message: 'Không tìm thấy thẻ h2.' }; const size = win.getComputedStyle(el).fontSize; if (size === '28px') return { pass: true, message: 'Chính xác! font-size đã là 28px.' }; return { pass: false, message: 'font-size hiện tại là ' + size + ', cần là 28px.' };"
+    }
+  ]
+}

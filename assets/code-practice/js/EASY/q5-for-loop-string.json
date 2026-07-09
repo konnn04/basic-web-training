@@ -1,0 +1,19 @@
+{
+  "id": "q5-for-loop-string",
+  "title": "Vòng lặp tạo chuỗi sao",
+  "description": "Thẻ `#stars` đang trống. Hãy hiển thị một chuỗi gồm đúng 5 ký tự `*` (ví dụ `*****`) lên thẻ đó.\n\nGợi ý: Dùng vòng lặp `for` để nối chuỗi",
+  "files": {
+    "html": "<p id=\"stars\"></p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: dùng vòng lặp for để nối chuỗi\n",
+  "checks": [
+    {
+      "label": "Vòng lặp tạo chuỗi sao",
+      "points": 10,
+      "checker": "const el = doc.getElementById('stars'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử #stars.' }; if (el.textContent.trim() === '*****') return { pass: true, message: 'Chính xác!' }; return { pass: false, message: 'Nội dung hiện tại: \"' + el.textContent + '\", cần đúng: \"*****\" (5 dấu sao).' };"
+    }
+  ]
+}

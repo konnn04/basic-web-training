@@ -1,0 +1,34 @@
+{
+  "id": "q17-badge-color-variants",
+  "title": "Hệ thống badge nhiều biến thể màu",
+  "description": "Hệ thống badge `.badge` dùng chung một kiểu dáng cơ bản (bo tròn, đệm ngang) nhưng đổi màu theo biến thể trạng thái: `.badge--success` (hoàn thành, nền xanh lá, chữ trắng), `.badge--warning` (đang chờ, nền vàng cam, chữ đen để tương phản tốt hơn với nền sáng), `.badge--danger` (lỗi, nền đỏ, chữ trắng). Hãy xây dựng bộ class dùng lại được cho nhiều trạng thái khác nhau, thay vì viết CSS riêng cho từng badge.\n\nGợi ý: style chung trên `.badge` (padding tối thiểu 6px ngang, border-radius tối thiểu 4px); `.badge--success { background-color: #28a745; }`; `.badge--warning { background-color: #ffc107; color: #000000; }`; `.badge--danger { background-color: #dc3545; }`.",
+  "files": {
+    "html": "<span class=\"badge badge--success\">Hoàn thành</span>\n<span class=\"badge badge--warning\">Đang chờ</span>\n<span class=\"badge badge--danger\">Lỗi</span>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.badge {\n\n}\n.badge--success {\n\n}\n.badge--warning {\n\n}\n.badge--danger {\n\n}\n",
+  "checks": [
+    {
+      "label": "Kiểu dáng chung: padding ngang và border-radius",
+      "points": 9,
+      "checker": "const success = doc.querySelector('.badge--success'); if (!success) return { pass: false, message: 'Không tìm thấy .badge--success.' }; const ss = win.getComputedStyle(success); if (parseFloat(ss.paddingLeft) < 6 || parseFloat(ss.borderTopLeftRadius) < 4) return { pass: false, message: '.badge cần padding ngang tối thiểu 6px và border-radius tối thiểu 4px cho kiểu dáng chung.' }; return { pass: true, message: 'Chính xác! Kiểu dáng chung của badge đã đúng.' };"
+    },
+    {
+      "label": ".badge--success có nền xanh lá",
+      "points": 9,
+      "checker": "const success = doc.querySelector('.badge--success'); if (!success) return { pass: false, message: 'Không tìm thấy .badge--success.' }; const ss = win.getComputedStyle(success); if (ss.backgroundColor !== 'rgb(40, 167, 69)') return { pass: false, message: '.badge--success cần background-color rgb(40, 167, 69) (hiện tại: ' + ss.backgroundColor + ').' }; return { pass: true, message: 'Chính xác! Badge success đã đúng màu.' };"
+    },
+    {
+      "label": ".badge--warning có nền vàng cam, chữ đen",
+      "points": 9,
+      "checker": "const warning = doc.querySelector('.badge--warning'); if (!warning) return { pass: false, message: 'Không tìm thấy .badge--warning.' }; const ws = win.getComputedStyle(warning); if (ws.backgroundColor !== 'rgb(255, 193, 7)') return { pass: false, message: '.badge--warning cần background-color rgb(255, 193, 7) (hiện tại: ' + ws.backgroundColor + ').' }; if (ws.color !== 'rgb(0, 0, 0)') return { pass: false, message: '.badge--warning cần color đen (rgb(0, 0, 0)) để tương phản tốt với nền vàng (hiện tại: ' + ws.color + ').' }; return { pass: true, message: 'Chính xác! Badge warning đã đúng màu.' };"
+    },
+    {
+      "label": ".badge--danger có nền đỏ",
+      "points": 8,
+      "checker": "const danger = doc.querySelector('.badge--danger'); if (!danger) return { pass: false, message: 'Không tìm thấy .badge--danger.' }; const ds = win.getComputedStyle(danger); if (ds.backgroundColor !== 'rgb(220, 53, 69)') return { pass: false, message: '.badge--danger cần background-color rgb(220, 53, 69) (hiện tại: ' + ds.backgroundColor + ').' }; return { pass: true, message: 'Chính xác! Badge danger đã đúng màu.' };"
+    }
+  ]
+}

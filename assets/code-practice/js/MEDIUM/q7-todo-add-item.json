@@ -1,0 +1,19 @@
+{
+  "id": "q7-todo-add-item",
+  "title": "Thêm việc vào danh sách todo",
+  "description": "Có ô nhập `#todoInput`, nút `#addBtn` và danh sách công việc `<ul id=\"todoList\">`. Khi bấm nút, nội dung vừa nhập cần được thêm thành một dòng mới ở cuối danh sách, và ô nhập phải sẵn sàng cho lần gõ tiếp theo (được xóa trắng).\n\nGợi ý: Dùng `createElement('li')`/`appendChild` (hoặc `insertAdjacentHTML`) và đặt `value = ''`",
+  "files": {
+    "html": "<input id=\"todoInput\" type=\"text\" />\n<button id=\"addBtn\">Thêm</button>\n<ul id=\"todoList\"></ul>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n",
+  "checks": [
+    {
+      "label": "Thêm việc vào danh sách todo",
+      "points": 20,
+      "checker": "const input = doc.getElementById('todoInput'); const btn = doc.getElementById('addBtn'); const list = doc.getElementById('todoList'); if (!input || !btn || !list) return { pass: false, message: 'Không tìm thấy #todoInput, #addBtn hoặc #todoList.' }; input.value = 'Mua sữa'; btn.click(); let items = Array.from(list.querySelectorAll('li')).map(li => li.textContent.trim()); if (items.length !== 1 || items[0] !== 'Mua sữa') return { pass: false, message: 'Sau khi thêm \"Mua sữa\", danh sách phải có đúng 1 mục là \"Mua sữa\". Danh sách hiện tại: [' + items.join(', ') + ']' }; if (input.value.trim() !== '') return { pass: false, message: 'Sau khi thêm, ô nhập #todoInput phải được xóa trắng, hiện đang là \"' + input.value + '\".' }; input.value = 'Học bài'; btn.click(); items = Array.from(list.querySelectorAll('li')).map(li => li.textContent.trim()); if (items.length !== 2 || items[1] !== 'Học bài') return { pass: false, message: 'Sau khi thêm mục thứ hai \"Học bài\", danh sách phải có đúng 2 mục và mục cuối là \"Học bài\". Danh sách hiện tại: [' + items.join(', ') + ']' }; if (input.value.trim() !== '') return { pass: false, message: 'Sau lần thêm thứ hai, ô nhập vẫn phải được xóa trắng.' }; return { pass: true, message: 'Chính xác!' };"
+    }
+  ]
+}

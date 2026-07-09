@@ -1,0 +1,19 @@
+{
+  "id": "q26-parseint-nan",
+  "title": "Chuyển chuỗi thành số với parseInt",
+  "description": "Biến toàn cục `window.strNum` chứa chuỗi `\"42px\"`. Hãy lấy ra phần số nguyên ở đầu chuỗi rồi hiển thị kết quả (dạng chuỗi) lên `#parsedNum`.\n\nGợi ý: Dùng `parseInt()`",
+  "files": {
+    "html": "<script>window.strNum = '42px';</script>\n<p id=\"parsedNum\"></p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: parseInt(window.strNum, 10)\n",
+  "checks": [
+    {
+      "label": "Chuyển chuỗi thành số với parseInt",
+      "points": 5,
+      "checker": "const el = doc.getElementById('parsedNum'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử #parsedNum.' }; if (el.textContent.trim() === '42') return { pass: true, message: 'Chính xác!' }; return { pass: false, message: 'Nội dung hiện tại: \"' + el.textContent + '\", cần đúng: \"42\" (parseInt(\"42px\") bỏ qua phần chữ).' };"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "q19-flex-align-self",
+  "title": "Lệch một phần tử bằng align-self",
+  "description": "`.row` là flex container với các phần tử con mặc định canh theo mép trên (`align-items: flex-start;`). Hãy làm riêng `.item-2` tự canh giữa theo chiều dọc, khác biệt với các phần tử `1` và `3` còn lại vẫn nằm sát trên.\n\nGợi ý: dùng `align-self: center;` chỉ trên `.item-2`.",
+  "files": {
+    "html": "<div class=\"row\" style=\"height:120px;background:#f5f5f5;\">\n  <div class=\"item\" style=\"width:40px;height:40px;background:#ccc;\">1</div>\n  <div class=\"item item-2\" style=\"width:40px;height:40px;background:#999;\">2</div>\n  <div class=\"item\" style=\"width:40px;height:40px;background:#ccc;\">3</div>\n</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.row {\n\n}\n.item-2 {\n\n}\n",
+  "checks": [
+    {
+      "label": ".row là flex container với align-items: flex-start",
+      "points": 10,
+      "checker": "const row = doc.querySelector('.row'); if (!row) return { pass: false, message: 'Không tìm thấy .row.' }; const rs = win.getComputedStyle(row); if (rs.display !== 'flex') return { pass: false, message: '.row cần display: flex (hiện tại: ' + rs.display + ').' }; if (rs.alignItems !== 'flex-start') return { pass: false, message: '.row cần align-items: flex-start (hiện tại: ' + rs.alignItems + ').' }; return { pass: true, message: 'Chính xác! .row đã là flex container với align-items: flex-start.' };"
+    },
+    {
+      "label": ".item-2 tự canh giữa riêng biệt bằng align-self: center",
+      "points": 10,
+      "checker": "const row = doc.querySelector('.row'); if (!row) return { pass: false, message: 'Không tìm thấy .row.' }; const item2 = doc.querySelector('.item-2'); if (!item2) return { pass: false, message: 'Không tìm thấy .item-2.' }; const is = win.getComputedStyle(item2); if (is.alignSelf !== 'center') return { pass: false, message: '.item-2 cần align-self: center (hiện tại: ' + is.alignSelf + ').' }; const items = doc.querySelectorAll('.item'); if (items.length < 2) return { pass: false, message: 'Không tìm thấy đủ các .item.' }; const top1 = items[0].getBoundingClientRect().top; const top2 = item2.getBoundingClientRect().top; if (Math.abs(top1 - top2) < 5) return { pass: false, message: '.item-2 chưa thực sự lệch xuống giữa so với các phần tử khác.' }; return { pass: true, message: 'Chính xác! .item-2 đã canh giữa riêng biệt nhờ align-self.' };"
+    }
+  ]
+}

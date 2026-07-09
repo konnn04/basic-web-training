@@ -1,0 +1,19 @@
+{
+  "id": "q15-background-size-cover",
+  "title": "Ảnh nền phủ kín với background-size: cover",
+  "description": "`.photo` đã có `background-image`. Hãy làm cho ảnh phủ kín toàn bộ hộp mà không bị méo tỉ lệ, và luôn được canh giữa trong khung.\n\nGợi ý: dùng `background-size: cover;` để ảnh phủ kín, và `background-position: center;` để canh giữa.",
+  "files": {
+    "html": "<div class=\"photo\" style=\"width:240px;height:160px;background-image:url('https://picsum.photos/240/160');\"></div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.photo {\n\n}\n",
+  "checks": [
+    {
+      "label": ".photo phủ kín và canh giữa bằng background-size: cover",
+      "points": 15,
+      "checker": "const el = doc.querySelector('.photo'); if (!el) return { pass: false, message: 'Không tìm thấy .photo.' }; const s = win.getComputedStyle(el); if (s.backgroundSize !== 'cover') return { pass: false, message: 'background-size hiện tại là ' + s.backgroundSize + ', cần là cover.' }; if (s.backgroundPosition !== 'center center' && s.backgroundPosition !== '50% 50%' && s.backgroundPosition !== 'center') return { pass: false, message: 'background-position hiện tại là ' + s.backgroundPosition + ', cần là center (50% 50%).' }; return { pass: true, message: 'Chính xác! Ảnh nền đã phủ kín và canh giữa.' };"
+    }
+  ]
+}

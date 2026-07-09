@@ -1,0 +1,29 @@
+{
+  "id": "q10-stopwatch-lite",
+  "title": "Đồng hồ bấm giờ đơn giản (dùng số đếm thao tác)",
+  "description": "Có nút `#startBtn` (kiêm chức năng ghi lap), `#stopBtn`, `#resetBtn`, chỉ báo trạng thái `<p id=\"status\">` (ban đầu `Đã dừng`) và `<p id=\"lapCount\">0</p>`. Quy tắc: (1) Bấm `#startBtn` khi đang dừng sẽ chuyển trạng thái thành `Đang chạy` (không tính là lap). (2) Bấm `#startBtn` khi ĐANG chạy sẽ tăng `#lapCount` thêm 1 (ghi lap), không đổi trạng thái. (3) Bấm `#stopBtn` khi đang chạy sẽ chuyển trạng thái về `Đã dừng` (không tăng lap); bấm `#stopBtn` khi đã dừng thì không có tác dụng gì. (4) Bấm `#resetBtn` luôn đưa trạng thái về `Đã dừng` và `#lapCount` về `0`, bất kể trạng thái trước đó.\n\nGợi ý: Dùng một biến `boolean` bên ngoài (ví dụ `running`) để theo dõi trạng thái hiện tại",
+  "files": {
+    "html": "<button id=\"startBtn\">Bắt đầu/Lap</button>\n<button id=\"stopBtn\">Dừng</button>\n<button id=\"resetBtn\">Reset</button>\n<p id=\"status\">Đã dừng</p>\n<p id=\"lapCount\">0</p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: dùng một biến boolean 'running' để theo dõi trạng thái\n",
+  "checks": [
+    {
+      "label": "#startBtn: chuyển sang \"Đang chạy\" lần đầu, ghi lap các lần bấm tiếp theo khi đang chạy",
+      "points": 15,
+      "checker": "const startBtn = doc.getElementById('startBtn'); const status = doc.getElementById('status'); const lap = doc.getElementById('lapCount'); if (!startBtn || !status || !lap) return { pass: false, message: 'Không tìm thấy #startBtn, #status hoặc #lapCount.' }; if (status.textContent.trim() !== 'Đã dừng') return { pass: false, message: 'Trạng thái ban đầu phải là \"Đã dừng\".' }; startBtn.click(); if (status.textContent.trim() !== 'Đang chạy') return { pass: false, message: 'Sau khi bấm #startBtn lần đầu, #status phải là \"Đang chạy\", hiện đang là \"' + status.textContent + '\".' }; if (lap.textContent.trim() !== '0') return { pass: false, message: 'Bấm #startBtn lần đầu (chuyển trạng thái) không được tăng #lapCount. Hiện đang là \"' + lap.textContent + '\".' }; startBtn.click(); startBtn.click(); if (lap.textContent.trim() !== '2') return { pass: false, message: 'Sau 2 lần bấm #startBtn tiếp theo trong lúc đang chạy, #lapCount phải là \"2\", hiện đang là \"' + lap.textContent + '\".' }; return { pass: true, message: 'Chính xác! Nút bắt đầu/lap hoạt động đúng.' };"
+    },
+    {
+      "label": "#stopBtn: dừng khi đang chạy, không có tác dụng khi đã dừng",
+      "points": 12,
+      "checker": "const startBtn = doc.getElementById('startBtn'); const stopBtn = doc.getElementById('stopBtn'); const status = doc.getElementById('status'); const lap = doc.getElementById('lapCount'); if (!startBtn || !stopBtn || !status || !lap) return { pass: false, message: 'Không tìm thấy #startBtn, #stopBtn, #status hoặc #lapCount.' }; if (status.textContent.trim() !== 'Đang chạy') startBtn.click(); stopBtn.click(); if (status.textContent.trim() !== 'Đã dừng') return { pass: false, message: 'Sau khi bấm #stopBtn, #status phải là \"Đã dừng\".' }; const lapBefore = lap.textContent.trim(); stopBtn.click(); if (lap.textContent.trim() !== lapBefore || status.textContent.trim() !== 'Đã dừng') return { pass: false, message: 'Bấm #stopBtn khi đã dừng không được thay đổi gì.' }; return { pass: true, message: 'Chính xác! Nút dừng hoạt động đúng.' };"
+    },
+    {
+      "label": "#resetBtn: luôn đưa trạng thái về \"Đã dừng\" và lapCount về 0",
+      "points": 13,
+      "checker": "const startBtn = doc.getElementById('startBtn'); const resetBtn = doc.getElementById('resetBtn'); const status = doc.getElementById('status'); const lap = doc.getElementById('lapCount'); if (!startBtn || !resetBtn || !status || !lap) return { pass: false, message: 'Không tìm thấy #startBtn, #resetBtn, #status hoặc #lapCount.' }; startBtn.click(); startBtn.click(); resetBtn.click(); if (status.textContent.trim() !== 'Đã dừng' || lap.textContent.trim() !== '0') return { pass: false, message: 'Sau khi bấm #resetBtn, #status phải là \"Đã dừng\" và #lapCount phải là \"0\". Hiện đang là status=\"' + status.textContent + '\", lapCount=\"' + lap.textContent + '\".' }; return { pass: true, message: 'Chính xác! Nút reset hoạt động đúng.' };"
+    }
+  ]
+}

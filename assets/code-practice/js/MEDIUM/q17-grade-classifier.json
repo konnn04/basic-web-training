@@ -1,0 +1,19 @@
+{
+  "id": "q17-grade-classifier",
+  "title": "Xếp loại điểm số với if/else if",
+  "description": "Biến toàn cục `window.score` chứa điểm số của học sinh. Có nút `#gradeBtn` và `<p id=\"gradeResult\">`. Khi bấm nút, cần xếp loại điểm hiện tại theo thang: từ 90 trở lên là `Xuất sắc`, từ 80 đến dưới 90 là `Giỏi`, từ 65 đến dưới 80 là `Khá`, từ 50 đến dưới 65 là `Trung bình`, dưới 50 là `Yếu`, rồi hiển thị kết quả. Kết quả phải luôn dựa trên giá trị `window.score` mới nhất tại thời điểm bấm.\n\nGợi ý: Dùng chuỗi `if/else if`",
+  "files": {
+    "html": "<script>window.score = 76;</script>\n<button id=\"gradeBtn\">Xếp loại</button>\n<p id=\"gradeResult\"></p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// window.score có sẵn giá trị số\n",
+  "checks": [
+    {
+      "label": "Xếp loại điểm số với if/else if",
+      "points": 20,
+      "checker": "const btn = doc.getElementById('gradeBtn'); const out = doc.getElementById('gradeResult'); if (!btn || !out) return { pass: false, message: 'Không tìm thấy #gradeBtn hoặc #gradeResult.' }; btn.click(); if (out.textContent.trim() !== 'Khá') return { pass: false, message: 'Với window.score = 76, #gradeResult phải là \"Khá\", hiện đang là \"' + out.textContent + '\".' }; win.score = 92; btn.click(); if (out.textContent.trim() !== 'Xuất sắc') return { pass: false, message: 'Sau khi đổi window.score = 92 và bấm lại, #gradeResult phải là \"Xuất sắc\", hiện đang là \"' + out.textContent + '\".' }; win.score = 40; btn.click(); if (out.textContent.trim() !== 'Yếu') return { pass: false, message: 'Sau khi đổi window.score = 40 và bấm lại, #gradeResult phải là \"Yếu\", hiện đang là \"' + out.textContent + '\". Đừng gán cứng một kết quả, hãy đọc lại window.score mỗi lần bấm.' }; return { pass: true, message: 'Chính xác!' };"
+    }
+  ]
+}

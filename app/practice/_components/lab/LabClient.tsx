@@ -10,10 +10,11 @@ import { PreviewFrame } from "./PreviewFrame";
 import { QuestionSidebar } from "./QuestionSidebar";
 import { QuestionDescriptionPanel } from "./QuestionDescriptionPanel";
 import { buildPreviewDocument } from "@/lib/code-practice/build-doc";
-import { runChecker } from "@/lib/code-practice/run-checker";
+import { runChecks } from "@/lib/code-practice/run-checks";
 import { useUser } from "@/hooks/use-user";
 import { idbGet, idbSet } from "@/lib/idb-store";
-import type { CodePracticeSet, LabMode, CodePracticeQuestion } from "@/lib/code-practice/types";
+import { questionPoints } from "@/lib/code-practice/types";
+import type { CodePracticeSet, LabMode, CodePracticeQuestion, CheckResult } from "@/lib/code-practice/types";
 
 const SIDEBAR_COLLAPSED_KEY = "practice:sidebar-collapsed";
 
@@ -23,7 +24,7 @@ type LabClientProps = {
   pageTitle: string;
 };
 
-type ProgressEntry = { code: string; pass: boolean; message: string };
+type ProgressEntry = { code: string; pass: boolean; checks: CheckResult[] };
 
 function progressKey(mode: LabMode, setId: string, questionId: string) {
   return `practice:${mode}:${setId}:${questionId}`;
@@ -127,8 +128,9 @@ export function LabClient({ mode, sets, pageTitle }: LabClientProps) {
   const handleLoadResult = useCallback(
     (doc: Document, win: Window) => {
       if (!activeQuestion) return;
-      const result = runChecker(activeQuestion.checker, doc, win, code);
-      const entry: ProgressEntry = { code, pass: result.pass, message: result.message };
+      const checks = runChecks(activeQuestion.checks, doc, win, code);
+      const pass = checks.every((c) => c.pass);
+      const entry: ProgressEntry = { code, pass, checks };
       const wasPassing = results[activeQuestion.id]?.pass === true;
       setResults((prev) => ({ ...prev, [activeQuestion.id]: entry }));
       idbSet(progressKey(mode, activeSetId, activeQuestion.id), entry).catch((err) =>
@@ -136,8 +138,9 @@ export function LabClient({ mode, sets, pageTitle }: LabClientProps) {
       );
 
       // Record the pass on the server for the leaderboard — requires a real Google login
-      // (userEmail), once per question per pass transition.
-      if (result.pass && !wasPassing && isLoggedIn && userEmail) {
+      // (userEmail), once per question per pass transition. Award full points only once
+      // every sub-check is satisfied.
+      if (pass && !wasPassing && isLoggedIn && userEmail) {
         fetch("/api/practice/results", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -145,7 +148,7 @@ export function LabClient({ mode, sets, pageTitle }: LabClientProps) {
             mode,
             setId: activeSetId,
             questionId: activeQuestion.id,
-            points: activeQuestion.points,
+            points: questionPoints(activeQuestion),
             userName: currentUser,
             userEmail,
             userImage: userImage || undefined,

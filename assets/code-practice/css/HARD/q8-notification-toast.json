@@ -1,0 +1,29 @@
+{
+  "id": "q8-notification-toast",
+  "title": "Thông báo toast: định vị góc màn hình + xếp chồng + đóng nút",
+  "description": "`.toast-container` cần cố định ở góc màn hình, luôn hiển thị đè lên nội dung dù trang có cuộn hay không. Bên trong, `.toast` xếp chồng dọc cách nhau đều đặn. Nút đóng `.toast-close` cần đổi con trỏ chuột thành hình bàn tay để gợi ý có thể click vào.\n\nGợi ý: `.toast-container` — `position: fixed; bottom: 16px; right: 16px;` và `display: flex; flex-direction: column; gap: 8px;`; `.toast-close` — `cursor: pointer`.",
+  "files": {
+    "html": "<div class=\"toast-container\">\n  <div class=\"toast\" style=\"background:#333;color:#fff;padding:10px;\">Đã lưu! <span class=\"toast-close\">×</span></div>\n  <div class=\"toast\" style=\"background:#333;color:#fff;padding:10px;\">Đã gửi! <span class=\"toast-close\">×</span></div>\n</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.toast-container {\n\n}\n.toast-close {\n\n}\n",
+  "checks": [
+    {
+      "label": ".toast-container cố định ở góc dưới-phải màn hình",
+      "points": 10,
+      "checker": "const container = doc.querySelector('.toast-container'); if (!container) return { pass: false, message: 'Không tìm thấy .toast-container.' }; const cs = win.getComputedStyle(container); if (cs.position !== 'fixed') return { pass: false, message: '.toast-container cần position: fixed (hiện tại: ' + cs.position + ').' }; if (cs.bottom !== '16px' || cs.right !== '16px') return { pass: false, message: '.toast-container cần bottom: 16px; right: 16px; (hiện tại: bottom ' + cs.bottom + ', right ' + cs.right + ').' }; return { pass: true, message: 'Chính xác! Toast đã cố định đúng góc màn hình.' };"
+    },
+    {
+      "label": "Các .toast xếp chồng dọc cách đều nhau",
+      "points": 10,
+      "checker": "const container = doc.querySelector('.toast-container'); if (!container) return { pass: false, message: 'Không tìm thấy .toast-container.' }; const cs = win.getComputedStyle(container); if (cs.display !== 'flex' || cs.flexDirection !== 'column') return { pass: false, message: '.toast-container cần display: flex; flex-direction: column;.' }; if (parseFloat(cs.gap || cs.rowGap) < 8) return { pass: false, message: '.toast-container cần gap tối thiểu 8px giữa các toast (hiện tại: ' + cs.gap + ').' }; return { pass: true, message: 'Chính xác! Các toast đã xếp chồng cách đều.' };"
+    },
+    {
+      "label": ".toast-close đổi con trỏ thành hình bàn tay",
+      "points": 10,
+      "checker": "const close = doc.querySelector('.toast-close'); if (!close) return { pass: false, message: 'Không tìm thấy .toast-close.' }; const clS = win.getComputedStyle(close); if (clS.cursor !== 'pointer') return { pass: false, message: '.toast-close cần cursor: pointer (hiện tại: ' + clS.cursor + ').' }; return { pass: true, message: 'Chính xác! Nút đóng đã gợi ý được bằng con trỏ.' };"
+    }
+  ]
+}

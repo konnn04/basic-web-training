@@ -1,0 +1,19 @@
+{
+  "id": "q13-closure-counter",
+  "title": "Bộ đếm độc lập bằng closure",
+  "description": "Có hai nút đếm độc lập: `#counterABtn` (cập nhật số tại `#counterAVal`) và `#counterBBtn` (cập nhật số tại `#counterBVal`). Mỗi lần bấm một nút, số đếm tương ứng tăng thêm 1; hai bộ đếm phải hoàn toàn độc lập, bấm nút này không được ảnh hưởng tới số đếm của nút kia. Không được dùng biến toàn cục để lưu số đếm.\n\nGợi ý: Dùng closure — viết một hàm factory trả về hàm tăng biến đếm nội bộ, gọi hàm factory 2 lần để tạo 2 bộ đếm tách biệt",
+  "files": {
+    "html": "<button id=\"counterABtn\">Đếm A</button><span id=\"counterAVal\">0</span>\n<button id=\"counterBBtn\">Đếm B</button><span id=\"counterBVal\">0</span>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: function makeCounter() { let count = 0; return function() { count++; return count; }; }\n",
+  "checks": [
+    {
+      "label": "Bộ đếm độc lập bằng closure",
+      "points": 20,
+      "checker": "const btnA = doc.getElementById('counterABtn'); const btnB = doc.getElementById('counterBBtn'); const valA = doc.getElementById('counterAVal'); const valB = doc.getElementById('counterBVal'); if (!btnA || !btnB || !valA || !valB) return { pass: false, message: 'Không tìm thấy #counterABtn, #counterBBtn, #counterAVal hoặc #counterBVal.' }; btnA.click(); if (valA.textContent.trim() !== '1') return { pass: false, message: 'Sau khi bấm #counterABtn 1 lần, #counterAVal phải là \"1\", hiện đang là \"' + valA.textContent + '\".' }; btnA.click(); btnA.click(); if (valA.textContent.trim() !== '3') return { pass: false, message: 'Sau khi bấm #counterABtn tổng cộng 3 lần, #counterAVal phải là \"3\", hiện đang là \"' + valA.textContent + '\".' }; if (valB.textContent.trim() !== '0') return { pass: false, message: 'Bấm #counterABtn không được làm thay đổi #counterBVal (phải vẫn là \"0\").' }; btnB.click(); if (valB.textContent.trim() !== '1') return { pass: false, message: 'Sau khi bấm #counterBBtn 1 lần, #counterBVal phải là \"1\" (độc lập với bộ đếm A), hiện đang là \"' + valB.textContent + '\".' }; if (valA.textContent.trim() !== '3') return { pass: false, message: 'Bấm #counterBBtn không được làm thay đổi #counterAVal (phải vẫn là \"3\").' }; return { pass: true, message: 'Chính xác! Hai closure hoạt động độc lập.' };"
+    }
+  ]
+}

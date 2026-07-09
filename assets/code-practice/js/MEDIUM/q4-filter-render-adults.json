@@ -1,0 +1,19 @@
+{
+  "id": "q4-filter-render-adults",
+  "title": "Lọc danh sách người từ dữ liệu mảng",
+  "description": "Biến toàn cục `window.people` là danh sách người dùng dạng `{ name, age }`. Trang cần hiển thị riêng những người đã đủ 18 tuổi trở lên: mỗi người thành một dòng `<li class=\"person\">Tên</li>` bên trong `#peopleList`; những người chưa đủ tuổi thì không hiển thị.\n\nGợi ý: Dùng `filter` rồi dựng phần tử `<li>` (hoặc `map` + `join`) và `appendChild`/`innerHTML`",
+  "files": {
+    "html": "<script>window.people = [{ name: 'Bình', age: 16 }, { name: 'Chi', age: 20 }, { name: 'Dũng', age: 19 }, { name: 'Em', age: 12 }, { name: 'Phúc', age: 18 }, { name: 'Giang', age: 17 }, { name: 'Hoa', age: 25 }];</script>\n<ul id=\"peopleList\"></ul>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// window.people có sẵn mảng object { name, age }\n",
+  "checks": [
+    {
+      "label": "Lọc danh sách người từ dữ liệu mảng",
+      "points": 20,
+      "checker": "const list = doc.getElementById('peopleList'); if (!list) return { pass: false, message: 'Không tìm thấy #peopleList.' }; const items = Array.from(list.querySelectorAll('.person')).map(li => li.textContent.trim()); const expected = ['Chi', 'Dũng', 'Phúc', 'Hoa']; if (items.length !== expected.length || !expected.every(n => items.includes(n))) return { pass: false, message: 'Danh sách hiển thị: [' + items.join(', ') + '], cần chứa đúng: [' + expected.join(', ') + '] (những người từ 18 tuổi trở lên).' }; return { pass: true, message: 'Chính xác!' };"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "q10-display-none",
+  "title": "Ẩn phần tử",
+  "description": "Có một dòng chữ thông báo lỗi cũ với class `old-warning` không còn cần dùng nữa. Hãy ẩn nó khỏi trang hoàn toàn (không chiếm chỗ), trong khi nội dung chính vẫn hiển thị bình thường.\n\nGợi ý: dùng thuộc tính `display`, giá trị `none`.",
+  "files": {
+    "html": "<p class=\"old-warning\">Thông báo lỗi cũ (không còn dùng).</p>\n<p>Nội dung chính vẫn hiển thị bình thường.</p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.old-warning {\n\n}\n",
+  "checks": [
+    {
+      "label": ".old-warning bị ẩn hoàn toàn (display: none)",
+      "points": 5,
+      "checker": "const el = doc.querySelector('.old-warning'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử .old-warning.' }; const d = win.getComputedStyle(el).display; if (d === 'none') return { pass: true, message: 'Chính xác! Phần tử đã bị ẩn.' }; return { pass: false, message: 'display hiện tại là ' + d + ', cần là none.' };"
+    }
+  ]
+}

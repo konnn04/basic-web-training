@@ -1,0 +1,39 @@
+{
+  "id": "q16-sales-data-table",
+  "title": "Bảng doanh thu đầy đủ: viền, header, sọc, hover, căn phải",
+  "description": "Bảng `.sales-table` hiển thị doanh thu theo tháng, cần được trình bày như một bảng dữ liệu chuyên nghiệp trong sản phẩm thực tế. Yêu cầu: các ô liền viền gọn gàng và có khoảng đệm dễ đọc; hàng tiêu đề nổi bật với nền tối và chữ sáng; các hàng dữ liệu xen kẽ màu nền; khi rê chuột vào một hàng, hàng đó được làm nổi bật thêm; cột doanh thu (`.amount`) căn phải để dễ so sánh các con số.\n\nGợi ý: `border-collapse: collapse` + `padding` trên ô; nền/màu chữ cho `thead tr`; `:nth-child(even)` cho stripe; `tbody tr:hover` cho highlight; `text-align: right` cho `.amount`.",
+  "files": {
+    "html": "<table class=\"sales-table\">\n  <thead>\n    <tr><th>Tháng</th><th class=\"amount\">Doanh thu (triệu)</th></tr>\n  </thead>\n  <tbody>\n    <tr><td>Tháng 1</td><td class=\"amount\">120</td></tr>\n    <tr><td>Tháng 2</td><td class=\"amount\">95</td></tr>\n    <tr><td>Tháng 3</td><td class=\"amount\">140</td></tr>\n    <tr><td>Tháng 4</td><td class=\"amount\">110</td></tr>\n  </tbody>\n</table>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.sales-table {\n\n}\n.sales-table th,\n.sales-table td {\n\n}\n.sales-table thead tr {\n\n}\n.sales-table tbody tr:nth-child(even) {\n\n}\n.sales-table tbody tr:hover {\n\n}\n.sales-table .amount {\n\n}\n",
+  "checks": [
+    {
+      "label": "Các ô liền viền gọn gàng và có khoảng đệm dễ đọc",
+      "points": 8,
+      "checker": "const table = doc.querySelector('.sales-table'); if (!table) return { pass: false, message: 'Không tìm thấy .sales-table.' }; const ts = win.getComputedStyle(table); if (ts.borderCollapse !== 'collapse') return { pass: false, message: 'table cần border-collapse: collapse (hiện tại: ' + ts.borderCollapse + ').' }; const cell = table.querySelector('tbody td'); if (!cell) return { pass: false, message: 'Không tìm thấy ô td.' }; const cs = win.getComputedStyle(cell); if (parseFloat(cs.paddingTop) < 4) return { pass: false, message: 'Các ô cần có padding tối thiểu 4px để dễ đọc.' }; return { pass: true, message: 'Chính xác! Bảng đã gọn gàng và dễ đọc.' };"
+    },
+    {
+      "label": "Hàng tiêu đề có nền tối và chữ sáng",
+      "points": 8,
+      "checker": "const table = doc.querySelector('.sales-table'); if (!table) return { pass: false, message: 'Không tìm thấy .sales-table.' }; const headRow = table.querySelector('thead tr'); if (!headRow) return { pass: false, message: 'Không tìm thấy thead tr.' }; const hs = win.getComputedStyle(headRow); if (!hs.backgroundColor || hs.backgroundColor === 'rgba(0, 0, 0, 0)') return { pass: false, message: 'thead tr cần background-color rõ ràng.' }; const headTh = table.querySelector('thead th'); if (!headTh) return { pass: false, message: 'Không tìm thấy thead th.' }; if (win.getComputedStyle(headTh).color === 'rgb(0, 0, 0)') return { pass: false, message: 'Chữ trong thead cần đổi màu sáng để tương phản với nền tối.' }; return { pass: true, message: 'Chính xác! Header đã nổi bật.' };"
+    },
+    {
+      "label": "Các hàng dữ liệu xen kẽ màu nền",
+      "points": 8,
+      "checker": "const table = doc.querySelector('.sales-table'); if (!table) return { pass: false, message: 'Không tìm thấy .sales-table.' }; const bodyRows = table.querySelectorAll('tbody tr'); if (bodyRows.length < 4) return { pass: false, message: 'Không tìm thấy đủ 4 hàng dữ liệu.' }; const bg1 = win.getComputedStyle(bodyRows[0]).backgroundColor; const bg2 = win.getComputedStyle(bodyRows[1]).backgroundColor; if (bg1 === bg2) return { pass: false, message: 'Các hàng chẵn/lẻ cần có màu nền khác nhau (dùng :nth-child(even)).' }; return { pass: true, message: 'Chính xác! Các hàng đã kẻ sọc xen kẽ.' };"
+    },
+    {
+      "label": "Hàng được làm nổi bật thêm khi rê chuột vào (hover)",
+      "points": 8,
+      "checker": "if (!/tbody\\s+tr\\s*:hover\\s*\\{[^}]*background(-color)?\\s*:/.test(code)) return { pass: false, message: 'Cần có rule tbody tr:hover với background-color để làm nổi bật hàng khi rê chuột.' }; return { pass: true, message: 'Chính xác! Hàng đã nổi bật khi hover.' };"
+    },
+    {
+      "label": "Cột doanh thu (.amount) căn phải",
+      "points": 8,
+      "checker": "const table = doc.querySelector('.sales-table'); if (!table) return { pass: false, message: 'Không tìm thấy .sales-table.' }; const amountCell = table.querySelector('tbody .amount'); if (!amountCell) return { pass: false, message: 'Không tìm thấy ô .amount.' }; if (win.getComputedStyle(amountCell).textAlign !== 'right') return { pass: false, message: 'Cột .amount cần text-align: right.' }; return { pass: true, message: 'Chính xác! Cột doanh thu đã căn phải.' };"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "q13-leaderboard-top3",
+  "title": "Bảng xếp hạng: sắp xếp, giới hạn top 3 và cập nhật động",
+  "description": "Biến toàn cục `window.players` là danh sách người chơi `{ name, score }`. Có nút `#showTop3Btn` và bảng `<ul id=\"rankBoard\">`. Khi bấm nút, cần hiển thị đúng 3 người có điểm cao nhất theo thứ tự giảm dần, mỗi dòng dạng `<li class=\"rank-item\">#N Tên - Điểm</li>` (N là thứ hạng 1, 2, 3), và chỉ dòng xếp hạng #1 mới có thêm class `gold`.\n\nGợi ý: `[...window.players].sort((a, b) => b.score - a.score).slice(0, 3)`",
+  "files": {
+    "html": "<script>window.players = [{ name: 'An', score: 50 }, { name: 'Bình', score: 90 }, { name: 'Chi', score: 70 }, { name: 'Dũng', score: 60 }, { name: 'Giang', score: 35 }, { name: 'Hoa', score: 82 }];</script>\n<button id=\"showTop3Btn\">Xem bảng xếp hạng</button>\n<ul id=\"rankBoard\"></ul>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// window.players có sẵn mảng object { name, score }\n// Gợi ý: [...window.players].sort((a, b) => b.score - a.score).slice(0, 3)\n",
+  "checks": [
+    {
+      "label": "Bảng xếp hạng: sắp xếp, giới hạn top 3 và cập nhật động",
+      "points": 30,
+      "checker": "const btn = doc.getElementById('showTop3Btn'); const board = doc.getElementById('rankBoard'); if (!btn || !board) return { pass: false, message: 'Không tìm thấy #showTop3Btn hoặc #rankBoard.' }; btn.click(); let items = Array.from(board.querySelectorAll('.rank-item')); let texts = items.map(li => li.textContent.trim()); let expected = ['#1 Bình - 90', '#2 Hoa - 82', '#3 Chi - 70']; if (texts.length !== 3 || !expected.every((v, i) => texts[i] === v)) return { pass: false, message: 'Top 3 phải là [' + expected.join(', ') + '] theo đúng thứ tự, hiện đang là [' + texts.join(', ') + '].' }; const goldItems = items.filter(li => li.classList.contains('gold')); if (goldItems.length !== 1 || goldItems[0].textContent.trim() !== '#1 Bình - 90') return { pass: false, message: 'Chỉ mục xếp hạng #1 (\"Bình\") được có class \"gold\", các mục khác thì không.' }; win.players.push({ name: 'Em', score: 99 }); btn.click(); items = Array.from(board.querySelectorAll('.rank-item')); texts = items.map(li => li.textContent.trim()); expected = ['#1 Em - 99', '#2 Bình - 90', '#3 Hoa - 82']; if (texts.length !== 3 || !expected.every((v, i) => texts[i] === v)) return { pass: false, message: 'Sau khi thêm \"Em\" (điểm 99) và bấm lại, top 3 phải là [' + expected.join(', ') + '], hiện đang là [' + texts.join(', ') + ']. Đừng gán cứng danh sách, hãy tính lại từ window.players.' }; const goldItems2 = items.filter(li => li.classList.contains('gold')); if (goldItems2.length !== 1 || goldItems2[0].textContent.trim() !== '#1 Em - 99') return { pass: false, message: 'Sau khi bảng xếp hạng thay đổi, class \"gold\" phải chuyển sang mục hạng #1 mới (\"Em\").' }; return { pass: true, message: 'Chính xác! Bảng xếp hạng cập nhật đúng.' };"
+    }
+  ]
+}

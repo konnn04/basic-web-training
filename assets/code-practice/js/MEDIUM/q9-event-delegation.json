@@ -1,0 +1,19 @@
+{
+  "id": "q9-event-delegation",
+  "title": "Ủy quyền sự kiện trên danh sách",
+  "description": "Có danh sách `<ul id=\"itemList\">` với vài mục, và thẻ `#selected` để hiển thị lựa chọn. Khi bấm vào bất kỳ mục nào trong danh sách, tên mục đó cần hiển thị vào `#selected`. Chỉ được gắn **một** trình lắng nghe sự kiện duy nhất cho cả danh sách (không gắn riêng cho từng `<li>`), vì danh sách này có thể có thêm mục mới về sau.\n\nGợi ý: Dùng event delegation — `addEventListener('click')` trên `#itemList`, đọc `event.target` bên trong",
+  "files": {
+    "html": "<ul id=\"itemList\"><li>Táo</li><li>Chuối</li><li>Cam</li></ul>\n<p id=\"selected\"></p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: gắn addEventListener trên #itemList, dùng event.target bên trong\n",
+  "checks": [
+    {
+      "label": "Ủy quyền sự kiện trên danh sách",
+      "points": 20,
+      "checker": "const list = doc.getElementById('itemList'); const selected = doc.getElementById('selected'); if (!list || !selected) return { pass: false, message: 'Không tìm thấy #itemList hoặc #selected.' }; const items = list.querySelectorAll('li'); if (items.length < 2) return { pass: false, message: 'Danh sách #itemList phải có ít nhất 2 mục.' }; items[1].click(); if (selected.textContent.trim() !== 'Chuối') return { pass: false, message: 'Sau khi bấm mục thứ 2 (\"Chuối\"), #selected đang là \"' + selected.textContent + '\", cần là \"Chuối\".' }; items[0].click(); if (selected.textContent.trim() !== 'Táo') return { pass: false, message: 'Sau khi bấm mục thứ 1 (\"Táo\"), #selected đang là \"' + selected.textContent + '\", cần là \"Táo\".' }; return { pass: true, message: 'Chính xác!' };"
+    }
+  ]
+}

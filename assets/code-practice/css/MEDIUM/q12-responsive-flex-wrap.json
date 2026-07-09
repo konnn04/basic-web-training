@@ -1,0 +1,19 @@
+{
+  "id": "q12-responsive-flex-wrap",
+  "title": "Danh sách thẻ tự xuống dòng (flex-wrap)",
+  "description": "`.tag-list` chứa nhiều `.tag`. Hãy làm cho các thẻ tự động xuống dòng khi không đủ chỗ trên một hàng, thay vì bị tràn ra ngoài hoặc bị co lại chen chúc trên 1 dòng.\n\nGợi ý: dùng Flexbox với `flex-wrap: wrap`.",
+  "files": {
+    "html": "<div class=\"tag-list\" style=\"width:200px;\">\n  <span class=\"tag\" style=\"background:#eee;padding:4px 8px;\">HTML</span>\n  <span class=\"tag\" style=\"background:#eee;padding:4px 8px;\">CSS</span>\n  <span class=\"tag\" style=\"background:#eee;padding:4px 8px;\">JavaScript</span>\n  <span class=\"tag\" style=\"background:#eee;padding:4px 8px;\">React</span>\n  <span class=\"tag\" style=\"background:#eee;padding:4px 8px;\">Node.js</span>\n</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.tag-list {\n\n}\n",
+  "checks": [
+    {
+      "label": ".tag-list tự xuống dòng khi không đủ chỗ (flex-wrap: wrap)",
+      "points": 15,
+      "checker": "const el = doc.querySelector('.tag-list'); if (!el) return { pass: false, message: 'Không tìm thấy .tag-list.' }; const s = win.getComputedStyle(el); if (s.display !== 'flex') return { pass: false, message: '.tag-list cần display: flex (hiện tại: ' + s.display + ').' }; if (s.flexWrap !== 'wrap') return { pass: false, message: '.tag-list cần flex-wrap: wrap (hiện tại: ' + s.flexWrap + ').' }; const tags = doc.querySelectorAll('.tag'); if (tags.length < 2) return { pass: false, message: 'Không tìm thấy đủ các phần tử .tag.' }; const top1 = tags[0].getBoundingClientRect().top; const topLast = tags[tags.length - 1].getBoundingClientRect().top; if (Math.abs(top1 - topLast) < 2) return { pass: false, message: 'Các thẻ chưa xuống dòng, kiểm tra lại flex-wrap: wrap và độ rộng .tag-list.' }; return { pass: true, message: 'Chính xác! Danh sách thẻ đã tự xuống dòng.' };"
+    }
+  ]
+}

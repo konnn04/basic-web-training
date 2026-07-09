@@ -1,0 +1,19 @@
+{
+  "id": "q19-typeof-check",
+  "title": "Kiểm tra kiểu dữ liệu với typeof",
+  "description": "Biến toàn cục `window.value` chứa `\"123\"` (một chuỗi, không phải số). Hãy xác định kiểu dữ liệu thực sự của biến này rồi hiển thị tên kiểu đó (ví dụ `string`) lên `#typeResult`.\n\nGợi ý: Dùng `typeof`",
+  "files": {
+    "html": "<script>window.value = '123';</script>\n<p id=\"typeResult\"></p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: typeof window.value\n",
+  "checks": [
+    {
+      "label": "Kiểm tra kiểu dữ liệu với typeof",
+      "points": 5,
+      "checker": "const el = doc.getElementById('typeResult'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử #typeResult.' }; if (el.textContent.trim() === 'string') return { pass: true, message: 'Chính xác!' }; return { pass: false, message: 'Nội dung hiện tại: \"' + el.textContent + '\", cần đúng: \"string\" (vì window.value là chuỗi \"123\").' };"
+    }
+  ]
+}

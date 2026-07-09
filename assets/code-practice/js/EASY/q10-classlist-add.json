@@ -1,0 +1,19 @@
+{
+  "id": "q10-classlist-add",
+  "title": "Thêm class bằng classList",
+  "description": "Thẻ `#box` cần được đánh dấu là đang active (CSS `.active` đã có sẵn viền xanh). Hãy thêm class `active` vào thẻ đó.\n\nGợi ý: Dùng `classList.add`",
+  "files": {
+    "html": "<div id=\"box\">Hộp</div>",
+    "css": ".active { border: 2px solid green; }",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n",
+  "checks": [
+    {
+      "label": "Thêm class bằng classList",
+      "points": 5,
+      "checker": "const el = doc.getElementById('box'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử #box.' }; if (el.classList.contains('active')) return { pass: true, message: 'Chính xác!' }; return { pass: false, message: 'Thẻ #box chưa có class \"active\". Danh sách class hiện tại: [' + el.className + ']' };"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "q2-form-validation-3-rules",
+  "title": "Xác thực form với 3 quy tắc độc lập",
+  "description": "Có ô nhập `#username` (thẻ lỗi `#usernameErr`), `#password` (thẻ lỗi `#passwordErr`), và nút đăng ký `#submitBtn` (mặc định vô hiệu hóa). Cần xác thực độc lập từng ô ngay khi người dùng gõ: (1) `#username` không được để trống — nếu trống hiển thị `Bắt buộc nhập` vào `#usernameErr`, nếu hợp lệ thì xóa thông báo lỗi. (2) `#password` phải có ít nhất 6 ký tự — nếu chưa đủ hiển thị `Tối thiểu 6 ký tự` vào `#passwordErr`, nếu hợp lệ thì xóa thông báo lỗi. (3) `#submitBtn` chỉ được bật lên khi CẢ HAI điều kiện trên đều hợp lệ cùng lúc.\n\nGợi ý: Lắng nghe sự kiện `input` trên cả hai ô, viết một hàm `validate()` chạy kiểm tra và cập nhật `#submitBtn.disabled` mỗi lần có thay đổi",
+  "files": {
+    "html": "<input id=\"username\" type=\"text\" /><span id=\"usernameErr\"></span>\n<input id=\"password\" type=\"password\" /><span id=\"passwordErr\"></span>\n<button id=\"submitBtn\" disabled>Đăng ký</button>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: viết một hàm validate() chạy khi cả hai ô nhập có sự kiện input\n",
+  "checks": [
+    {
+      "label": "#username là bắt buộc, hiển thị/xóa lỗi đúng lúc",
+      "points": 15,
+      "checker": "const user = doc.getElementById('username'); const userErr = doc.getElementById('usernameErr'); if (!user || !userErr) return { pass: false, message: 'Không tìm thấy #username hoặc #usernameErr.' }; user.value = ''; user.dispatchEvent(new win.Event('input', { bubbles: true })); if (userErr.textContent.trim() !== 'Bắt buộc nhập') return { pass: false, message: 'Với #username rỗng, #usernameErr phải là \"Bắt buộc nhập\", hiện đang là \"' + userErr.textContent + '\".' }; user.value = 'khanh'; user.dispatchEvent(new win.Event('input', { bubbles: true })); if (userErr.textContent.trim() !== '') return { pass: false, message: 'Với username hợp lệ, #usernameErr phải rỗng, hiện đang là \"' + userErr.textContent + '\".' }; return { pass: true, message: 'Chính xác! Xác thực username hoạt động đúng.' };"
+    },
+    {
+      "label": "#password cần tối thiểu 6 ký tự, hiển thị/xóa lỗi đúng lúc",
+      "points": 15,
+      "checker": "const pass = doc.getElementById('password'); const passErr = doc.getElementById('passwordErr'); if (!pass || !passErr) return { pass: false, message: 'Không tìm thấy #password hoặc #passwordErr.' }; pass.value = '123'; pass.dispatchEvent(new win.Event('input', { bubbles: true })); if (passErr.textContent.trim() !== 'Tối thiểu 6 ký tự') return { pass: false, message: 'Với mật khẩu 3 ký tự, #passwordErr phải là \"Tối thiểu 6 ký tự\", hiện đang là \"' + passErr.textContent + '\".' }; pass.value = '123456'; pass.dispatchEvent(new win.Event('input', { bubbles: true })); if (passErr.textContent.trim() !== '') return { pass: false, message: 'Với mật khẩu hợp lệ, #passwordErr phải rỗng, hiện đang là \"' + passErr.textContent + '\".' }; return { pass: true, message: 'Chính xác! Xác thực mật khẩu hoạt động đúng.' };"
+    },
+    {
+      "label": "#submitBtn chỉ được bật khi CẢ HAI điều kiện đều hợp lệ",
+      "points": 10,
+      "checker": "const user = doc.getElementById('username'); const pass = doc.getElementById('password'); const btn = doc.getElementById('submitBtn'); if (!user || !pass || !btn) return { pass: false, message: 'Không tìm thấy #username, #password hoặc #submitBtn.' }; user.value = ''; user.dispatchEvent(new win.Event('input', { bubbles: true })); pass.value = '123456'; pass.dispatchEvent(new win.Event('input', { bubbles: true })); if (btn.disabled !== true) return { pass: false, message: 'Khi username rỗng (dù password hợp lệ), #submitBtn phải bị vô hiệu hóa.' }; user.value = 'khanh'; user.dispatchEvent(new win.Event('input', { bubbles: true })); pass.value = '123'; pass.dispatchEvent(new win.Event('input', { bubbles: true })); if (btn.disabled !== true) return { pass: false, message: 'Khi mật khẩu chưa đủ 6 ký tự (dù username hợp lệ), #submitBtn phải bị vô hiệu hóa.' }; pass.value = '123456'; pass.dispatchEvent(new win.Event('input', { bubbles: true })); if (btn.disabled !== false) return { pass: false, message: 'Khi cả hai điều kiện hợp lệ, #submitBtn phải được bật (disabled = false).' }; return { pass: true, message: 'Chính xác! #submitBtn chỉ bật khi cả username và password đều hợp lệ.' };"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "q14-rest-params-sum",
+  "title": "Cộng nhiều số với rest parameters",
+  "description": "Có 3 ô nhập số `#n1`, `#n2`, `#n3` và nút `#sumBtn`. Khi bấm nút, cần tính tổng giá trị hiện tại của cả 3 ô rồi hiển thị vào `#sumResult`. Kết quả phải luôn được tính lại từ giá trị mới nhất của các ô mỗi lần bấm, không phải một con số cố định.\n\nGợi ý: Chuyển giá trị sang `Number`, có thể viết hàm `sumAll(...nums)` dùng rest parameters",
+  "files": {
+    "html": "<input id=\"n1\" type=\"number\" value=\"2\" />\n<input id=\"n2\" type=\"number\" value=\"3\" />\n<input id=\"n3\" type=\"number\" value=\"5\" />\n<button id=\"sumBtn\">Tính tổng</button>\n<p id=\"sumResult\"></p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: function sumAll(...nums) { return nums.reduce((a, b) => a + b, 0); }\n",
+  "checks": [
+    {
+      "label": "Cộng nhiều số với rest parameters",
+      "points": 15,
+      "checker": "const n1 = doc.getElementById('n1'); const n2 = doc.getElementById('n2'); const n3 = doc.getElementById('n3'); const btn = doc.getElementById('sumBtn'); const out = doc.getElementById('sumResult'); if (!n1 || !n2 || !n3 || !btn || !out) return { pass: false, message: 'Không tìm thấy #n1, #n2, #n3, #sumBtn hoặc #sumResult.' }; btn.click(); if (out.textContent.trim() !== '10') return { pass: false, message: 'Với 2 + 3 + 5, #sumResult phải là \"10\", hiện đang là \"' + out.textContent + '\".' }; n1.value = '100'; n2.value = '1'; n3.value = '1'; btn.click(); if (out.textContent.trim() !== '102') return { pass: false, message: 'Sau khi đổi thành 100 + 1 + 1 và bấm lại, #sumResult phải là \"102\", hiện đang là \"' + out.textContent + '\". Đừng gán cứng kết quả, hãy đọc lại giá trị input mỗi lần bấm.' }; return { pass: true, message: 'Chính xác!' };"
+    }
+  ]
+}

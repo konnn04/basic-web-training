@@ -1,0 +1,34 @@
+{
+  "id": "q4-dropdown-menu",
+  "title": "Menu thả xuống ẩn/hiện + định vị + bo góc",
+  "description": "`.dropdown` chứa `.dropdown-menu` (mặc định ẩn) và khi `.dropdown` có class `open` thì menu hiện ra. Menu cần ẩn hoàn toàn khi đóng, và chỉ hiện ra khi `.dropdown` ở trạng thái mở (đã có sẵn class `open` trong HTML mẫu để bạn xem trước kết quả). Khi hiện, menu cần định vị ngay dưới nút (không đẩy layout xung quanh) và có góc bo tròn nhẹ.\n\nGợi ý: `display: none` mặc định cho `.dropdown-menu`; `.dropdown.open .dropdown-menu { display: block; }`; `position: absolute` (cha `.dropdown` đã `position: relative` sẵn); `border-radius` tối thiểu 4px.",
+  "files": {
+    "html": "<div class=\"dropdown open\" style=\"position:relative;width:150px;\">\n  <button>Tùy chọn ▾</button>\n  <div class=\"dropdown-menu\" style=\"background:#fff;border:1px solid #ccc;\">\n    <p>Mục 1</p>\n    <p>Mục 2</p>\n  </div>\n</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.dropdown-menu {\n\n}\n.dropdown.open .dropdown-menu {\n\n}\n",
+  "checks": [
+    {
+      "label": ".dropdown-menu định vị ngay dưới nút (position: absolute)",
+      "points": 9,
+      "checker": "const menu = doc.querySelector('.dropdown-menu'); if (!menu) return { pass: false, message: 'Không tìm thấy .dropdown-menu.' }; const ms = win.getComputedStyle(menu); if (ms.position !== 'absolute') return { pass: false, message: '.dropdown-menu cần position: absolute (hiện tại: ' + ms.position + ').' }; return { pass: true, message: 'Chính xác! Menu đã định vị bằng position: absolute.' };"
+    },
+    {
+      "label": ".dropdown-menu có góc bo tròn nhẹ",
+      "points": 9,
+      "checker": "const menu = doc.querySelector('.dropdown-menu'); if (!menu) return { pass: false, message: 'Không tìm thấy .dropdown-menu.' }; const ms = win.getComputedStyle(menu); const radius = parseFloat(ms.borderTopLeftRadius) || 0; if (radius < 4) return { pass: false, message: '.dropdown-menu cần border-radius tối thiểu 4px (hiện tại: ' + ms.borderTopLeftRadius + ').' }; return { pass: true, message: 'Chính xác! Menu đã có góc bo tròn.' };"
+    },
+    {
+      "label": ".dropdown.open .dropdown-menu hiện ra (display: block)",
+      "points": 9,
+      "checker": "const menu = doc.querySelector('.dropdown-menu'); if (!menu) return { pass: false, message: 'Không tìm thấy .dropdown-menu.' }; const ms = win.getComputedStyle(menu); if (ms.display !== 'block') return { pass: false, message: '.dropdown.open .dropdown-menu cần display: block để hiện menu (hiện tại: ' + ms.display + ', lưu ý .dropdown trong HTML đã có class open sẵn).' }; return { pass: true, message: 'Chính xác! Menu đã hiện ra khi .dropdown có class open.' };"
+    },
+    {
+      "label": ".dropdown-menu ẩn hoàn toàn khi đóng (display: none mặc định)",
+      "points": 8,
+      "checker": "const defaultMatch = code.match(/(?<!\\.open\\s)\\.dropdown-menu\\s*\\{([^}]*)\\}/); if (!defaultMatch || !/display\\s*:\\s*none/i.test(defaultMatch[1])) return { pass: false, message: '.dropdown-menu (mặc định, không phải khi .open) cần display: none để ẩn menu khi đóng.' }; return { pass: true, message: 'Chính xác! Menu đã ẩn hoàn toàn ở trạng thái đóng.' };"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "q9-tooltip-position-absolute",
+  "title": "Định vị badge góc bằng position: absolute",
+  "description": "`.avatar-wrap` là khung chứa ảnh đại diện. Hãy định vị `.status-dot` (chấm trạng thái online) nằm chính xác ở góc trên bên phải của khung, giống hiệu ứng thường thấy trên các ứng dụng chat.\n\nGợi ý: dùng `position: absolute` cùng `top: 0; right: 0;` (khung cha `.avatar-wrap` đã có `position: relative` sẵn trong HTML).",
+  "files": {
+    "html": "<div class=\"avatar-wrap\" style=\"position:relative;width:60px;height:60px;background:#ccc;\">\n  <span class=\"status-dot\" style=\"width:12px;height:12px;background:green;border-radius:50%;\"></span>\n</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.status-dot {\n\n}\n",
+  "checks": [
+    {
+      "label": ".status-dot định vị đúng góc trên-phải bằng position: absolute",
+      "points": 20,
+      "checker": "const el = doc.querySelector('.status-dot'); if (!el) return { pass: false, message: 'Không tìm thấy .status-dot.' }; const s = win.getComputedStyle(el); if (s.position !== 'absolute') return { pass: false, message: '.status-dot cần position: absolute (hiện tại: ' + s.position + ').' }; if (s.top !== '0px') return { pass: false, message: '.status-dot cần top: 0 (hiện tại: ' + s.top + ').' }; if (s.right !== '0px') return { pass: false, message: '.status-dot cần right: 0 (hiện tại: ' + s.right + ').' }; return { pass: true, message: 'Chính xác! Chấm trạng thái đã nằm đúng góc.' };"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "q21-border-style-dashed",
+  "title": "Viền đứt nét",
+  "description": "Hộp có class `divider` đã có sẵn độ dày và màu viền. Hãy đổi kiểu viền từ nét liền sang nét đứt.\n\nGợi ý: dùng thuộc tính `border-style`, giá trị `dashed`.",
+  "files": {
+    "html": "<div class=\"divider\" style=\"width:200px;height:40px;border-width:2px;border-color:#333333;\"></div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.divider {\n\n}\n",
+  "checks": [
+    {
+      "label": ".divider có border-style dashed",
+      "points": 5,
+      "checker": "const el = doc.querySelector('.divider'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử .divider.' }; const style = win.getComputedStyle(el).borderTopStyle; if (style === 'dashed') return { pass: true, message: 'Chính xác! Viền đã thành nét đứt.' }; return { pass: false, message: 'border-style hiện tại là ' + style + ', cần là dashed.' };"
+    }
+  ]
+}

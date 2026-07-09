@@ -1,0 +1,19 @@
+{
+  "id": "q4-shopping-cart",
+  "title": "Giỏ hàng: thêm sản phẩm và tính tổng tiền",
+  "description": "Biến toàn cục `window.catalog` là danh mục sản phẩm `{ id, name, price }`. Có sẵn các nút thêm vào giỏ `.add-to-cart-btn` (mỗi nút có `data-id` tương ứng), danh sách `<ul id=\"cartList\">` và tổng tiền `<p id=\"cartTotal\">`. Mỗi lần bấm một nút thêm giỏ hàng, sản phẩm tương ứng cần được thêm thành một dòng mới `<li class=\"cart-item\">Tên: Giá</li>` vào cuối `#cartList` (bấm nhiều lần cùng một sản phẩm thì thêm nhiều dòng riêng biệt, không gộp lại), và `#cartTotal` phải luôn phản ánh đúng tổng tiền của toàn bộ các dòng đang có trong giỏ.\n\nGợi ý: Dùng `querySelectorAll('.add-to-cart-btn')` với `forEach` để gắn sự kiện cho từng nút, đọc `data-id` bằng `dataset.id` hoặc `getAttribute`",
+  "files": {
+    "html": "<script>window.catalog = [{ id: '1', name: 'Bút', price: 5 }, { id: '2', name: 'Vở', price: 8 }, { id: '3', name: 'Thước', price: 3 }, { id: '4', name: 'Gôm', price: 2 }];</script>\n<button class=\"add-to-cart-btn\" data-id=\"1\">Thêm Bút</button>\n<button class=\"add-to-cart-btn\" data-id=\"2\">Thêm Vở</button>\n<button class=\"add-to-cart-btn\" data-id=\"3\">Thêm Thước</button>\n<button class=\"add-to-cart-btn\" data-id=\"4\">Thêm Gôm</button>\n<ul id=\"cartList\"></ul>\n<p id=\"cartTotal\">0</p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// window.catalog có sẵn mảng object { id, name, price }\n// Gợi ý: dùng querySelectorAll('.add-to-cart-btn') và forEach để gắn sự kiện cho từng nút\n",
+  "checks": [
+    {
+      "label": "Giỏ hàng: thêm sản phẩm và tính tổng tiền",
+      "points": 35,
+      "checker": "const cartList = doc.getElementById('cartList'); const total = doc.getElementById('cartTotal'); const btn1 = doc.querySelector('.add-to-cart-btn[data-id=\"1\"]'); const btn2 = doc.querySelector('.add-to-cart-btn[data-id=\"2\"]'); const btn3 = doc.querySelector('.add-to-cart-btn[data-id=\"3\"]'); const btn4 = doc.querySelector('.add-to-cart-btn[data-id=\"4\"]'); if (!cartList || !total || !btn1 || !btn2 || !btn3 || !btn4) return { pass: false, message: 'Thiếu #cartList, #cartTotal hoặc một trong các nút .add-to-cart-btn (data-id 1-4).' }; btn1.click(); let items = Array.from(cartList.querySelectorAll('.cart-item')).map(li => li.textContent.trim()); if (items.length !== 1 || items[0] !== 'Bút: 5') return { pass: false, message: 'Sau khi thêm Bút, giỏ hàng phải chứa [\"Bút: 5\"], hiện đang là [' + items.join(', ') + '].' }; if (total.textContent.trim() !== '5') return { pass: false, message: '#cartTotal đang là \"' + total.textContent + '\", cần là \"5\".' }; btn2.click(); btn3.click(); btn4.click(); items = Array.from(cartList.querySelectorAll('.cart-item')).map(li => li.textContent.trim()); if (items.length !== 4) return { pass: false, message: 'Sau khi thêm Vở, Thước và Gôm, giỏ hàng phải có 4 mục, hiện có ' + items.length + '.' }; if (total.textContent.trim() !== '18') return { pass: false, message: '#cartTotal đang là \"' + total.textContent + '\", cần là \"18\" (5 + 8 + 3 + 2).' }; btn1.click(); items = Array.from(cartList.querySelectorAll('.cart-item')).map(li => li.textContent.trim()); if (items.length !== 5) return { pass: false, message: 'Bấm thêm Bút lần thứ hai phải tạo thêm một dòng MỚI (không gộp), giỏ hàng phải có 5 mục, hiện có ' + items.length + '.' }; if (total.textContent.trim() !== '23') return { pass: false, message: 'Sau khi thêm Bút lần 2, #cartTotal phải là \"23\", hiện đang là \"' + total.textContent + '\".' }; return { pass: true, message: 'Chính xác!' };"
+    }
+  ]
+}

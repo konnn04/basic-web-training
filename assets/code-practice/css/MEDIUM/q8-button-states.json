@@ -1,0 +1,29 @@
+{
+  "id": "q8-button-states",
+  "title": "Nút bấm với trạng thái hover và focus",
+  "description": "`.action-btn` cần hoạt động như một nút bấm thực thụ với đủ trạng thái: màu nền xanh dương (`#3366ff`) ở trạng thái bình thường, nền đậm hơn (`#254edb`) khi rê chuột vào, và có viền nổi bật (khác `none`) khi được chọn bằng bàn phím (focus) để đảm bảo khả năng tiếp cận.\n\nGợi ý: dùng `background-color` cho trạng thái thường và `:hover`, và `outline` cho `:focus`.",
+  "files": {
+    "html": "<button class=\"action-btn\">Gửi</button>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.action-btn {\n\n}\n.action-btn:hover {\n\n}\n.action-btn:focus {\n\n}\n",
+  "checks": [
+    {
+      "label": ".action-btn có nền xanh dương ở trạng thái bình thường",
+      "points": 7,
+      "checker": "const el = doc.querySelector('.action-btn'); if (!el) return { pass: false, message: 'Không tìm thấy .action-btn.' }; const base = win.getComputedStyle(el).backgroundColor; if (base !== 'rgb(51, 102, 255)') return { pass: false, message: '.action-btn cần background-color rgb(51, 102, 255) (hiện tại: ' + base + ').' }; return { pass: true, message: 'Chính xác! Nền nút đã đúng màu xanh dương.' };"
+    },
+    {
+      "label": ".action-btn:hover có nền đậm hơn rgb(37, 78, 219)",
+      "points": 7,
+      "checker": "const el = doc.querySelector('.action-btn'); if (!el) return { pass: false, message: 'Không tìm thấy .action-btn.' }; const hoverMatch = code.match(/\\.action-btn\\s*:hover\\s*\\{([^}]*)\\}/); if (!hoverMatch || !/background(-color)?\\s*:\\s*(#254edb|rgb\\(\\s*37\\s*,\\s*78\\s*,\\s*219\\s*\\))/i.test(hoverMatch[1])) return { pass: false, message: '.action-btn:hover cần background-color đậm hơn rgb(37, 78, 219).' }; return { pass: true, message: 'Chính xác! Nền nút đậm hơn khi hover.' };"
+    },
+    {
+      "label": ".action-btn:focus có outline rõ ràng (khác none)",
+      "points": 6,
+      "checker": "const el = doc.querySelector('.action-btn'); if (!el) return { pass: false, message: 'Không tìm thấy .action-btn.' }; const focusMatch = code.match(/\\.action-btn\\s*:focus\\s*\\{([^}]*)\\}/); if (!focusMatch || /outline\\s*:\\s*none/i.test(focusMatch[1]) || !/outline\\s*:/i.test(focusMatch[1])) return { pass: false, message: '.action-btn:focus cần có outline khác none.' }; return { pass: true, message: 'Chính xác! Nút có outline rõ ràng khi focus.' };"
+    }
+  ]
+}

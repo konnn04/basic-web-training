@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { loadCodePracticeSets } from "@/lib/code-practice/load-sets";
+import { questionPoints } from "@/lib/code-practice/types";
 
 export async function GET() {
   try {
@@ -14,7 +15,7 @@ export async function GET() {
       0
     );
     const totalPoints = [...cssSets, ...jsSets].reduce(
-      (sum, set) => sum + set.questions.reduce((s, q) => s + q.points, 0),
+      (sum, set) => sum + set.questions.reduce((s, q) => s + questionPoints(q), 0),
       0
     );
 

@@ -1,0 +1,19 @@
+{
+  "id": "q14-multiply-two-inputs",
+  "title": "Nhân hai số nhập vào",
+  "description": "Có hai ô nhập `#num1` (giá trị `4`) và `#num2` (giá trị `5`), và nút `#calcBtn`. Khi bấm nút, tính tích của hai số đang nhập và hiển thị kết quả vào `#product` (dạng chuỗi, ví dụ `\"20\"`). Kết quả phải luôn được tính lại từ giá trị hiện tại của hai ô nhập mỗi lần bấm, không phải một con số cố định.\n\nGợi ý: Dùng `Number()` để chuyển value sang số, gắn `addEventListener('click', ...)`",
+  "files": {
+    "html": "<input id=\"num1\" type=\"number\" value=\"4\" />\n<input id=\"num2\" type=\"number\" value=\"5\" />\n<button id=\"calcBtn\">Tính</button>\n<p id=\"product\"></p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: Number(document.getElementById('num1').value)\n",
+  "checks": [
+    {
+      "label": "Nhân hai số nhập vào",
+      "points": 10,
+      "checker": "const btn = doc.getElementById('calcBtn'); const out = doc.getElementById('product'); const n1 = doc.getElementById('num1'); const n2 = doc.getElementById('num2'); if (!btn || !out || !n1 || !n2) return { pass: false, message: 'Không tìm thấy #calcBtn, #product, #num1 hoặc #num2.' }; btn.click(); if (out.textContent.trim() !== '20') return { pass: false, message: 'Với 4 x 5, #product đang là \"' + out.textContent + '\", cần là \"20\".' }; n1.value = '7'; n2.value = '6'; btn.click(); if (out.textContent.trim() !== '42') return { pass: false, message: 'Sau khi đổi thành 7 x 6 rồi bấm lại, #product đang là \"' + out.textContent + '\", cần là \"42\". Hãy đọc giá trị input mỗi lần bấm, đừng gán cứng một kết quả.' }; n1.value = '0'; n2.value = '9'; btn.click(); if (out.textContent.trim() !== '0') return { pass: false, message: 'Sau khi đổi thành 0 x 9 rồi bấm lại, #product đang là \"' + out.textContent + '\", cần là \"0\".' }; return { pass: true, message: 'Chính xác!' };"
+    }
+  ]
+}

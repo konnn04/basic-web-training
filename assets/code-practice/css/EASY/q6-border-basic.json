@@ -1,0 +1,19 @@
+{
+  "id": "q6-border-basic",
+  "title": "Thêm viền cho hộp",
+  "description": "Hộp có class `card`. Hãy thêm cho nó một đường viền đen liền nét, dày 2px để trông giống một khung card rõ ràng.\n\nGợi ý: dùng thuộc tính `border` (ví dụ `border: 2px solid #000000;`).",
+  "files": {
+    "html": "<div class=\"card\" style=\"width:120px;height:80px;\"></div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.card {\n\n}\n",
+  "checks": [
+    {
+      "label": ".card có viền 2px solid đen",
+      "points": 5,
+      "checker": "const el = doc.querySelector('.card'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử .card.' }; const style = win.getComputedStyle(el); const width = style.borderTopWidth; const stylekind = style.borderTopStyle; const color = style.borderTopColor; if (width === '2px' && stylekind === 'solid' && color === 'rgb(0, 0, 0)') return { pass: true, message: 'Chính xác! Viền đã đúng 2px solid đen.' }; return { pass: false, message: 'Viền hiện tại: ' + width + ' ' + stylekind + ' ' + color + ', cần 2px solid rgb(0, 0, 0).' };"
+    }
+  ]
+}

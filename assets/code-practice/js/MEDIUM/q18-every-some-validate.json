@@ -1,0 +1,19 @@
+{
+  "id": "q18-every-some-validate",
+  "title": "Kiểm tra điều kiện toàn mảng với every/some",
+  "description": "Biến toàn cục `window.ages` là danh sách tuổi. Có nút `#checkBtn` và `<p id=\"ageCheckResult\">`. Khi bấm nút, cần kiểm tra xem TẤT CẢ mọi người trong danh sách đã đủ 18 tuổi hay chưa: nếu đúng hiển thị `Tất cả hợp lệ`, nếu có ít nhất một người chưa đủ tuổi thì hiển thị `Có người chưa đủ tuổi`. Kết quả phải luôn dựa trên danh sách mới nhất tại thời điểm bấm.\n\nGợi ý: Dùng `every()` (và/hoặc `some()`)",
+  "files": {
+    "html": "<script>window.ages = [15, 22, 19, 30];</script>\n<button id=\"checkBtn\">Kiểm tra</button>\n<p id=\"ageCheckResult\"></p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// window.ages có sẵn mảng số tuổi\n// Gợi ý: window.ages.every(age => age >= 18)\n",
+  "checks": [
+    {
+      "label": "Kiểm tra điều kiện toàn mảng với every/some",
+      "points": 15,
+      "checker": "const btn = doc.getElementById('checkBtn'); const out = doc.getElementById('ageCheckResult'); if (!btn || !out) return { pass: false, message: 'Không tìm thấy #checkBtn hoặc #ageCheckResult.' }; btn.click(); if (out.textContent.trim() !== 'Có người chưa đủ tuổi') return { pass: false, message: 'Với window.ages = [15, 22, 19, 30] (có phần tử 15 < 18), #ageCheckResult phải là \"Có người chưa đủ tuổi\", hiện đang là \"' + out.textContent + '\".' }; win.ages = [20, 25, 30]; btn.click(); if (out.textContent.trim() !== 'Tất cả hợp lệ') return { pass: false, message: 'Sau khi đổi window.ages = [20, 25, 30] (tất cả >= 18) và bấm lại, #ageCheckResult phải là \"Tất cả hợp lệ\", hiện đang là \"' + out.textContent + '\". Đừng gán cứng một kết quả, hãy kiểm tra lại window.ages mỗi lần bấm.' }; return { pass: true, message: 'Chính xác!' };"
+    }
+  ]
+}

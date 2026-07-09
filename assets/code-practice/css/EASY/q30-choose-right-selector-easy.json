@@ -1,0 +1,19 @@
+{
+  "id": "q30-choose-right-selector-easy",
+  "title": "Chọn đúng phần tử, không chọn nhầm",
+  "description": "Trang có 2 tiêu đề `.title`: một nằm trong `.sidebar`, một nằm trong `.content`. Hãy chỉ đổi màu chữ của tiêu đề nằm trong `.content` sang xanh dương đậm (`#003366`), còn tiêu đề trong `.sidebar` phải giữ nguyên màu đen mặc định. Hãy suy nghĩ kỹ để chọn đúng selector, tránh ảnh hưởng nhầm sang tiêu đề kia.\n\nGợi ý: dùng descendant selector `.content .title` và thuộc tính `color`.",
+  "files": {
+    "html": "<div class=\"sidebar\">\n  <h3 class=\"title\">Danh mục</h3>\n</div>\n<div class=\"content\">\n  <h3 class=\"title\">Bài viết mới</h3>\n</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.content .title {\n\n}\n",
+  "checks": [
+    {
+      "label": "Chỉ tiêu đề trong .content đổi màu xanh đậm",
+      "points": 10,
+      "checker": "const sidebarTitle = doc.querySelector('.sidebar .title'); const contentTitle = doc.querySelector('.content .title'); if (!sidebarTitle || !contentTitle) return { pass: false, message: 'Không tìm thấy đủ 2 tiêu đề .title.' }; const cColor = win.getComputedStyle(contentTitle).color; const sColor = win.getComputedStyle(sidebarTitle).color; if (cColor !== 'rgb(0, 51, 102)') return { pass: false, message: '.content .title cần màu rgb(0, 51, 102) (hiện tại: ' + cColor + ').' }; if (sColor === 'rgb(0, 51, 102)') return { pass: false, message: '.sidebar .title không được đổi màu, chỉ .content .title mới đổi. Selector của bạn đang chọn nhầm cả hai.' }; return { pass: true, message: 'Chính xác! Chỉ tiêu đề trong .content đã đổi màu.' };"
+    }
+  ]
+}

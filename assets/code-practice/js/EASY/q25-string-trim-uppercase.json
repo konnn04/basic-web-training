@@ -1,0 +1,19 @@
+{
+  "id": "q25-string-trim-uppercase",
+  "title": "Chuẩn hóa chuỗi với trim và toUpperCase",
+  "description": "Biến toàn cục `window.rawText` chứa chuỗi `\"  Hello World  \"` (thừa khoảng trắng hai đầu). Hãy chuẩn hóa chuỗi này: loại bỏ khoảng trắng thừa và chuyển toàn bộ thành chữ hoa, rồi hiển thị kết quả lên `#cleanText`.\n\nGợi ý: Dùng `trim()` và `toUpperCase()`",
+  "files": {
+    "html": "<script>window.rawText = '  Hello World  ';</script>\n<p id=\"cleanText\"></p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: window.rawText.trim().toUpperCase()\n",
+  "checks": [
+    {
+      "label": "Chuẩn hóa chuỗi với trim và toUpperCase",
+      "points": 10,
+      "checker": "const el = doc.getElementById('cleanText'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử #cleanText.' }; if (el.textContent.trim() === 'HELLO WORLD') return { pass: true, message: 'Chính xác!' }; return { pass: false, message: 'Nội dung hiện tại: \"' + el.textContent + '\", cần đúng: \"HELLO WORLD\".' };"
+    }
+  ]
+}

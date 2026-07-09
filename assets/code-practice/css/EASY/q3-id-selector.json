@@ -1,0 +1,19 @@
+{
+  "id": "q3-id-selector",
+  "title": "Chọn theo id",
+  "description": "Thẻ tiêu đề có `id=\"main-title\"`. Hãy dùng **id selector** `#main-title` để đặt độ dày chữ đậm hơn.\n\nGợi ý: dùng thuộc tính `font-weight`, giá trị `bold`.",
+  "files": {
+    "html": "<h1 id=\"main-title\">Tiêu đề trang</h1>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n#main-title {\n\n}\n",
+  "checks": [
+    {
+      "label": "#main-title có font-weight bold",
+      "points": 5,
+      "checker": "const el = doc.getElementById('main-title'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử #main-title.' }; const weight = win.getComputedStyle(el).fontWeight; if (weight === '700' || weight === 'bold') return { pass: true, message: 'Chính xác! Tiêu đề đã in đậm.' }; return { pass: false, message: 'font-weight hiện tại là ' + weight + ', cần là bold (700).' };"
+    }
+  ]
+}

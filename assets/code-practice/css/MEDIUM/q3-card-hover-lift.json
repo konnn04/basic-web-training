@@ -1,0 +1,19 @@
+{
+  "id": "q3-card-hover-lift",
+  "title": "Card nhấc lên khi hover",
+  "description": "`.lift-card` cần có cảm giác 'nhấc lên' khi người dùng rê chuột vào, như thể nó nổi lên khỏi trang.\n\nGợi ý: dùng `:hover` với `transform: translateY(-Npx)`, N là số dương bất kỳ (ví dụ `translateY(-6px)`).",
+  "files": {
+    "html": "<div class=\"lift-card\" style=\"width:180px;height:100px;background:#f5f5f5;\">Rê chuột vào đây</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.lift-card:hover {\n\n}\n",
+  "checks": [
+    {
+      "label": ".lift-card nhấc lên (translateY âm) khi hover",
+      "points": 15,
+      "checker": "const match = code.match(/\\.lift-card\\s*:hover\\s*\\{([^}]*)\\}/); if (!match) return { pass: false, message: 'Không tìm thấy rule .lift-card:hover { ... }.' }; const body = match[1]; const tm = body.match(/transform\\s*:\\s*translateY\\(\\s*-([0-9.]+)px\\s*\\)/i); if (!tm) return { pass: false, message: 'Cần dùng transform: translateY(-Npx) với N > 0 trong .lift-card:hover.' }; if (parseFloat(tm[1]) <= 0) return { pass: false, message: 'Giá trị dịch chuyển phải âm (đi lên), ví dụ translateY(-6px).' }; return { pass: true, message: 'Chính xác! Card sẽ nhấc lên khi hover.' };"
+    }
+  ]
+}

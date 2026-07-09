@@ -1,0 +1,19 @@
+{
+  "id": "q11-two-column-form",
+  "title": "Form 2 cột bằng Flexbox",
+  "description": "`.form-row` chứa 2 ô `.form-field` (Họ tên, Email). Hãy sắp xếp chúng nằm cạnh nhau theo hàng ngang và chia đều không gian bằng nhau, giống một form đăng ký 2 cột thực tế.\n\nGợi ý: dùng Flexbox trên `.form-row`, và `flex: 1` trên mỗi `.form-field`.",
+  "files": {
+    "html": "<div class=\"form-row\" style=\"width:300px;\">\n  <div class=\"form-field\" style=\"background:#eee;\">Họ tên</div>\n  <div class=\"form-field\" style=\"background:#ddd;\">Email</div>\n</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.form-row {\n\n}\n.form-field {\n\n}\n",
+  "checks": [
+    {
+      "label": ".form-row chia đều 2 cột bằng Flexbox (flex: 1)",
+      "points": 20,
+      "checker": "const row = doc.querySelector('.form-row'); const fields = doc.querySelectorAll('.form-field'); if (!row || fields.length !== 2) return { pass: false, message: 'Không tìm thấy .form-row hoặc đủ 2 .form-field.' }; const rs = win.getComputedStyle(row); if (rs.display !== 'flex') return { pass: false, message: '.form-row cần display: flex (hiện tại: ' + rs.display + ').' }; const w1 = fields[0].getBoundingClientRect().width; const w2 = fields[1].getBoundingClientRect().width; if (Math.abs(w1 - w2) > 2) return { pass: false, message: '2 ô cần có chiều rộng bằng nhau (hiện tại: ' + w1.toFixed(0) + 'px và ' + w2.toFixed(0) + 'px). Hãy dùng flex: 1 trên mỗi .form-field.' }; if (w1 < 100) return { pass: false, message: 'Các ô chưa giãn để lấp đầy .form-row, hãy dùng flex: 1.' }; return { pass: true, message: 'Chính xác! Form đã chia đều 2 cột.' };"
+    }
+  ]
+}

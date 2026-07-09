@@ -1,0 +1,24 @@
+{
+  "id": "q21-flex-pagination",
+  "title": "Điều khiển phân trang bằng Flexbox",
+  "description": "`.pagination` chứa các nút số trang `.page-item`. Hãy sắp xếp chúng nằm ngang cạnh nhau với khoảng cách đều 8px, và làm nút trang hiện tại (`.page-item.active`) nổi bật hơn với nền xanh dương và chữ trắng.\n\nGợi ý: dùng `display: flex` + `gap` trên `.pagination`, và `background-color: #3366ff; color: #ffffff;` cho `.page-item.active`.",
+  "files": {
+    "html": "<div class=\"pagination\">\n  <span class=\"page-item\">1</span>\n  <span class=\"page-item active\">2</span>\n  <span class=\"page-item\">3</span>\n  <span class=\"page-item\">4</span>\n</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.pagination {\n\n}\n.page-item.active {\n\n}\n",
+  "checks": [
+    {
+      "label": ".pagination xếp hàng ngang với gap tối thiểu 8px",
+      "points": 10,
+      "checker": "const pag = doc.querySelector('.pagination'); if (!pag) return { pass: false, message: 'Không tìm thấy .pagination.' }; const s = win.getComputedStyle(pag); if (s.display !== 'flex') return { pass: false, message: '.pagination cần display: flex (hiện tại: ' + s.display + ').' }; const gap = parseFloat(s.gap || s.columnGap) || 0; if (gap < 8) return { pass: false, message: '.pagination cần gap tối thiểu 8px (hiện tại: ' + s.gap + ').' }; return { pass: true, message: 'Chính xác! Các nút trang đã dàn hàng ngang với khoảng cách đều.' };"
+    },
+    {
+      "label": ".page-item.active nổi bật với nền xanh dương, chữ trắng",
+      "points": 10,
+      "checker": "const active = doc.querySelector('.page-item.active'); if (!active) return { pass: false, message: 'Không tìm thấy .page-item.active.' }; const as = win.getComputedStyle(active); if (as.backgroundColor !== 'rgb(51, 102, 255)') return { pass: false, message: '.page-item.active cần background-color rgb(51, 102, 255) (hiện tại: ' + as.backgroundColor + ').' }; if (as.color !== 'rgb(255, 255, 255)') return { pass: false, message: '.page-item.active cần color rgb(255, 255, 255) (hiện tại: ' + as.color + ').' }; return { pass: true, message: 'Chính xác! Nút trang hiện tại đã nổi bật.' };"
+    }
+  ]
+}
