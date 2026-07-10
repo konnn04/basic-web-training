@@ -1,0 +1,29 @@
+{
+  "id": "q19-numbered-steps-counter",
+  "title": "Đánh số các bước bằng CSS counter",
+  "description": "Danh sách các bước `.steps` gồm nhiều mục `.step` (không có số thứ tự trong HTML, không dùng thẻ `<ol>`). Hãy tự động đánh số các bước bằng CSS counter: số thứ tự hiện trước mỗi bước dưới dạng một vòng tròn nhỏ có nền màu và chữ số bên trong.\n\nGợi ý: dùng `counter-reset` trên `.steps`, `counter-increment` trên `.step`, và `.step::before` với `content: counter(step-counter)` cùng `background-color` và `border-radius: 50%`.",
+  "files": {
+    "html": "<div class=\"steps\">\n  <div class=\"step\">Tạo tài khoản</div>\n  <div class=\"step\">Xác thực email</div>\n  <div class=\"step\">Hoàn tất hồ sơ</div>\n</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.steps {\n\n}\n.step {\n\n}\n.step::before {\n\n}\n",
+  "checks": [
+    {
+      "label": ".steps khởi tạo bộ đếm bằng counter-reset",
+      "points": 12,
+      "checker": "if (!/counter-reset\\s*:/.test(code)) return { pass: false, message: 'Cần dùng counter-reset trên .steps để khởi tạo bộ đếm.' }; return { pass: true, message: 'Chính xác! Bộ đếm đã được khởi tạo.' };"
+    },
+    {
+      "label": ".step tăng bộ đếm bằng counter-increment",
+      "points": 12,
+      "checker": "if (!/counter-increment\\s*:/.test(code)) return { pass: false, message: 'Cần dùng counter-increment trên .step để tăng bộ đếm ở mỗi bước.' }; return { pass: true, message: 'Chính xác! Bộ đếm đã tăng ở mỗi bước.' };"
+    },
+    {
+      "label": ".step::before hiển thị số thứ tự trong vòng tròn có nền",
+      "points": 11,
+      "checker": "const beforeMatch = code.match(/\\.step\\s*::before\\s*\\{([^}]*)\\}/); if (!beforeMatch) return { pass: false, message: 'Không tìm thấy rule .step::before { ... }.' }; const body = beforeMatch[1]; if (!/content\\s*:\\s*counter\\(/.test(body)) return { pass: false, message: '.step::before cần content: counter(...) để hiển thị số thứ tự.' }; if (!/border-radius\\s*:\\s*50%/.test(body)) return { pass: false, message: '.step::before cần border-radius: 50% để thành hình tròn.' }; if (!/background(-color)?\\s*:/.test(body)) return { pass: false, message: '.step::before cần background-color để làm nền vòng tròn số.' }; const el = doc.querySelector('.step'); if (!el) return { pass: false, message: 'Không tìm thấy .step.' }; const before = win.getComputedStyle(el, '::before'); if (!before.content || before.content === 'none' || before.content === '\"\"') return { pass: false, message: '::before của .step chưa hiển thị nội dung nào, kiểm tra lại content: counter(...).' }; return { pass: true, message: 'Chính xác! Các bước đã được đánh số tự động.' };"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "q12-descendant-selector",
+  "title": "Selector con cháu (descendant)",
+  "description": "Bên trong `.list` có nhiều thẻ `<li>`. Hãy dùng **descendant selector** `.list li` để đổi màu chữ của tất cả các mục trong danh sách này sang xanh lá thuần (`#008000` / `green`). Lưu ý: không được ảnh hưởng tới `<li>` nằm ngoài `.list` (nếu có).\n\nGợi ý: dùng thuộc tính `color`.",
+  "files": {
+    "html": "<ul class=\"list\">\n  <li>Mục 1</li>\n  <li>Mục 2</li>\n  <li>Mục 3</li>\n</ul>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.list li {\n\n}\n",
+  "checks": [
+    {
+      "label": "Mọi .list li có màu chữ xanh lá",
+      "points": 10,
+      "checker": "const items = doc.querySelectorAll('.list li'); if (!items || items.length === 0) return { pass: false, message: 'Không tìm thấy các phần tử .list li.' }; for (const el of items) { const color = win.getComputedStyle(el).color; if (color !== 'rgb(0, 128, 0)') return { pass: false, message: 'Có mục màu ' + color + ', cần tất cả là rgb(0, 128, 0).' }; } return { pass: true, message: 'Chính xác! Tất cả các mục đã có màu xanh lá.' };"
+    }
+  ]
+}

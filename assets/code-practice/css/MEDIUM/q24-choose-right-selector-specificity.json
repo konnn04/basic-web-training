@@ -1,0 +1,19 @@
+{
+  "id": "q24-choose-right-selector-specificity",
+  "title": "Ghi đè đúng bằng độ ưu tiên selector",
+  "description": "Nút `.btn` có `id=\"submit-btn\"`. Trong CSS đã có sẵn rule dùng chung cho mọi nút `.btn` (nền xám). Hãy chỉ đổi riêng nút có id `submit-btn` sang nền xanh lá, mà không sửa hay xoá rule `.btn` đã có, và không được để nút còn lại (chỉ có class `.btn`) bị ảnh hưởng theo.\n\nGợi ý: dùng id selector `#submit-btn` với `background-color: #28a745;` — id có độ ưu tiên (specificity) cao hơn class nên sẽ ghi đè đúng nút bạn muốn.",
+  "files": {
+    "html": "<button class=\"btn\" id=\"submit-btn\">Gửi</button>\n<button class=\"btn\">Huỷ</button>",
+    "css": ".btn { background-color: #cccccc; padding: 8px 14px; border: none; }",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n#submit-btn {\n\n}\n",
+  "checks": [
+    {
+      "label": "Chỉ #submit-btn đổi nền xanh lá, nút .btn còn lại giữ nguyên",
+      "points": 15,
+      "checker": "const submit = doc.getElementById('submit-btn'); const other = Array.from(doc.querySelectorAll('.btn')).find(b => b.id !== 'submit-btn'); if (!submit || !other) return { pass: false, message: 'Không tìm thấy đủ 2 nút .btn.' }; const subBg = win.getComputedStyle(submit).backgroundColor; const othBg = win.getComputedStyle(other).backgroundColor; if (subBg !== 'rgb(40, 167, 69)') return { pass: false, message: '#submit-btn cần background-color rgb(40, 167, 69) (hiện tại: ' + subBg + ').' }; if (othBg === 'rgb(40, 167, 69)') return { pass: false, message: 'Nút còn lại (chỉ có class .btn) không được đổi màu, selector của bạn đang ảnh hưởng nhầm.' }; return { pass: true, message: 'Chính xác! Chỉ nút có id #submit-btn đã đổi màu, nút kia vẫn giữ nguyên.' };"
+    }
+  ]
+}

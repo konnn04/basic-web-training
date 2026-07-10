@@ -1,0 +1,19 @@
+{
+  "id": "q6-pagination",
+  "title": "Phân trang danh sách dữ liệu",
+  "description": "Biến toàn cục `window.items` chứa 10 tên. Có danh sách `<ul id=\"pageList\">`, chỉ báo trang `<span id=\"pageInfo\">` và nút `#nextBtn`. Mỗi trang chỉ hiển thị 3 mục. Khi tải trang, cần hiển thị đúng trang đầu tiên (3 mục đầu) và chỉ báo `Trang 1/4`. Mỗi lần bấm `#nextBtn`, chuyển sang trang kế tiếp và cập nhật cả danh sách lẫn chỉ báo; khi đã ở trang cuối (có thể ít hơn 3 mục), bấm thêm không được gây lỗi và cũng không được chuyển trang nữa.\n\nGợi ý: Tính `startIndex`/`endIndex` từ số trang hiện tại và `slice()` mảng `window.items`",
+  "files": {
+    "html": "<script>window.items = ['A','B','C','D','E','F','G','H','I','J'];</script>\n<ul id=\"pageList\"></ul>\n<span id=\"pageInfo\"></span>\n<button id=\"nextBtn\">Trang sau</button>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// window.items có sẵn mảng 10 phần tử, mỗi trang hiển thị 3 mục -> tổng 4 trang\n",
+  "checks": [
+    {
+      "label": "Phân trang danh sách dữ liệu",
+      "points": 35,
+      "checker": "const list = doc.getElementById('pageList'); const info = doc.getElementById('pageInfo'); const btn = doc.getElementById('nextBtn'); if (!list || !info || !btn) return { pass: false, message: 'Không tìm thấy #pageList, #pageInfo hoặc #nextBtn.' }; let items = Array.from(list.querySelectorAll('li')).map(li => li.textContent.trim()); if (items.length !== 3 || items[0] !== 'A' || items[2] !== 'C') return { pass: false, message: 'Trang 1 phải hiển thị [A, B, C], hiện đang là [' + items.join(', ') + '].' }; if (info.textContent.trim() !== 'Trang 1/4') return { pass: false, message: '#pageInfo ban đầu phải là \"Trang 1/4\", hiện đang là \"' + info.textContent + '\".' }; btn.click(); items = Array.from(list.querySelectorAll('li')).map(li => li.textContent.trim()); if (items.length !== 3 || items[0] !== 'D') return { pass: false, message: 'Sau khi bấm 1 lần, trang 2 phải hiển thị [D, E, F], hiện đang là [' + items.join(', ') + '].' }; btn.click(); btn.click(); items = Array.from(list.querySelectorAll('li')).map(li => li.textContent.trim()); if (info.textContent.trim() !== 'Trang 4/4') return { pass: false, message: 'Sau 3 lần bấm, phải ở \"Trang 4/4\", hiện đang là \"' + info.textContent + '\".' }; if (items.length !== 1 || items[0] !== 'J') return { pass: false, message: 'Trang 4 (trang cuối) phải chỉ hiển thị [J], hiện đang là [' + items.join(', ') + '].' }; btn.click(); if (info.textContent.trim() !== 'Trang 4/4') return { pass: false, message: 'Ở trang cuối, bấm thêm không được đổi trang. #pageInfo phải vẫn là \"Trang 4/4\".' }; return { pass: true, message: 'Chính xác!' };"
+    }
+  ]
+}

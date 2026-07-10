@@ -1,0 +1,19 @@
+{
+  "id": "q26-attribute-selector-starts-with",
+  "title": "Selector thuộc tính (attribute selector)",
+  "description": "Có 2 liên kết: một trỏ ra ngoài (`href` bắt đầu bằng `https://`), một liên kết nội bộ (`href=\"/about\"`). Hãy chỉ đổi màu của liên kết trỏ ra ngoài sang xanh mòng két (teal, `rgb(0, 128, 128)`), liên kết nội bộ giữ nguyên.\n\nGợi ý: dùng **attribute selector** `a[href^=\"https://\"]` và thuộc tính `color`.",
+  "files": {
+    "html": "<p><a class=\"link\" href=\"https://example.com\">Trang ngoài</a></p>\n<p><a class=\"link\" href=\"/about\">Trang nội bộ</a></p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\na[href^=\"https://\"] {\n\n}\n",
+  "checks": [
+    {
+      "label": "Chỉ liên kết https:// đổi màu teal",
+      "points": 10,
+      "checker": "const links = doc.querySelectorAll('a.link'); if (!links || links.length < 2) return { pass: false, message: 'Không tìm thấy đủ 2 liên kết .link.' }; const external = Array.from(links).find(a => (a.getAttribute('href') || '').startsWith('https://')); const internal = Array.from(links).find(a => (a.getAttribute('href') || '').startsWith('/')); if (!external || !internal) return { pass: false, message: 'Không xác định được liên kết ngoài và liên kết nội bộ.' }; const colorExternal = win.getComputedStyle(external).color; const colorInternal = win.getComputedStyle(internal).color; if (colorExternal !== 'rgb(0, 128, 128)') return { pass: false, message: 'Liên kết https:// cần có màu rgb(0, 128, 128) (hiện tại: ' + colorExternal + ').' }; if (colorInternal === 'rgb(0, 128, 128)') return { pass: false, message: 'Liên kết nội bộ (/about) không được đổi màu.' }; return { pass: true, message: 'Chính xác! Chỉ liên kết ra ngoài (https://) đã đổi màu.' };"
+    }
+  ]
+}

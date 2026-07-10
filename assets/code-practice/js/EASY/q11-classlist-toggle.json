@@ -1,0 +1,19 @@
+{
+  "id": "q11-classlist-toggle",
+  "title": "Ẩn/hiện bằng classList.toggle",
+  "description": "Có nút `#toggleBtn` và thẻ `#panel` (đang ẩn nhờ class `hidden`). Mỗi lần bấm nút, panel cần bật/tắt hiển thị.\n\nGợi ý: Dùng `addEventListener('click', ...)` và `classList.toggle`",
+  "files": {
+    "html": "<button id=\"toggleBtn\">Ẩn/Hiện</button>\n<div id=\"panel\" class=\"hidden\">Nội dung</div>",
+    "css": ".hidden { display: none; }",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: document.getElementById('toggleBtn').addEventListener('click', ...)\n",
+  "checks": [
+    {
+      "label": "Ẩn/hiện bằng classList.toggle",
+      "points": 10,
+      "checker": "const btn = doc.getElementById('toggleBtn'); const panel = doc.getElementById('panel'); if (!btn || !panel) return { pass: false, message: 'Không tìm thấy #toggleBtn hoặc #panel.' }; const before = panel.classList.contains('hidden'); btn.click(); const afterOne = panel.classList.contains('hidden'); if (afterOne === before) return { pass: false, message: 'Sau khi bấm 1 lần, class \"hidden\" không thay đổi. Hãy dùng classList.toggle(\"hidden\").' }; btn.click(); const afterTwo = panel.classList.contains('hidden'); if (afterTwo !== before) return { pass: false, message: 'Sau khi bấm 2 lần, trạng thái class \"hidden\" phải quay lại như ban đầu.' }; return { pass: true, message: 'Chính xác! classList.toggle hoạt động đúng.' };"
+    }
+  ]
+}

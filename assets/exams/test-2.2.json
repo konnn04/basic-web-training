@@ -1,0 +1,978 @@
+{
+  "title": "Bài kiểm tra số 5 - HTML Cơ bản (Đề 2)",
+  "description": "HTML Elements, Attributes, Headings, Paragraphs, Styles, Formatting, Quotations, Comments, Colors, CSS, Links, Images, Favicon, Page Title, Tables, Lists, Block & Inline, Div, Classes, Id, Buttons, Iframes, JavaScript, File Paths, Head, Layout, Responsive",
+  "category": "HTML",
+  "date": "2026-06-12",
+  "duration": 30,
+  "random": true,
+  "questions": [
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Đâu là cấu trúc đúng của một phần tử HTML?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "<tên_thẻ>Nội dung</tên_thẻ>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "{tên_thẻ}Nội dung{/tên_thẻ}",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "(tên_thẻ)Nội dung(/tên_thẻ)",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "[tên_thẻ]Nội dung[/tên_thẻ]",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Phần tử HTML có cấu trúc: thẻ mở <tên_thẻ>, nội dung, thẻ đóng </tên_thẻ>."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thẻ nào dùng để in nghiêng văn bản?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "<b>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<i>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<u>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<strong>",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Thẻ <i> (italic) dùng để in nghiêng văn bản. <strong> và <b> đều in đậm."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thẻ <hr> có tác dụng gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Ngắt dòng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Tạo đường kẻ ngang",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Xuống dòng",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Tạo tiêu đề",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Thẻ <hr> (Horizontal Rule) tạo đường kẻ ngang phân cách nội dung. <br> mới là ngắt dòng."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Đâu là thẻ HTML dùng cho trích dẫn dài (blockquote)?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "<q>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<cite>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<blockquote>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<quote>",
+          "images": []
+        }
+      ],
+      "answer": [
+        "3"
+      ],
+      "explanation": "Thẻ <blockquote> dùng cho trích dẫn dài, thường được thụt lề. <q> dùng cho trích dẫn ngắn nội dòng. <cite> dùng cho tiêu đề tác phẩm."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thẻ <meta> thường nằm ở đâu?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Trong <body>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Trong <head>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Trong <footer>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Ở cuối file",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Thẻ <meta> luôn nằm trong <head>, chứa metadata như charset, description, keywords, viewport..."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thẻ nào được dùng để gộp nhóm các phần tử HTML lại với nhau?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "<span>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<div>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<p>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<group>",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Thẻ <div> (division) là phần tử block dùng để gộp nhóm các phần tử, tạo bố cục cho trang web."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thẻ HTML nào dùng để hiển thị code máy tính?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "<pre>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<code>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<kbd>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<samp>",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Thẻ <code> dùng để hiển thị đoạn code. <pre> giữ nguyên định dạng, <kbd> cho phím tắt, <samp> cho output."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính nào dùng để đặt chiều rộng cho ảnh?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "size",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "width",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "dimension",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "scale",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Thuộc tính width và height dùng để đặt kích thước cho ảnh. Có thể dùng pixel hoặc phần trăm."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Làm cách nào tạo liên kết đến một phần trong cùng trang?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "<a href='#sectionID'>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<a href='sectionID'>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<a link='#sectionID'>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<a goto='sectionID'>",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Dùng href='#id' để tạo bookmark link đến phần tử có id tương ứng trong cùng trang."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Để tạo danh sách không thứ tự dùng thẻ nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "<ol>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<ul>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<dl>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<list>",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Thẻ <ul> (Unordered List) tạo danh sách với dấu chấm đầu dòng. <ol> tạo danh sách có số. <dl> là danh sách mô tả."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Đâu là thẻ đúng để tạo ô tiêu đề trong bảng?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "<td>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<th>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<thead>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<caption>",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Thẻ <th> (Table Header) tạo ô tiêu đề trong bảng, mặc định in đậm và căn giữa. <td> là ô dữ liệu thường."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thẻ nào dùng để tạo layout ngữ nghĩa (semantic) cho phần đầu trang?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "<div id='header'>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<header>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<head>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<top>",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Thẻ <header> là semantic element dùng cho phần đầu trang. <head> chứa metadata, không hiển thị."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Để tạo danh sách có các mục được đánh số thứ tự (1, 2, 3...), ta dùng thẻ cha nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "<ul>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<ol>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<dl>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<li>",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Thẻ <ol> (Ordered List) được dùng để tạo danh sách có thứ tự. Thẻ <ul> tạo danh sách không thứ tự."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính target='_self' trong thẻ <a> có ý nghĩa gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Mở trong tab mới",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Mở trong cùng tab",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Mở trong iframe",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không mở",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "target='_self' (mặc định) mở liên kết trong cùng tab/cửa sổ hiện tại."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Đường dẫn '../images/pic.jpg' là loại đường dẫn gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đường dẫn tuyệt đối",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Đường dẫn tương đối",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "URL đầy đủ",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Đường dẫn gốc",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Đường dẫn bắt đầu bằng ../ là đường dẫn tương đối, trỏ đến thư mục cha của thư mục hiện tại."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thẻ semantic nào dùng cho thanh điều hướng?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "<nav>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<menu>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<navbar>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<navigation>",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Thẻ <nav> là semantic element dùng cho thanh điều hướng chính của trang web."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Để xác định tiêu đề chính của một bảng HTML, thẻ nào nên đặt trực tiếp sau thẻ mở <table>?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "<thead>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<caption>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<th>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<title>",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Thẻ <caption> dùng để tạo tiêu đề giải thích/mô tả cho toàn bảng, phải đặt ngay sau thẻ mở <table>."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thẻ <meta> nào dùng để khai báo bảng mã ký tự hiển thị Tiếng Việt chính xác cho trang web?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "<meta charset='UTF-8'>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<meta lang='vi'>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<meta encode='true'>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<meta content='text/html'>",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Thẻ <meta charset='UTF-8'> giúp trình duyệt hiểu và hiển thị đúng bảng mã ký tự tiếng Việt Unicode."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thẻ HTML nào dùng để hiển thị văn bản được định dạng sẵn (giữ khoảng trắng, xuống dòng)?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "<code>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<pre>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<p>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<textarea>",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Thẻ <pre> (Preformatted text) giữ nguyên khoảng trắng, tab và xuống dòng như trong code gốc."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Để gộp nhiều hàng của bảng HTML lại với nhau, ta dùng thuộc tính nào trong thẻ <td>?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "colspan",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "rowspan",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "span",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "merge",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Thuộc tính rowspan (row span) xác định số lượng hàng mà một ô dữ liệu sẽ gộp lại."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thẻ <sub> và <sup> dùng để làm gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "In đậm và in nghiêng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Chỉ số dưới và chỉ số trên",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Gạch chân và gạch ngang",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "To và nhỏ",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "<sub> (subscript) tạo chỉ số dưới như H₂O, <sup> (superscript) tạo chỉ số trên như x²."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thẻ <abbr> dùng để làm gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Định nghĩa viết tắt",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Tạo đường viền",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Tạo nút",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Nhúng ảnh",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Thẻ <abbr> (abbreviation) dùng để đánh dấu từ viết tắt. Thuộc tính title chứa nghĩa đầy đủ: <abbr title='HTML'>HTML</abbr>."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thẻ nào dùng để tạo danh sách không có thứ tự (dùng các dấu ký hiệu đầu dòng)?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "<ol>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<ul>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<dl>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<list>",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Thẻ <ul> (Unordered List) định nghĩa danh sách không có thứ tự."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Đâu là phần tử Block-level?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "<span>",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "<a>",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "<p>",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "<img>",
+          "images": []
+        }
+      ],
+      "answer": [
+        "3"
+      ],
+      "explanation": "<p> là phần tử Block-level (chiếm toàn bộ chiều rộng). <span>, <a>, <img> đều là Inline."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "HTML không phân biệt chữ hoa chữ thường trong tên thẻ.",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Đúng. HTML không phân biệt hoa thường: <P> và <p> đều hợp lệ, nhưng W3C khuyến nghị dùng chữ thường."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "Thẻ <iframe> có thể bị chặn vì lý do bảo mật.",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Đúng. Nhiều website chặn iframe qua header X-Frame-Options để tránh clickjacking."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "Màu sắc trong HTML chỉ có thể dùng tên màu (như 'red', 'blue').",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Sai. Có thể dùng tên màu (red), mã HEX (#FF0000), RGB (rgb(255,0,0)), HSL, RGBA, HSLA."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "Thẻ <head> hiển thị nội dung trên trang web.",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Sai. <head> chứa metadata, title, link, style, script... và KHÔNG hiển thị trên giao diện trang web."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "Có thể dùng nhiều class cho cùng một phần tử HTML.",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Đúng. Có thể gán nhiều class cách nhau bởi dấu cách: <div class='box red large'>."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "Thẻ <link> dùng để nhúng JavaScript.",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Sai. <link> dùng cho CSS và favicon. <script> mới dùng để nhúng JavaScript."
+    },
+    {
+      "type": "short_answer",
+      "question": {
+        "content": "Thẻ dùng để chèn ảnh là: <____>",
+        "images": []
+      },
+      "options": null,
+      "answer": [
+        "img",
+        "IMG"
+      ],
+      "explanation": "Thẻ <img> là thẻ tự đóng dùng để chèn hình ảnh vào trang HTML."
+    },
+    {
+      "type": "short_answer",
+      "question": {
+        "content": "Thuộc tính để mở liên kết trong tab mới là target='____'",
+        "images": []
+      },
+      "options": null,
+      "answer": [
+        "_blank"
+      ],
+      "explanation": "target='_blank' mở liên kết trong tab/cửa sổ mới."
+    },
+    {
+      "type": "short_answer",
+      "question": {
+        "content": "Để đặt tiêu đề cho bảng HTML, dùng thẻ: <____>",
+        "images": []
+      },
+      "options": null,
+      "answer": [
+        "caption",
+        "CAPTION"
+      ],
+      "explanation": "Thẻ <caption> dùng để thêm tiêu đề cho bảng, phải đặt ngay sau thẻ mở <table>."
+    }
+  ]
+}

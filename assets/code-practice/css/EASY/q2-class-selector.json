@@ -1,0 +1,19 @@
+{
+  "id": "q2-class-selector",
+  "title": "Chọn theo class",
+  "description": "Đoạn văn có class `intro`. Hãy dùng **class selector** `.intro` để làm chữ to hơn, kích thước đúng `20px`.\n\nGợi ý: dùng thuộc tính `font-size`.",
+  "files": {
+    "html": "<p class=\"intro\">Chào mừng bạn đến với bài học CSS.</p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.intro {\n\n}\n",
+  "checks": [
+    {
+      "label": "Đoạn văn .intro có font-size 20px",
+      "points": 5,
+      "checker": "const el = doc.querySelector('.intro'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử .intro.' }; const size = win.getComputedStyle(el).fontSize; if (size === '20px') return { pass: true, message: 'Chính xác! font-size đã là 20px.' }; return { pass: false, message: 'font-size hiện tại là ' + size + ', cần là 20px.' };"
+    }
+  ]
+}

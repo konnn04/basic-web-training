@@ -1,0 +1,19 @@
+{
+  "id": "q2-set-input-value",
+  "title": "Điền sẵn giá trị ô nhập",
+  "description": "Có ô nhập `#nameInput` đang trống. Hãy điền sẵn giá trị `Web` vào ô đó ngay khi trang tải.\n\nGợi ý: Dùng thuộc tính `value`",
+  "files": {
+    "html": "<input id=\"nameInput\" type=\"text\" />",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n",
+  "checks": [
+    {
+      "label": "Điền sẵn giá trị ô nhập",
+      "points": 5,
+      "checker": "const el = doc.getElementById('nameInput'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử #nameInput.' }; if (el.value === 'Web') return { pass: true, message: 'Chính xác!' }; return { pass: false, message: 'Giá trị hiện tại: \"' + el.value + '\", cần đúng: \"Web\"' };"
+    }
+  ]
+}

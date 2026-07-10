@@ -1,0 +1,19 @@
+{
+  "id": "q16-reduce-cart-total",
+  "title": "Tính tổng giỏ hàng bằng reduce và toFixed",
+  "description": "Biến toàn cục `window.cart` là danh sách sản phẩm trong giỏ hàng `{ name, price }`. Có nút `#recalcBtn` và `<p id=\"cartTotal\">` để hiển thị tổng tiền. Ngay khi trang tải VÀ mỗi khi bấm `#recalcBtn`, tổng giá trị giỏ hàng cần được tính lại và hiển thị với đúng 2 chữ số thập phân.\n\nGợi ý: Dùng `reduce` để cộng dồn `price`, rồi `toFixed(2)`",
+  "files": {
+    "html": "<script>window.cart = [{ name: 'Bút', price: 12.5 }, { name: 'Vở', price: 7.3 }, { name: 'Thước', price: 5.2 }, { name: 'Gôm', price: 3.0 }];</script>\n<button id=\"recalcBtn\">Tính lại</button>\n<p id=\"cartTotal\"></p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// window.cart có sẵn mảng object { name, price }\n// Gợi ý: dùng window.cart.reduce((sum, item) => sum + item.price, 0).toFixed(2)\n",
+  "checks": [
+    {
+      "label": "Tính tổng giỏ hàng bằng reduce và toFixed",
+      "points": 20,
+      "checker": "const btn = doc.getElementById('recalcBtn'); const total = doc.getElementById('cartTotal'); if (!btn || !total) return { pass: false, message: 'Không tìm thấy #recalcBtn hoặc #cartTotal.' }; btn.click(); if (total.textContent.trim() !== '28.00') return { pass: false, message: 'Với giỏ hàng ban đầu (12.5 + 7.3 + 5.2 + 3.0), #cartTotal phải là \"28.00\", hiện đang là \"' + total.textContent + '\".' }; win.cart.push({ name: 'Kẹp', price: 2.2 }); btn.click(); if (total.textContent.trim() !== '30.20') return { pass: false, message: 'Sau khi thêm sản phẩm mới (giá 2.2) vào window.cart và bấm #recalcBtn lại, #cartTotal phải là \"30.20\", hiện đang là \"' + total.textContent + '\". Hãy tính lại từ window.cart mỗi lần bấm, đừng gán cứng kết quả.' }; return { pass: true, message: 'Chính xác!' };"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "q9-inline-style",
+  "title": "Đổi màu chữ bằng style",
+  "description": "Thẻ `#warning` đang hiển thị chữ đen bình thường. Hãy đổi màu chữ của thẻ đó thành màu đỏ để cảnh báo nổi bật hơn.\n\nGợi ý: Dùng `style.color`",
+  "files": {
+    "html": "<p id=\"warning\">Cảnh báo!</p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n",
+  "checks": [
+    {
+      "label": "Đổi màu chữ bằng style",
+      "points": 5,
+      "checker": "const el = doc.getElementById('warning'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử #warning.' }; const color = el.style.color; if (color === 'red' || color === 'rgb(255, 0, 0)') return { pass: true, message: 'Chính xác!' }; return { pass: false, message: 'Màu chữ hiện tại: \"' + color + '\", cần đặt thành \"red\".' };"
+    }
+  ]
+}

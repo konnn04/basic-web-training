@@ -1,0 +1,1193 @@
+{
+  "title": "Bài kiểm tra số 10: Flexbox, Position, Transform & Responsive",
+  "description": "Ôn tập về Flexbox, các kiểu định vị (position), phép biến đổi (transform) và thiết kế responsive với media query.",
+  "category": "CSS",
+  "date": "2026-06-30",
+  "duration": 60,
+  "random": true,
+  "questions": [
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Để biến một phần tử thành flex container, ta dùng?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`display: flex;`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`display: flexbox;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`position: flex;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`flex: container;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`display: flex;` (hoặc `inline-flex`) biến phần tử thành flex container, các phần tử con trở thành flex item."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `flex-direction: column;` sắp xếp các flex item theo hướng nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Từ trái sang phải",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Từ trên xuống dưới",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Từ phải sang trái",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Theo đường chéo",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`column` sắp xếp các item theo trục dọc, từ trên xuống dưới (khác với mặc định `row` là theo hàng ngang)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `justify-content` căn chỉnh các flex item theo trục nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Trục chính (main axis)",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Trục phụ (cross axis)",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Cả 2 trục",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không có tác dụng",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`justify-content` căn chỉnh các item dọc theo **trục chính**, hướng phụ thuộc vào `flex-direction` (row → ngang, column → dọc)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `align-items` căn chỉnh các flex item theo trục nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Trục chính",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Trục phụ (cross axis)",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Không liên quan tới flexbox",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Chỉ áp dụng cho grid",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`align-items` căn chỉnh các item theo **trục phụ** (vuông góc với trục chính)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Để căn giữa các item theo cả 2 trục (ngang và dọc) trong flexbox, ta cần?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Chỉ `justify-content: center;`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Chỉ `align-items: center;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Kết hợp `justify-content: center;` và `align-items: center;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không thể làm được bằng flexbox",
+          "images": []
+        }
+      ],
+      "answer": [
+        "3"
+      ],
+      "explanation": "Cần kết hợp cả `justify-content: center;` (căn theo trục chính) và `align-items: center;` (căn theo trục phụ) để item được căn giữa hoàn toàn theo cả 2 chiều."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Giá trị `justify-content: space-between;` phân bố các item như thế nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Dồn hết về đầu",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Dồn hết về cuối",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Khoảng cách đều nhau giữa các item, item đầu/cuối sát mép",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Chỉ áp dụng cho 2 item",
+          "images": []
+        }
+      ],
+      "answer": [
+        "3"
+      ],
+      "explanation": "`space-between` chia đều khoảng trống **giữa** các item, item đầu tiên và cuối cùng nằm sát 2 mép, không có khoảng trống ở ngoài cùng."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Giá trị `justify-content: space-around;` khác `space-between` ở điểm nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Không khác gì",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`space-around` có khoảng trống đều ở cả 2 bên mỗi item (kể cả 2 đầu)",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`space-around` chỉ dùng cho column",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`space-around` không tồn tại trong CSS",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`space-around` tạo khoảng cách đều xung quanh **mỗi item**, khiến khoảng trống ở 2 đầu container bằng một nửa khoảng trống giữa các item."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `flex-wrap: wrap;` có tác dụng gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Cho phép các flex item tự động xuống dòng khi không đủ chỗ",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Ẩn các item tràn ra ngoài",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Đảo ngược thứ tự item",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không có tác dụng gì với flexbox",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Mặc định `flex-wrap: nowrap;` ép tất cả item nằm trên 1 dòng (có thể bị co lại); `wrap` cho phép các item tự xuống dòng mới khi không đủ không gian."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `flex-grow` trên một flex item dùng để làm gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Quy định item có 'giãn nở' chiếm thêm khoảng trống thừa hay không, và tỉ lệ giãn",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Quy định màu nền item",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Quy định item có thể bị thu nhỏ hay không",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không có tác dụng",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`flex-grow` (số dương) xác định tỉ lệ một item sẽ giãn ra để lấp đầy khoảng trống thừa trong flex container so với các item khác."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `flex-shrink` dùng để làm gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Cho phép item co lại khi không đủ chỗ trong container",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Cho phép item giãn ra",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Đặt khoảng cách giữa các item",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Đặt chiều cao tối thiểu",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`flex-shrink` xác định mức độ một item sẽ co lại khi tổng kích thước các item vượt quá không gian container."
+    },
+    {
+      "type": "short_answer",
+      "question": {
+        "content": "Thuộc tính shorthand gộp `flex-grow`, `flex-shrink`, `flex-basis` có tên là gì?",
+        "images": []
+      },
+      "answer": [
+        "flex"
+      ],
+      "explanation": "Thuộc tính `flex` là shorthand, ví dụ `flex: 1 1 auto;` tương ứng `flex-grow: 1; flex-shrink: 1; flex-basis: auto;`"
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `order` trên flex item dùng để làm gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Thay đổi thứ tự hiển thị của item mà không cần đổi thứ tự trong HTML",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Đặt số thứ tự danh sách (giống `<ol>`)",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Đặt độ ưu tiên load ảnh",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không tồn tại trong CSS",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`order` (mặc định là 0) cho phép thay đổi **thứ tự hiển thị trực quan** của các flex item, độc lập với thứ tự khai báo trong mã HTML."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "`align-self` khác `align-items` ở điểm nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Không khác gì cả",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`align-self` áp dụng riêng cho từng item, ghi đè `align-items` của container cha",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`align-self` chỉ dùng được trong grid",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`align-self` đặt trên flex container, không phải item",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`align-items` đặt trên flex container, áp dụng chung cho mọi item; `align-self` đặt riêng trên từng item để **ghi đè** giá trị căn chỉnh chung."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "Trong flexbox, mặc định (không khai báo `flex-direction`) các item được sắp xếp theo hàng ngang (row).",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Giá trị mặc định của `flex-direction` là `row`, các item nối tiếp nhau theo chiều ngang."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "`flex-direction: row-reverse;` sắp xếp các item theo hàng ngang nhưng đảo ngược thứ tự.",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`row-reverse` giữ trục chính là ngang nhưng item cuối cùng trong HTML sẽ hiển thị ở đầu tiên (đảo ngược thứ tự)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Giá trị mặc định của thuộc tính `position` là gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`relative`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`static`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`absolute`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`fixed`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Mặc định mọi phần tử có `position: static;`, nghĩa là nằm theo luồng layout bình thường, không thể dùng `top/left/right/bottom` để di chuyển."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "`position: relative;` có đặc điểm gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Phần tử được định vị tương đối so với vị trí gốc ban đầu của chính nó, vẫn chiếm chỗ ở vị trí cũ",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Phần tử thoát hoàn toàn khỏi luồng layout",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Phần tử luôn cố định khi cuộn trang",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không có tác dụng gì",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`relative` cho phép dùng `top/left/right/bottom` để dịch chuyển phần tử so với vị trí ban đầu của nó, nhưng phần tử vẫn **chiếm chỗ cũ** trong layout (để lại khoảng trống)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "`position: absolute;` định vị phần tử dựa theo đâu?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Luôn dựa theo cửa sổ trình duyệt (viewport)",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Phần tử cha gần nhất có `position` khác `static` (positioned ancestor)",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Phần tử anh em liền kề",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không thể định vị được",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Phần tử `absolute` được định vị dựa trên phần tử **cha gần nhất có `position` khác static**; nếu không có, nó sẽ dựa vào `<html>` (viewport ban đầu)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "`position: fixed;` có đặc điểm gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Định vị cố định theo phần tử cha",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Định vị cố định theo viewport (cửa sổ trình duyệt), không di chuyển khi cuộn trang",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Giống hệt `static`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Chỉ dùng được cho ảnh",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`fixed` định vị phần tử so với **khung nhìn (viewport)**, phần tử sẽ giữ nguyên vị trí trên màn hình kể cả khi người dùng cuộn trang."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "`position: sticky;` hoạt động như thế nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Luôn cố định ngay từ đầu giống `fixed`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Hoạt động như `relative` cho đến khi cuộn tới một ngưỡng nhất định, sau đó \"dính\" lại như `fixed`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Giống hệt `absolute`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không được hỗ trợ trong CSS",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`sticky` là kết hợp giữa `relative` và `fixed`: phần tử di chuyển bình thường theo trang cho tới khi đạt ngưỡng (ví dụ `top: 0`), rồi \"dính\" cố định tại vị trí đó khi cuộn tiếp."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Phần tử `position: absolute;` mà không có phần tử cha nào được định vị (`relative`/`absolute`/`fixed`) sẽ định vị theo?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Phần tử `<body>` hoặc gốc tài liệu (viewport ban đầu)",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Không hiển thị",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Phần tử liền trước nó",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Gây lỗi CSS",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Khi không tìm thấy ancestor nào được positioned, phần tử `absolute` sẽ định vị theo **khối chứa ban đầu** (initial containing block), thường tương đương `<html>`."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "Thuộc tính `top`, `right`, `bottom`, `left` chỉ có tác dụng khi `position` khác `static`.",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Các thuộc tính dịch chuyển vị trí (offset) chỉ phát huy tác dụng với `relative`, `absolute`, `fixed`, `sticky` — không có tác dụng với `static`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `z-index` dùng để làm gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đặt độ trong suốt",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Đặt thứ tự chồng lớp (lớp nào nằm trên/dưới) giữa các phần tử positioned",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Đặt kích thước phần tử",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Đặt khoảng cách giữa các phần tử",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`z-index` quy định thứ tự xếp chồng theo trục Z (chiều sâu); giá trị càng lớn thì phần tử càng nằm trên các phần tử khác. Chỉ có tác dụng với phần tử có `position` khác `static`."
+    },
+    {
+      "type": "short_answer",
+      "question": {
+        "content": "Phần tử có `position: absolute;` bị loại khỏi điều gì trong layout bình thường?",
+        "images": []
+      },
+      "answer": [
+        "normal flow",
+        "luồng tài liệu bình thường"
+      ],
+      "explanation": "Phần tử `absolute` (và `fixed`) bị loại khỏi **normal flow** (luồng tài liệu bình thường), không còn chiếm chỗ, các phần tử khác sẽ \"không biết\" tới sự tồn tại của nó trong layout."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `transform: translate(50px, 20px);` có tác dụng gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Xoay phần tử",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Di chuyển phần tử 50px theo trục X và 20px theo trục Y",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Phóng to phần tử",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Làm nghiêng phần tử",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`translate(x, y)` di chuyển (tịnh tiến) phần tử theo trục X và trục Y mà không ảnh hưởng tới layout xung quanh."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `transform: rotate(45deg);` có tác dụng gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Xoay phần tử 45 độ theo chiều kim đồng hồ",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Phóng to phần tử 45%",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Di chuyển phần tử 45px",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Làm mờ phần tử",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`rotate(45deg)` xoay phần tử 45 độ theo chiều kim đồng hồ quanh điểm gốc (mặc định là tâm phần tử)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `transform: scale(1.5);` có tác dụng gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Phóng to phần tử lên 1.5 lần kích thước gốc",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Thu nhỏ phần tử còn 1.5px",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Di chuyển phần tử",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Xoay phần tử 1.5 độ",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`scale(n)` phóng to (n > 1) hoặc thu nhỏ (n < 1) phần tử theo hệ số n so với kích thước gốc."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `transform-origin` dùng để làm gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đặt điểm gốc để thực hiện các phép biến đổi (xoay, scale,...)",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Đặt vị trí ban đầu của phần tử trên trang",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Đặt màu nền gốc",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không có tác dụng",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`transform-origin` quy định điểm tham chiếu (mặc định là tâm phần tử) mà các phép `rotate`, `scale`,... sẽ dựa vào đó để biến đổi."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Hàm `skew(20deg)` trong `transform` có tác dụng gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Làm nghiêng (xiên) phần tử theo một góc",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Phóng to phần tử",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Di chuyển phần tử",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Đổi màu phần tử",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`skew()` làm méo/nghiêng hình dạng phần tử theo góc chỉ định trên trục X và/hoặc Y."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "Có thể kết hợp nhiều phép biến đổi trong cùng một thuộc tính `transform`, ví dụ `transform: rotate(45deg) scale(1.2);`.",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "CSS cho phép liệt kê nhiều hàm transform cách nhau bằng khoảng trắng, chúng sẽ được áp dụng tuần tự."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "`transform` có ảnh hưởng tới layout (vị trí) của các phần tử khác xung quanh không?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Có, đẩy các phần tử khác ra xa",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Không, transform chỉ thay đổi hình ảnh hiển thị, không ảnh hưởng tới luồng layout",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Tùy loại transform",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Luôn gây ra cuộn ngang",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Phép biến đổi `transform` chỉ tác động tới cách phần tử **hiển thị trực quan**, không làm thay đổi không gian nó chiếm trong luồng layout — các phần tử lân cận không bị ảnh hưởng."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Media query dùng để làm gì trong CSS?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Phát nhạc nền cho trang web",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Áp dụng style khác nhau tùy theo điều kiện thiết bị (kích thước màn hình,...)",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Tải ảnh nhanh hơn",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không liên quan tới CSS",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Media query (`@media`) cho phép áp dụng các quy tắc CSS khác nhau dựa trên đặc điểm thiết bị hiển thị, phổ biến nhất là chiều rộng màn hình, phục vụ thiết kế responsive."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Cú pháp media query nào đúng để áp dụng style khi màn hình rộng tối đa 768px?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`@media (max-width: 768px) { ... }`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`@media (width-max: 768px) { ... }`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "@responsive (768px) { ... }`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`@screen (max: 768px) { ... }`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Cú pháp chuẩn là `@media (max-width: 768px) { /* CSS */ }`, áp dụng khi chiều rộng viewport ≤ 768px."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thẻ `<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">` có tác dụng gì trong thiết kế responsive?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Không có tác dụng gì với CSS",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Giúp trang hiển thị đúng theo chiều rộng thiết bị thực tế, là nền tảng để media query hoạt động đúng trên mobile",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Chỉ dùng cho ảnh",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Tự động dịch ngôn ngữ trang web",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Thẻ meta viewport báo cho trình duyệt mobile hiển thị trang theo đúng chiều rộng thiết bị thật (`device-width`) với tỉ lệ zoom ban đầu 1.0, là điều kiện cần để responsive design / media query hoạt động chính xác."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Đơn vị nào thường được ưu tiên dùng trong thiết kế responsive vì co giãn linh hoạt theo màn hình?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`px` tuyệt đối",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`%`, `vw`, `vh`, `rem`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`pt`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`in` (inch)",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Các đơn vị tương đối như `%`, `vw`/`vh` (theo viewport), `rem` (theo font gốc) giúp giao diện co giãn linh hoạt hơn so với đơn vị tuyệt đối `px`/`pt`/`in`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Phương pháp thiết kế \"Mobile First\" trong CSS nghĩa là gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Thiết kế cho desktop trước, sau đó thu nhỏ dần",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Viết CSS mặc định cho màn hình nhỏ trước, sau đó dùng `min-width` media query để mở rộng cho màn hình lớn hơn",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Chỉ hỗ trợ thiết bị di động, bỏ qua desktop",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không liên quan tới media query",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Mobile First là viết style cơ bản dành cho màn hình nhỏ (mobile) trước, sau đó dùng media query với `min-width` để bổ sung/điều chỉnh style cho màn hình lớn hơn (tablet, desktop)."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "Có thể kết hợp nhiều điều kiện trong cùng một media query bằng từ khóa `and`, ví dụ `@media (min-width: 600px) and (max-width: 900px) { ... }`.",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Từ khóa `and` cho phép kết hợp nhiều điều kiện, áp dụng style chỉ khi **tất cả** điều kiện đều đúng — ở đây là khi chiều rộng nằm trong khoảng 600px đến 900px."
+    },
+    {
+      "type": "short_answer",
+      "question": {
+        "content": "Đơn vị `vw` trong CSS là viết tắt của cụm từ nào (tiếng Anh)?",
+        "images": []
+      },
+      "answer": [
+        "viewport width"
+      ],
+      "explanation": "`vw` là viết tắt của \"viewport width\", 1vw bằng 1% chiều rộng khung nhìn (viewport) hiện tại."
+    },
+    {
+      "type": "short_answer",
+      "question": {
+        "content": "Đơn vị `vh` trong CSS là viết tắt của cụm từ nào (tiếng Anh)?",
+        "images": []
+      },
+      "answer": [
+        "viewport height"
+      ],
+      "explanation": "`vh` là viết tắt của \"viewport height\", 1vh bằng 1% chiều cao khung nhìn (viewport) hiện tại."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Trong flexbox, thuộc tính `flex-basis` quy định điều gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Kích thước ban đầu (trước khi grow/shrink) của một flex item theo trục chính",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Màu nền item",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Số lượng item tối đa",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Khoảng cách giữa các item",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`flex-basis` đặt kích thước \"khởi điểm\" của item dọc theo trục chính, trước khi `flex-grow`/`flex-shrink` được áp dụng để điều chỉnh thêm."
+    }
+  ]
+}

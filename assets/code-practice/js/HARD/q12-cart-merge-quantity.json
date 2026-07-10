@@ -1,0 +1,19 @@
+{
+  "id": "q12-cart-merge-quantity",
+  "title": "Giỏ hàng gộp số lượng khi thêm trùng sản phẩm",
+  "description": "Biến toàn cục `window.catalog` là danh mục sản phẩm `{ id, name, price }`. Có các nút thêm vào giỏ `.add-to-cart-btn` (mỗi nút có `data-id`), danh sách `<ul id=\"cartLines\">` và tổng cộng `<p id=\"cartGrandTotal\">`. Khác với giỏ hàng đơn giản, lần này khi thêm một sản phẩm ĐÃ có sẵn trong giỏ thì chỉ cần tăng số lượng của dòng đó lên (KHÔNG được tạo thêm dòng mới); nếu sản phẩm chưa có thì thêm dòng mới với số lượng 1. Sau mỗi lần thêm, cần hiển thị lại toàn bộ giỏ hàng thành `<li class=\"cart-line\">Tên x SL = Thành tiền</li>` (Thành tiền = giá x số lượng) và cập nhật `#cartGrandTotal` bằng tổng tất cả thành tiền, dạng `Tổng cộng: X`. Không được dùng biến toàn cục để lưu giỏ hàng nội bộ.\n\nGợi ý: Giữ giỏ hàng trong một mảng cục bộ `{ id, name, price, qty }`, dùng `.find()` để kiểm tra sản phẩm đã có trong giỏ nội bộ chưa, dùng `reduce` để tính tổng",
+  "files": {
+    "html": "<script>window.catalog = [{ id: '1', name: 'Bút', price: 5 }, { id: '2', name: 'Vở', price: 8 }, { id: '3', name: 'Thước', price: 3 }, { id: '4', name: 'Gôm', price: 2 }];</script>\n<button class=\"add-to-cart-btn\" data-id=\"1\">Thêm Bút</button>\n<button class=\"add-to-cart-btn\" data-id=\"2\">Thêm Vở</button>\n<button class=\"add-to-cart-btn\" data-id=\"3\">Thêm Thước</button>\n<button class=\"add-to-cart-btn\" data-id=\"4\">Thêm Gôm</button>\n<ul id=\"cartLines\"></ul>\n<p id=\"cartGrandTotal\"></p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// window.catalog có sẵn mảng object { id, name, price }\n// Gợi ý: dùng .find() để kiểm tra sản phẩm đã có trong giỏ nội bộ chưa\n",
+  "checks": [
+    {
+      "label": "Giỏ hàng gộp số lượng khi thêm trùng sản phẩm",
+      "points": 35,
+      "checker": "const btn1 = doc.querySelector('.add-to-cart-btn[data-id=\"1\"]'); const btn2 = doc.querySelector('.add-to-cart-btn[data-id=\"2\"]'); const lines = doc.getElementById('cartLines'); const grand = doc.getElementById('cartGrandTotal'); if (!btn1 || !btn2 || !lines || !grand) return { pass: false, message: 'Không tìm thấy các nút .add-to-cart-btn, #cartLines hoặc #cartGrandTotal.' }; btn1.click(); let items = Array.from(lines.querySelectorAll('.cart-line')).map(li => li.textContent.trim()); if (items.length !== 1 || items[0] !== 'Bút x 1 = 5') return { pass: false, message: 'Sau khi thêm Bút lần 1, giỏ hàng phải là [\"Bút x 1 = 5\"], hiện đang là [' + items.join(', ') + '].' }; btn1.click(); items = Array.from(lines.querySelectorAll('.cart-line')).map(li => li.textContent.trim()); if (items.length !== 1 || items[0] !== 'Bút x 2 = 10') return { pass: false, message: 'Sau khi thêm Bút lần 2 (sản phẩm trùng), giỏ hàng phải VẪN CHỈ CÓ 1 dòng và là [\"Bút x 2 = 10\"] (gộp số lượng, không thêm dòng mới), hiện đang là [' + items.join(', ') + '].' }; if (grand.textContent.trim() !== 'Tổng cộng: 10') return { pass: false, message: '#cartGrandTotal phải là \"Tổng cộng: 10\", hiện đang là \"' + grand.textContent + '\".' }; btn2.click(); items = Array.from(lines.querySelectorAll('.cart-line')).map(li => li.textContent.trim()); if (items.length !== 2 || !items.includes('Vở x 1 = 8')) return { pass: false, message: 'Sau khi thêm Vở, giỏ hàng phải có 2 dòng gồm \"Vở x 1 = 8\", hiện đang là [' + items.join(', ') + '].' }; if (grand.textContent.trim() !== 'Tổng cộng: 18') return { pass: false, message: '#cartGrandTotal phải là \"Tổng cộng: 18\" (10 + 8), hiện đang là \"' + grand.textContent + '\".' }; return { pass: true, message: 'Chính xác! Giỏ hàng gộp số lượng đúng.' };"
+    }
+  ]
+}

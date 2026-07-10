@@ -1,0 +1,19 @@
+{
+  "id": "q20-string-template-product-card",
+  "title": "Kết hợp destructuring và template literal",
+  "description": "Biến toàn cục `window.product` là thông tin sản phẩm `{ name, price }`. Trang cần hiển thị một thẻ sản phẩm gọn gàng lên `#productCard` theo đúng định dạng `Tên - Giáđ` (ví dụ `Ghế gỗ - 350000đ`).\n\nGợi ý: Dùng destructuring `const { name, price } = window.product;` và template literal",
+  "files": {
+    "html": "<script>window.product = { name: 'Ghế gỗ', price: 350000 };</script>\n<p id=\"productCard\"></p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: const { name, price } = window.product; `${name} - ${price}đ`\n",
+  "checks": [
+    {
+      "label": "Kết hợp destructuring và template literal",
+      "points": 15,
+      "checker": "const el = doc.getElementById('productCard'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử #productCard.' }; if (el.textContent.trim() === 'Ghế gỗ - 350000đ') return { pass: true, message: 'Chính xác!' }; return { pass: false, message: 'Nội dung hiện tại: \"' + el.textContent + '\", cần đúng: \"Ghế gỗ - 350000đ\".' };"
+    }
+  ]
+}

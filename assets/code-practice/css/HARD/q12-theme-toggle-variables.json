@@ -1,0 +1,29 @@
+{
+  "id": "q12-theme-toggle-variables",
+  "title": "Chuyển đổi giao diện sáng/tối bằng biến CSS",
+  "description": "Trang có 2 khối `.app`: một bình thường (giao diện sáng), một có thêm class `.dark-theme` (giao diện tối). Bên trong mỗi khối là `.panel`. Hãy làm cho `.panel` tự đổi màu nền, màu chữ và viền đúng theo giao diện của khối cha, bằng cách dùng biến CSS thay vì viết cứng nhiều rule riêng.\n\nGợi ý: khai báo `--bg-color: #ffffff;` và `--text-color: #111111;` trên `:root`; trong `.dark-theme` ghi đè `--bg-color: #111111;` và `--text-color: #ffffff;`; `.panel` dùng `background-color: var(--bg-color); color: var(--text-color); border: 1px solid var(--text-color);` để cả nền, chữ và viền đều đổi theo.",
+  "files": {
+    "html": "<div class=\"app\">\n  <div class=\"panel\">Nội dung sáng</div>\n</div>\n<div class=\"app dark-theme\">\n  <div class=\"panel\">Nội dung tối</div>\n</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n:root {\n\n}\n.dark-theme {\n\n}\n.panel {\n\n}\n",
+  "checks": [
+    {
+      "label": ".panel trong giao diện sáng lấy đúng nền/chữ từ biến CSS",
+      "points": 14,
+      "checker": "if (!/--bg-color\\s*:/.test(code) || !/--text-color\\s*:/.test(code)) return { pass: false, message: 'Cần khai báo --bg-color và --text-color trên :root.' }; const panels = doc.querySelectorAll('.panel'); if (!panels || panels.length < 1) return { pass: false, message: 'Không tìm thấy .panel.' }; const lightPanel = panels[0]; const ls = win.getComputedStyle(lightPanel); if (ls.backgroundColor !== 'rgb(255, 255, 255)' || ls.color !== 'rgb(17, 17, 17)') return { pass: false, message: '.panel trong .app (sáng) cần nền rgb(255, 255, 255) và chữ rgb(17, 17, 17) (hiện tại: nền ' + ls.backgroundColor + ', chữ ' + ls.color + ').' }; return { pass: true, message: 'Chính xác! Giao diện sáng đã đúng màu qua biến CSS.' };"
+    },
+    {
+      "label": ".panel trong .dark-theme lấy đúng nền/chữ đảo ngược từ biến CSS",
+      "points": 13,
+      "checker": "if (!/--bg-color\\s*:/.test(code) || !/--text-color\\s*:/.test(code)) return { pass: false, message: 'Cần khai báo --bg-color và --text-color trên :root.' }; const panels = doc.querySelectorAll('.panel'); if (!panels || panels.length < 2) return { pass: false, message: 'Không tìm thấy đủ 2 .panel.' }; const darkPanel = panels[1]; const ds = win.getComputedStyle(darkPanel); if (ds.backgroundColor !== 'rgb(17, 17, 17)' || ds.color !== 'rgb(255, 255, 255)') return { pass: false, message: '.panel trong .app.dark-theme (tối) cần nền rgb(17, 17, 17) và chữ rgb(255, 255, 255) (hiện tại: nền ' + ds.backgroundColor + ', chữ ' + ds.color + ').' }; return { pass: true, message: 'Chính xác! Giao diện tối đã đảo màu đúng qua biến CSS.' };"
+    },
+    {
+      "label": ".panel có viền đổi màu theo biến --text-color ở cả 2 giao diện",
+      "points": 13,
+      "checker": "const panels = doc.querySelectorAll('.panel'); if (!panels || panels.length < 2) return { pass: false, message: 'Không tìm thấy đủ 2 .panel.' }; const ls = win.getComputedStyle(panels[0]); const ds = win.getComputedStyle(panels[1]); if (ls.borderTopStyle !== 'solid' || parseFloat(ls.borderTopWidth) < 1 || ls.borderTopColor !== 'rgb(17, 17, 17)') return { pass: false, message: '.panel (sáng) cần border: 1px solid var(--text-color) (hiện tại viền: ' + ls.borderTopWidth + ' ' + ls.borderTopStyle + ' ' + ls.borderTopColor + ').' }; if (ds.borderTopStyle !== 'solid' || parseFloat(ds.borderTopWidth) < 1 || ds.borderTopColor !== 'rgb(255, 255, 255)') return { pass: false, message: '.panel (tối) cần border: 1px solid var(--text-color) (hiện tại viền: ' + ds.borderTopWidth + ' ' + ds.borderTopStyle + ' ' + ds.borderTopColor + ').' }; return { pass: true, message: 'Chính xác! Viền đã đổi màu đúng theo biến CSS ở cả 2 giao diện.' };"
+    }
+  ]
+}

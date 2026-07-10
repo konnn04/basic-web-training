@@ -1,0 +1,19 @@
+{
+  "id": "q20-strict-equality",
+  "title": "So sánh bằng === (strict equality)",
+  "description": "Biến toàn cục `window.a` là số `5` và `window.b` là chuỗi `\"5\"`. Hãy so sánh chính xác cả giá trị lẫn kiểu dữ liệu của hai biến này. Nếu bằng nhau, hiển thị `Bằng nhau` vào `#compareResult`; nếu khác nhau (kể cả khác kiểu), hiển thị `Khác nhau`.\n\nGợi ý: Dùng toán tử `===` (không dùng `==`)",
+  "files": {
+    "html": "<script>window.a = 5; window.b = '5';</script>\n<p id=\"compareResult\"></p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: window.a === window.b (chú ý === khác == )\n",
+  "checks": [
+    {
+      "label": "So sánh bằng === (strict equality)",
+      "points": 10,
+      "checker": "const el = doc.getElementById('compareResult'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử #compareResult.' }; if (el.textContent.trim() === 'Khác nhau') return { pass: true, message: 'Chính xác! 5 === \"5\" là false vì khác kiểu dữ liệu.' }; return { pass: false, message: 'Nội dung hiện tại: \"' + el.textContent + '\", cần đúng: \"Khác nhau\" (dùng === thay vì ==).' };"
+    }
+  ]
+}

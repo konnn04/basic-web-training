@@ -1,0 +1,19 @@
+{
+  "id": "q6-array-length",
+  "title": "Đếm số phần tử trong mảng",
+  "description": "Biến toàn cục `window.colors` chứa một mảng tên màu. Hãy hiển thị vào `#count` số lượng phần tử của mảng đó (dạng chuỗi, ví dụ `\"4\"`).\n\nGợi ý: Dùng thuộc tính `length`",
+  "files": {
+    "html": "<script>window.colors = ['đỏ', 'xanh', 'vàng', 'tím'];</script>\n<p id=\"count\"></p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// window.colors có sẵn mảng màu sắc\n",
+  "checks": [
+    {
+      "label": "Đếm số phần tử trong mảng",
+      "points": 10,
+      "checker": "const el = doc.getElementById('count'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử #count.' }; if (el.textContent.trim() === '4') return { pass: true, message: 'Chính xác!' }; return { pass: false, message: 'Nội dung hiện tại: \"' + el.textContent + '\", cần đúng: \"4\".' };"
+    }
+  ]
+}

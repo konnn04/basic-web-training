@@ -1,0 +1,1246 @@
+{
+  "title": "Bài kiểm tra số 13: Tổng hợp CSS - Đề thi CSS #2",
+  "description": "Đề tổng hợp CSS nâng cao theo hình thức thi học kỳ, bao gồm box-shadow, biến CSS, CSS Grid vs Flexbox, accessibility, responsive layout và các kỹ thuật thực chiến.",
+  "category": "CSS",
+  "date": "2026-06-30",
+  "duration": 45,
+  "random": true,
+  "questions": [
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Đoạn CSS sau thường được gọi là gì và dùng để làm gì?\n\n```css\n* { margin: 0; padding: 0; box-sizing: border-box; }\n```",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "CSS Reset/Normalize cơ bản, xóa margin/padding mặc định của trình duyệt và đồng nhất box model",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Animation mở đầu trang",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Bộ chọn màu chủ đạo",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không có tác dụng thực tế",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Đây là một đoạn **CSS reset** phổ biến: dùng universal selector `*` để xóa `margin`/`padding` mặc định khác nhau giữa các trình duyệt, và đặt `box-sizing: border-box;` để việc tính toán kích thước nhất quán hơn."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Cho đoạn CSS sau:\n\n```css\n.card {\n  display: flex;\n  flex-direction: column;\n  width: 300px;\n  border-radius: 12px;\n  overflow: hidden;\n  box-shadow: 0 4px 8px rgba(0,0,0,0.2);\n}\n```\n\nThuộc tính `box-shadow: 0 4px 8px rgba(0,0,0,0.2);` tạo hiệu ứng gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đường viền nét đứt",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Đổ bóng cho phần tử, lệch xuống dưới 4px, độ mờ lan 8px, màu đen mờ 20%",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Bo tròn góc phần tử",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Ẩn phần tử khi hover",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`box-shadow` shorthand theo thứ tự: offset-x (0), offset-y (4px, lệch xuống), blur-radius (8px, độ mờ lan tỏa), và màu `rgba(0,0,0,0.2)` (đen, độ đục 20%)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Vẫn đoạn CSS trên, vì sao cần `overflow: hidden;` khi đã có `border-radius: 12px;`?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Không cần thiết, không liên quan tới nhau",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Để cắt phần nội dung con (ví dụ ảnh) bị vuông góc tràn ra ngoài đường bo tròn của `.card`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Để tăng tốc độ load ảnh",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Để ẩn box-shadow",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Nếu phần tử con (như ảnh) có góc vuông, nó có thể tràn ra ngoài đường bo cong của `.card`; `overflow: hidden;` sẽ cắt phần tràn đó theo đúng hình dạng bo góc của phần tử cha."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Cho đoạn CSS sau:\n\n```css\n.grid-wrapper {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 16px;\n}\n.grid-item {\n  flex: 1 1 200px;\n}\n```\n\n`flex: 1 1 200px;` trên `.grid-item` có ý nghĩa gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "grow=1, shrink=1, basis=200px: item có thể giãn/co nhưng kích thước khởi điểm là 200px",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Item luôn cố định đúng 200px, không co giãn",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Item ẩn khi màn hình nhỏ hơn 200px",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không hợp lệ vì flex chỉ nhận 1 giá trị",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Shorthand `flex: grow shrink basis;` — ở đây grow=1 (có thể giãn), shrink=1 (có thể co), basis=200px (kích thước khởi điểm trước khi giãn/co), tạo ra layout dạng lưới responsive tự xếp dòng nhờ `flex-wrap: wrap;`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Một thiết kế cần 2 cột bằng nhau trên desktop nhưng xếp chồng dọc trên mobile, kỹ thuật phù hợp là?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Flexbox với `flex-direction: row;` mặc định, đổi sang `column` trong media query mobile",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Chỉ dùng float, không cần media query",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Dùng `display: none;` để ẩn cột thứ 2 trên mobile",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không thể làm responsive layout kiểu này",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Đặt `flex-direction: row;` cho desktop để 2 cột nằm ngang, rồi dùng `@media (max-width: ...){ flex-direction: column; }` để chuyển thành xếp chồng dọc trên màn hình nhỏ."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Để thanh tiến trình (progress bar) tự động tăng dần độ rộng khi trang tải, kỹ thuật CSS phù hợp là?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`transition` trên `width`, kích hoạt thay đổi qua class JS hoặc trạng thái",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`float: progress;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`position: sticky;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`text-align: justify;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Có thể đặt `width` ban đầu 0%, dùng `transition: width 1s ease;`, rồi thay đổi class (qua JavaScript) để cập nhật `width` mục tiêu, tạo hiệu ứng tăng dần mượt mà."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Selector nào sau đây có specificity CAO NHẤT?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`.btn`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`button.btn`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`#submit.btn`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`button`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "3"
+      ],
+      "explanation": "`#submit.btn` chứa 1 id + 1 class, có tổng specificity cao nhất so với các lựa chọn chỉ gồm class hoặc tag hoặc kết hợp tag+class."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Nếu một phần tử có cả `margin: auto;` và `display: block;` cùng chiều rộng cố định, nó sẽ được căn như thế nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Căn trái mặc định",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Căn giữa theo chiều ngang trong phần tử cha",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Căn phải",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không thay đổi gì",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`margin: auto;` (hoặc `margin: 0 auto;`) trên phần tử block có `width` cố định sẽ khiến trình duyệt chia đều khoảng trống 2 bên, căn giữa phần tử theo chiều ngang."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `text-overflow: ellipsis;` thường đi kèm với những thuộc tính nào để hoạt động đúng?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`white-space: nowrap;` và `overflow: hidden;`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`display: flex;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`position: absolute;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không cần thuộc tính nào khác",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Để hiển thị dấu \"...\" khi văn bản dài tràn ra ngoài, cần kết hợp 3 thuộc tính: `white-space: nowrap;` (không cho xuống dòng), `overflow: hidden;` (ẩn phần tràn) và `text-overflow: ellipsis;` (hiện dấu ba chấm)."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "`white-space: nowrap;` ngăn văn bản tự động xuống dòng, buộc toàn bộ nội dung nằm trên 1 dòng duy nhất.",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`nowrap` vô hiệu hóa việc tự động ngắt dòng của văn bản, khiến nội dung kéo dài thành 1 dòng duy nhất (có thể tràn ra ngoài nếu không xử lý overflow)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Cho CSS sau (dùng cho 1 lớp phủ modal/popup):\n\n```css\n.modal {\n  position: fixed;\n  top: 0; left: 0;\n  width: 100%; height: 100%;\n  background: rgba(0,0,0,0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n```\n\nMục đích chính của đoạn CSS này là gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Tạo lớp phủ mờ toàn màn hình và căn giữa nội dung modal bên trong nó",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Tạo animation xoay vòng",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Ẩn modal khỏi trang",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Đặt màu chữ cho modal",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`position: fixed;` với `top/left: 0` và `width/height: 100%` tạo lớp phủ toàn màn hình; `background: rgba(...)` tạo nền mờ tối; kết hợp `display: flex;` với `justify-content`/`align-items: center;` để căn giữa nội dung modal (con) cả 2 chiều."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Để một website hỗ trợ tốt cả mobile lẫn desktop, nguyên tắc thiết kế quan trọng nhất là?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Chỉ thiết kế cho 1 kích thước màn hình cố định",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Responsive design: dùng đơn vị linh hoạt, flexbox/grid, và media query để thích ứng nhiều kích thước màn hình",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Luôn dùng position: fixed cho mọi phần tử",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Tránh dùng CSS, chỉ dùng HTML thuần",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Responsive design kết hợp đơn vị tương đối (`%`, `vw`, `rem`), layout linh hoạt (flexbox/grid) và `@media` query để giao diện hiển thị tốt trên nhiều loại thiết bị, kích thước màn hình khác nhau."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `aspect-ratio` (CSS hiện đại) dùng để làm gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Giữ tỉ lệ khung hình cố định cho phần tử (ví dụ video 16:9) mà không cần tính padding-trick",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Đặt độ trong suốt theo tỉ lệ",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Đặt số cột trong grid",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không tồn tại trong CSS",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`aspect-ratio: 16 / 9;` giúp phần tử tự động giữ đúng tỉ lệ chiều rộng/chiều cao, thay thế kỹ thuật cũ phải dùng `padding-top` theo phần trăm để giả lập tỉ lệ khung hình."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Sự khác biệt giữa CSS Grid và Flexbox về bản chất là gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Không có khác biệt, 2 cái là một",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Flexbox là layout 1 chiều (hàng hoặc cột), Grid là layout 2 chiều (hàng và cột cùng lúc)",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Grid chỉ dùng được cho bảng, Flexbox dùng cho mọi thứ",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Flexbox mới hơn Grid",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Flexbox được thiết kế tối ưu cho bố cục theo **1 chiều** (hoặc hàng hoặc cột tại một thời điểm), trong khi CSS Grid xử lý bố cục **2 chiều** (hàng và cột đồng thời), phù hợp cho layout phức tạp như trang tổng thể."
+    },
+    {
+      "type": "short_answer",
+      "question": {
+        "content": "Thuộc tính nào trong CSS Grid tương đương vai trò với `gap` trong Flexbox, tạo khoảng cách giữa các ô?",
+        "images": []
+      },
+      "answer": [
+        "gap"
+      ],
+      "explanation": "Thuộc tính `gap` (trước đây gọi `grid-gap`) dùng chung cho cả Grid lẫn Flexbox để tạo khoảng cách đều giữa các phần tử con."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Nếu một phần tử `<button>` có `:disabled` và CSS `button:disabled { opacity: 0.5; cursor: not-allowed; }`, điều gì xảy ra khi nút bị vô hiệu hóa?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Nút biến mất hoàn toàn",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Nút mờ đi 50% và con trỏ chuột đổi thành biểu tượng cấm khi rê vào",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Nút đổi màu nền thành đỏ",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không có gì thay đổi",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`opacity: 0.5;` làm nút mờ đi một nửa để báo hiệu trực quan trạng thái không thể tương tác, còn `cursor: not-allowed;` đổi icon con trỏ thành biểu tượng cấm khi di chuột qua."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `pointer-events: none;` có tác dụng gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Vô hiệu hóa mọi tương tác chuột (click, hover) lên phần tử, sự kiện sẽ 'xuyên qua' tới phần tử phía dưới",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Ẩn con trỏ chuột trên toàn trang",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Tăng độ nhạy chuột",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không có tác dụng gì với CSS",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`pointer-events: none;` khiến phần tử không còn nhận các sự kiện chuột (click, hover,...), các sự kiện này sẽ truyền xuyên qua tới phần tử nằm phía dưới nó."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "CSS Variables (custom properties), ví dụ `--main-color: blue;`, cho phép tái sử dụng giá trị và dễ dàng thay đổi đồng loạt qua biến `var(--main-color)`.",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "CSS custom properties (biến CSS) định nghĩa bằng `--ten-bien: gia-tri;` và sử dụng qua hàm `var(--ten-bien)`, giúp quản lý và thay đổi giá trị dùng chung dễ dàng hơn, đặc biệt hữu ích cho theme màu sắc."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Cú pháp khai báo và sử dụng biến CSS đúng là?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`:root { --main-color: blue; } .box { color: var(--main-color); }`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`$main-color: blue; .box { color: $main-color; }`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`@main-color: blue; .box { color: @main-color; }`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`let main-color = blue;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Biến CSS chuẩn (native CSS) khai báo trong `:root` (hoặc bất kỳ selector nào) bằng `--ten: gia-tri;` và được gọi lại qua hàm `var(--ten)`; các cú pháp `$`/`@` là của tiền xử lý SCSS/LESS, không phải CSS thuần."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Một trang web cần hỗ trợ cả chế độ sáng (light mode) và tối (dark mode), công cụ CSS hiện đại phù hợp nhất là?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "CSS Variables kết hợp media query `prefers-color-scheme`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`float`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`clear: both;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`text-decoration`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Kết hợp biến CSS (`--bg-color`, `--text-color`,...) với `@media (prefers-color-scheme: dark) { :root { ... } }` cho phép định nghĩa bộ giá trị riêng cho chế độ tối, tự động áp dụng theo cài đặt hệ thống người dùng."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Trong một bài thi, đề yêu cầu: \"Viết CSS để phần tử `.box` có chiều rộng chiếm 80% màn hình, tối đa 1200px, và luôn căn giữa\". Cách viết đúng nhất là?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`.box { width: 80%; max-width: 1200px; margin: 0 auto; }`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`.box { width: 1200px; }`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`.box { width: 80vw; position: fixed; }`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`.box { max-width: 80%; width: 1200px; }`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`width: 80%;` cho chiều rộng linh hoạt theo màn hình, `max-width: 1200px;` giới hạn không vượt quá 1200px trên màn hình lớn, và `margin: 0 auto;` giúp căn giữa theo chiều ngang."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Để ẩn một phần tử nhưng vẫn giữ cho các trình đọc màn hình (screen reader) đọc được nội dung (kỹ thuật accessibility phổ biến), người ta thường KHÔNG dùng thuộc tính nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`display: none;`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Kỹ thuật `position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0);` (visually-hidden)",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`visibility: hidden;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Cả `display: none;` và `visibility: hidden;` đều không phù hợp",
+          "images": []
+        }
+      ],
+      "answer": [
+        "4"
+      ],
+      "explanation": "Cả `display: none;` và `visibility: hidden;` đều khiến trình đọc màn hình **bỏ qua** nội dung; muốn ẩn về mặt thị giác nhưng vẫn giữ khả năng đọc, cần dùng kỹ thuật \"visually-hidden\" (thu nhỏ về 1px và cắt vùng nhìn) thay vì 2 thuộc tính trên."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `vertical-align` áp dụng tốt nhất cho loại phần tử nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Phần tử block",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Phần tử inline hoặc inline-block, và ô bảng (`<td>`)",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Phần tử position: fixed",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Chỉ áp dụng cho ảnh nền",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`vertical-align` chỉ có tác dụng với các phần tử `inline`, `inline-block` hoặc ô trong bảng (`table-cell`), không có tác dụng với phần tử `block` thông thường."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Trong CSS Grid, thuộc tính `grid-template-columns: 1fr 2fr;` tạo ra bố cục nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "2 cột bằng nhau",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "2 cột với tỉ lệ 1:2 (cột 2 rộng gấp đôi cột 1)",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "1 cột duy nhất",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không hợp lệ",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Đơn vị `fr` (fraction) chia không gian còn lại theo tỉ lệ; ở đây cột thứ 2 sẽ rộng gấp đôi cột thứ nhất."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Để tạo 1 grid với 3 cột bằng nhau, cách viết ngắn gọn nào đúng?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`grid-template-columns: repeat(3, 1fr);`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`grid-template-columns: 3;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`grid-columns: 3 equal;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`columns: 3fr;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Hàm `repeat(3, 1fr)` là cách viết gọn tương đương `1fr 1fr 1fr`, tạo 3 cột có độ rộng bằng nhau."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `grid-column: span 2;` trên một item trong CSS Grid có tác dụng gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Item đó chiếm 2 cột liền nhau",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Item bị ẩn",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Item xoay 2 độ",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không có tác dụng",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`span 2` khiến item đó kéo dài chiếm **2 cột** liên tiếp trong lưới grid, thay vì chỉ 1 cột mặc định."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "CSS Grid hỗ trợ cả thuộc tính `gap`, `justify-content`, `align-items` tương tự Flexbox.",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Nhiều thuộc tính căn chỉnh và khoảng cách dùng chung cú pháp giữa Grid và Flexbox, giúp việc học và chuyển đổi giữa 2 hệ thống dễ dàng hơn."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Một bảng giá (pricing table) gồm 3 cột đều nhau, mỗi cột có nội dung khác độ dài nhưng cần chiều cao bằng nhau — flexbox xử lý vấn đề này như thế nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Phải tự tính chiều cao thủ công bằng JavaScript",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Mặc định `align-items: stretch;` (giá trị gốc) sẽ tự kéo dài các item theo chiều cao item cao nhất",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Flexbox không xử lý được trường hợp này",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Phải dùng float thay vì flexbox",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Giá trị mặc định của `align-items` là `stretch`, tự động kéo dài các flex item để có chiều cao bằng item cao nhất trong cùng 1 dòng, rất hữu ích cho pricing table/card layout."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `filter: blur(5px);` trong CSS có tác dụng gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Làm mờ (blur) hình ảnh hiển thị của phần tử",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Xóa phần tử khỏi DOM",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Đổi định dạng ảnh",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không có tác dụng với CSS",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`filter: blur()` áp dụng hiệu ứng làm mờ thị giác lên phần tử (thường dùng cho ảnh), giá trị càng lớn càng mờ."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `filter: grayscale(100%);` có tác dụng gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Chuyển phần tử (thường là ảnh) sang thang độ xám hoàn toàn (trắng đen)",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Làm phần tử trong suốt",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Đổi màu thành xám nhạt 50%",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không tồn tại trong CSS",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`grayscale(100%)` loại bỏ hoàn toàn màu sắc, biến ảnh/phần tử thành thang xám (đen trắng)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Đặc tính \"Mobile First\" và \"Desktop First\" khác nhau chủ yếu ở việc dùng loại media query nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Mobile First dùng chủ yếu `min-width`, Desktop First dùng chủ yếu `max-width`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Không có khác biệt",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Mobile First không dùng media query",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Desktop First chỉ dùng cho ảnh",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Mobile First xây style gốc cho màn nhỏ rồi mở rộng dần lên bằng `min-width`; Desktop First làm ngược lại, xây gốc cho màn lớn rồi thu nhỏ dần bằng `max-width`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Để ẩn một phần tử trên màn hình nhỏ (mobile) nhưng hiện trên desktop, cách làm phổ biến là?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`display: none;` mặc định, rồi dùng media query `min-width` để đổi thành `display: block;` trên desktop",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Xóa hẳn phần tử khỏi HTML",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Dùng `opacity: 0;` vĩnh viễn",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không thể làm được bằng CSS",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Kỹ thuật phổ biến: ẩn mặc định bằng `display: none;`, sau đó trong `@media (min-width: ...)` đổi lại thành `display: block;` (hoặc `flex`) để hiện trên màn hình lớn hơn."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Trong thiết kế card sản phẩm, thuộc tính nào giúp tạo hiệu ứng phóng to nhẹ khi hover, kết hợp transition mượt?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`transform: scale(1.05);` kết hợp `transition: transform 0.2s;`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`float: scale;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`position: scale;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`width: 105%;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Kết hợp `transform: scale()` để phóng to nhẹ và `transition` để hiệu ứng diễn ra mượt mà thay vì đổi kích thước đột ngột, là kỹ thuật phổ biến cho hover card."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "CSS thuộc tính `clip-path` dùng để làm gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Cắt phần tử theo một hình dạng tùy chỉnh (đa giác, tròn,...)",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Đặt clip âm thanh nền",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Sao chép style từ phần tử khác",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không tồn tại trong CSS",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`clip-path` (ví dụ `polygon()`, `circle()`) cho phép cắt hiển thị phần tử theo các hình dạng phức tạp tùy chỉnh, thay vì chỉ hình chữ nhật mặc định."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Một hiệu ứng \"skeleton loading\" (khung xương chờ tải dữ liệu) phổ biến thường kết hợp những công cụ CSS nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`background-color` cố định và không có animation",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`@keyframes` tạo hiệu ứng nhấp nháy/di chuyển gradient lặp vô hạn (`animation-iteration-count: infinite`)",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`float` và `clear`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`position: static;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Skeleton loading thường dùng `@keyframes` để tạo hiệu ứng gradient di chuyển hoặc nhấp nháy (pulse), kết hợp `animation-iteration-count: infinite;` để lặp liên tục trong lúc chờ dữ liệu tải."
+    },
+    {
+      "type": "short_answer",
+      "question": {
+        "content": "Thuộc tính CSS Grid nào dùng để định nghĩa số lượng và kích thước các HÀNG trong lưới?",
+        "images": []
+      },
+      "answer": [
+        "grid-template-rows"
+      ],
+      "explanation": "`grid-template-rows` định nghĩa số lượng và kích thước các hàng, tương tự cách `grid-template-columns` định nghĩa các cột."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Để tạo hiệu ứng chữ chạy (marquee) ngang qua màn hình bằng CSS thuần, công cụ phù hợp nhất là?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`animation` với `@keyframes` dịch chuyển `transform: translateX()` và lặp `infinite`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`text-align: justify;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`float: marquee;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`white-space: pre;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Dùng `@keyframes` định nghĩa các bước dịch chuyển vị trí qua `transform: translateX()`, kết hợp `animation-iteration-count: infinite;` và `animation-timing-function: linear;` để tạo chuyển động đều, liên tục giống hiệu ứng marquee cũ."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "Việc lạm dụng quá nhiều `!important` trong dự án thường được coi là 'code smell' (dấu hiệu code chưa tốt) vì gây khó khăn cho việc bảo trì và ghi đè style sau này.",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`!important` phá vỡ thứ tự ưu tiên tự nhiên của CSS, khiến việc debug và ghi đè style về sau trở nên khó khăn hơn; vì vậy nó thường được khuyến nghị chỉ dùng khi thực sự cần thiết."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Trong CSS, đơn vị `ch` đại diện cho điều gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Chiều rộng xấp xỉ của ký tự '0' trong font hiện tại",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Số dòng văn bản",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Chiều cao của 1 ký tự bất kỳ",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không tồn tại trong CSS",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Đơn vị `ch` được tính dựa trên chiều rộng ký tự \"0\" của font đang dùng, hữu ích để giới hạn chiều rộng theo số ký tự văn bản gần đúng, ví dụ `max-width: 60ch;` cho đoạn văn dễ đọc."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Câu lệnh `@import url('reset.css');` ở đầu file CSS có tác dụng gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Nhúng (import) nội dung của file CSS khác vào file hiện tại",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Xóa toàn bộ CSS đã viết",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Chỉ áp dụng cho ảnh nền",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không hợp lệ trong CSS",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`@import` cho phép nhúng một file CSS khác vào file hiện tại, tuy nhiên cần lưu ý nó có thể ảnh hưởng tới hiệu năng tải trang nếu lạm dụng nhiều file import lồng nhau."
+    }
+  ]
+}

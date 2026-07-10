@@ -1,0 +1,19 @@
+{
+  "id": "q15-set-attribute",
+  "title": "Đặt thuộc tính disabled cho nút",
+  "description": "Nút `#submitBtn` hiện đang có thể bấm được. Hãy vô hiệu hóa nút này để người dùng không thể bấm được nữa.\n\nGợi ý: Dùng thuộc tính `disabled`",
+  "files": {
+    "html": "<button id=\"submitBtn\">Gửi</button>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: document.getElementById('submitBtn').disabled = true;\n",
+  "checks": [
+    {
+      "label": "Đặt thuộc tính disabled cho nút",
+      "points": 10,
+      "checker": "const el = doc.getElementById('submitBtn'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử #submitBtn.' }; if (el.disabled === true) return { pass: true, message: 'Chính xác!' }; return { pass: false, message: 'Nút #submitBtn hiện chưa bị vô hiệu hóa (disabled = ' + el.disabled + ').' };"
+    }
+  ]
+}

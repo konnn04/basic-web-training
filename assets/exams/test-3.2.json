@@ -1,0 +1,1235 @@
+{
+  "title": "Bài kiểm tra số 9: CSS Selector nâng cao & Background",
+  "description": "Ôn tập về các selector nâng cao (combinator, pseudo-class, pseudo-element, attribute selector) qua các đoạn code HTML mẫu, cùng các thuộc tính background trong CSS.",
+  "category": "CSS",
+  "date": "2026-06-30",
+  "duration": 60,
+  "random": true,
+  "questions": [
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Cho đoạn HTML sau:\n\n```html\n<div class=\"box\">\n  <p class=\"text\">Xin chào</p>\n  <span class=\"text\">Thế giới</span>\n</div>\n```\n\nSelector `.box .text` chọn những phần tử nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Chỉ `<p>`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Chỉ `<span>`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Cả `<p>` và `<span>`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không chọn gì cả",
+          "images": []
+        }
+      ],
+      "answer": [
+        "3"
+      ],
+      "explanation": "Khoảng trắng giữa hai selector là **descendant combinator**, chọn mọi phần tử con cháu (không chỉ con trực tiếp) có class `text` nằm bên trong `.box`. Cả `<p>` và `<span>` đều thỏa."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Cho đoạn HTML sau:\n\n```html\n<ul>\n  <li>Một</li>\n  <li>Hai</li>\n  <li>Ba</li>\n</ul>\n```\n\nSelector `ul > li` chọn những phần tử nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Tất cả `<li>` trong trang",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Chỉ `<li>` là con trực tiếp của `<ul>`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Chỉ phần tử `<li>` đầu tiên",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không hợp lệ",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Dấu `>` là **child combinator**, chỉ chọn các phần tử là **con trực tiếp** (không phải con cháu sâu hơn) của phần tử bên trái."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Cho đoạn HTML sau:\n\n```html\n<h2>Tiêu đề</h2>\n<p>Đoạn 1</p>\n<p>Đoạn 2</p>\n```\n\nSelector `h2 + p` chọn phần tử nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Cả \"Đoạn 1\" và \"Đoạn 2\"",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Chỉ \"Đoạn 1\" (phần tử p ngay sau h2)",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Chỉ \"Đoạn 2\"",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không chọn gì",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Dấu `+` là **adjacent sibling combinator**, chỉ chọn phần tử em **liền kề ngay sau** phần tử bên trái. Ở đây chỉ \"Đoạn 1\" thỏa điều kiện."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Vẫn với đoạn HTML ở câu trên:\n\n```html\n<h2>Tiêu đề</h2>\n<p>Đoạn 1</p>\n<p>Đoạn 2</p>\n```\n\nSelector `h2 ~ p` chọn phần tử nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Chỉ \"Đoạn 1\"",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Chỉ \"Đoạn 2\"",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Cả \"Đoạn 1\" và \"Đoạn 2\"",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không chọn gì",
+          "images": []
+        }
+      ],
+      "answer": [
+        "3"
+      ],
+      "explanation": "Dấu `~` là **general sibling combinator**, chọn **tất cả** các phần tử em phía sau (không nhất thiết liền kề) có cùng cha với phần tử bên trái. Cả 2 thẻ `<p>` đều thỏa."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Cho đoạn HTML sau:\n\n```html\n<input type=\"text\" name=\"username\">\n<input type=\"password\" name=\"pass\">\n```\n\nSelector nào chọn đúng ô input mật khẩu?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`input.password`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`input[type=\"password\"]`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`input:password`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`input#password`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Selector thuộc tính `[type=\"password\"]` dùng để chọn phần tử dựa trên giá trị thuộc tính HTML, ở đây là `type=\"password\"`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Selector `a[href^=\"https\"]` chọn các thẻ `<a>` có thuộc tính `href`...",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Kết thúc bằng \"https\"",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Bắt đầu bằng \"https\"",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Chứa chuỗi \"https\" ở bất kỳ đâu",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Bằng chính xác \"https\"",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Ký hiệu `^=` nghĩa là thuộc tính **bắt đầu bằng** giá trị chỉ định."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Selector `a[href$=\".pdf\"]` chọn các thẻ `<a>` có thuộc tính `href`...",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Bắt đầu bằng \".pdf\"",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Kết thúc bằng \".pdf\"",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Chứa \".pdf\"",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không chứa \".pdf\"",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Ký hiệu `$=` nghĩa là thuộc tính **kết thúc bằng** giá trị chỉ định, thường dùng để chọn link tới file PDF."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Selector `a[href*=\"google\"]` chọn các thẻ `<a>` có thuộc tính `href`...",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Bắt đầu bằng \"google\"",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Kết thúc bằng \"google\"",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Chứa chuỗi \"google\" ở bất kỳ vị trí nào",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không liên quan đến \"google\"",
+          "images": []
+        }
+      ],
+      "answer": [
+        "3"
+      ],
+      "explanation": "Ký hiệu `*=` nghĩa là thuộc tính **chứa** chuỗi con chỉ định ở bất kỳ vị trí nào."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Cho HTML:\n\n```html\n<p>Đoạn văn <strong>quan trọng</strong> ở đây.</p>\n```\n\nSelector `p strong` và `p > strong` trong trường hợp này khác nhau như thế nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Khác nhau hoàn toàn về kết quả",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Cùng chọn ra phần tử `<strong>` vì nó là con trực tiếp của `<p>`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`p > strong` không hợp lệ",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`p strong` không chọn được gì",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Vì `<strong>` là con trực tiếp của `<p>` (không có phần tử trung gian), nên cả descendant selector `p strong` và child selector `p > strong` đều cho cùng kết quả ở trường hợp này."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Pseudo-class `:hover` được kích hoạt khi nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Khi phần tử được click",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Khi con trỏ chuột di lên phần tử",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Khi phần tử là phần tử đầu tiên",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Khi trang vừa tải xong",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`:hover` áp dụng style khi người dùng di chuột (hover) lên phần tử."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Pseudo-class `:first-child` chọn phần tử nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Phần tử đầu tiên trong toàn trang",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Phần tử là con đầu tiên của phần tử cha của nó",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Phần tử cuối cùng",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Mọi phần tử có class 'first'",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`:first-child` chọn phần tử là **con đầu tiên** trong số các phần tử con của cha nó."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Pseudo-class `:nth-child(2)` chọn phần tử nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Phần tử con thứ 2 trong cha của nó",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "2 phần tử đầu tiên",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Phần tử có id là 2",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Phần tử thứ 2 toàn trang bất kể cha nào",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`:nth-child(n)` chọn phần tử con ở vị trí thứ `n` trong nhóm các phần tử con cùng cha; `nth-child(2)` chọn phần tử con thứ 2."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Pseudo-element `::before` dùng để làm gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Chèn nội dung ảo TRƯỚC nội dung của phần tử",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Chọn phần tử trước đó trong DOM",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Chèn nội dung SAU phần tử",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Ẩn phần tử trước khi load",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`::before` (kết hợp với thuộc tính `content`) chèn một nội dung ảo (pseudo-element) vào **ngay trước** nội dung thật của phần tử."
+    },
+    {
+      "type": "short_answer",
+      "question": {
+        "content": "Pseudo-element nào dùng để chèn nội dung ảo NGAY SAU nội dung của phần tử?",
+        "images": []
+      },
+      "answer": [
+        "::after"
+      ],
+      "explanation": "`::after` chèn nội dung ảo vào **sau cùng**, bên trong phần tử, sau nội dung thật."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Pseudo-class `:not()` dùng để làm gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Loại trừ các phần tử khớp với selector bên trong dấu ngoặc",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Phủ định toàn bộ CSS",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Chọn phần tử rỗng",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không có tác dụng gì",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`:not(selector)` chọn tất cả phần tử **không** khớp với selector được truyền vào, ví dụ `p:not(.intro)` chọn mọi `<p>` trừ những thẻ có class `intro`."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "Selector `,` (dấu phẩy) dùng để gộp nhiều selector áp dụng cùng một khối style, ví dụ `h1, h2, h3 { color: blue; }`.",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Dấu phẩy phân tách danh sách các selector, và toàn bộ khối khai báo style sẽ áp dụng cho tất cả các selector đó."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Cho HTML:\n\n```html\n<div id=\"app\" class=\"container active\">\n  <p>Nội dung</p>\n</div>\n```\n\nSelector nào sau đây **không** chọn được phần tử `<div>` này?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`#app`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`.container`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`.active`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`.app`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "4"
+      ],
+      "explanation": "Phần tử không có class tên `app`, chỉ có `id=\"app\"`. Selector `.app` (chọn theo class) sẽ không khớp; phải dùng `#app` (chọn theo id)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Để chọn đồng thời phần tử vừa có class `box` vừa có class `red` (không khoảng trắng), ta viết?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`.box .red`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`.box, .red`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`.box.red`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`.box+.red`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "3"
+      ],
+      "explanation": "Viết liền `.box.red` (không khoảng trắng) nghĩa là chọn phần tử phải có **đồng thời cả hai** class `box` và `red`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `background-image` dùng để làm gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đặt màu nền",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Đặt ảnh nền cho phần tử",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Đặt kích thước ảnh",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Đặt viền ảnh",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`background-image: url('anh.jpg');` chèn một ảnh làm nền cho phần tử."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `background-repeat: no-repeat;` có tác dụng gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Lặp lại ảnh nền theo cả 2 chiều",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Không lặp lại ảnh nền (chỉ hiện 1 lần)",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Xoay ảnh nền",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Làm mờ ảnh nền",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Mặc định ảnh nền sẽ lặp lại (`repeat`) theo cả chiều ngang và dọc; `no-repeat` tắt việc lặp lại này."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `background-position: center;` có tác dụng gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Căn giữa nội dung văn bản",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Đặt vị trí ảnh nền vào giữa phần tử",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Đặt vị trí phần tử vào giữa trang",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không có tác dụng",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`background-position` quy định vị trí hiển thị của ảnh nền bên trong phần tử; `center` đặt ảnh vào chính giữa."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `background-size: cover;` có tác dụng gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Ảnh nền được phóng to/thu nhỏ để phủ kín toàn bộ phần tử, có thể bị cắt bớt",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Ảnh nền giữ nguyên kích thước gốc",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Ảnh nền bị kéo méo theo đúng kích thước phần tử",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Ẩn ảnh nền",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`cover` co giãn ảnh nền sao cho phủ kín toàn bộ vùng chứa, vẫn giữ đúng tỉ lệ ảnh, có thể cắt bớt phần thừa ra ngoài."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Khác biệt giữa `background-size: cover` và `background-size: contain` là gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Không có khác biệt",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`cover` phủ kín có thể cắt ảnh, `contain` hiển thị trọn ảnh có thể để lại khoảng trống",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`contain` luôn làm méo ảnh",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`cover` chỉ áp dụng cho ảnh PNG",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`cover` ưu tiên phủ kín vùng chứa (có thể cắt ảnh), còn `contain` ưu tiên hiển thị **trọn vẹn** ảnh bên trong vùng chứa (có thể để lại khoảng trống nền)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `background-attachment: fixed;` tạo hiệu ứng gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Ảnh nền cuộn theo nội dung trang",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Ảnh nền cố định, không cuộn theo khi người dùng scroll trang (hiệu ứng parallax)",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Ảnh nền bị khóa không cho thay đổi qua JavaScript",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không có tác dụng gì",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`fixed` giữ ảnh nền cố định so với khung nhìn (viewport), tạo hiệu ứng thị sai (parallax) khi cuộn trang."
+    },
+    {
+      "type": "short_answer",
+      "question": {
+        "content": "Viết shorthand CSS để vừa đặt ảnh nền `bg.jpg`, không lặp lại, và căn giữa, trong MỘT dòng khai báo `background`. (Chỉ cần nêu tên thuộc tính shorthand)",
+        "images": []
+      },
+      "answer": [
+        "background"
+      ],
+      "explanation": "Thuộc tính `background` là shorthand cho phép gộp `background-image`, `background-repeat`, `background-position`,... ví dụ: `background: url('bg.jpg') no-repeat center;`"
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Có thể đặt nhiều ảnh nền chồng lên nhau cho 1 phần tử bằng CSS không?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Không thể",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Có thể, bằng cách liệt kê nhiều url cách nhau dấu phẩy trong `background-image`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Chỉ làm được bằng JavaScript",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Chỉ làm được với SVG",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "CSS hỗ trợ nhiều lớp ảnh nền: `background-image: url(a.png), url(b.png);`, ảnh đầu tiên nằm trên cùng."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `background-color` và `background-image` có thể dùng cùng lúc không?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Không, chỉ chọn 1 trong 2",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Có, màu nền sẽ hiển thị ở phần ảnh chưa phủ tới hoặc trong suốt",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Có nhưng màu nền sẽ luôn đè lên ảnh",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Chỉ hoạt động trên Firefox",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Có thể dùng cùng lúc; `background-color` đóng vai trò màu nền lót phía dưới, hiển thị ở những vùng ảnh không phủ tới (ví dụ ảnh có phần trong suốt)."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "Giá trị `background-size: 100% 100%;` sẽ luôn giữ đúng tỉ lệ gốc của ảnh.",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`100% 100%` kéo giãn ảnh khớp chính xác kích thước phần tử theo cả 2 chiều, có thể làm **méo ảnh** nếu tỉ lệ phần tử khác tỉ lệ ảnh gốc — khác với `cover`/`contain` vốn giữ tỉ lệ."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "CSS gradient nào tạo dải màu chuyển theo đường thẳng?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`radial-gradient()`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`linear-gradient()`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`conic-gradient()`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`repeating-gradient()`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`linear-gradient()` tạo hiệu ứng chuyển màu theo một đường thẳng (góc hoặc hướng chỉ định), ví dụ `background: linear-gradient(to right, red, blue);`"
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "`radial-gradient()` tạo hiệu ứng chuyển màu theo dạng nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đường thẳng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Hình tròn/elip tỏa ra từ tâm",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Hình vuông",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Đường chéo cố định",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`radial-gradient()` tạo dải màu tỏa tròn (hoặc elip) ra từ một điểm tâm."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Cho HTML:\n\n```html\n<ul>\n  <li class=\"item\">A</li>\n  <li class=\"item active\">B</li>\n  <li class=\"item\">C</li>\n</ul>\n```\n\nSelector `.item.active` chọn phần tử nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "A",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "B",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "C",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Cả 3 phần tử",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Selector viết liền `.item.active` yêu cầu phần tử phải có **đồng thời** cả 2 class, chỉ phần tử B (`class=\"item active\"`) thỏa."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Pseudo-class `:last-child` chọn phần tử nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Phần tử con cuối cùng trong nhóm anh em cùng cha",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Phần tử cuối cùng trong toàn trang",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Phần tử có id kết thúc bằng số",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không tồn tại trong CSS",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`:last-child` chọn phần tử là con **cuối cùng** trong số các phần tử con của cha nó."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Pseudo-class `:nth-child(odd)` chọn các phần tử ở vị trí nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Vị trí chẵn (2, 4, 6...)",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Vị trí lẻ (1, 3, 5...)",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Chỉ vị trí đầu",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Chỉ vị trí cuối",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`odd` chọn các phần tử con ở vị trí **lẻ**: 1, 3, 5..."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Selector `input:checked` áp dụng cho phần tử nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Checkbox/radio đang ở trạng thái được chọn (tick)",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Mọi input bất kể trạng thái",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Input đang bị disabled",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Input đang có focus",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`:checked` chọn các phần tử checkbox hoặc radio button đang ở trạng thái được tick chọn."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Selector `input:disabled` áp dụng cho phần tử nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Input đang bị vô hiệu hóa (disabled)",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Input đang được focus",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Input rỗng",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Input có giá trị mặc định",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`:disabled` chọn các phần tử form (input, button,...) đang ở trạng thái `disabled`, không thể tương tác."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Pseudo-class `:focus` được kích hoạt khi nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Khi phần tử (thường là input) đang được focus, ví dụ vừa click vào để gõ chữ",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Khi trang web mất kết nối mạng",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Khi phần tử bị ẩn",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Khi chuột rời khỏi phần tử",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`:focus` áp dụng style khi phần tử (input, textarea, link,...) đang nhận focus từ người dùng (đang được chọn để tương tác)."
+    },
+    {
+      "type": "short_answer",
+      "question": {
+        "content": "Tổ hợp ký pháp `>`, `+`, `~` trong CSS được gọi chung là gì?",
+        "images": []
+      },
+      "answer": [
+        "combinator",
+        "combinators"
+      ],
+      "explanation": "Đây là các **combinator** (bộ kết hợp), dùng để mô tả mối quan hệ giữa các selector: child (`>`), adjacent sibling (`+`), general sibling (`~`)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `background-clip: padding-box;` xác định điều gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Vùng nền chỉ trải tới rìa padding, không lan ra border",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Vùng nền trải ra toàn bộ margin",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Ẩn hoàn toàn ảnh nền",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không có giá trị này trong CSS",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`background-clip` quy định vùng mà nền (màu hoặc ảnh) được hiển thị; `padding-box` giới hạn nền chỉ trong phần content + padding, không lan vào vùng border."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Để đặt nhiều thuộc tính nền cùng lúc theo thứ tự `color image repeat position/size attachment`, ta dùng?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Thuộc tính rút gọn `background`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Phải viết riêng từng dòng, không thể gộp",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Thuộc tính `background-all`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Thuộc tính `style`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Shorthand `background` cho phép gộp nhiều thuộc tính nền (màu, ảnh, repeat, position, size, attachment) trong một khai báo duy nhất."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "Selector con cháu (descendant selector, ví dụ `.box .text`) chọn cả các phần tử con sâu nhiều cấp, không chỉ con trực tiếp.",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Descendant selector (chỉ cách nhau bởi khoảng trắng) chọn mọi phần tử cháu/chắt bên trong phần tử cha, bất kể nằm sâu bao nhiêu cấp."
+    }
+  ]
+}

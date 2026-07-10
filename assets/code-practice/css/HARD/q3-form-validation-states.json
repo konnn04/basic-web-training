@@ -1,0 +1,34 @@
+{
+  "id": "q3-form-validation-states",
+  "title": "Form với trạng thái hợp lệ / không hợp lệ",
+  "description": "Có 2 ô nhập liệu: `.field.is-valid` (dữ liệu hợp lệ) và `.field.is-invalid` (dữ liệu không hợp lệ). Hãy làm cho trạng thái của từng ô rõ ràng ngay từ cái nhìn đầu tiên: ô hợp lệ có viền và nền tông xanh lá nhạt, ô không hợp lệ có viền và nền tông đỏ nhạt, cả hai đều cần viền liền nét đủ rõ để nhận ra.\n\nGợi ý: `.field.is-valid` — `border-color: rgb(0, 128, 0)`, `background-color: #eaf7ea`; `.field.is-invalid` — `border-color: rgb(255, 0, 0)`, `background-color: #fdeaea`; cả hai cần `border-width` tối thiểu 1px và `border-style: solid`.",
+  "files": {
+    "html": "<input class=\"field is-valid\" value=\"ok@example.com\" />\n<input class=\"field is-invalid\" value=\"khong-hop-le\" />",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.field {\n\n}\n.field.is-valid {\n\n}\n.field.is-invalid {\n\n}\n",
+  "checks": [
+    {
+      "label": "Cả 2 ô có border-style: solid và border-width tối thiểu 1px",
+      "points": 9,
+      "checker": "const valid = doc.querySelector('.field.is-valid'); const invalid = doc.querySelector('.field.is-invalid'); if (!valid || !invalid) return { pass: false, message: 'Không tìm thấy .field.is-valid hoặc .field.is-invalid.' }; const vs = win.getComputedStyle(valid); const is = win.getComputedStyle(invalid); if (vs.borderTopStyle !== 'solid' || parseFloat(vs.borderTopWidth) < 1) return { pass: false, message: '.field.is-valid cần border-style: solid và border-width tối thiểu 1px.' }; if (is.borderTopStyle !== 'solid' || parseFloat(is.borderTopWidth) < 1) return { pass: false, message: '.field.is-invalid cần border-style: solid và border-width tối thiểu 1px.' }; return { pass: true, message: 'Chính xác! Cả 2 ô đều có viền liền nét rõ ràng.' };"
+    },
+    {
+      "label": ".field.is-valid có border-color xanh lá",
+      "points": 9,
+      "checker": "const valid = doc.querySelector('.field.is-valid'); if (!valid) return { pass: false, message: 'Không tìm thấy .field.is-valid.' }; const vs = win.getComputedStyle(valid); if (vs.borderTopColor !== 'rgb(0, 128, 0)') return { pass: false, message: '.field.is-valid cần border-color là rgb(0, 128, 0) (hiện tại: ' + vs.borderTopColor + ').' }; return { pass: true, message: 'Chính xác! Ô hợp lệ có viền xanh lá.' };"
+    },
+    {
+      "label": ".field.is-invalid có border-color đỏ",
+      "points": 9,
+      "checker": "const invalid = doc.querySelector('.field.is-invalid'); if (!invalid) return { pass: false, message: 'Không tìm thấy .field.is-invalid.' }; const is = win.getComputedStyle(invalid); if (is.borderTopColor !== 'rgb(255, 0, 0)') return { pass: false, message: '.field.is-invalid cần border-color là rgb(255, 0, 0) (hiện tại: ' + is.borderTopColor + ').' }; return { pass: true, message: 'Chính xác! Ô không hợp lệ có viền đỏ.' };"
+    },
+    {
+      "label": "Cả 2 ô có nền tông màu nhạt tương ứng",
+      "points": 8,
+      "checker": "const valid = doc.querySelector('.field.is-valid'); const invalid = doc.querySelector('.field.is-invalid'); if (!valid || !invalid) return { pass: false, message: 'Không tìm thấy .field.is-valid hoặc .field.is-invalid.' }; const vs = win.getComputedStyle(valid); const is = win.getComputedStyle(invalid); if (vs.backgroundColor !== 'rgb(234, 247, 234)') return { pass: false, message: '.field.is-valid cần background-color rgb(234, 247, 234) (hiện tại: ' + vs.backgroundColor + ').' }; if (is.backgroundColor !== 'rgb(253, 234, 234)') return { pass: false, message: '.field.is-invalid cần background-color rgb(253, 234, 234) (hiện tại: ' + is.backgroundColor + ').' }; return { pass: true, message: 'Chính xác! Cả 2 ô đều có nền tông màu phù hợp.' };"
+    }
+  ]
+}

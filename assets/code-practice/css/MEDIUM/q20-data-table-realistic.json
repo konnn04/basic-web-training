@@ -1,0 +1,34 @@
+{
+  "id": "q20-data-table-realistic",
+  "title": "Bảng dữ liệu thực tế: header, sọc xen kẽ, hover, căn phải số",
+  "description": "Bảng `.report-table` liệt kê số lượng bán theo sản phẩm. Hãy làm cho bảng dễ đọc như một bảng dữ liệu thực tế: hàng tiêu đề (`thead`) có nền đậm và chữ sáng để nổi bật; các hàng dữ liệu xen kẽ màu nền; khi rê chuột vào một hàng dữ liệu, hàng đó đổi nền để dễ theo dõi; cột số lượng (`.num`) căn phải để dễ so sánh các con số.\n\nGợi ý: `background-color`/`color` cho `thead tr`; `:nth-child(even)` cho hiệu ứng sọc; `tbody tr:hover` cho highlight; `text-align: right` cho `.num`.",
+  "files": {
+    "html": "<table class=\"report-table\">\n  <thead>\n    <tr><th>Sản phẩm</th><th class=\"num\">Số lượng</th></tr>\n  </thead>\n  <tbody>\n    <tr><td>Bàn phím</td><td class=\"num\">12</td></tr>\n    <tr><td>Chuột</td><td class=\"num\">25</td></tr>\n    <tr><td>Tai nghe</td><td class=\"num\">8</td></tr>\n    <tr><td>Màn hình</td><td class=\"num\">4</td></tr>\n  </tbody>\n</table>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.report-table thead tr {\n\n}\n.report-table tbody tr:nth-child(even) {\n\n}\n.report-table tbody tr:hover {\n\n}\n.report-table .num {\n\n}\n",
+  "checks": [
+    {
+      "label": "thead có nền đậm và chữ sáng để nổi bật",
+      "points": 7,
+      "checker": "const table = doc.querySelector('.report-table'); if (!table) return { pass: false, message: 'Không tìm thấy .report-table.' }; const headRow = table.querySelector('thead tr'); if (!headRow) return { pass: false, message: 'Không tìm thấy thead tr.' }; const hs = win.getComputedStyle(headRow); if (!hs.backgroundColor || hs.backgroundColor === 'rgba(0, 0, 0, 0)' || hs.backgroundColor === 'transparent') return { pass: false, message: 'thead tr cần có background-color rõ ràng (hiện tại: ' + hs.backgroundColor + ').' }; const headTh = table.querySelector('thead th'); if (!headTh) return { pass: false, message: 'Không tìm thấy thead th.' }; const headColor = win.getComputedStyle(headTh).color; if (headColor === 'rgb(0, 0, 0)') return { pass: false, message: 'Chữ trong thead cần đổi sang màu sáng (ví dụ trắng) để tương phản với nền đậm.' }; return { pass: true, message: 'Chính xác! Header đã nổi bật với nền đậm và chữ sáng.' };"
+    },
+    {
+      "label": "Các hàng dữ liệu chẵn/lẻ kẻ sọc xen kẽ",
+      "points": 6,
+      "checker": "const table = doc.querySelector('.report-table'); if (!table) return { pass: false, message: 'Không tìm thấy .report-table.' }; const bodyRows = table.querySelectorAll('tbody tr'); if (!bodyRows || bodyRows.length < 4) return { pass: false, message: 'Không tìm thấy đủ các hàng dữ liệu.' }; const bg1 = win.getComputedStyle(bodyRows[0]).backgroundColor; const bg2 = win.getComputedStyle(bodyRows[1]).backgroundColor; if (bg1 === bg2) return { pass: false, message: 'Các hàng chẵn cần có màu nền khác hàng lẻ để tạo hiệu ứng sọc xen kẽ (dùng :nth-child(even)).' }; return { pass: true, message: 'Chính xác! Các hàng đã được kẻ sọc xen kẽ.' };"
+    },
+    {
+      "label": "Hàng dữ liệu đổi nền khi rê chuột vào (hover)",
+      "points": 6,
+      "checker": "const table = doc.querySelector('.report-table'); if (!table) return { pass: false, message: 'Không tìm thấy .report-table.' }; if (!/tbody\\s+tr\\s*:hover\\s*\\{[^}]*background(-color)?\\s*:/.test(code)) return { pass: false, message: 'Cần có rule .report-table tbody tr:hover { background-color: ... } để làm nổi bật hàng khi rê chuột.' }; return { pass: true, message: 'Chính xác! Hàng đã nổi bật khi hover.' };"
+    },
+    {
+      "label": "Cột .num căn phải (text-align: right)",
+      "points": 6,
+      "checker": "const table = doc.querySelector('.report-table'); if (!table) return { pass: false, message: 'Không tìm thấy .report-table.' }; const numCell = table.querySelector('tbody .num'); if (!numCell) return { pass: false, message: 'Không tìm thấy ô .num.' }; const numAlign = win.getComputedStyle(numCell).textAlign; if (numAlign !== 'right') return { pass: false, message: 'Cột .num cần text-align: right để căn phải các con số (hiện tại: ' + numAlign + ').' }; return { pass: true, message: 'Chính xác! Cột số đã căn phải.' };"
+    }
+  ]
+}

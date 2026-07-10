@@ -1,0 +1,19 @@
+{
+  "id": "q18-spread-merge-arrays",
+  "title": "Gộp mảng bằng spread operator",
+  "description": "Biến toàn cục `window.a` là `[1, 2]` và `window.b` là `[3, 4]`. Hãy gộp hai mảng này thành một mảng mới rồi hiển thị lên `#merged` dạng nối bằng dấu phẩy, ví dụ `1,2,3,4`.\n\nGợi ý: Dùng spread operator `[...window.a, ...window.b]` và `.join(\",\")`",
+  "files": {
+    "html": "<script>window.a = [1, 2]; window.b = [3, 4];</script>\n<p id=\"merged\"></p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: const combined = [...window.a, ...window.b];\n",
+  "checks": [
+    {
+      "label": "Gộp mảng bằng spread operator",
+      "points": 10,
+      "checker": "const el = doc.getElementById('merged'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử #merged.' }; if (el.textContent.trim() === '1,2,3,4') return { pass: true, message: 'Chính xác!' }; return { pass: false, message: 'Nội dung hiện tại: \"' + el.textContent + '\", cần đúng: \"1,2,3,4\".' };"
+    }
+  ]
+}

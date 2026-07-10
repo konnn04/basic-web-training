@@ -1,0 +1,19 @@
+{
+  "id": "q8-template-literal",
+  "title": "Chuỗi mẫu (template literal)",
+  "description": "Biến toàn cục `window.userName` chứa tên (`\"An\"`) và `window.userAge` chứa tuổi (`20`). Hãy hiển thị vào `#bio` đúng câu giới thiệu: `Tôi tên An, 20 tuổi.`\n\nGợi ý: Dùng template literal (dấu backtick)",
+  "files": {
+    "html": "<script>window.userName = 'An'; window.userAge = 20;</script>\n<p id=\"bio\"></p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// Gợi ý: `Tôi tên ${window.userName}, ${window.userAge} tuổi.`\n",
+  "checks": [
+    {
+      "label": "Chuỗi mẫu (template literal)",
+      "points": 10,
+      "checker": "const el = doc.getElementById('bio'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử #bio.' }; if (el.textContent.trim() === 'Tôi tên An, 20 tuổi.') return { pass: true, message: 'Chính xác!' }; return { pass: false, message: 'Nội dung hiện tại: \"' + el.textContent + '\", cần đúng: \"Tôi tên An, 20 tuổi.\"' };"
+    }
+  ]
+}

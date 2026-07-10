@@ -1,0 +1,19 @@
+{
+  "id": "q6-badge-pill",
+  "title": "Tạo huy hiệu dạng viên thuốc (pill badge)",
+  "description": "`.badge` cần trông giống một huy hiệu dạng viên thuốc (pill) nhỏ gọn: bo tròn hoàn toàn ở hai đầu, có màu nền rõ ràng và đủ khoảng đệm ngang để chữ không sát mép.\n\nGợi ý: dùng `border-radius` rất lớn (tối thiểu 999px), `background-color` khác trong suốt, và `padding` ngang tối thiểu 6px.",
+  "files": {
+    "html": "<span class=\"badge\">Mới</span>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.badge {\n\n}\n",
+  "checks": [
+    {
+      "label": ".badge có dạng viên thuốc (bo tròn lớn, nền, padding ngang)",
+      "points": 15,
+      "checker": "const el = doc.querySelector('.badge'); if (!el) return { pass: false, message: 'Không tìm thấy .badge.' }; const s = win.getComputedStyle(el); const radius = parseFloat(s.borderTopLeftRadius) || 0; if (radius < 999) return { pass: false, message: 'border-radius cần tối thiểu 999px để tạo dạng viên thuốc (hiện tại: ' + s.borderTopLeftRadius + ').' }; if (!s.backgroundColor || s.backgroundColor === 'rgba(0, 0, 0, 0)' || s.backgroundColor === 'transparent') return { pass: false, message: 'Cần đặt background-color khác trong suốt.' }; const padLeft = parseFloat(s.paddingLeft) || 0; if (padLeft < 6) return { pass: false, message: 'padding ngang cần tối thiểu 6px (hiện tại padding-left: ' + s.paddingLeft + ').' }; return { pass: true, message: 'Chính xác! Badge đã có dạng viên thuốc.' };"
+    }
+  ]
+}

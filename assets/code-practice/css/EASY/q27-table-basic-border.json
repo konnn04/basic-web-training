@@ -1,0 +1,24 @@
+{
+  "id": "q27-table-basic-border",
+  "title": "Bảng cơ bản: viền liền và khoảng đệm ô",
+  "description": "Bảng dữ liệu `.data-table` hiện chưa có viền, các ô sát vào nhau khó đọc. Hãy làm cho bảng gọn gàng hơn: đường viền của các ô liền lại thành một đường duy nhất (không bị tách đôi giữa 2 ô cạnh nhau), và mỗi ô có khoảng đệm bên trong cùng viền mảnh bao quanh.\n\nGợi ý: dùng `border-collapse: collapse;` trên `table`, và `border`, `padding` trên `td, th`.",
+  "files": {
+    "html": "<table class=\"data-table\">\n  <thead>\n    <tr><th>Tên</th><th>Điểm</th></tr>\n  </thead>\n  <tbody>\n    <tr><td>An</td><td>8</td></tr>\n    <tr><td>Bình</td><td>9</td></tr>\n  </tbody>\n</table>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.data-table {\n\n}\n.data-table th,\n.data-table td {\n\n}\n",
+  "checks": [
+    {
+      "label": "table có border-collapse: collapse",
+      "points": 5,
+      "checker": "const table = doc.querySelector('.data-table'); if (!table) return { pass: false, message: 'Không tìm thấy .data-table.' }; const ts = win.getComputedStyle(table); if (ts.borderCollapse !== 'collapse') return { pass: false, message: 'table cần border-collapse: collapse (hiện tại: ' + ts.borderCollapse + ').' }; return { pass: true, message: 'Chính xác! Viền các ô đã liền thành một đường.' };"
+    },
+    {
+      "label": "Các ô td/th có viền và padding để dễ đọc",
+      "points": 5,
+      "checker": "const table = doc.querySelector('.data-table'); if (!table) return { pass: false, message: 'Không tìm thấy .data-table.' }; const cell = doc.querySelector('.data-table td'); if (!cell) return { pass: false, message: 'Không tìm thấy ô td.' }; const cs = win.getComputedStyle(cell); if (cs.borderTopStyle !== 'solid' || parseFloat(cs.borderTopWidth) < 1) return { pass: false, message: 'Các ô td/th cần có border (ví dụ 1px solid).' }; if (parseFloat(cs.paddingTop) < 4) return { pass: false, message: 'Các ô cần có padding để dễ đọc (tối thiểu 4px).' }; return { pass: true, message: 'Chính xác! Các ô đã có viền và khoảng đệm phù hợp.' };"
+    }
+  ]
+}

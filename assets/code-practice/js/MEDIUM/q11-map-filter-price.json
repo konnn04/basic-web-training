@@ -1,0 +1,19 @@
+{
+  "id": "q11-map-filter-price",
+  "title": "Dùng map/filter tính danh sách giảm giá",
+  "description": "Biến toàn cục `window.products` là danh sách sản phẩm `{ name, price }`. Cửa hàng muốn chạy khuyến mãi giảm 10% cho những sản phẩm có giá trên 100: hiển thị mỗi sản phẩm đó (giá đã giảm, làm tròn) thành `<li class=\"deal\">Tên: Giá</li>` trong `#dealList`; sản phẩm giá từ 100 trở xuống không tham gia khuyến mãi nên không hiển thị.\n\nGợi ý: Dùng `filter` rồi `map` (giá mới = `price * 0.9`), làm tròn bằng `Math.round`",
+  "files": {
+    "html": "<script>window.products = [{ name: 'Bút', price: 50 }, { name: 'Balo', price: 200 }, { name: 'Áo', price: 150 }, { name: 'Sổ', price: 80 }, { name: 'Giày', price: 500 }, { name: 'Mũ', price: 120 }, { name: 'Ví', price: 90 }];</script>\n<ul id=\"dealList\"></ul>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// window.products có sẵn mảng object { name, price }\n// Gợi ý: filter rồi map, dùng Math.round để làm tròn\n",
+  "checks": [
+    {
+      "label": "Dùng map/filter tính danh sách giảm giá",
+      "points": 20,
+      "checker": "const list = doc.getElementById('dealList'); if (!list) return { pass: false, message: 'Không tìm thấy #dealList.' }; const items = Array.from(list.querySelectorAll('.deal')).map(li => li.textContent.trim()); const expected = ['Balo: 180', 'Áo: 135', 'Giày: 450', 'Mũ: 108']; if (items.length !== expected.length || !expected.every(e => items.includes(e))) return { pass: false, message: 'Danh sách hiển thị: [' + items.join(', ') + '], cần chứa đúng: [' + expected.join(', ') + '].' }; return { pass: true, message: 'Chính xác!' };"
+    }
+  ]
+}

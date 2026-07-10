@@ -1,0 +1,19 @@
+{
+  "id": "q18-font-family",
+  "title": "Đặt font chữ",
+  "description": "Đoạn trích dẫn có class `quote`. Hãy đổi font chữ của nó sang một font có chân (serif), cụ thể là `Georgia` (kèm phương án dự phòng `serif`).\n\nGợi ý: dùng thuộc tính `font-family`, giá trị `Georgia, serif`.",
+  "files": {
+    "html": "<p class=\"quote\">Học CSS mỗi ngày một chút.</p>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.quote {\n\n}\n",
+  "checks": [
+    {
+      "label": ".quote dùng font-family Georgia",
+      "points": 5,
+      "checker": "const el = doc.querySelector('.quote'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử .quote.' }; const family = win.getComputedStyle(el).fontFamily.toLowerCase(); if (family.includes('georgia')) return { pass: true, message: 'Chính xác! Font chữ đã đổi thành Georgia.' }; return { pass: false, message: 'font-family hiện tại là ' + family + ', cần chứa Georgia.' };"
+    }
+  ]
+}

@@ -1,0 +1,1234 @@
+{
+  "title": "Bài kiểm tra số 12: Tổng hợp CSS",
+  "description": "Đề tổng hợp toàn bộ kiến thức CSS đã học: màu sắc, box model, selector, specificity, flexbox, position, transition, animation, responsive — theo hình thức đề thi học kỳ.",
+  "category": "CSS",
+  "date": "2026-06-30",
+  "duration": 45,
+  "random": true,
+  "questions": [
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Trong CSS, độ ưu tiên (specificity) giữa selector theo `id`, `class` và `tag` được xếp theo thứ tự nào (từ cao xuống thấp)?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "tag > class > id",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "id > class > tag",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "class > id > tag",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Cả 3 ngang nhau",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Thứ tự độ ưu tiên chuẩn của CSS: **id** cao nhất, tiếp đến **class** (cùng pseudo-class, attribute selector), thấp nhất là **tag** (element selector)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Khi 2 luật CSS có cùng độ ưu tiên (specificity) áp dụng cho cùng 1 phần tử, luật nào sẽ thắng?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Luật được khai báo đầu tiên",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Luật được khai báo SAU CÙNG trong mã nguồn",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Luật ngắn hơn",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Cả 2 cùng áp dụng",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Khi specificity bằng nhau, CSS áp dụng nguyên tắc **\"luật sau cùng thắng\"** (source order), luật xuất hiện sau trong file CSS sẽ ghi đè luật trước."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Từ khóa `!important` trong CSS có tác dụng gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Tăng tốc độ render trang",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Ép một khai báo có độ ưu tiên cao nhất, ghi đè hầu hết các luật khác (kể cả id)",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Đánh dấu thuộc tính là bắt buộc, không được phép thiếu",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không có tác dụng thực tế",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`!important` ép khai báo đó được ưu tiên áp dụng bất kể specificity thông thường, gần như luôn thắng các luật khác trừ khi cũng có `!important` khác cụ thể hơn."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Inline style (style viết trực tiếp trong thuộc tính `style=\"...\"` của thẻ HTML) có độ ưu tiên như thế nào so với CSS trong file ngoài?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Thấp hơn mọi selector",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Cao hơn hầu hết các selector từ file CSS ngoài (trừ `!important`)",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Bằng với class selector",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không có hiệu lực",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Inline style có độ ưu tiên rất cao, chỉ thua `!important`, nên thường ghi đè mọi style định nghĩa trong file CSS ngoài hoặc thẻ `<style>`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Cho CSS:\n\n```css\np { color: red; }\n.text { color: blue; }\n#main { color: green; }\n```\n\nvà HTML:\n\n```html\n<p id=\"main\" class=\"text\">Xin chào</p>\n```\n\nMàu chữ cuối cùng hiển thị là gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đỏ (red)",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Xanh dương (blue)",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Xanh lá (green)",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Đen (mặc định)",
+          "images": []
+        }
+      ],
+      "answer": [
+        "3"
+      ],
+      "explanation": "Selector `#main` (theo id) có độ ưu tiên cao nhất trong 3 selector, nên màu **xanh lá (green)** sẽ được áp dụng, bất kể thứ tự khai báo."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính nào sau đây mặc định được THỪA KẾ (inherit) từ phần tử cha xuống con?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`border`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`color`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`margin`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`padding`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Các thuộc tính liên quan tới văn bản như `color`, `font-family`, `font-size`, `line-height` thường mặc định được thừa kế; trong khi `border`, `margin`, `padding` thì không."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Từ khóa `inherit` trong CSS dùng để làm gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Buộc một phần tử lấy giá trị thuộc tính từ phần tử cha, kể cả thuộc tính vốn không tự thừa kế",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Hủy bỏ toàn bộ style",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Reset về giá trị mặc định trình duyệt",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không có tác dụng",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`inherit` ép giá trị thuộc tính của phần tử bằng đúng giá trị tính toán của phần tử cha, áp dụng được cho cả những thuộc tính vốn không tự động thừa kế (như `border`)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Đơn vị `rem` khác `em` ở điểm nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Không khác gì",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`rem` luôn tính theo font-size của phần tử gốc `<html>`, còn `em` tính theo font-size của phần tử cha gần nhất",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`em` chỉ dùng cho margin",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`rem` không được hỗ trợ rộng rãi",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`em` tính tương đối theo font-size của phần tử cha trực tiếp (có thể gây hiệu ứng cộng dồn khi lồng nhiều cấp), còn `rem` luôn tính theo font-size gốc (root, thường là `<html>`), nhất quán hơn."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Hàm `calc()` trong CSS dùng để làm gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Tính toán giá trị động kết hợp nhiều đơn vị khác nhau, ví dụ `width: calc(100% - 50px);`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Chỉ dùng được với số nguyên",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Tính tổng số phần tử trên trang",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không tồn tại trong CSS",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`calc()` cho phép thực hiện các phép toán (+, -, *, /) trực tiếp trong giá trị CSS, kết hợp linh hoạt giữa các đơn vị khác nhau như `%` và `px`."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "Trong `calc()`, dấu `+` và `-` bắt buộc phải có khoảng trắng bao quanh, ví dụ `calc(100% - 20px)` chứ không viết `calc(100%-20px)`.",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Theo đặc tả CSS, các toán tử `+`/`-` trong `calc()` bắt buộc có khoảng trắng ở 2 bên, nếu không trình duyệt sẽ coi đó là cú pháp lỗi."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Để một phần tử `<div>` (mặc định block) nằm cùng dòng với phần tử khác nhưng vẫn đặt được `width`/`height`, ta nên dùng giá trị display nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`block`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`inline`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`inline-block`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`none`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "3"
+      ],
+      "explanation": "`inline-block` kết hợp ưu điểm của cả hai: nằm cùng dòng (như inline) nhưng vẫn nhận `width`/`height`/`margin`/`padding` đầy đủ (như block)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Để căn giữa tuyệt đối một phần tử theo cả chiều ngang lẫn dọc trong màn hình bằng `position`, cách làm phổ biến là?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`position: static; margin: auto;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`float: center;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`display: center;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Kỹ thuật phổ biến: đặt `top: 50%; left: 50%;` để đưa góc trên-trái phần tử vào giữa, sau đó dùng `transform: translate(-50%, -50%);` để dịch ngược lại đúng một nửa kích thước của chính nó, đạt được căn giữa hoàn hảo."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Một layout 3 cột với cột giữa co giãn, hai cột 2 bên cố định độ rộng — công cụ CSS hiện đại phù hợp nhất là?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`float` kết hợp `clear`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`flexbox` với `flex: 1` cho cột giữa và width cố định cho 2 cột bên",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`text-align`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`vertical-align`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Flexbox xử lý tốt layout này: đặt `flex: 1` cho cột giữa để nó tự giãn lấp đầy khoảng trống còn lại, trong khi 2 cột bên giữ width cố định (hoặc `flex: 0 0 200px`)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Một banner ảnh nền cần phủ kín toàn màn hình mà không bị méo, thuộc tính phù hợp là?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`background-size: 100% 100%;`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`background-size: cover;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`background-repeat: repeat;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`background-position: top;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`background-size: cover;` co giãn ảnh để phủ kín vùng chứa mà vẫn giữ đúng tỉ lệ gốc (không bị méo), khác với `100% 100%` có thể làm méo ảnh."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Một nút bấm cần đổi màu mượt mà khi hover, nhưng KHÔNG cần lặp lại tự động — công cụ phù hợp là?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`animation` với `infinite`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`transition`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`@keyframes` độc lập",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`flex-grow`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Vì chỉ cần chuyển đổi mượt giữa 2 trạng thái (bình thường ↔ hover) chứ không cần chạy lặp lại tự động, `transition` là lựa chọn đơn giản và phù hợp hơn `animation`."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Cho CSS:\n\n```css\n.box {\n  width: 100px;\n  height: 100px;\n  padding: 20px;\n  border: 5px solid black;\n  box-sizing: content-box;\n}\n```\n\nChiều rộng hiển thị THỰC TẾ (tổng cộng) của `.box` là bao nhiêu?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "100px",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "140px",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "150px",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "120px",
+          "images": []
+        }
+      ],
+      "answer": [
+        "3"
+      ],
+      "explanation": "Với `content-box` (mặc định), tổng width = width + padding trái + padding phải + border trái + border phải = 100 + 20 + 20 + 5 + 5 = **150px**."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Cho CSS:\n\n```css\n.box {\n  width: 100px;\n  height: 100px;\n  padding: 20px;\n  border: 5px solid black;\n  box-sizing: border-box;\n}\n```\n\n(khác câu trên ở `box-sizing: border-box`) Chiều rộng hiển thị THỰC TẾ của `.box` là bao nhiêu?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "100px",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "150px",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "140px",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "120px",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Với `border-box`, giá trị `width: 100px;` đã bao gồm cả padding và border, nên chiều rộng hiển thị tổng vẫn đúng bằng **100px**."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Selector nào có độ ưu tiên (specificity) cao nhất trong các lựa chọn sau?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`div`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`.container`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`#app .container div`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`*`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "3"
+      ],
+      "explanation": "`#app .container div` chứa 1 id + 1 class + 1 tag, tổng specificity cao hơn hẳn các selector đơn lẻ còn lại."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Để tạo một thanh menu ngang với các mục cách đều nhau, công cụ flexbox phù hợp là?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`display: flex;` + `justify-content: space-between;` hoặc `space-around`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`display: block;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`position: fixed;` cho từng item",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`float: none;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Dùng `display: flex;` trên container chứa menu, kết hợp `justify-content: space-between;` (hoặc `space-around`) để các mục menu tự dàn đều khoảng cách."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Một sidebar cần luôn hiển thị cố định khi cuộn trang dù người dùng cuộn xuống bao xa, ta dùng?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`position: relative;`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`position: fixed;`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`position: static;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`float: left;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`position: fixed;` định vị phần tử cố định theo viewport, không di chuyển dù trang được cuộn tới đâu."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "Specificity của một inline style luôn cao hơn specificity của bất kỳ class selector nào trong file CSS ngoài.",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Inline style nằm ở mức cao trong thang đo specificity (chỉ thua `!important`), luôn thắng các class selector thông thường."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Phần tử có `display: none;` có còn được tính vào layout (chiếm không gian) hay không?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Có, vẫn chiếm khoảng trống cũ",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Không, hoàn toàn bị loại khỏi luồng layout, không chiếm chỗ",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Tùy vào loại phần tử",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Chỉ áp dụng với ảnh",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`display: none;` loại bỏ hoàn toàn phần tử khỏi luồng tài liệu, các phần tử khác sẽ tự động lấp vào khoảng trống đó."
+    },
+    {
+      "type": "short_answer",
+      "question": {
+        "content": "Thuộc tính CSS nào dùng để đặt độ trong suốt cho TOÀN BỘ phần tử (bao gồm cả nội dung bên trong)?",
+        "images": []
+      },
+      "answer": [
+        "opacity"
+      ],
+      "explanation": "`opacity` (giá trị từ 0 đến 1) làm trong suốt toàn bộ phần tử bao gồm cả nội dung con, khác với `background-color` trong suốt (rgba) chỉ ảnh hưởng nền."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Để chọn TẤT CẢ các thẻ `<a>` nằm trực tiếp bên trong thẻ `<nav>` (không qua phần tử trung gian), selector đúng là?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`nav a`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`nav > a`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`nav + a`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`nav ~ a`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`>` là child combinator, chỉ chọn các phần tử **con trực tiếp**; `nav a` (khoảng trắng) sẽ chọn cả các thẻ `<a>` nằm sâu hơn trong cấu trúc lồng nhau."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Trong một flex container có `flex-direction: row;`, trục chính (main axis) là trục nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Trục dọc",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Trục ngang",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Cả 2 trục",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không có trục chính",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Với `flex-direction: row;`, trục chính chạy theo chiều **ngang** (trái sang phải); trục phụ (cross axis) là trục dọc."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `border-collapse: collapse;` thường dùng cho phần tử nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`<div>`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`<table>`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`<span>`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`<img>`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`border-collapse: collapse;` áp dụng cho thẻ `<table>`, gộp đường viền của các ô liền kề thành một đường viền duy nhất thay vì hiển thị 2 đường viền cách nhau."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Để một ảnh không bị tràn ra ngoài khung chứa của nó (responsive ảnh cơ bản), thường dùng khai báo nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`img { width: 100%; }`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`img { max-width: 100%; height: auto; }`",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`img { float: left; }`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`img { position: fixed; }`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`max-width: 100%;` đảm bảo ảnh không vượt quá chiều rộng khung chứa (nhưng vẫn co nhỏ lại nếu khung nhỏ hơn ảnh gốc), kết hợp `height: auto;` để giữ đúng tỉ lệ."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Trong media query, `min-width` và `max-width` khác nhau như thế nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Không khác gì",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`min-width` áp dụng khi màn hình RỘNG HƠN HOẶC BẰNG giá trị, `max-width` áp dụng khi màn hình HẸP HƠN HOẶC BẰNG giá trị",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`min-width` chỉ dùng cho desktop",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`max-width` không tồn tại",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`(min-width: 768px)` đúng khi viewport ≥ 768px (thường dùng cho desktop trở lên); `(max-width: 767px)` đúng khi viewport ≤ 767px (thường dùng cho mobile)."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Để debug nhanh layout, lập trình viên thường tạm thời thêm thuộc tính nào cho mọi phần tử?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`color: red;`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`border: 1px solid red;` (hoặc dùng outline tương tự)",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`display: none;`",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`opacity: 0;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Thêm viền màu (border hoặc outline) cho tất cả phần tử là kỹ thuật phổ biến để quan sát trực quan ranh giới và kích thước của từng phần tử khi debug layout."
+    },
+    {
+      "type": "short_answer",
+      "question": {
+        "content": "Thuộc tính nào dùng để giới hạn chiều rộng tối đa của một phần tử, ngăn nó tràn quá lớn trên màn hình rộng?",
+        "images": []
+      },
+      "answer": [
+        "max-width"
+      ],
+      "explanation": "`max-width` đặt giới hạn trên cho chiều rộng phần tử, dù phần tử cha hoặc nội dung có lớn tới đâu cũng không vượt quá giá trị này."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Một form đăng nhập cần các trường input xếp dọc, cách đều nhau, layout phù hợp nhất là?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`display: flex; flex-direction: column; gap: 16px;`",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`float: left;` cho từng input",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`position: absolute;` cho từng input",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`display: inline;`",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Flexbox với `flex-direction: column;` xếp các input theo chiều dọc, kết hợp thuộc tính `gap` để tạo khoảng cách đều nhau giữa chúng mà không cần margin thủ công."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Giữa 2 selector `.menu .item` và `.menu > .item`, selector nào có specificity cao hơn?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "`.menu .item` cao hơn",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`.menu > .item`cao hơn",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Bằng nhau (combinator không tính vào specificity)",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không thể so sánh",
+          "images": []
+        }
+      ],
+      "answer": [
+        "3"
+      ],
+      "explanation": "Các combinator (`khoảng trắng`, `>`, `+`, `~`) **không** ảnh hưởng tới specificity, chỉ số lượng id/class/tag mới được tính, nên 2 selector này có specificity bằng nhau."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Đơn vị `%` trong `width: 50%;` được tính theo gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "50% chiều rộng màn hình",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "50% chiều rộng của phần tử cha chứa nó",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "50% chiều rộng phần tử đó (luôn cố định)",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Không có ý nghĩa thực tế",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "Phần trăm trong `width` được tính tương đối theo chiều rộng của **phần tử cha** (containing block) chứa phần tử đó."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `overflow: hidden;` có tác dụng gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Ẩn toàn bộ phần tử",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Cắt bỏ phần nội dung tràn ra ngoài kích thước của phần tử",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Thêm thanh cuộn",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Phóng to phần tử để chứa hết nội dung",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`overflow: hidden;` cắt bỏ (ẩn đi) phần nội dung vượt quá kích thước khung chứa, không hiển thị thanh cuộn."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Thuộc tính `overflow: scroll;` khác `overflow: auto;` ở điểm nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Không khác gì",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`scroll` luôn hiển thị thanh cuộn dù nội dung có tràn hay không, `auto` chỉ hiện khi cần thiết",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`auto` luôn ẩn nội dung tràn",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`scroll` chỉ áp dụng cho ảnh",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`scroll` luôn hiển thị thanh cuộn (kể cả khi không cần thiết), trong khi `auto` để trình duyệt tự quyết định chỉ hiện thanh cuộn khi nội dung thực sự tràn ra ngoài."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Pseudo-class `:nth-of-type(2)` khác `:nth-child(2)` như thế nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Không khác gì",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "`:nth-of-type` chỉ đếm các phần tử CÙNG LOẠI THẺ trong nhóm anh em, còn `:nth-child` đếm mọi loại thẻ",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "`:nth-of-type` không tồn tại trong CSS",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "`:nth-child` chỉ dùng cho list",
+          "images": []
+        }
+      ],
+      "answer": [
+        "2"
+      ],
+      "explanation": "`:nth-of-type(n)` chỉ tính vị trí thứ n trong số các phần tử **cùng loại thẻ** (ví dụ chỉ đếm các `<p>`), bỏ qua các thẻ khác loại xen giữa; còn `:nth-child(n)` đếm tất cả phần tử con bất kể loại thẻ."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Trong flexbox, thuộc tính `gap` dùng để làm gì?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Tạo khoảng cách đều giữa các flex item mà không cần margin riêng từng item",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Đặt độ trong suốt",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Đặt số cột",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Chỉ dùng được trong CSS Grid, không dùng được trong flexbox",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "`gap` (hỗ trợ cả trong flexbox và grid hiện đại) tạo khoảng cách đồng đều giữa các item liền kề mà không gây ra khoảng trống thừa ở viền ngoài như khi dùng margin."
+    },
+    {
+      "type": "multiple_choice",
+      "question": {
+        "content": "Một phần tử có `position: relative;` nhưng KHÔNG khai báo `top/left/right/bottom` thì sẽ như thế nào?",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Vẫn nằm đúng vị trí ban đầu, không bị di chuyển",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Tự động bị đẩy ra giữa màn hình",
+          "images": []
+        },
+        {
+          "id": "3",
+          "content": "Biến mất khỏi trang",
+          "images": []
+        },
+        {
+          "id": "4",
+          "content": "Gây lỗi CSS",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Nếu không khai báo offset (`top`,...), phần tử `relative` vẫn giữ nguyên vị trí như trong luồng layout bình thường — `relative` chỉ thực sự dịch chuyển khi có offset cụ thể."
+    },
+    {
+      "type": "true_false",
+      "question": {
+        "content": "CSS Grid và Flexbox có thể dùng kết hợp trong cùng một trang web, không bắt buộc chỉ chọn 1 trong 2.",
+        "images": []
+      },
+      "options": [
+        {
+          "id": "1",
+          "content": "Đúng",
+          "images": []
+        },
+        {
+          "id": "2",
+          "content": "Sai",
+          "images": []
+        }
+      ],
+      "answer": [
+        "1"
+      ],
+      "explanation": "Đây là 2 hệ thống layout độc lập, hoàn toàn có thể phối hợp: ví dụ dùng Grid cho bố cục tổng thể trang và Flexbox cho từng thành phần nhỏ bên trong."
+    },
+    {
+      "type": "short_answer",
+      "question": {
+        "content": "Thuộc tính nào dùng để đặt khoảng cách đều giữa các item trong flexbox/grid (thay thế cho việc dùng margin riêng lẻ)?",
+        "images": []
+      },
+      "answer": [
+        "gap"
+      ],
+      "explanation": "`gap` là thuộc tính hiện đại tạo khoảng cách đồng đều giữa các item trong flex hoặc grid container."
+    }
+  ]
+}

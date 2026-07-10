@@ -1,0 +1,62 @@
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id             String           @id @default(cuid())
+  email          String           @unique
+  name           String?
+  image          String?
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+  results        ExamResult[]
+  practiceResults PracticeResult[]
+}
+
+model ExamResult {
+  id             String   @id @default(cuid())
+  examId         String
+  examTitle      String
+  score          Int
+  correctCount   Int
+  totalQuestions Int
+  timeUsed       Int      // in seconds
+  duration       Int      // in minutes
+  createdAt      DateTime @default(now())
+
+  // Relation to User (optional, allows guest submissions)
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Snapshot details (supports guests and keeps a copy of their name/avatar at submission)
+  userName  String
+  userEmail String?
+  userImage String?
+}
+
+model PracticeResult {
+  id         String   @id @default(cuid())
+  mode       String   // "css" | "js"
+  setId      String
+  questionId String
+  points     Int
+  createdAt  DateTime @default(now())
+
+  // Relation to User (optional, allows guest submissions)
+  userId String?
+  user   User?   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Snapshot details (supports guests and keeps a copy of their name/avatar at submission)
+  userName  String
+  userEmail String?
+  userImage String?
+
+  // One solved record per user per question (dedup key resolved in application code
+  // since userEmail is optional for guests)
+  @@index([mode, setId, questionId])
+  @@index([userEmail])
+}

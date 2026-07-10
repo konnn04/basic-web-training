@@ -1,0 +1,49 @@
+{
+  "collection": "manga",
+  "title": "Manga",
+  "endpoint": "/api/manga",
+  "fields": [
+    {
+      "name": "title",
+      "label": "Tên truyện",
+      "type": "text",
+      "required": true,
+      "placeholder": "Ví dụ: Solo Leveling"
+    },
+    {
+      "name": "author",
+      "label": "Tác giả",
+      "type": "text",
+      "required": true,
+      "placeholder": "Tên tác giả"
+    },
+    {
+      "name": "price",
+      "label": "Giá truyện (VNĐ)",
+      "type": "number",
+      "required": true,
+      "placeholder": "Giá tiền"
+    },
+    {
+      "name": "category",
+      "label": "Danh mục / Thể loại",
+      "type": "text",
+      "required": true,
+      "placeholder": "Ví dụ: Action, Adventure"
+    },
+    {
+      "name": "cover",
+      "label": "Ảnh bìa URL",
+      "type": "image",
+      "required": false,
+      "placeholder": "Ví dụ: https://uploads.mangadex.org/covers/..."
+    },
+    {
+      "name": "description",
+      "label": "Mô tả ngắn",
+      "type": "textarea",
+      "required": false,
+      "placeholder": "Nhập mô tả tóm tắt..."
+    }
+  ]
+}

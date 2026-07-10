@@ -1,0 +1,19 @@
+{
+  "id": "q20-border-radius-circle",
+  "title": "Bo tròn thành hình tròn",
+  "description": "Hộp vuông có class `avatar` kích thước `80px x 80px`. Hãy biến nó thành một hình tròn hoàn hảo, giống như khung ảnh đại diện thường thấy.\n\nGợi ý: dùng thuộc tính `border-radius`, giá trị `50%`.",
+  "files": {
+    "html": "<div class=\"avatar\" style=\"width:80px;height:80px;background:#999;\"></div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.avatar {\n\n}\n",
+  "checks": [
+    {
+      "label": ".avatar bo tròn thành hình tròn hoàn hảo",
+      "points": 5,
+      "checker": "const el = doc.querySelector('.avatar'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử .avatar.' }; const s = win.getComputedStyle(el); if (s.borderTopLeftRadius === '40px' && s.borderTopRightRadius === '40px' && s.borderBottomLeftRadius === '40px' && s.borderBottomRightRadius === '40px') return { pass: true, message: 'Chính xác! Hộp đã thành hình tròn.' }; return { pass: false, message: 'border-radius hiện tại là ' + s.borderTopLeftRadius + ', cần là 40px (50% của 80px) ở cả 4 góc.' };"
+    }
+  ]
+}

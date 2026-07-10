@@ -1,0 +1,47 @@
+{
+    "title": "Bài kiểm tra số 1",
+    "description": "Đây là bài kiểm tra số 1 của bạn. Hãy làm tốt nhé!",
+    "category": "Tổng quan Web",
+    "date": "2026-01-01",
+    "duration": 10,
+    "random": false,
+    "questions": [
+        {
+            "type": "multiple_choice",
+            "question": {
+                "content": "2 + 2 bằng bao nhiêu?",
+                "images": []
+            },
+            "options": [
+                {"id": "1", "content": "3", "images": []},
+                {"id": "2", "content": "4", "images": []},
+                {"id": "3", "content": "5", "images": []},
+                {"id": "4", "content": "6", "images": []}
+            ],
+            "answer": ["2"],
+            "explanation": "2 + 2 luôn bằng 4."
+        }, {
+            "type": "true_false",
+            "question": {
+                "content": "Trái đất là hình tròn?",
+                "images": []
+            },
+            "options": [
+                {"id": "1", "content": "Đúng", "images": []},
+                {"id": "2", "content": "Sai", "images": []}
+            ],
+            "answer": ["1"],
+            "explanation": "Trái đất có hình dạng gần giống một hình cầu."
+        },
+        {
+            "type": "short_answer",
+            "question": {
+                "content": "Hãy nêu tên một loài động vật có vú?",
+                "images": []
+            },
+            "answer": ["chó", "mèo", "sư tử", "hổ"],
+            "explanation": "Có nhiều loài động vật có vú như chó, mèo, sư tử, hổ..."
+        }
+        
+    ]
+}

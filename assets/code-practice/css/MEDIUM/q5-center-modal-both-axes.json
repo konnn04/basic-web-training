@@ -1,0 +1,19 @@
+{
+  "id": "q5-center-modal-both-axes",
+  "title": "Căn giữa modal cả 2 trục",
+  "description": "`.overlay` bao ngoài `.modal`. Hãy làm cho `.modal` được căn giữa cả theo chiều ngang lẫn chiều dọc bên trong `.overlay`, giống một hộp thoại (modal) thực tế xuất hiện giữa màn hình.\n\nGợi ý: dùng Flexbox trên `.overlay` với `justify-content` và `align-items`.",
+  "files": {
+    "html": "<div class=\"overlay\" style=\"width:400px;height:250px;background:#00000022;\">\n  <div class=\"modal\" style=\"width:150px;height:80px;background:#fff;\">Modal</div>\n</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.overlay {\n\n}\n",
+  "checks": [
+    {
+      "label": ".overlay căn giữa .modal cả 2 trục bằng Flexbox",
+      "points": 15,
+      "checker": "const overlay = doc.querySelector('.overlay'); const modal = doc.querySelector('.modal'); if (!overlay || !modal) return { pass: false, message: 'Không tìm thấy .overlay hoặc .modal.' }; const os = win.getComputedStyle(overlay); if (os.display !== 'flex') return { pass: false, message: '.overlay cần display: flex (hiện tại: ' + os.display + ').' }; if (os.justifyContent !== 'center') return { pass: false, message: '.overlay cần justify-content: center (hiện tại: ' + os.justifyContent + ').' }; if (os.alignItems !== 'center') return { pass: false, message: '.overlay cần align-items: center (hiện tại: ' + os.alignItems + ').' }; return { pass: true, message: 'Chính xác! Modal đã được căn giữa cả 2 trục.' };"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "q1-card-grid-full",
+  "title": "Lưới card đầy đủ: Grid + hover + badge góc + cắt chữ",
+  "description": "`.card-grid` chứa các `.product-card`, mỗi card có `.corner-badge` và `.desc`. Hãy hoàn thiện lưới sản phẩm: chia thành 3 cột đều nhau; card nhấc nhẹ lên khi rê chuột vào; nhãn góc luôn đứng cố định ở góc trên bên phải của card (cha `.product-card` đã có `position: relative` sẵn trong HTML); mô tả dài bị cắt gọn còn 1 dòng kèm dấu `...` để không phá vỡ bố cục.\n\nGợi ý: `display: grid` (3 cột) cho `.card-grid`; `transform: translateY(-Npx)` với N > 0 trên `.product-card:hover`; `position: absolute; top: 0; right: 0;` cho `.corner-badge`; `white-space`/`overflow`/`text-overflow` cho `.desc`.",
+  "files": {
+    "html": "<div class=\"card-grid\" style=\"width:360px;\">\n  <div class=\"product-card\" style=\"position:relative;background:#fff;padding:10px;\">\n    <span class=\"corner-badge\" style=\"background:red;color:#fff;padding:2px 6px;\">Mới</span>\n    <p class=\"desc\">Mô tả sản phẩm rất dài sẽ bị tràn ra khỏi khung chứa của nó</p>\n  </div>\n  <div class=\"product-card\" style=\"position:relative;background:#fff;padding:10px;\">\n    <span class=\"corner-badge\" style=\"background:red;color:#fff;padding:2px 6px;\">Sale</span>\n    <p class=\"desc\">Một mô tả khác cũng rất dài và cần được cắt bớt lại</p>\n  </div>\n  <div class=\"product-card\" style=\"position:relative;background:#fff;padding:10px;\">\n    <span class=\"corner-badge\" style=\"background:red;color:#fff;padding:2px 6px;\">Hot</span>\n    <p class=\"desc\">Mô tả sản phẩm thứ ba cũng dài không kém hai cái trên</p>\n  </div>\n</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.card-grid {\n\n}\n.product-card:hover {\n\n}\n.corner-badge {\n\n}\n.desc {\n\n}\n",
+  "checks": [
+    {
+      "label": ".card-grid chia thành lưới 3 cột đều nhau",
+      "points": 9,
+      "checker": "const grid = doc.querySelector('.card-grid'); if (!grid) return { pass: false, message: 'Không tìm thấy .card-grid.' }; const gs = win.getComputedStyle(grid); if (gs.display !== 'grid') return { pass: false, message: '.card-grid cần display: grid (hiện tại: ' + gs.display + ').' }; const cols = gs.gridTemplateColumns.trim().split(/\\s+/); if (cols.length !== 3) return { pass: false, message: '.card-grid cần chia đúng 3 cột (hiện tại: ' + gs.gridTemplateColumns + ').' }; return { pass: true, message: 'Chính xác! Lưới đã chia đều 3 cột.' };"
+    },
+    {
+      "label": ".product-card nhấc lên khi hover (translateY âm)",
+      "points": 9,
+      "checker": "const hoverMatch = code.match(/\\.product-card\\s*:hover\\s*\\{([^}]*)\\}/); if (!hoverMatch || !/transform\\s*:\\s*translateY\\(\\s*-[0-9.]+px\\s*\\)/i.test(hoverMatch[1])) return { pass: false, message: '.product-card:hover cần transform: translateY(-Npx) với N dương.' }; return { pass: true, message: 'Chính xác! Card sẽ nhấc lên khi hover.' };"
+    },
+    {
+      "label": ".corner-badge cố định ở góc trên-phải của card",
+      "points": 9,
+      "checker": "const badge = doc.querySelector('.corner-badge'); if (!badge) return { pass: false, message: 'Không tìm thấy .corner-badge.' }; const bs = win.getComputedStyle(badge); if (bs.position !== 'absolute' || bs.top !== '0px' || bs.right !== '0px') return { pass: false, message: '.corner-badge cần position: absolute; top: 0; right: 0; (hiện tại: ' + bs.position + ', top ' + bs.top + ', right ' + bs.right + ').' }; return { pass: true, message: 'Chính xác! Nhãn góc đã cố định đúng vị trí.' };"
+    },
+    {
+      "label": ".desc bị cắt gọn 1 dòng kèm dấu ba chấm",
+      "points": 8,
+      "checker": "const desc = doc.querySelector('.desc'); if (!desc) return { pass: false, message: 'Không tìm thấy .desc.' }; const ds = win.getComputedStyle(desc); if (ds.whiteSpace !== 'nowrap' || (ds.overflow !== 'hidden' && ds.overflowX !== 'hidden') || ds.textOverflow !== 'ellipsis') return { pass: false, message: '.desc cần white-space: nowrap; overflow: hidden; text-overflow: ellipsis;.' }; return { pass: true, message: 'Chính xác! Mô tả đã bị cắt gọn với dấu ba chấm.' };"
+    }
+  ]
+}

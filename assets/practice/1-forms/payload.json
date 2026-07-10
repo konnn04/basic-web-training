@@ -1,0 +1,250 @@
+{
+  "login": {
+    "title": "Bài 1 - Phần 1: Trang Đăng Nhập (login.html)",
+    "fields": [
+      {
+        "name": "email",
+        "label": "Email",
+        "type": "email",
+        "required": true,
+        "notes": "placeholder: `vidu@email.com`"
+      },
+      {
+        "name": "password",
+        "label": "Mật khẩu",
+        "type": "password",
+        "required": true,
+        "notes": "Độ dài tối thiểu: minlength = `6`"
+      },
+      {
+        "name": "remember",
+        "label": "Ghi nhớ đăng nhập",
+        "type": "checkbox",
+        "required": false,
+        "expectedValue": "1",
+        "notes": "Mặc định checked sẵn, thuộc tính `value=\"1\"`"
+      },
+      {
+        "name": "formType",
+        "label": "Loại form",
+        "type": "hidden",
+        "required": true,
+        "expectedValue": "login",
+        "notes": "Mặc định ẩn, thuộc tính `value=\"login\"`"
+      }
+    ]
+  },
+  "register": {
+    "title": "Bài 1 - Phần 2: Trang Đăng Ký (register.html)",
+    "fields": [
+      {
+        "name": "lastname",
+        "label": "Họ",
+        "type": "text",
+        "required": true,
+        "notes": "placeholder: `Nguyễn` (nằm trong Nhóm 1)"
+      },
+      {
+        "name": "firstname",
+        "label": "Tên",
+        "type": "text",
+        "required": true,
+        "notes": "placeholder: `Văn A` (nằm trong Nhóm 1)"
+      },
+      {
+        "name": "birthdate",
+        "label": "Ngày sinh",
+        "type": "date",
+        "required": true,
+        "notes": "Trường chọn ngày sinh (nằm trong Nhóm 1)"
+      },
+      {
+        "name": "gender",
+        "label": "Giới tính",
+        "type": "radio",
+        "required": true,
+        "notes": "Gồm 3 lựa chọn có cùng name: Nam (`male`), Nữ (`female`), Khác (`other`)"
+      },
+      {
+        "name": "phone",
+        "label": "Số điện thoại",
+        "type": "tel",
+        "required": true,
+        "notes": "Regex kiểm tra định dạng bằng thuộc tính `pattern=\"[0-9]{10,11}\"`"
+      },
+      {
+        "name": "email",
+        "label": "Email",
+        "type": "email",
+        "required": true,
+        "notes": "Trường nhập email (nằm trong Nhóm 2)"
+      },
+      {
+        "name": "password",
+        "label": "Mật khẩu",
+        "type": "password",
+        "required": true,
+        "notes": "Độ dài tối thiểu: minlength = `8` (nằm trong Nhóm 2)"
+      },
+      {
+        "name": "confirmPassword",
+        "label": "Xác nhận mật khẩu",
+        "type": "password",
+        "required": true,
+        "notes": "Độ dài tối thiểu: minlength = `8` (nằm trong Nhóm 2)"
+      },
+      {
+        "name": "agree",
+        "label": "Đồng ý điều khoản",
+        "type": "checkbox",
+        "required": true,
+        "expectedValue": "1",
+        "notes": "Checkbox bắt buộc chọn, `value=\"1\"` (nằm ngoài các nhóm)"
+      },
+      {
+        "name": "formType",
+        "label": "Loại form",
+        "type": "hidden",
+        "required": true,
+        "expectedValue": "register",
+        "notes": "Mặc định ẩn, thuộc tính `value=\"register\"`"
+      }
+    ]
+  },
+  "settings": {
+    "title": "Bài 1 - Phần 3: Trang Cài Đặt Thông Tin (settings.html)",
+    "fields": [
+      {
+        "name": "avatar",
+        "label": "Ảnh đại diện",
+        "type": "file",
+        "required": false,
+        "notes": "Chỉ nhận file ảnh: `accept=\"image/*\"` (nằm trong Nhóm 1)"
+      },
+      {
+        "name": "lastname",
+        "label": "Họ",
+        "type": "text",
+        "required": true,
+        "notes": "Đặt sẵn giá trị mặc định `value=\"Nguyễn\"` (nằm trong Nhóm 1)"
+      },
+      {
+        "name": "firstname",
+        "label": "Tên",
+        "type": "text",
+        "required": true,
+        "notes": "Đặt sẵn giá trị mặc định `value=\"Văn A\"` (nằm trong Nhóm 1)"
+      },
+      {
+        "name": "birthdate",
+        "label": "Ngày sinh",
+        "type": "date",
+        "required": false,
+        "notes": "Trường chọn ngày sinh (nằm trong Nhóm 1)"
+      },
+      {
+        "name": "gender",
+        "label": "Giới tính",
+        "type": "radio",
+        "required": false,
+        "notes": "Gồm 2 lựa chọn: Nam (`male`), Nữ (`female`) (nằm trong Nhóm 1)"
+      },
+      {
+        "name": "email",
+        "label": "Email",
+        "type": "email",
+        "required": false,
+        "notes": "Đặt thuộc tính `readonly` (chỉ đọc), gán sẵn email mẫu (nằm trong Nhóm 3)"
+      },
+      {
+        "name": "phone",
+        "label": "Số điện thoại",
+        "type": "tel",
+        "required": false,
+        "notes": "Kiểm tra định dạng: `pattern=\"[0-9]{10,11}\"` (nằm trong Nhóm 3)"
+      },
+      {
+        "name": "address",
+        "label": "Địa chỉ",
+        "type": "text",
+        "required": false,
+        "notes": "Trường nhập địa chỉ nhà (nằm trong Nhóm 3)"
+      },
+      {
+        "name": "city",
+        "label": "Tỉnh / Thành phố",
+        "type": "select",
+        "required": false,
+        "notes": "Thẻ `<select>` gồm 3 `<option>`: `Hà Nội`, `TP.HCM`, `Đà Nẵng` (nằm trong Nhóm 3)"
+      },
+      {
+        "name": "website",
+        "label": "Website cá nhân",
+        "type": "url",
+        "required": false,
+        "notes": "Nhập liên kết bắt đầu bằng `http://` hoặc `https://` (nằm trong Nhóm 3)"
+      },
+      {
+        "name": "currentPassword",
+        "label": "Mật khẩu hiện tại",
+        "type": "password",
+        "required": false,
+        "notes": "Trường nhập mật khẩu cũ (nằm trong Nhóm 2)"
+      },
+      {
+        "name": "newPassword",
+        "label": "Mật khẩu mới",
+        "type": "password",
+        "required": false,
+        "notes": "Độ dài tối thiểu: minlength = `8` (nằm trong Nhóm 2)"
+      },
+      {
+        "name": "confirmNewPassword",
+        "label": "Xác nhận mật khẩu mới",
+        "type": "password",
+        "required": false,
+        "notes": "Độ dài tối thiểu: minlength = `8` (nằm trong Nhóm 2)"
+      },
+      {
+        "name": "emailNotif",
+        "label": "Nhận thông báo",
+        "type": "checkbox",
+        "required": false,
+        "expectedValue": "1",
+        "notes": "Mặc định checked sẵn, `value=\"1\"` (nằm trong Nhóm 4)"
+      },
+      {
+        "name": "notifTime",
+        "label": "Giờ gửi báo cáo",
+        "type": "time",
+        "required": false,
+        "expectedValue": "08:00",
+        "notes": "Gán mặc định `value=\"08:00\"` (nằm trong Nhóm 4)"
+      },
+      {
+        "name": "notifFreq",
+        "label": "Tần suất báo cáo",
+        "type": "range",
+        "required": false,
+        "expectedValue": "3",
+        "notes": "min=`1` max=`7` mặc định `value=\"3\"` (nằm trong Nhóm 4)"
+      },
+      {
+        "name": "formType",
+        "label": "Loại form",
+        "type": "hidden",
+        "required": true,
+        "expectedValue": "settings",
+        "notes": "Mặc định `value=\"settings\"`"
+      },
+      {
+        "name": "userId",
+        "label": "Mã định danh",
+        "type": "hidden",
+        "required": true,
+        "expectedValue": "12345",
+        "notes": "Mặc định `value=\"12345\"`"
+      }
+    ]
+  }
+}

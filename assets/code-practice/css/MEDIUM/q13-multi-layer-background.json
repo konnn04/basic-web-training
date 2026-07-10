@@ -1,0 +1,19 @@
+{
+  "id": "q13-multi-layer-background",
+  "title": "Nhiều ảnh nền chồng lớp (multiple background-image)",
+  "description": "`.hero` cần hiển thị 2 lớp ảnh nền chồng lên nhau (ví dụ một hoạ tiết nhỏ nằm trên một ảnh nền lớn), thường dùng để tạo chiều sâu cho banner.\n\nGợi ý: dùng `background-image` với **2 giá trị `url()` cách nhau bằng dấu phẩy**, ví dụ: `background-image: url(\"star.png\"), url(\"bg.jpg\");` (lớp đầu tiên nằm trên cùng).",
+  "files": {
+    "html": "<div class=\"hero\" style=\"width:300px;height:150px;background-color:#222;\"></div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.hero {\n\n}\n",
+  "checks": [
+    {
+      "label": ".hero có ít nhất 2 lớp ảnh nền chồng lên nhau",
+      "points": 15,
+      "checker": "const el = doc.querySelector('.hero'); if (!el) return { pass: false, message: 'Không tìm thấy .hero.' }; const bgImage = win.getComputedStyle(el).backgroundImage; if (!bgImage || bgImage === 'none') return { pass: false, message: 'Chưa có background-image nào được đặt.' }; const layerCount = (bgImage.match(/url\\(/g) || []).length; if (layerCount < 2) return { pass: false, message: 'Chỉ tìm thấy ' + layerCount + ' lớp ảnh nền, cần ít nhất 2 giá trị url() cách nhau bằng dấu phẩy (hiện tại: ' + bgImage + ').' }; return { pass: true, message: 'Chính xác! .hero đã có nhiều lớp ảnh nền chồng lên nhau.' };"
+    }
+  ]
+}

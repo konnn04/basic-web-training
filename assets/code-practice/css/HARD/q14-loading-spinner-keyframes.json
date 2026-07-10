@@ -1,0 +1,29 @@
+{
+  "id": "q14-loading-spinner-keyframes",
+  "title": "Vòng xoay loading bằng @keyframes + animation",
+  "description": "Hãy tạo vòng xoay loading thuần CSS cho `.spinner`: một vòng tròn xoay liên tục không ngừng nghỉ, dùng để báo hiệu trang đang tải dữ liệu.\n\nGợi ý: khai báo `@keyframes spin` xoay từ `0deg` đến `360deg`; `.spinner` cần `border-radius: 50%;` (đã có `width`/`height` bằng nhau trong HTML) và `animation` (tên `spin`, lặp `infinite`, kiểu `linear`).",
+  "files": {
+    "html": "<div class=\"spinner\" style=\"width:40px;height:40px;border:4px solid #eeeeee;border-top:4px solid #333333;box-sizing:border-box;\"></div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n@keyframes spin {\n  from { transform: rotate(0deg); }\n  to { transform: rotate(360deg); }\n}\n.spinner {\n\n}\n",
+  "checks": [
+    {
+      "label": "Đã khai báo @keyframes spin",
+      "points": 10,
+      "checker": "if (!/@keyframes\\s+spin\\s*\\{/.test(code)) return { pass: false, message: 'Cần khai báo @keyframes spin { ... }.' }; return { pass: true, message: 'Chính xác! Đã khai báo @keyframes spin.' };"
+    },
+    {
+      "label": ".spinner có border-radius: 50% để thành hình tròn",
+      "points": 10,
+      "checker": "const el = doc.querySelector('.spinner'); if (!el) return { pass: false, message: 'Không tìm thấy .spinner.' }; const s = win.getComputedStyle(el); const radius = parseFloat(s.borderTopLeftRadius) || 0; if (radius < 19) return { pass: false, message: '.spinner cần border-radius: 50% để thành hình tròn (hiện tại: ' + s.borderTopLeftRadius + ').' }; return { pass: true, message: 'Chính xác! Spinner đã là hình tròn.' };"
+    },
+    {
+      "label": ".spinner xoay liên tục không ngừng (animation: spin infinite)",
+      "points": 10,
+      "checker": "const el = doc.querySelector('.spinner'); if (!el) return { pass: false, message: 'Không tìm thấy .spinner.' }; const s = win.getComputedStyle(el); if (s.animationName !== 'spin') return { pass: false, message: '.spinner cần animation-name là spin (hiện tại: ' + s.animationName + ').' }; if (s.animationIterationCount !== 'infinite') return { pass: false, message: '.spinner cần animation-iteration-count: infinite (hiện tại: ' + s.animationIterationCount + ').' }; if (parseFloat(s.animationDuration) <= 0) return { pass: false, message: '.spinner cần animation-duration lớn hơn 0s.' }; return { pass: true, message: 'Chính xác! Vòng xoay loading đã hoạt động liên tục.' };"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "q4-three-column-grid",
+  "title": "Lưới 3 cột bằng Grid",
+  "description": "`.grid` chứa 6 phần tử `.grid-item`. Hãy sắp xếp chúng thành một lưới 3 cột đều nhau, giống bố cục thư viện ảnh hay danh sách sản phẩm.\n\nGợi ý: dùng `display: grid` và `grid-template-columns` (ví dụ `repeat(3, 1fr)`).",
+  "files": {
+    "html": "<div class=\"grid\" style=\"width:300px;\">\n  <div class=\"grid-item\">1</div>\n  <div class=\"grid-item\">2</div>\n  <div class=\"grid-item\">3</div>\n  <div class=\"grid-item\">4</div>\n  <div class=\"grid-item\">5</div>\n  <div class=\"grid-item\">6</div>\n</div>",
+    "css": ".grid-item { background: #eee; padding: 10px; text-align: center; }",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.grid {\n\n}\n",
+  "checks": [
+    {
+      "label": ".grid chia thành lưới 3 cột đều nhau",
+      "points": 20,
+      "checker": "const el = doc.querySelector('.grid'); if (!el) return { pass: false, message: 'Không tìm thấy .grid.' }; const s = win.getComputedStyle(el); if (s.display !== 'grid') return { pass: false, message: '.grid cần display: grid (hiện tại: ' + s.display + ').' }; const cols = s.gridTemplateColumns.trim().split(/\\s+/); if (cols.length !== 3) return { pass: false, message: 'Cần chia lưới thành đúng 3 cột (hiện tại có ' + cols.length + ' cột: ' + s.gridTemplateColumns + ').' }; const widths = cols.map(c => parseFloat(c)); const allEqual = widths.every(w => Math.abs(w - widths[0]) < 1); if (!allEqual) return { pass: false, message: '3 cột cần có độ rộng bằng nhau (hiện tại: ' + s.gridTemplateColumns + ').' }; return { pass: true, message: 'Chính xác! Lưới đã chia đều 3 cột.' };"
+    }
+  ]
+}

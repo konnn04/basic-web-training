@@ -1,0 +1,29 @@
+{
+  "id": "q15-image-hover-grayscale-filter",
+  "title": "Ảnh chuyển từ trắng đen sang màu + phóng to khi hover",
+  "description": "`.photo` cần mặc định hiển thị ở dạng **trắng đen**, và khi người dùng rê chuột vào, ảnh chuyển sang màu đầy đủ đồng thời phóng to nhẹ lên một chút — cả hai hiệu ứng cần diễn ra mượt mà, không giật cục.\n\nGợi ý: mặc định `filter: grayscale(100%);`; khi `:hover` — `filter: grayscale(0%);` và `transform: scale(N)` với N > 1; cần `transition` chứa cả `filter` và `transform`.",
+  "files": {
+    "html": "<img class=\"photo\" src=\"https://picsum.photos/200/140\" alt=\"Ảnh minh hoạ\" style=\"width:200px;height:140px;\" />",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.photo {\n\n}\n.photo:hover {\n\n}\n",
+  "checks": [
+    {
+      "label": ".photo mặc định hiển thị trắng đen (grayscale 100%)",
+      "points": 10,
+      "checker": "const el = doc.querySelector('.photo'); if (!el) return { pass: false, message: 'Không tìm thấy .photo.' }; const s = win.getComputedStyle(el); const grayMatch = s.filter.match(/grayscale\\(\\s*([0-9.]+)%?\\s*\\)/); const grayVal = grayMatch ? parseFloat(grayMatch[1]) : 0; const normalizedGray = s.filter.includes('%') ? grayVal : grayVal * 100; if (!s.filter || s.filter === 'none' || normalizedGray < 90) return { pass: false, message: '.photo mặc định cần filter: grayscale(100%) (hiện tại: ' + s.filter + ').' }; return { pass: true, message: 'Chính xác! Ảnh mặc định đã hiển thị trắng đen.' };"
+    },
+    {
+      "label": ".photo:hover chuyển sang màu đầy đủ và phóng to nhẹ",
+      "points": 10,
+      "checker": "const hoverMatch = code.match(/\\.photo\\s*:hover\\s*\\{([^}]*)\\}/); if (!hoverMatch) return { pass: false, message: 'Không tìm thấy rule .photo:hover { ... }.' }; const body = hoverMatch[1]; if (!/grayscale\\(\\s*0%?\\s*\\)/.test(body)) return { pass: false, message: '.photo:hover cần filter: grayscale(0%) để hiện màu đầy đủ.' }; const scaleMatch = body.match(/scale\\(\\s*([0-9.]+)\\s*\\)/); if (!scaleMatch || parseFloat(scaleMatch[1]) <= 1) return { pass: false, message: '.photo:hover cần transform: scale(N) với N > 1 để phóng to (ví dụ scale(1.05)).' }; return { pass: true, message: 'Chính xác! Ảnh sẽ hiện màu đầy đủ và phóng to khi hover.' };"
+    },
+    {
+      "label": ".photo có transition mượt cho filter và transform",
+      "points": 10,
+      "checker": "const el = doc.querySelector('.photo'); if (!el) return { pass: false, message: 'Không tìm thấy .photo.' }; const s = win.getComputedStyle(el); if (!s.transition || !s.transition.includes('filter') || !s.transition.includes('transform')) return { pass: false, message: '.photo cần transition chứa cả filter và transform (hiện tại: ' + s.transition + ').' }; return { pass: true, message: 'Chính xác! Hiệu ứng hover đã mượt mà, không giật cục.' };"
+    }
+  ]
+}

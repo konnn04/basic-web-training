@@ -1,0 +1,29 @@
+{
+  "id": "q6-image-gallery-overlay",
+  "title": "Thư viện ảnh: overlay chú thích hiện khi hover",
+  "description": "`.gallery-item` chứa `.caption` (chú thích ảnh). Hãy làm cho chú thích ẩn đi ở trạng thái bình thường và mờ dần hiện ra một cách mượt mà khi người dùng rê chuột vào ảnh, giống hiệu ứng thư viện ảnh thường thấy.\n\nGợi ý: `.caption` mặc định `opacity: 0` + `position: absolute` (cha `.gallery-item` đã `position: relative` sẵn); `.gallery-item:hover .caption { opacity: 1; }`; thêm `transition` chứa `opacity` để mượt (ví dụ `transition: opacity 0.3s`).",
+  "files": {
+    "html": "<div class=\"gallery-item\" style=\"position:relative;width:150px;height:100px;background:#999;\">\n  <span class=\"caption\" style=\"background:#000000aa;color:#fff;bottom:0;left:0;right:0;\">Chú thích ảnh</span>\n</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.caption {\n\n}\n.gallery-item:hover .caption {\n\n}\n",
+  "checks": [
+    {
+      "label": ".caption ẩn mặc định (opacity: 0, position: absolute)",
+      "points": 10,
+      "checker": "const caption = doc.querySelector('.caption'); if (!caption) return { pass: false, message: 'Không tìm thấy .caption.' }; const cs = win.getComputedStyle(caption); if (cs.position !== 'absolute') return { pass: false, message: '.caption cần position: absolute (hiện tại: ' + cs.position + ').' }; if (parseFloat(cs.opacity) !== 0) return { pass: false, message: '.caption cần opacity: 0 mặc định (hiện tại: ' + cs.opacity + ').' }; return { pass: true, message: 'Chính xác! Chú thích đã ẩn đúng ở trạng thái mặc định.' };"
+    },
+    {
+      "label": ".gallery-item:hover .caption hiện ra (opacity: 1)",
+      "points": 10,
+      "checker": "const hoverMatch = code.match(/\\.gallery-item\\s*:hover\\s+\\.caption\\s*\\{([^}]*)\\}/); if (!hoverMatch || !/opacity\\s*:\\s*1\\b/.test(hoverMatch[1])) return { pass: false, message: '.gallery-item:hover .caption cần opacity: 1.' }; return { pass: true, message: 'Chính xác! Chú thích sẽ hiện ra khi hover.' };"
+    },
+    {
+      "label": ".caption có transition mượt cho opacity",
+      "points": 10,
+      "checker": "const caption = doc.querySelector('.caption'); if (!caption) return { pass: false, message: 'Không tìm thấy .caption.' }; const cs = win.getComputedStyle(caption); if (!cs.transition || !cs.transition.includes('opacity')) return { pass: false, message: '.caption cần transition chứa opacity (ví dụ transition: opacity 0.3s), hiện tại: ' + cs.transition + '.' }; return { pass: true, message: 'Chính xác! Hiệu ứng hiện chú thích đã mượt mà.' };"
+    }
+  ]
+}

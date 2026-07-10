@@ -1,0 +1,19 @@
+{
+  "id": "q8-search-filter-static-list",
+  "title": "Tìm kiếm lọc danh sách tĩnh",
+  "description": "Biến toàn cục `window.cities` là danh sách tên thành phố. Có ô tìm kiếm `#searchInput` và danh sách `<ul id=\"cityList\">`. Người dùng gõ tới đâu, danh sách cần lọc còn lại những thành phố có tên chứa đoạn đã gõ (không phân biệt chữ hoa/thường); xóa hết ô tìm kiếm thì hiện lại đầy đủ.\n\nGợi ý: Lắng nghe sự kiện `input`, dùng `filter` với `toLowerCase()` và `includes()`",
+  "files": {
+    "html": "<script>window.cities = ['Hà Nội', 'Hải Phòng', 'Đà Nẵng', 'Cần Thơ', 'Huế', 'Hà Giang', 'Vũng Tàu'];</script>\n<input id=\"searchInput\" type=\"text\" />\n<ul id=\"cityList\"></ul>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// window.cities có sẵn mảng tên thành phố\n// Gợi ý: dùng toLowerCase() để so sánh không phân biệt hoa/thường\n",
+  "checks": [
+    {
+      "label": "Tìm kiếm lọc danh sách tĩnh",
+      "points": 20,
+      "checker": "const input = doc.getElementById('searchInput'); const list = doc.getElementById('cityList'); if (!input || !list) return { pass: false, message: 'Không tìm thấy #searchInput hoặc #cityList.' }; input.value = 'hà'; input.dispatchEvent(new win.Event('input', { bubbles: true })); let items = Array.from(list.querySelectorAll('li')).map(li => li.textContent.trim()); const expectedHa = ['Hà Nội', 'Hà Giang']; if (items.length !== expectedHa.length || !expectedHa.every(c => items.includes(c))) return { pass: false, message: 'Với từ khóa \"hà\", danh sách phải chỉ còn [' + expectedHa.join(', ') + '], hiện đang là [' + items.join(', ') + '].' }; input.value = 'PHÒNG'; input.dispatchEvent(new win.Event('input', { bubbles: true })); items = Array.from(list.querySelectorAll('li')).map(li => li.textContent.trim()); if (items.length !== 1 || items[0] !== 'Hải Phòng') return { pass: false, message: 'Với từ khóa \"PHÒNG\" (không phân biệt hoa/thường), danh sách phải chỉ còn [\"Hải Phòng\"], hiện đang là [' + items.join(', ') + '].' }; input.value = ''; input.dispatchEvent(new win.Event('input', { bubbles: true })); items = Array.from(list.querySelectorAll('li')).map(li => li.textContent.trim()); if (items.length !== 7) return { pass: false, message: 'Với ô tìm kiếm trống, danh sách phải hiển thị đầy đủ 7 thành phố, hiện có ' + items.length + '.' }; return { pass: true, message: 'Chính xác!' };"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "q16-sticky-sidebar",
+  "title": "Thanh bên dính (position: sticky)",
+  "description": "`.sidebar` cần luôn hiển thị cách đỉnh vùng cuộn 20px, ngay cả khi người dùng cuộn qua phần nội dung dài phía dưới nó — giống thanh bên dính (sticky sidebar) thường thấy trên các trang blog. Hãy cuộn thử trong khung xem trước để kiểm tra hiệu ứng.\n\nGợi ý: dùng `position: sticky;` và `top: 20px;`.",
+  "files": {
+    "html": "<div class=\"page\" style=\"width:300px;height:500px;overflow-y:auto;\">\n  <div class=\"sidebar\" style=\"width:100px;height:60px;background:#eee;\">Sidebar</div>\n  <p>Đoạn nội dung 1 để tạo chiều cao cho vùng cuộn.</p>\n  <p>Đoạn nội dung 2.</p>\n  <p>Đoạn nội dung 3.</p>\n  <p>Đoạn nội dung 4.</p>\n  <p>Đoạn nội dung 5.</p>\n  <div style=\"height:800px;\">Nội dung dài để tạo cuộn</div>\n</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.sidebar {\n\n}\n",
+  "checks": [
+    {
+      "label": ".sidebar dính lại cách đỉnh 20px khi cuộn (position: sticky)",
+      "points": 15,
+      "checker": "const el = doc.querySelector('.sidebar'); if (!el) return { pass: false, message: 'Không tìm thấy .sidebar.' }; const s = win.getComputedStyle(el); if (s.position !== 'sticky') return { pass: false, message: 'position hiện tại là ' + s.position + ', cần là sticky.' }; if (s.top !== '20px') return { pass: false, message: 'top hiện tại là ' + s.top + ', cần là 20px.' }; return { pass: true, message: 'Chính xác! Thanh bên sẽ dính lại khi cuộn.' };"
+    }
+  ]
+}

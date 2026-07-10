@@ -1,0 +1,19 @@
+{
+  "id": "q1-set-text",
+  "title": "Hiển thị lời chào",
+  "description": "Trang có thẻ tiêu đề `#greeting` hiện đang trống. Hãy làm cho tiêu đề hiển thị đúng dòng chữ: `Xin chào, JavaScript!`\n\nGợi ý: Dùng `textContent`",
+  "files": {
+    "html": "<h2 id=\"greeting\"></h2>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n",
+  "checks": [
+    {
+      "label": "Hiển thị lời chào",
+      "points": 5,
+      "checker": "const el = doc.getElementById('greeting'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử #greeting.' }; if (el.textContent === 'Xin chào, JavaScript!') return { pass: true, message: 'Chính xác!' }; return { pass: false, message: 'Nội dung hiện tại: \"' + el.textContent + '\", cần đúng: \"Xin chào, JavaScript!\"' };"
+    }
+  ]
+}

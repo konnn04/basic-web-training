@@ -1,0 +1,19 @@
+{
+  "id": "q13-hover-pseudo-class",
+  "title": "Đổi màu khi hover",
+  "description": "Nút bấm có class `hover-btn`. Hãy làm cho nền nút đổi sang màu đỏ thuần (`#ff0000` / `red`) khi người dùng rê chuột vào nút.\n\nGợi ý: dùng pseudo-class `:hover` kết hợp thuộc tính `background-color`.",
+  "files": {
+    "html": "<button class=\"hover-btn\">Rê chuột vào đây</button>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.hover-btn:hover {\n\n}\n",
+  "checks": [
+    {
+      "label": ".hover-btn đổi nền đỏ khi hover",
+      "points": 10,
+      "checker": "if (!code.includes(':hover')) return { pass: false, message: 'Cần dùng pseudo-class :hover trong CSS.' }; const match = code.match(/\\.hover-btn\\s*:hover\\s*\\{([^}]*)\\}/); if (!match) return { pass: false, message: 'Không tìm thấy rule .hover-btn:hover { ... } hợp lệ.' }; const body = match[1]; if (/background(-color)?\\s*:\\s*(#ff0000|red|rgb\\(\\s*255\\s*,\\s*0\\s*,\\s*0\\s*\\))/i.test(body)) return { pass: true, message: 'Chính xác! Khi hover nền sẽ đổi thành đỏ.' }; return { pass: false, message: 'Trong .hover-btn:hover cần đặt background-color thành đỏ (#ff0000).' };"
+    }
+  ]
+}

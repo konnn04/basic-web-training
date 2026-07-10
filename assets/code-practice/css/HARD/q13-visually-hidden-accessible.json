@@ -1,0 +1,34 @@
+{
+  "id": "q13-visually-hidden-accessible",
+  "title": "Ẩn trực quan nhưng vẫn đọc được bằng trình đọc màn hình",
+  "description": "`.sr-only` bọc văn bản chỉ dành cho trình đọc màn hình (screen reader), **không được dùng `display: none` hoặc `visibility: hidden`** (vì sẽ ẩn luôn với trình đọc màn hình). Hãy dùng kỹ thuật ẩn trực quan chuẩn: phần tử vẫn tồn tại trong luồng tài liệu nhưng không chiếm diện tích nhìn thấy được trên giao diện.\n\nGợi ý: `position: absolute; width: 1px; height: 1px; overflow: hidden;` (kèm `clip-path: inset(50%);` hoặc tương đương), giữ `display` khác `none`.",
+  "files": {
+    "html": "<button>Đóng<span class=\"sr-only\">hộp thoại thông báo</span></button>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.sr-only {\n\n}\n",
+  "checks": [
+    {
+      "label": ".sr-only không dùng display: none (vẫn đọc được bằng screen reader)",
+      "points": 8,
+      "checker": "const el = doc.querySelector('.sr-only'); if (!el) return { pass: false, message: 'Không tìm thấy .sr-only.' }; const s = win.getComputedStyle(el); if (s.display === 'none') return { pass: false, message: '.sr-only không được dùng display: none, trình đọc màn hình sẽ bỏ qua hoàn toàn.' }; return { pass: true, message: 'Chính xác! Phần tử vẫn được trình đọc màn hình nhận biết.' };"
+    },
+    {
+      "label": ".sr-only dùng position: absolute để tách khỏi luồng hiển thị",
+      "points": 8,
+      "checker": "const el = doc.querySelector('.sr-only'); if (!el) return { pass: false, message: 'Không tìm thấy .sr-only.' }; const s = win.getComputedStyle(el); if (s.position !== 'absolute') return { pass: false, message: '.sr-only cần position: absolute (hiện tại: ' + s.position + ').' }; return { pass: true, message: 'Chính xác! Vị trí đã được tách khỏi luồng hiển thị.' };"
+    },
+    {
+      "label": ".sr-only có width và height tối đa 1px",
+      "points": 7,
+      "checker": "const el = doc.querySelector('.sr-only'); if (!el) return { pass: false, message: 'Không tìm thấy .sr-only.' }; const s = win.getComputedStyle(el); if (parseFloat(s.width) > 1 || parseFloat(s.height) > 1) return { pass: false, message: '.sr-only cần width và height tối đa 1px (hiện tại: ' + s.width + ' x ' + s.height + ').' }; return { pass: true, message: 'Chính xác! Kích thước đã thu nhỏ về 1px.' };"
+    },
+    {
+      "label": ".sr-only dùng overflow: hidden để không chiếm diện tích nhìn thấy",
+      "points": 7,
+      "checker": "const el = doc.querySelector('.sr-only'); if (!el) return { pass: false, message: 'Không tìm thấy .sr-only.' }; const s = win.getComputedStyle(el); if (s.overflow !== 'hidden' && s.overflowX !== 'hidden') return { pass: false, message: '.sr-only cần overflow: hidden (hiện tại: ' + s.overflow + ').' }; return { pass: true, message: 'Chính xác! Nội dung tràn đã bị ẩn khỏi hiển thị.' };"
+    }
+  ]
+}

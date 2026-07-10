@@ -1,0 +1,19 @@
+{
+  "id": "q5-sort-render-scores",
+  "title": "Sắp xếp và hiển thị điểm số",
+  "description": "Biến toàn cục `window.scores` là bảng điểm dạng `{ name, score }`. Trang cần hiển thị bảng xếp hạng: người điểm cao nhất lên đầu, mỗi dòng dạng `<li class=\"score-item\">Tên: Điểm</li>` (ví dụ `An: 9`) bên trong `#scoreList`, theo đúng thứ tự từ cao xuống thấp.\n\nGợi ý: Dùng `sort()` với hàm so sánh, rồi render bằng `map`/`forEach`",
+  "files": {
+    "html": "<script>window.scores = [{ name: 'An', score: 7 }, { name: 'Bảo', score: 9 }, { name: 'Cúc', score: 5 }, { name: 'Duy', score: 10 }, { name: 'Én', score: 3 }, { name: 'Phong', score: 8 }];</script>\n<ul id=\"scoreList\"></ul>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "js",
+  "starter": "// Viết JavaScript của bạn ở đây\n// window.scores có sẵn mảng object { name, score }\n",
+  "checks": [
+    {
+      "label": "Sắp xếp và hiển thị điểm số",
+      "points": 20,
+      "checker": "const list = doc.getElementById('scoreList'); if (!list) return { pass: false, message: 'Không tìm thấy #scoreList.' }; const items = Array.from(list.querySelectorAll('.score-item')).map(li => li.textContent.trim()); const expected = ['Duy: 10', 'Bảo: 9', 'Phong: 8', 'An: 7', 'Cúc: 5', 'Én: 3']; if (items.length !== expected.length) return { pass: false, message: 'Cần đúng ' + expected.length + ' dòng, hiện có ' + items.length + '.' }; for (let i = 0; i < expected.length; i++) { if (items[i] !== expected[i]) return { pass: false, message: 'Dòng thứ ' + (i + 1) + ' đang là \"' + items[i] + '\", cần là \"' + expected[i] + '\".' }; } return { pass: true, message: 'Chính xác!' };"
+    }
+  ]
+}

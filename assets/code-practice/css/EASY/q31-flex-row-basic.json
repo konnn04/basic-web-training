@@ -1,0 +1,19 @@
+{
+  "id": "q31-flex-row-basic",
+  "title": "Xếp hàng ngang với Flexbox",
+  "description": "Ba hộp `.chip` hiện đang xếp chồng lên nhau theo chiều dọc (mặc định của `<div>`). Hãy sắp xếp lại để chúng nằm cạnh nhau theo hàng ngang, có khoảng cách đều 10px giữa các hộp.\n\nGợi ý: dùng `display: flex` trên phần tử cha `.chip-row` và thuộc tính `gap`.",
+  "files": {
+    "html": "<div class=\"chip-row\">\n  <div class=\"chip\" style=\"width:50px;height:30px;background:#eee;\">1</div>\n  <div class=\"chip\" style=\"width:50px;height:30px;background:#ddd;\">2</div>\n  <div class=\"chip\" style=\"width:50px;height:30px;background:#ccc;\">3</div>\n</div>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.chip-row {\n\n}\n",
+  "checks": [
+    {
+      "label": ".chip-row dùng Flexbox xếp hàng ngang với gap 10px",
+      "points": 10,
+      "checker": "const row = doc.querySelector('.chip-row'); if (!row) return { pass: false, message: 'Không tìm thấy .chip-row.' }; const s = win.getComputedStyle(row); if (s.display !== 'flex') return { pass: false, message: '.chip-row cần display: flex (hiện tại: ' + s.display + ').' }; const gap = parseFloat(s.gap || s.columnGap) || 0; if (gap < 10) return { pass: false, message: '.chip-row cần gap tối thiểu 10px (hiện tại: ' + s.gap + ').' }; const chips = doc.querySelectorAll('.chip'); if (chips.length < 3) return { pass: false, message: 'Không tìm thấy đủ 3 .chip.' }; const t1 = chips[0].getBoundingClientRect().top; const t2 = chips[1].getBoundingClientRect().top; if (Math.abs(t1 - t2) > 2) return { pass: false, message: 'Các hộp chưa nằm cùng hàng ngang.' }; return { pass: true, message: 'Chính xác! Các hộp đã xếp hàng ngang với khoảng cách đều.' };"
+    }
+  ]
+}

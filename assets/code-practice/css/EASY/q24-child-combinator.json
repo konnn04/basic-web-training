@@ -1,0 +1,19 @@
+{
+  "id": "q24-child-combinator",
+  "title": "Selector con trực tiếp (>)",
+  "description": "Bên trong `.menu` có các `<li>` con trực tiếp, và một `<li>` khác lồng sâu hơn bên trong một `<ul>` con (tức là cháu, không phải con trực tiếp). Hãy đổi màu nền chỉ của những `<li>` là con trực tiếp của `.menu` sang vàng thuần (`#ffff00` / `yellow`), không ảnh hưởng tới `<li>` cháu bên trong. Lưu ý: dùng `background-color` (không phải `color`) vì `color` sẽ bị kế thừa xuống các phần tử con cháu, không phản ánh đúng phạm vi chọn của bạn.\n\nGợi ý: dùng **child combinator** `.menu > li` và thuộc tính `background-color`.",
+  "files": {
+    "html": "<ul class=\"menu\">\n  <li>Mục A\n    <ul>\n      <li>Mục con (cháu)</li>\n    </ul>\n  </li>\n  <li>Mục B</li>\n</ul>",
+    "css": "",
+    "js": ""
+  },
+  "editable": "css",
+  "starter": "/* Viết CSS của bạn ở đây */\n.menu > li {\n\n}\n",
+  "checks": [
+    {
+      "label": "Chỉ <li> con trực tiếp của .menu đổi nền vàng",
+      "points": 10,
+      "checker": "const menu = doc.querySelector('.menu'); if (!menu) return { pass: false, message: 'Không tìm thấy .menu.' }; const allLi = menu.querySelectorAll('li'); if (!allLi || allLi.length < 3) return { pass: false, message: 'Không tìm thấy đủ các thẻ li.' }; let directOk = true; let nestedYellow = false; allLi.forEach(function(li) { const isDirect = li.parentElement === menu; const bg = win.getComputedStyle(li).backgroundColor; if (isDirect && bg !== 'rgb(255, 255, 0)') directOk = false; if (!isDirect && bg === 'rgb(255, 255, 0)') nestedYellow = true; }); if (!directOk) return { pass: false, message: 'Các <li> con trực tiếp của .menu cần có background-color rgb(255, 255, 0).' }; if (nestedYellow) return { pass: false, message: 'Chỉ con trực tiếp (>) mới được đổi màu nền, <li> cháu lồng bên trong không được đổi.' }; return { pass: true, message: 'Chính xác! Chỉ các <li> con trực tiếp đã đổi màu nền vàng.' };"
+    }
+  ]
+}
