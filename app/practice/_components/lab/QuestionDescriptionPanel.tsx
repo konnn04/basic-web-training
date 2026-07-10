@@ -1,11 +1,22 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { MarkdownRenderer } from "@/components/ui/markdown-renderer";
-import { CheckCircle2, XCircle, Circle, LogIn } from "lucide-react";
+import { CheckCircle2, XCircle, Circle, LogIn, Lightbulb } from "lucide-react";
 import { questionPoints } from "@/lib/code-practice/types";
 import type { CodePracticeQuestion, CheckResult } from "@/lib/code-practice/types";
+
+const HINT_DELAY = 30;
+
+function splitHint(description: string): { main: string; hint: string | null } {
+  const idx = description.indexOf("\n\nGợi ý:");
+  if (idx !== -1) {
+    return { main: description.slice(0, idx), hint: description.slice(idx + 2) };
+  }
+  return { main: description, hint: null };
+}
 
 type QuestionDescriptionPanelProps = {
   question: CodePracticeQuestion;
@@ -16,6 +27,32 @@ type QuestionDescriptionPanelProps = {
 export function QuestionDescriptionPanel({ question, result, isLoggedIn }: QuestionDescriptionPanelProps) {
   const totalPoints = questionPoints(question);
   const earnedPoints = result ? result.checks.filter((c) => c.pass).reduce((s, c) => s + c.points, 0) : 0;
+
+  const [secondsLeft, setSecondsLeft] = useState(HINT_DELAY);
+  const [hintUnlocked, setHintUnlocked] = useState(false);
+  const [hintVisible, setHintVisible] = useState(false);
+
+  useEffect(() => {
+    setSecondsLeft(HINT_DELAY);
+    setHintUnlocked(false);
+    setHintVisible(false);
+
+    let count = HINT_DELAY;
+    const interval = setInterval(() => {
+      count--;
+      if (count <= 0) {
+        clearInterval(interval);
+        setSecondsLeft(0);
+        setHintUnlocked(true);
+      } else {
+        setSecondsLeft(count);
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [question.id]);
+
+  const { main, hint } = splitHint(question.description);
 
   return (
     <div className="h-full overflow-y-auto">
@@ -30,8 +67,44 @@ export function QuestionDescriptionPanel({ question, result, isLoggedIn }: Quest
         </div>
 
         <div className="text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
-          <MarkdownRenderer content={question.description} />
+          <MarkdownRenderer content={main} />
         </div>
+
+        {hint && (
+          <div>
+            {!hintUnlocked ? (
+              <div className="flex items-center gap-2 text-xs text-zinc-400 dark:text-zinc-500 select-none">
+                <Lightbulb size={13} className="shrink-0" />
+                <span>
+                  Gợi ý sẽ mở khóa sau{" "}
+                  <span className="font-bold tabular-nums">{secondsLeft}s</span>
+                </span>
+              </div>
+            ) : !hintVisible ? (
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setHintVisible(true)}
+                className="w-full text-xs font-bold gap-1.5 border-amber-400/50 text-amber-600 hover:bg-amber-50 dark:text-amber-400 dark:hover:bg-amber-950/20 cursor-pointer"
+              >
+                <Lightbulb size={13} />
+                Xem gợi ý
+              </Button>
+            ) : (
+              <div className="rounded-xl border border-amber-500/30 bg-amber-50/60 dark:bg-amber-950/15 p-3.5">
+                <div className="flex items-center gap-1.5 mb-2">
+                  <Lightbulb size={13} className="text-amber-500" />
+                  <span className="text-[10px] font-extrabold text-amber-600 dark:text-amber-400 uppercase tracking-wider">
+                    Gợi ý
+                  </span>
+                </div>
+                <div className="text-xs leading-relaxed text-amber-800 dark:text-amber-300">
+                  <MarkdownRenderer content={hint} />
+                </div>
+              </div>
+            )}
+          </div>
+        )}
 
         {!isLoggedIn && (
           <div className="flex items-start gap-2.5 rounded-xl border border-amber-500/30 bg-amber-50/60 dark:bg-amber-950/15 p-3.5">

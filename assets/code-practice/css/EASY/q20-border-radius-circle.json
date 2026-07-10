@@ -13,7 +13,7 @@
     {
       "label": ".avatar bo tròn thành hình tròn hoàn hảo",
       "points": 5,
-      "checker": "const el = doc.querySelector('.avatar'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử .avatar.' }; const s = win.getComputedStyle(el); if (s.borderTopLeftRadius === '40px' && s.borderTopRightRadius === '40px' && s.borderBottomLeftRadius === '40px' && s.borderBottomRightRadius === '40px') return { pass: true, message: 'Chính xác! Hộp đã thành hình tròn.' }; return { pass: false, message: 'border-radius hiện tại là ' + s.borderTopLeftRadius + ', cần là 40px (50% của 80px) ở cả 4 góc.' };"
+      "checker": "const el = doc.querySelector('.avatar'); if (!el) return { pass: false, message: 'Không tìm thấy phần tử .avatar.' }; const s = win.getComputedStyle(el); const ok = (s.borderTopLeftRadius === '40px' || s.borderTopLeftRadius === '50%') && (s.borderTopRightRadius === '40px' || s.borderTopRightRadius === '50%') && (s.borderBottomLeftRadius === '40px' || s.borderBottomLeftRadius === '50%') && (s.borderBottomRightRadius === '40px' || s.borderBottomRightRadius === '50%'); if (ok) return { pass: true, message: 'Chính xác! Hộp đã thành hình tròn.' }; return { pass: false, message: 'border-radius hiện tại là ' + s.borderTopLeftRadius + ', cần là 40px hoặc 50% ở cả 4 góc.' };"
     }
   ]
 }
